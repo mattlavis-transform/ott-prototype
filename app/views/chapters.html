@@ -1,0 +1,148 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+    {{ govukPhaseBanner({
+      tag: {
+        text: "experimental"
+      },
+      html: 'This is an experimental service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
+    }) }}
+    {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/sections"
+    },
+    {
+      text: "Certificates",
+      href: ""
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Trade Tariff: look up commodity codes, duty and VAT rates
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <h1 class="govuk-heading-l">
+                Chapter {{ chapter.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}: {{ chapter.data.attributes.formatted_description }}
+            </h1>
+            {% include "search.html" %}
+
+            <div class="panel">
+                <nav class="breadcrumb">
+                    <ul class="govuk-list">
+                        <li>Section IV: Prepared foodstuffs; beverages, spirits and vinegar; tobacco and manufactured tobacco substitutes </li>
+                        <li class="crumb indent_1">
+                            <div class="commodity">
+                                <span class="code mauve">01</span>
+                                <span class="code blue"></span>
+                                <span class="code green"></span>
+                                <span class="code green"></span>
+                                <span class="code green"></span>
+                            </div>
+                            <div class="description">Jams, fruit jellies, marmalades, fruit or nut purée and fruit or nut pastes, obtained by cooking, whether or not containing added sugar or other sweetening matter</div>
+                        </li>
+                        <li class="crumb indent_2">
+                            <div class="commodity">
+                                <span class="code mauve">01</span>
+                                <span class="code blue">01</span>
+                                <span class="code green"></span>
+                                <span class="code green"></span>
+                                <span class="code green"></span>
+                            </div>
+                            <div class="description">Other</div>
+                        </li>
+                        <li class="crumb indent_3">
+                            <div class="commodity">
+                                <span class="code mauve">01</span>
+                                <span class="code blue">01</span>
+                                <span class="code green">01</span>
+                                <span class="code green"></span>
+                                <span class="code green"></span>
+                            </div>
+                            <div class="description">Other</div>
+                        </li>
+                        <li class="crumb indent_4">
+                            <div class="commodity">
+                                <span class="code mauve">01</span>
+                                <span class="code blue">01</span>
+                                <span class="code green">01</span>
+                                <span class="code green">01</span>
+                                <span class="code green"></span>
+                            </div>
+                            <div class="description">Other</div>
+                        </li>
+                        <li class="crumb indent_5">
+                            <div class="commodity">
+                                <span class="code mauve">01</span>
+                                <span class="code blue">01</span>
+                                <span class="code green">01</span>
+                                <span class="code green">01</span>
+                                <span class="code green">01</span>
+                            </div>
+                            <div class="description">Other</div>
+                        </li>
+                        <li class="crumb indent_6">
+                            <div class="commodity">
+                                <span class="code mauve">01</span>
+                                <span class="code blue">01</span>
+                                <span class="code green">01</span>
+                                <span class="code green">01</span>
+                                <span class="code green">01</span>
+                            </div>
+                            <div class="description">Other</div>
+                        </li>
+                        <li class="crumb indent_7">
+                            <div class="commodity">
+                                <span class="code mauve">01</span>
+                                <span class="code blue">01</span>
+                                <span class="code green">01</span>
+                                <span class="code green">01</span>
+                                <span class="code green">01</span>
+                            </div>
+                            <div class="description">Other</div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            {{ govukInsetText({
+                html: "There are important notes for classifying your goods shown further down this page.<br><br>Get guidance on this product area: <a href='https://www.gov.uk/government/collections/classification-of-goods'>Classification of goods</a>"
+            }) }}
+
+            {% for heading in chapter.included %}
+                {% if (heading.type == "heading") %}
+                    <div class="chapter_row">
+                        <div class="commodity">
+                            <span class="code mauve">{{ heading.attributes.goods_nomenclature_item_id | substring(0, 2) }}</span>
+                            <span class="code mauve">{{ heading.attributes.goods_nomenclature_item_id | substring(2, 2) }}</span>
+                        </div>
+                        <div class="description">
+                            <a href="/headings/{{ heading.attributes.goods_nomenclature_item_id | substring(0, 4) }}">
+                                {{ heading.attributes.formatted_description }}
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            <article class="notes">
+                <h2 class="govuk-heading-s">Chapter notes</h2>
+                {{ chapter.data.attributes.chapter_note | showdown | safe }}
+                {% for item in chapter.included %}
+                    {% if (item.type == "section") %}
+                        <h2 class="govuk-heading-s">Section notes</h2>
+                        {{ item.attributes.section_note | showdown | safe }}
+                    {% endif %}
+                {% endfor %}
+            </article>
+        </div>
+
+    </div>
+
+{% endblock %}

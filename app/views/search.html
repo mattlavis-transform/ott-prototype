@@ -1,0 +1,21 @@
+<form class="form-inline" method="get">
+{{ govukInput({
+  label: {
+    text: "Search the tariff"
+  },
+  classes: "govuk-input--width-20 search-field",
+  id: "search",
+  name: "search"
+}) }}
+
+{{ govukButton({
+  text: "Search",
+  classes: "inline-button",
+  name: "btn_search",
+  id: "btn_search"
+}) }}
+</form>
+
+<p class="govuk-body-s">
+This tariff is for 27 October 2020  <a href="#">Change date</a>
+</p>

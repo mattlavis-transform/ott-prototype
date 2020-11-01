@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+    {{ govukPhaseBanner({
+      tag: {
+        text: "experimental"
+      },
+      html: 'This is an experimental service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
+    }) }}
+    {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/sections"
+    },
+    {
+      text: "Certificates",
+      href: ""
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Trade Tariff: look up commodity codes, duty and VAT rates
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <h1 class="govuk-heading-l">
+                Chapter {{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}: {{ heading.data.attributes.formatted_description }}
+            </h1>
+            {% include "search.html" %}
+
+            {{ govukInsetText({
+                html: "There are important notes for classifying your goods shown further down this page.<br><br>Get guidance on this product area: <a href='https://www.gov.uk/government/collections/classification-of-goods'>Classification of goods</a>"
+            }) }}
+
+            <div class="heading_row heading_row_head">
+                <div class="description">Description</div>
+                <div class="vat expendable">VAT</div>
+                <div class="mfn expendable">Third-country duty</div>
+                <div class="supplementary_unit c expendable">Supplementary unit</div>
+                <div class="commodity r">Commodity code</div>
+            </div>
+            {% for item in heading.commodities %}
+                <div class="heading_row">
+                    {% if (item.leaf == true) %}
+                        <div class="description">
+                            <div class="indent_{{ item.number_indents }}{{ item.indent_class }}">
+                                <a href="/commodities/{{ item.goods_nomenclature_item_id }}?currency=EUR">{{ item.description | safe }}</a>
+                            </div>
+                        </div>
+                        <div class="vat expendable">{{ item.vat | safe }}</div>
+                        <div class="mfn expendable">{{ item.mfn | safe }}</div>
+                        <div class="supplementary_unit c expendable">{{ item.supplementary_unit | safe }}</div>
+                    {% else %}
+                        <div class="description indent_{{ item.number_indents }}{{ item.indent_class }}">
+                            {{ item.description | safe }}
+                        </div>
+                        <div class="vat expendable"></div>
+                        <div class="mfn expendable"></div>
+                        <div class="supplementary_unit c expendable"></div>
+                    {% endif %}
+                    <div class="commodity">
+                        <span class="code mauve">{{ item.formatted_commodity_code | substring(0, 2) }}</span>
+                        <span class="code blue">{{ item.formatted_commodity_code | substring(2, 2) }}</span>
+                        <span class="code green">{{ item.formatted_commodity_code | substring(4, 2) }}</span>
+                        <span class="code green">{{ item.formatted_commodity_code | substring(6, 2) }}</span>
+                        <span class="code green">{{ item.formatted_commodity_code | substring(8, 2) }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% if heading.footnotes.length %}
+                <article class="notes">
+                    <table class="govuk-table govuk-table--s">
+                        <caption class="govuk-table__caption">Footnotes</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Code</th>
+                                <th scope="col" class="govuk-table__header">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            {% for item in heading.footnotes %}
+                                <tr class="govuk-table__row">
+                                    <td class="govuk-table__cell">{{ item.code }}</td>
+                                    <td class="govuk-table__cell">{{ item.description | safe }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </article>
+            {% endif %}
+
+            <article class="notes">
+                {% for item in heading.included %}
+                    {% if (item.type == "chapter") %}
+                        <h2 class="govuk-heading-s">Chapter notes</h2>
+                        {{ item.attributes.chapter_note | showdown | safe }}
+                    {% elif(item.type == "section") %}
+                        <h2 class="govuk-heading-s">Section notes</h2>
+                        {{ item.attributes.section_note | showdown | safe }}
+                    {% endif %}
+                {% endfor %}
+            </article>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

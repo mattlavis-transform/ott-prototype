@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+    {{ govukPhaseBanner({
+      tag: {
+        text: "experimental"
+      },
+      html: 'This is an experimental service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
+    }) }}
+    {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/sections"
+    },
+    {
+      text: "Section " + section.data.id,
+      href: ""
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Trade Tariff: look up commodity codes, duty and VAT rates
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <h1 class="govuk-heading-l">
+                Section {{ section.data.id }}: {{ section.data.attributes.title }}
+            </h1>
+            {% include "search.html" %}
+            <table class="govuk-table">
+                <tbody class="govuk-table__body">
+                    {% for chapter in section.included %}
+                        {% if (chapter.type == "chapter") %}
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">
+                                    <span class="chapter">
+                                        {{ chapter.attributes.goods_nomenclature_item_id | substring(0, 2) }}
+                                    </span>
+                                </td>
+                                <td class="govuk-table__cell">
+                                    <p><a href="/chapters/{{ chapter.attributes.goods_nomenclature_item_id | substring(0, 2) }}">
+                                        {{ chapter.attributes.formatted_description }}<br>
+
+                                    </a></p>
+                                    <p class="govuk-!-margin-bottom-0">Get guidance on this product area: <a href="">Classification of goods</a></p>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+            <article class="notes">
+                <h2 class="govuk-heading-s">There are important notes for this section of the tariff:</h2>
+                {{ section.data.attributes.section_note | showdown | safe }}
+            </article>
+        </div>
+
+    </div>
+
+{% endblock %}

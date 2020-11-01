@@ -1,0 +1,194 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Trade Tariff: Calculate duty - tariff payable
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+      tag: {
+        text: "experimental"
+      },
+      html: 'This is an experimental service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
+    }) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "/calculate/confirm/" + commodity.data.attributes.goods_nomenclature_item_id
+}) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-xl">Calculate import duties</span>
+      <h1 class="govuk-heading-xl">Import duty calculation</h1>
+      <p>The following duties are applicable to the import of <strong>0102030405</strong> from <strong>Albania</strong> on <strong>03 Jun 2021</strong>.</p>
+
+      <!-- Start results //-->
+
+      {{ govukTable({
+        caption: "VAT and excise",
+        subcaption: "<abbr title='Value added tax'>VAT</abbr> is a national tax charged in addition to any other duties that apply. Excise is ...",
+        firstCellIsHeader: false,
+        classes: "calc_table govuk-table--m",
+        captionClasses: "govuk-caption-l",
+        head: [
+          {text: "Duty type", classes: "measure_type"},
+          {text: "Requirement", classes: "requirement"},
+          {text: "Calculation", classes: "calculation"},
+          {text: "Applicable duty", classes: "value r"}
+        ],
+        rows: [
+          [
+            {text: "VAT"},
+            {text: "Applicable in all cases"},
+            {text: "20% * £400.00"},
+            {text: "£80.00", classes: "r"}
+          ],
+          [
+            {text: "Excise duty"},
+            {text: "n/a"},
+            {text: "n/a"},
+            {text: "£0.00", classes: "r"}
+          ]
+        ]
+      }) }}
+
+      <form>
+
+        {{ govukTable({
+        caption: "Customs duty",
+        subcaption: "The third-country duty may be reduced by the application of a preference, suspension, relief or quota.",
+        firstCellIsHeader: false,
+        classes: "calc_table calc_table_optional govuk-table--m",
+        captionClasses: "govuk-caption-l",
+        head: [
+          {text: "Duty type", classes: "measure_type"},
+          {text: "Requirement", classes: "requirement"},
+          {text: "Calculation", classes: "calculation"},
+          {text: "Apply option", classes: "apply"},
+          {text: "Applicable duty", classes: "value r"}
+        ],
+        rows: [
+          [
+            {html: 'Third-country duty (<abbr title="Most-favoured nation duty">MFN</abbr>)'},
+            {text: "Applicable in all cases | Applicable unless overridden by preferential duties, quotas, reliefs or suspensions"},
+            {text: "11.2% * £400.00"},
+            {html: ''},
+            {text: "£44.80", classes: "r"}
+          ],
+          [
+            {html: 'Suspension <span class="normal">(Vessel relief)</span>'},
+            {html: 'Enter <strong>XYZ</strong> in Box 44 on your import declaration.'},
+            {text: "0.0% * £400.00"},
+            {html: '<div class="govuk-radios govuk-radios--small">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="apply_001" name="apply" type="checkbox" value="119" checked>
+        <label class="govuk-label govuk-radios__label" for="apply_001">
+          Applied
+        </label>
+      </div>
+    </div>'},
+            {text: "£0.00", classes: "r"}
+          ],
+          [
+            {html: 'Tariff preference <span class="normal">(goods imported from Canada)</span>'},
+            {html: 'Enter <strong>PRF</strong> in box 36 on your import declaration.'},
+            {text: "0.0% * £400.00"},
+            {html: '<div class="govuk-radios govuk-radios--small">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="apply_002" name="apply" type="checkbox" value="142">
+        <label class="govuk-label govuk-radios__label" for="apply_002">
+          Apply
+        </label>
+      </div>
+    </div>'},
+            {text: "£0.00", classes: "r"}
+          ],
+          [
+            {html: 'Quota 09.1234'},
+            {html: 'Enter x in box y and 091234 in box z.<br><a href="">Find out more about quota 091234</a>'},
+            {text: "0.0% * £400.00"},
+            {html: '<div class="govuk-radios govuk-radios--small">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="apply_003" name="apply" type="checkbox" value="143">
+        <label class="govuk-label govuk-radios__label" for="apply_003">
+          Apply
+        </label>
+      </div>
+    </div>'},
+            {text: "£0.00", classes: "r"}
+          ]
+        ]
+      }) }}
+
+        <div class="rx">
+          {{ govukButton({
+        text: "Update applied duties",
+        classes: "govuk-button--secondary"
+      }) }}
+        </div>
+
+      </form>
+
+      {{ govukTable({
+        caption: "Safeguards and trade remedies",
+        subcaption: "Lorem ipsum dolor sit amet.",
+        firstCellIsHeader: false,
+        classes: "calc_table govuk-table--m",
+        captionClasses: "govuk-caption-l",
+        head: [
+          {text: "Duty type", classes: "measure_type"},
+          {text: "Requirement", classes: "requirement"},
+          {text: "Calculation", classes: "calculation"},
+          {text: "Applicable duty", classes: "value r"}
+        ],
+        rows: [
+          [
+            {html: 'Steel safeguard'},
+            {html: "Enter <strong>XYZ</strong> in Box 44 on your import declaration."},
+            {text: "25% * £400.00"},
+            {text: "£100.00", classes: "r"}
+          ],
+          [
+            {html: 'Anti-dumping duty <span class="normal">(Vessel relief)</span>'},
+            {html: "Enter x in box y and 091234 in box z. Find out more about this quota"},
+            {text: "11.2% * £400.00"},
+            {text: "£44.80", classes: "r"}
+          ]
+        ]
+      }) }}
+
+      {{ govukTable({
+        caption: "",
+        firstCellIsHeader: true,
+        classes: "calc_table grey",
+        captionClasses: "govuk-caption-l",
+        rows: [[
+          {text: "Duty total", classes: "duty_total"},
+          {text: "", classes: "requirement"},
+          {text: "", classes: "calculation"},
+          {text: "£145.60", classes: "value r"}
+        ]]
+      }) }}
+
+      {{ govukButton({
+        text: "Print this page",
+        href: "javascript:print()",
+        classes: "govuk-button--secondary govuk-button--print"
+      }) }}
+
+      <!-- End results //-->
+      {{ govukContextualFooter({
+        caption: "Useful links",
+        captionClasses: "govuk-caption-l",
+        links:
+        [
+          {text: "Working out the value of your imports", href: "https://www.gov.uk/guidance/how-to-value-your-imports-for-customs-duty-and-trade-statistics"}
+        ]
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
+</html>

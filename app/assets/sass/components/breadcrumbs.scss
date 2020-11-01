@@ -1,0 +1,72 @@
+/* Start - the breadcrumbs */
+nav.breadcrumb {
+    ul {
+        width: 100%
+    }
+
+    .indent_1 {
+        padding-left         : 1.5em;
+        background-position-x: 0.5em;
+    }
+
+    .indent_2 {
+        padding-left         : 3em;
+        background-position-x: 2em;
+    }
+
+    .indent_3 {
+        padding-left         : 4.5em;
+        background-position-x: 3.5em;
+    }
+
+    .indent_4 {
+        padding-left         : 6em;
+        background-position-x: 5em;
+    }
+
+    .indent_5 {
+        padding-left         : 7.5em;
+        background-position-x: 6.5em;
+    }
+
+    .indent_6 {
+        padding-left         : 9em;
+        background-position-x: 8em;
+    }
+
+    .indent_7 {
+        padding-left         : 10.5em;
+        background-position-x: 9.5em;
+    }
+
+    .indent_8 {
+        padding-left         : 12em;
+        background-position-x: 11em;
+    }
+
+    li.crumb {
+        font-size            : 16px;
+        padding-top          : 0px;
+        padding-bottom       : 0px;
+        display              : flex;
+        flex-direction       : row;
+        flex-wrap            : nowrap;
+        background-image     : url('/public/images/l-shape.png');
+        background-repeat    : no-repeat;
+        background-position-y: 6px;
+
+        .commodity {
+            order    : 2;
+            flex-wrap: nowrap;
+            display  : flex;
+        }
+
+        .description {
+            order       : 1;
+            flex-grow   : 3;
+            margin-right: 2%;
+        }
+    }
+}
+
+/* End - the breadcrumbs */

@@ -1,0 +1,68 @@
+{% extends "layout_start.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">
+                Trade Tariff: look up commodity codes, duty and VAT rates 
+            </h1>
+            <!--{{releaseVersion | log }}//-->
+            <!--<span class="govuk-caption-xl">{{releaseVersion}}</span>//-->
+
+            <p>Commodity codes classify goods for import and export so you can: </p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>fill in declarations and other paperwork</li>
+                <li>check if there’s duty or VAT to pay</li>
+                <li>find out about duty reliefs</li>
+            </ul>
+
+            {{ govukButton({
+                text: "Start now",
+                href: "sections.html",
+                classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
+                isStartButton: true
+            }) }}
+
+            <h2 class="govuk-heading-m">Before you start</h2>
+            <p>If you’re not sure how to classify your goods, check how to <a href="https://www.gov.uk/guidance/finding-commodity-codes-for-imports-or-exports">find the right commodity code</a>.</p>
+            <p>You can change the service name by editing the file '/app/config.js'.</p>
+            <h2 class="govuk-heading-m">Examples and documentation</h2>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>
+                    <a href="https://design-system.service.gov.uk">GOV.UK Design System</a>
+                </li>
+            </ul>
+        </div>
+        <div class="govuk-grid-column-one-third">
+
+            <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+
+            <aside class="app-related-items" role="complementary">
+                <h2 class="govuk-heading-m" id="subsection-title">Subsection</h2>
+                <nav role="navigation" aria-labelledby="subsection-title">
+                    <ul class="govuk-list govuk-!-font-size-16">
+                        <li>
+                            <a class="govuk-link" href="#">Related link</a>
+                        </li>
+                        <li>
+                            <a class="govuk-link" href="#">Related link</a>
+                        </li>
+                        <li>
+                            <a href="#" class="govuk-link govuk-!-font-weight-bold">
+                                More <span class="govuk-visually-hidden">in Subsection</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+        </div>
+    </div>
+
+{% endblock %}

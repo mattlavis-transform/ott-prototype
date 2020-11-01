@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+    {{ govukPhaseBanner({
+      tag: {
+        text: "experimental"
+      },
+      html: 'This is an experimental service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
+    }) }}
+    {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/sections"
+    },
+    {
+      text: "Commodity x",
+      href: ""
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+    <h1 class="govuk-heading-l">
+        Commodity information for {{ commodity.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}: {{ heading.data.attributes.formatted_description }}
+    </h1>
+
+    <div class="govuk-tabs" data-module="govuk-tabs">
+        <h2 class="govuk-tabs__title">Contents</h2>
+        <ul class="govuk-tabs__list">
+            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                <a class="govuk-tabs__tab" href="#overview">Overview</a>
+            </li>
+            <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#import">Import</a>
+            </li>
+            <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#export">Export</a>
+            </li>
+        </ul>
+        <div class="govuk-tabs__panel" id="overview">
+            <p>This information is for <strong>28 October 2020</strong>.</p>
+            <div class="panels govuk-grid-row">
+                <div class="panel govuk-grid-column-one-half" style="margin-right:1em">
+                    <h2 class="govuk-heading-m">Import</h2>
+                    <p>The commodity code for importing is <strong>{{ commodity.data.attributes.goods_nomenclature_item_id }}</strong>.</p>
+                    <p>Goods are subject to VAT standard rate (<strong>20.00 %</strong>).</p>
+                    <p>Importing from outside the EU is subject to a third country duty of <strong>{{ commodity.data.attributes.basic_duty_rate | safe }}</strong> unless subject to other measures.</p>
+                    <p><a href="/calculate/date/{{ commodity.data.attributes.goods_nomenclature_item_id }}">Calculate your import duties</a></p>
+                    <p>Import measures and restrictions for specific countries can be found under the <a href="#import">import</a> tab.</p>
+                </div>
+                <div class="panel govuk-grid-column-one-half">
+                    <h2 class="govuk-heading-m">Export</h2>
+                    <p>The commodity code for exporting and intrastat reporting is <strong>{{ commodity.data.attributes.goods_nomenclature_item_id | substring(0, 8) }}</strong>.</p>
+                    <p>Export measures and restrictions for specific countries can be found under the <a href="#export">export</a> tab.</p>
+                </div>
+            </div>
+        </div>
+        <div class="govuk-tabs__panel" id="import">
+            <h2 class="govuk-heading-m">Import measures and restrictions</h2>
+            <p>This information is for <strong>28 October 2020</strong>.</p>
+            {% include "includes/types_of_measure.html" %}
+
+            <table class="govuk-table govuk-table--s measures">
+                <caption class="govuk-table__caption">Measures for Antarctica</caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header country">Country</th>
+                        <th scope="col" class="govuk-table__header measure">Measure</th>
+                        <th scope="col" class="govuk-table__header value">Value</th>
+                        <th scope="col" class="govuk-table__header conditions">Conditions that apply</th>
+                        <th scope="col" class="govuk-table__header exclusions">Exclusions</th>
+                        <th scope="col" class="govuk-table__header legal_base c">Legal base</th>
+                        <th scope="col" class="govuk-table__header dates c">Start date<br>(End date)</th>
+                        <th scope="col" class="govuk-table__header footnotes r">Footnotes</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row measure">
+                        <td class="govuk-table__cell country">
+                            <details class="govuk-details" data-module="govuk-details">
+                                <summary class="govuk-details__summary">
+                                    <span class="govuk-details__summary-text">All countries (1011)</span>
+                                </summary>
+                                <div class="govuk-details__text">
+                                    <ul class="countries">
+                                        <li>Albania (AL)</li>
+                                        <li>Cocos Islands (or Keeling Islands) (CC)</li>
+                                        <li></li>
+                                    </ul>
+                                    <br>
+                                    
+                                </div>
+                            </details>
+                        </td>
+                        <td class="govuk-table__cell">Third country duty</td>
+                        <td class="govuk-table__cell">0.00 %</td>
+                        <td class="govuk-table__cell"><a href="">Conditions</a></td>
+                        <td class="govuk-table__cell">&nbsp;</td>
+                        <td class="govuk-table__cell c">R1925/17</td>
+                        <td class="govuk-table__cell c">01/02/2015</td>
+                        <td class="govuk-table__cell footnotes r"><a href="">03026</a></td>
+                    </tr>
+                    <tr class="govuk-table__row measure">
+                        <td class="govuk-table__cell country">
+                            <details class="govuk-details" data-module="govuk-details">
+                                <summary class="govuk-details__summary">
+                                    <span class="govuk-details__summary-text">All countries (1011)</span>
+                                </summary>
+                                <div class="govuk-details__text">
+                                    Albania<br>
+                                    Cocos Islands (or Keeling Islands) (CC)
+                                </div>
+                            </details>
+                        </td>
+                        <td class="govuk-table__cell">Third country duty</td>
+                        <td class="govuk-table__cell">0.00 %</td>
+                        <td class="govuk-table__cell"><a href="">Conditions</a></td>
+                        <td class="govuk-table__cell">&nbsp;</td>
+                        <td class="govuk-table__cell c">R1925/17</td>
+                        <td class="govuk-table__cell c">01/02/2015</td>
+                        <td class="govuk-table__cell footnotes r"><a href="">03026</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+        </div>
+        <div class="govuk-tabs__panel" id="export">
+            <h2 class="govuk-heading-m">Export measures and restrictions</h2>
+            <p>This information is for <strong>28 October 2020</strong>.</p>
+            {% include "includes/types_of_measure.html" %}
+        </div>
+
+    </div>
+    {% if commodity.footnotes.length %}
+        <table class="govuk-table govuk-table--s">
+            <caption class="govuk-table__caption">Footnotes</caption>
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Code</th>
+                    <th scope="col" class="govuk-table__header">Description</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                {% for item in heading.footnotes %}
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">{{ item.code }}</td>
+                        <td class="govuk-table__cell">{{ item.description | safe }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    {% endif %}
+{% endblock %}
+</html>

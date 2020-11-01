@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Trade Tariff: Calculate duty - enter unit value
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+      tag: {
+        text: "experimental"
+      },
+      html: 'This is an experimental service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
+    }) }}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "/calculate/monetary_value/" + commodity.data.attributes.goods_nomenclature_item_id
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}">
+        <span class="govuk-caption-xl">Calculate import duties</span>
+        {{ govukInput({
+                id: "unit_value",
+                name: "unit_value",
+                label: {
+                    text: "What is the weight in kilograms?",
+                    classes: "govuk-label--xl",
+                    isPageHeading: true
+                },
+                hint: {
+                    text: "Some duties are dependent on the weight of goods that you are importing. Please
+                    enter the weight of dry matter that you are importing."
+                },
+                suffix: {
+                    text: "kg of dry matter"
+                },
+                classes: "govuk-input--width-5",
+                spellcheck: false
+                }) }}
+
+        {{ govukButton({
+            text: "Continue"
+            }) }}
+        <p>You are calculating the duties to import commodity
+            <a title="Select a different commodity code" href="/sections">0102030405</a>
+            into <a title="Select an alternative destination" href="/calculate/destination/0101210000">Wales</a>
+            from <a href="">Albania</a>. Click on '<strong>Continue</strong>' or on one of the links above
+            to change your previous selections.</p>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+</html>

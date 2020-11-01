@@ -1,0 +1,183 @@
+{#- We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework. -#}
+{%- set assetPath = '/govuk/assets' -%}
+
+{% extends "govuk/template.njk" %}
+
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk"        import govukBackLink %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/character-count/macro.njk"  import govukCharacterCount %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/contextual-footer/macro.njk"        import govukContextualFooter %}
+{% from "govuk/components/date-input/macro.njk"       import govukDateInput %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% from "govuk/components/error-message/macro.njk"    import govukErrorMessage %}
+{% from "govuk/components/error-summary/macro.njk"    import govukErrorSummary %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/file-upload/macro.njk"      import govukFileUpload %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/inset-text/macro.njk"       import govukInsetText %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+{% from "govuk/components/phase-banner/macro.njk"     import govukPhaseBanner %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/skip-link/macro.njk"        import govukSkipLink %}
+{% from "govuk/components/summary-list/macro.njk"     import govukSummaryList %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/tabs/macro.njk" import govukTabs %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/warning-text/macro.njk"     import govukWarningText %}
+
+{% block head %}
+    {% include "includes/head.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  Trade Tariff: look up commodity codes, duty and VAT rates
+{% endblock %}
+
+{% block header %}
+    {% include "includes/cookie-banner.html" %}
+    {# Set serviceName in config.js. #}
+    <!--
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container"
+  }) }}
+  //-->
+
+    {{ govukHeader({
+  homepageUrl: "https://www.gov.uk",
+  serviceName: serviceName,
+  serviceUrl: "/sections",
+  navigation: [
+    {
+      href: "/sections",
+      text: "Search / browse",
+      xactive: true
+    },
+    {
+      href: "/additional_codes",
+      text: "Additional codes"
+    },
+    {
+      href: "/certificates",
+      text: "Certificates"
+    },
+    {
+      href: "/footnotes",
+      text: "Footnotes"
+    },
+    {
+      href: "/quotas",
+      text: "Quotas"
+    },
+    {
+      href: "/cas",
+      text: "CAS"
+    },
+    {
+      href: "a-z-index",
+      text: "A-Z"
+    }
+  ]
+}) }}
+
+{% endblock %}
+
+{% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
+
+{% if useAutoStoreData %}
+    {% block footer %}
+        
+
+
+{{ govukFooter({
+  navigation: [
+    {
+      title: "Contact",
+      items: [
+        {
+          href: "https://www.gov.uk/guidance/ask-hmrc-for-advice-on-classifying-your-goods",
+          text: "Ask HMRC for advice on classifying your goods"
+        },
+        {
+          href: "https://www.gov.uk/guidance/ask-hmrc-for-advice-on-classifying-your-goods",
+          text: "Imports and exports: general enquiries"
+        },
+        {
+          href: "https://www.trade-tariff.service.gov.uk/feedback",
+          text: "Feedback"
+        }
+      ]
+    },
+    {
+      title: "Help",
+      items: [
+        {
+          href: "https://www.gov.uk/guidance/finding-commodity-codes-for-imports-or-exports",
+          text: "Finding commodity codes for imports or exports"
+        },
+        {
+          href: "https://www.gov.uk/guidance/using-the-trade-tariff-tool-to-find-a-commodity-code",
+          text: "Using the Trade Tariff tool to find a commodity code"
+        },
+        {
+          href: "https://www.gov.uk/topic/business-tax/import-export",
+          text: "Import and export"
+        }
+      ]
+    },
+    {
+      title: "Related information",
+      items: [
+        {
+          href: "https://www.gov.uk/government/collections/uk-trade-tariff-volume-1",
+          text: "UK Trade Tariff: Volume 1 – background information for importers and exporters"
+        },
+        {
+          href: "https://www.gov.uk/government/collections/uk-trade-tariff-volume-3",
+          text: "UK Trade Tariff: Volume 3 – procedures, codes and declaration entry details"
+        },
+        {
+          href: "http://ec.europa.eu/taxation_customs/dds2/taric/taric_consultation.jsp?Lang=en&Screen=0&Expand=true",
+          text: "Integrated tariff of the European Community (TARIC) database"
+        },
+        {
+          href: "https://api.trade-tariff.service.gov.uk/#gov-uk-trade-tariff-api",
+          text: "API Documentation"
+        }
+      ]
+    }
+    
+  ],
+  meta: {
+    items: [
+      {
+        href: "#",
+        text: "Cookies"
+      },
+      {
+        href: "#",
+        text: "Terms and conditions"
+      }
+    ]
+  }
+}) }}
+
+
+
+    {% endblock %}
+{% endif %}
+
+{% block bodyEnd %}
+    {% block scripts %}
+        {% include "includes/scripts.html" %}
+        {% block pageScripts %}{% endblock %}
+    {% endblock %}
+    <!-- GOV.UK Prototype Kit {{releaseVersion}} -->
+{% endblock %}

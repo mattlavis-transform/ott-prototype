@@ -1,0 +1,174 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Trade Tariff: Calculate duty - tariff payable
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+      tag: {
+        text: "experimental"
+      },
+      html: 'This is an experimental service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
+    }) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "/calculate/company/" + commodity.data.attributes.goods_nomenclature_item_id
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <span class="govuk-caption-xl">Calculate import duties</span>
+      <h1 class="govuk-heading-xl">Check your answers</h1>
+      {{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Commodity code"
+      },
+      value: {
+        text: "0102030405"
+      },
+      actions: {
+        items: [
+          {
+            href: "/commodities/0102030405",
+            text: "Change",
+            visuallyHiddenText: "commodity code"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Date of import"
+      },
+      value: {
+        text: "5 January 2021"
+      },
+      actions: {
+        items: [
+          {
+            href: "/calculate/date/0102030405",
+            text: "Change",
+            visuallyHiddenText: "date of import"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Destination"
+      },
+      value: {
+        html: "England"
+      },
+      actions: {
+        items: [
+          {
+            href: "/calculate/destination/0102030405",
+            text: "Change",
+            visuallyHiddenText: "destination"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Origin"
+      },
+      value: {
+        text: 'China'
+      },
+      actions: {
+        items: [
+          {
+            href: "/calculate/origin/0102030405",
+            text: "Change",
+            visuallyHiddenText: "origin"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Monetary value"
+      },
+      value: {
+        text: '£400.00'
+      },
+      actions: {
+        items: [
+          {
+            href: "/calculate/monetary_value/0102030405",
+            text: "Change",
+            visuallyHiddenText: "monetary value"
+          }
+        ]
+      }
+    },
+        {
+      key: {
+        text: "Unit value"
+      },
+      value: {
+        text: '130 kg'
+      },
+      actions: {
+        items: [
+          {
+            href: "/calculate/unit_value/0102030405",
+            text: "Change",
+            visuallyHiddenText: "unit value"
+          }
+        ]
+      }
+    },
+            {
+      key: {
+        text: "Meursing code"
+      },
+      value: {
+        html: '7111 [ <a href="#" target="">view details</a> ]'
+      },
+      actions: {
+        items: [
+          {
+            href: "/calculate/meursing/0102030405",
+            text: "Change",
+            visuallyHiddenText: "meursing code"
+          }
+        ]
+      }
+    },
+            {
+      key: {
+        text: "Company"
+      },
+      value: {
+        html: 'Tzanjen Industries'
+      },
+      actions: {
+        items: [
+          {
+            href: "/calculate/company/0102030405",
+            text: "Change",
+            visuallyHiddenText: "company"
+          }
+        ]
+      }
+    }
+      ]
+}) }}
+
+{{ govukButton({
+            text: "Calculate import duties",
+            href: "/calculate/results/" + commodity.data.attributes.goods_nomenclature_item_id
+            }) }}
+    </div>
+  </div>
+
+{% endblock %}
+</html>

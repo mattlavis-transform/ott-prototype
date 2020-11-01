@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Trade Tariff: Calculate duty - enter name of exporting countrys
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+      tag: {
+        text: "experimental"
+      },
+      html: 'This is an experimental service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
+    }) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "/calculate/meursing/" + commodity.data.attributes.goods_nomenclature_item_id
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}">
+        <span class="govuk-caption-xl">Calculate import duties</span>
+        {{ govukInput({
+                id: "company",
+                name: "company",
+                label: {
+                    text: "What is the name of the exporting company?",
+                    classes: "govuk-label--xl",
+                    isPageHeading: true
+                },
+                hint: {
+                    text: "There are Trade Remedies in place on the import of this commodity from
+                    <country> which will impact the import duties payable. If you know the name of the
+                    company, enter it here."
+                },
+                classes: "govuk-input--width-20",
+                spellcheck: false
+                }) }}
+
+        {{ govukButton({
+            text: "Continue"
+            }) }}
+        <p>Click on Continue to view the duties applicable to your import.</p>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+</html>

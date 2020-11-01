@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../exp"
+		},
+		{
+			"path": "../stw"
+		}
+	],
+	"settings": {}
+}

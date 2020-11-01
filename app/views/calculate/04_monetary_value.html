@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Trade Tariff: Calculate duty - enter monetary value
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+      tag: {
+        text: "experimental"
+      },
+      html: 'This is an experimental service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
+    }) }}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "/calculate/origin/" + commodity.data.attributes.goods_nomenclature_item_id
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}">
+
+        {# Get error messages #}
+        {% if (error == "monetary_value") %}
+          {% set error_message_mv = {
+            text: "Enter a valid monetary value"
+          } %}
+          {% set error_class_mv = "govuk-input--error" %}
+          {% set error_message_cu = {
+            text: "Enter a valid currency"
+          } %}
+          {% set error_class_cu = "govuk-input--error" %}
+        {% else %}
+          {% set error_message_mv = null %}
+          {% set error_class_mv = "" %}
+          {% set error_message_cu = null %}
+          {% set error_class_cu = "" %}
+        {% endif %}
+
+        <span class="govuk-caption-xl">Calculate import duties</span>
+        {{ govukInput({
+            label: {
+                text: "What is the monetary value of this import?",
+                classes: "govuk-label--xl " + error_class_mv,
+                isPageHeading: false
+            },
+            hint: {
+                text: "The import duty charged for this commodity code is
+                dependent on the monetary value of the goods being imported."
+            },
+            errorMessage: error_message_mv,
+            id: "monetary_value",
+            name: "monetary_value"
+            }) }}
+
+        {{ govukRadios({
+            idPrefix: "currency",
+            name: "currency",
+            fieldset: {
+                legend: {
+                text: "In which currency are you specifying the value of these goods?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--s"
+                }
+            },
+            errorMessage: error_message_cu,
+            items: [
+                {
+                value: "euros",
+                text: "Euros (EUR)"
+                },
+                {
+                value: "sterling",
+                text: "Pound Sterling (GBP)"
+                }
+            ]
+            }) }}
+
+        {{ govukButton({
+            text: "Continue"
+            }) }}
+        {{ govukContextualFooter({
+        caption: "Useful links",
+        captionClasses: "govuk-caption-l",
+        links:
+        [
+          {text: "Working out the value of your imports", href: "https://www.gov.uk/guidance/how-to-value-your-imports-for-customs-duty-and-trade-statistics"}
+        ]
+      }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+</html>
