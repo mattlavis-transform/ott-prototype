@@ -43,6 +43,7 @@
     "nomar": "^1.1.0",
     "notifications-node-client": "^4.7.2",
     "nunjucks": "^3.2.1",
+    "pluralize": "^8.0.0",
     "portscanner": "^2.1.1",
     "request": "^2.88.2",
     "require-dir": "^1.0.0",

@@ -22,148 +22,97 @@
     <div class="govuk-grid-column-three-quarters">
       <span class="govuk-caption-xl">Calculate import duties</span>
       <h1 class="govuk-heading-xl">Check your answers</h1>
-      {{ govukSummaryList({
-  rows: [
-    {
-      key: {
-        text: "Commodity code"
-      },
-      value: {
-        text: "0102030405"
-      },
-      actions: {
-        items: [
-          {
-            href: "/commodities/0102030405",
-            text: "Change",
-            visuallyHiddenText: "commodity code"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Date of import"
-      },
-      value: {
-        text: "5 January 2021"
-      },
-      actions: {
-        items: [
-          {
-            href: "/calculate/date/0102030405",
-            text: "Change",
-            visuallyHiddenText: "date of import"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Destination"
-      },
-      value: {
-        html: "England"
-      },
-      actions: {
-        items: [
-          {
-            href: "/calculate/destination/0102030405",
-            text: "Change",
-            visuallyHiddenText: "destination"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Origin"
-      },
-      value: {
-        text: 'China'
-      },
-      actions: {
-        items: [
-          {
-            href: "/calculate/origin/0102030405",
-            text: "Change",
-            visuallyHiddenText: "origin"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Monetary value"
-      },
-      value: {
-        text: '£400.00'
-      },
-      actions: {
-        items: [
-          {
-            href: "/calculate/monetary_value/0102030405",
-            text: "Change",
-            visuallyHiddenText: "monetary value"
-          }
-        ]
-      }
-    },
-        {
-      key: {
-        text: "Unit value"
-      },
-      value: {
-        text: '130 kg'
-      },
-      actions: {
-        items: [
-          {
-            href: "/calculate/unit_value/0102030405",
-            text: "Change",
-            visuallyHiddenText: "unit value"
-          }
-        ]
-      }
-    },
-            {
-      key: {
-        text: "Meursing code"
-      },
-      value: {
-        html: '7111 [ <a href="#" target="">view details</a> ]'
-      },
-      actions: {
-        items: [
-          {
-            href: "/calculate/meursing/0102030405",
-            text: "Change",
-            visuallyHiddenText: "meursing code"
-          }
-        ]
-      }
-    },
-            {
-      key: {
-        text: "Company"
-      },
-      value: {
-        html: 'Tzanjen Industries'
-      },
-      actions: {
-        items: [
-          {
-            href: "/calculate/company/0102030405",
-            text: "Change",
-            visuallyHiddenText: "company"
-          }
-        ]
-      }
-    }
-      ]
-}) }}
 
-{{ govukButton({
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Commodity code</dt>
+          <dd class="govuk-summary-list__value">{{ commodity.goods_nomenclature_item_id | format_commodity_code(" ") }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Date of import</dt>
+          <dd class="govuk-summary-list__value">1 January 2021 (<em>incomplete</em>)</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> date of import</span>
+            </a>
+          </dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Destination</dt>
+          <dd class="govuk-summary-list__value">{{ data["destination"] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> destination</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Origin</dt>
+          <dd class="govuk-summary-list__value">{{ data["country_name"] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> origin</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Monetary value</dt>
+          <dd class="govuk-summary-list__value">{{ data["currency"] | display_currency }}{{ data["monetary_value"] | decimals(2) }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> monetary value</span>
+            </a>
+          </dd>
+        </div>
+
+        {% if data["unit_value"] %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Unit value</dt>
+            <dd class="govuk-summary-list__value">{{ data["unit_value"] }} {{ commodity.measurement_unit }}</dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> unit value</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+
+        {% if data["meursing_code"] %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Meursing code</dt>
+            <dd class="govuk-summary-list__value">{{ data["meursing_code"] }}</dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> Meursing code</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+
+        {% if data["company"] %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Company</dt>
+            <dd class="govuk-summary-list__value">{{ data["company"] }}</dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> Company</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+
+      </dl>
+
+      {{ govukButton({
             text: "Calculate import duties",
             href: "/calculate/results/" + commodity.data.attributes.goods_nomenclature_item_id
             }) }}

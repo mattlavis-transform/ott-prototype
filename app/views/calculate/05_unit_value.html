@@ -27,29 +27,30 @@
                 id: "unit_value",
                 name: "unit_value",
                 label: {
-                    text: "What is the weight in kilograms?",
+                    text: "How many " + commodity.measurement_unit + " will you be importing?",
                     classes: "govuk-label--xl",
                     isPageHeading: true
                 },
                 hint: {
-                    text: "Some duties are dependent on the weight of goods that you are importing. Please
+                    text: "Some duties are dependent on the weight or volume of goods that you are importing. Please
                     enter the weight of dry matter that you are importing."
                 },
                 suffix: {
-                    text: "kg of dry matter"
+                    text: commodity.measurement_unit
                 },
+                value: "2000",
                 classes: "govuk-input--width-5",
                 spellcheck: false
                 }) }}
-
+        <p>{{ commodity.warning }}</p>
         {{ govukButton({
             text: "Continue"
             }) }}
-        <p>You are calculating the duties to import commodity
+        {# <p>You are calculating the duties to import commodity
             <a title="Select a different commodity code" href="/sections">0102030405</a>
             into <a title="Select an alternative destination" href="/calculate/destination/0101210000">Wales</a>
             from <a href="">Albania</a>. Click on '<strong>Continue</strong>' or on one of the links above
-            to change your previous selections.</p>
+            to change your previous selections.</p> #}
       </form>
     </div>
   </div>

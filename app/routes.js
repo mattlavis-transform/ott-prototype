@@ -58,10 +58,9 @@ router.get('/certificate_search', function (req, res) {
 
 // Calculator - Data handler
 router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req, res) {
-    var err, referer;
+    var err, referer, c;
     console.log("Data handler");
     referer = req.headers.referer;
-    console.log(referer);
 
     if (referer.indexOf("date") !== -1) {
         // Validate the date form
@@ -84,7 +83,18 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
             res.redirect("/calculate/destination/" + req.params["goods_nomenclature_item_id"]);
         } else {
             req.session.data["error"] = "";
-            res.redirect("/calculate/origin/" + req.params["goods_nomenclature_item_id"]);
+            // Check if the MFN is 0.00. If it is, then there is no value in proceeding
+            axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
+                .then((response) => {
+                    c = new Commodity();
+                    c.get_data(response.data);
+                    if (c.basic_duty_rate == "0.00 %") {
+                        res.redirect("/calculate/results/" + req.params["goods_nomenclature_item_id"]);
+                    } else {
+                        res.redirect("/calculate/origin/" + req.params["goods_nomenclature_item_id"]);
+                    }
+
+                });
         }
     } else if (referer.indexOf("origin") !== -1) {
         // Validate the origin form
@@ -108,10 +118,75 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
             res.redirect("/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"]);
         } else {
             req.session.data["error"] = "";
+
+            axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
+                .then((response) => {
+                    c = new Commodity();
+                    c.get_data(response.data);
+                    c.get_measure_data(req.session.data["origin"]);
+                    req.session.data["country_name"] = c.country_name;
+                    if ((c.units.length > 0) || (c.meursing)) {
+                        res.redirect("/calculate/unit_value/" + req.params["goods_nomenclature_item_id"]);
+                    } else if (c.remedies.length > 0) {
+                        res.redirect("/calculate/company/" + req.params["goods_nomenclature_item_id"]);
+                    } else {
+                        res.redirect("/calculate/confirm/" + req.params["goods_nomenclature_item_id"]);
+                    }
+
+                });
+        }
+    } else if (referer.indexOf("unit_value") !== -1) {
+        // Validate the unit value form
+        console.log("Checking unit value");
+        e = new Error_handler();
+        contains_errors = e.validate_unit_value(req); // Gets data from unit value form and validates it
+        if (contains_errors) {
+            req.session.data["error"] = "unit_value";
             res.redirect("/calculate/unit_value/" + req.params["goods_nomenclature_item_id"]);
+        } else {
+            req.session.data["error"] = "";
+            axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
+                .then((response) => {
+                    c = new Commodity();
+                    c.get_data(response.data);
+                    c.get_measure_data(req.session.data["origin"]);
+                    req.session.data["country_name"] = c.country_name;
+                    if (c.meursing) {
+                        res.redirect("/calculate/meursing/" + req.params["goods_nomenclature_item_id"]);
+                    } else if (c.remedies.length > 0) {
+                        res.redirect("/calculate/company/" + req.params["goods_nomenclature_item_id"]);
+                    } else {
+                        res.redirect("/calculate/confirm/" + req.params["goods_nomenclature_item_id"]);
+                    }
+                });
+        }
+    } else if (referer.indexOf("meursing") !== -1) {
+        // Validate the unit value form
+        console.log("Checking Meursing code");
+        e = new Error_handler();
+        contains_errors = e.validate_meursing(req); // Gets data from meursing code form and validates it
+        if (contains_errors) {
+            req.session.data["error"] = "meursing";
+            res.redirect("/calculate/meursing/" + req.params["goods_nomenclature_item_id"]);
+        } else {
+            req.session.data["error"] = "";
+            axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
+                .then((response) => {
+                    c = new Commodity();
+                    c.get_data(response.data);
+                    c.get_measure_data(req.session.data["origin"]);
+                    req.session.data["country_name"] = c.country_name;
+                    if (c.remedies.length > 0) {
+                        res.redirect("/calculate/company/" + req.params["goods_nomenclature_item_id"]);
+                    } else {
+                        res.redirect("/calculate/confirm/" + req.params["goods_nomenclature_item_id"]);
+                    }
+                });
         }
     }
 });
+
+
 
 // Calculator - Date
 router.get('/calculate/date/:goods_nomenclature_item_id', function (req, res) {
@@ -123,6 +198,7 @@ router.get('/calculate/date/:goods_nomenclature_item_id', function (req, res) {
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
             c = new Commodity();
+            c.pass_request(req);
             c.get_data(response.data);
             res.render('calculate/01_date', { 'commodity': c, 'error': err, 'import_date_day': import_date_day, 'import_date_month': import_date_month, 'import_date_year': import_date_year });
         });
@@ -167,7 +243,11 @@ router.get('/calculate/unit_value/:goods_nomenclature_item_id', function (req, r
     var err = req.session.data["error"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
-            res.render('calculate/05_unit_value', { 'commodity': response.data, 'error': err });
+            c = new Commodity();
+            c.pass_request(req);
+            c.get_data(response.data);
+            c.get_measure_data(req.session.data["origin"]);
+            res.render('calculate/05_unit_value', { 'commodity': c, 'error': err });
         });
 });
 
@@ -187,24 +267,41 @@ router.get('/calculate/company/:goods_nomenclature_item_id', function (req, res)
     var err = req.session.data["error"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
-            res.render('calculate/07_company', { 'commodity': response.data, 'error': err });
+            c = new Commodity();
+            c.pass_request(req);
+            c.phase = "company";
+            c.get_data(response.data);
+            c.get_measure_data(req.session.data["origin"]);
+            res.render('calculate/07_company', { 'commodity': c, 'error': err });
         });
 });
 
 // Calculator - Confirm
 router.get('/calculate/confirm/:goods_nomenclature_item_id', function (req, res) {
     console.log("Confirm");
+    var err = req.session.data["error"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
-            res.render('calculate/08_confirm', { 'commodity': response.data, 'error': err });
+            c = new Commodity();
+            c.pass_request(req);
+            c.phase = "confirm";
+            c.get_data(response.data);
+            c.get_measure_data(req.session.data["origin"]);
+            res.render('calculate/08_confirm', { 'commodity': c, 'error': err });
         });
 });
 
 // Calculator - Results
 router.get('/calculate/results/:goods_nomenclature_item_id', function (req, res) {
+    var err = req.session.data["error"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
-            res.render('calculate/09_results', { 'commodity': response.data, 'error': err });
+            c = new Commodity();
+            c.pass_request(req);
+            c.phase = "results";
+            c.get_data(response.data);
+            c.get_measure_data(req.session.data["origin"]);
+            res.render('calculate/09_results', { 'commodity': c, 'error': err });
         });
 });
 

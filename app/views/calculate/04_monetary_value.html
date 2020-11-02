@@ -45,7 +45,7 @@
             label: {
                 text: "What is the monetary value of this import?",
                 classes: "govuk-label--xl " + error_class_mv,
-                isPageHeading: false
+                isPageHeading: true
             },
             hint: {
                 text: "The import duty charged for this commodity code is
@@ -53,7 +53,8 @@
             },
             errorMessage: error_message_mv,
             id: "monetary_value",
-            name: "monetary_value"
+            name: "monetary_value",
+            value: "2000"
             }) }}
 
         {{ govukRadios({
@@ -70,7 +71,8 @@
             items: [
                 {
                 value: "euros",
-                text: "Euros (EUR)"
+                text: "Euros (EUR)",
+                checked: true
                 },
                 {
                 value: "sterling",

@@ -31,9 +31,14 @@
                 },
                 hint: {
                     html: "A Meursing additional code is used to identify the determine duties
-                    for the import or export of goods containing certain types of milk and sugars.<br><br>
+                    for the import or export of goods containing certain types of milk and sugars.
+                    Your code will be 3 numeric digits long, preceded by a number 7 (pre-populated).
+                    <br><br>
                     To find your Meursing additional code, visit
-                    <a href='https://www.gov.uk/additional-commodity-code'>https://www.gov.uk/additional-commodity-code</a>."
+                    <a target='_blank' href='https://www.gov.uk/additional-commodity-code'>https://www.gov.uk/additional-commodity-code</a>."
+                },
+                prefix: {
+                    text: "7"
                 },
                 classes: "govuk-input--width-4",
                 spellcheck: false
@@ -42,11 +47,11 @@
         {{ govukButton({
             text: "Continue"
             }) }}
-        <p>You are calculating the duties to import commodity
+        {# <p>You are calculating the duties to import commodity
             <a title="Select a different commodity code" href="/sections">0102030405</a>
             into <a title="Select an alternative destination" href="/calculate/destination/0101210000">Wales</a>
             from <a href="">Albania</a>. Click on '<strong>Continue</strong>' or on one of the links above
-            to change your previous selections.</p>
+            to change your previous selections.</p> #}
       </form>
     </div>
   </div>

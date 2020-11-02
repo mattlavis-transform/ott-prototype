@@ -31,8 +31,8 @@
                     isPageHeading: true
                 },
                 hint: {
-                    text: "There are Trade Remedies in place on the import of this commodity from
-                    <country> which will impact the import duties payable. If you know the name of the
+                    text: "There are Trade Remedies in place on the import of commodity " + commodity.goods_nomenclature_item_id + " from
+                    " + commodity.country_name + " which will impact the import duties payable. If you know the name of the
                     company, enter it here."
                 },
                 classes: "govuk-input--width-20",
@@ -42,6 +42,11 @@
         {{ govukButton({
             text: "Continue"
             }) }}
+
+        {{ govukDetails({
+          summaryText: "More about trade remedies",
+          text: "Lorem ipsum ..."
+        }) }}
         <p>Click on Continue to view the duties applicable to your import.</p>
       </form>
     </div>

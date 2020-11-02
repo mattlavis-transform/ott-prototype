@@ -43,6 +43,28 @@ module.exports = function (env) {
   
     ------------------------------------------------------------------ */
 
+    filters.display_currency = function (str) {
+        var euros = ["EUR", "EUROS", "EURO"];
+        if (euros.includes(str)) {
+            return "€";
+        } else {
+            return "£";
+        }
+    }
+
+    filters.plural = function (str) {
+        var pluralize = require('pluralize');
+        var s = pluralize(str);
+        return s;
+    }
+
+    filters.decimals = function (str, cnt) {
+        var i = parseFloat(str)
+        var n = i.toFixed(cnt).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+        return n;
+    }
+
+
     filters.substring = function (str, start, lngth) {
         if (typeof str !== 'undefined') {
             return str.substr(start, lngth);
@@ -51,11 +73,11 @@ module.exports = function (env) {
         }
     }
 
-    filters.format_commodity_code = function (str) {
+    filters.format_commodity_code = function (str, separator = " ") {
         if (typeof str !== 'undefined') {
-            s = str.substr(0, 4) + ".";
-            s += str.substr(4, 2) + ".";
-            s += str.substr(6, 2) + ".";
+            s = str.substr(0, 4) + separator;
+            s += str.substr(4, 2) + separator;
+            s += str.substr(6, 2) + separator;
             s += str.substr(8, 2) ;
             return s;
         } else {

@@ -1,0 +1,187 @@
+[
+	{
+		"measurement_unit_code" : "ASV",
+		"description" : "%vol"
+	},
+	{
+		"measurement_unit_code" : "CCT",
+		"description" : "carrying capacity in metric tonnes"
+	},
+	{
+		"measurement_unit_code" : "CEN",
+		"description" : "hundred items"
+	},
+	{
+		"measurement_unit_code" : "CTM",
+		"description" : "carats (one metric carat = 2 x 10$-<sup>4<\/sup>kg)"
+	},
+	{
+		"measurement_unit_code" : "DAP",
+		"description" : "decatonnes, corrected according to polarisation"
+	},
+	{
+		"measurement_unit_code" : "DHS",
+		"description" : "kilograms of dihydrostreptomycin"
+	},
+	{
+		"measurement_unit_code" : "DTN",
+		"description" : "hectokilograms (100kg)",
+		"warning": "Please ensure you use the correct unit"
+	},
+	{
+		"measurement_unit_code" : "EUR",
+		"description" : "Euros (used for statistical surveillance)"
+	},
+	{
+		"measurement_unit_code" : "FC1",
+		"description" : "factors"
+	},
+	{
+		"measurement_unit_code" : "GFI",
+		"description" : "grams of fissile isotopes"
+	},
+	{
+		"measurement_unit_code" : "GP1",
+		"description" : "gross production"
+	},
+	{
+		"measurement_unit_code" : "GRM",
+		"description" : "grams"
+	},
+	{
+		"measurement_unit_code" : "GRT",
+		"description" : "gross tonnage"
+	},
+	{
+		"measurement_unit_code" : "HLT",
+		"description" : "hectolitres (100 litres)"
+	},
+	{
+		"measurement_unit_code" : "HMT",
+		"description" : "hectometres (110 metres)"
+	},
+	{
+		"measurement_unit_code" : "KAC",
+		"description" : "kilograms net of acesulfame potassium"
+	},
+	{
+		"measurement_unit_code" : "KCC",
+		"description" : "Kilograms of choline chloride"
+	},
+	{
+		"measurement_unit_code" : "KCL",
+		"description" : "tonnes of potassium chloride"
+	},
+	{
+		"measurement_unit_code" : "KGM",
+		"description" : "kilograms"
+	},
+	{
+		"measurement_unit_code" : "KLT",
+		"description" : "1000 litres"
+	},
+	{
+		"measurement_unit_code" : "KMA",
+		"description" : "kilograms of methylamines"
+	},
+	{
+		"measurement_unit_code" : "KMT",
+		"description" : "kilometres"
+	},
+	{
+		"measurement_unit_code" : "KNI",
+		"description" : "kilograms of nitrogen"
+	},
+	{
+		"measurement_unit_code" : "KNS",
+		"description" : "kilograms of hydrogen peroxide"
+	},
+	{
+		"measurement_unit_code" : "KPH",
+		"description" : "kilograms of potassium hydroxide (caustic potash)"
+	},
+	{
+		"measurement_unit_code" : "KPO",
+		"description" : "kilograms of potassium oxide"
+	},
+	{
+		"measurement_unit_code" : "KPP",
+		"description" : "kilograms of diphosphorus pentaoxide"
+	},
+	{
+		"measurement_unit_code" : "KSD",
+		"description" : "kilograms of substance 90 % dry"
+	},
+	{
+		"measurement_unit_code" : "KSH",
+		"description" : "kilograms of sodium hydroxide (caustic soda)"
+	},
+	{
+		"measurement_unit_code" : "KUR",
+		"description" : "kilograms of uranium"
+	},
+	{
+		"measurement_unit_code" : "KW1",
+		"description" : "kilowatt hours"
+	},
+	{
+		"measurement_unit_code" : "LPA",
+		"description" : "litre pure (100%) alcohol"
+	},
+	{
+		"measurement_unit_code" : "LTR",
+		"description" : "litres"
+	},
+	{
+		"measurement_unit_code" : "MIL",
+		"description" : "1000 items"
+	},
+	{
+		"measurement_unit_code" : "MPR",
+		"description" : "1000 pairs (used for statistical surveillance)"
+	},
+	{
+		"measurement_unit_code" : "MTK",
+		"description" : "Square metre"
+	},
+	{
+		"measurement_unit_code" : "MTQ",
+		"description" : "Cubic meter"
+	},
+	{
+		"measurement_unit_code" : "MTR",
+		"description" : "metre"
+	},
+	{
+		"measurement_unit_code" : "MWH",
+		"description" : "1000 kilowatt hours"
+	},
+	{
+		"measurement_unit_code" : "NAR",
+		"description" : "numbers of items"
+	},
+	{
+		"measurement_unit_code" : "NCL",
+		"description" : "mumbers of cells"
+	},
+	{
+		"measurement_unit_code" : "NPR",
+		"description" : "numbers of pairs"
+	},
+	{
+		"measurement_unit_code" : "RET",
+		"description" : "Retail Price"
+	},
+	{
+		"measurement_unit_code" : "TJO",
+		"description" : "Terajoule (gross calorific value)"
+	},
+	{
+		"measurement_unit_code" : "TNE",
+		"description" : "tonnes"
+	},
+	{
+		"measurement_unit_code" : "WAT",
+		"description" : "numbers of Watt"
+	}
+]

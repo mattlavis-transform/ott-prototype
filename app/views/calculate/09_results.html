@@ -21,7 +21,7 @@
     <div class="govuk-grid-column-full">
       <span class="govuk-caption-xl">Calculate import duties</span>
       <h1 class="govuk-heading-xl">Import duty calculation</h1>
-      <p>The following duties are applicable to the import of <strong>0102030405</strong> from <strong>Albania</strong> on <strong>03 Jun 2021</strong>.</p>
+      <p>The following duties are applicable to the import of <strong>{{ c.goods_nomenclature_item_id | format_commodity_code }} </strong> from <strong>Albania</strong> on <strong>03 Jun 2021</strong>.</p>
 
       <!-- Start results //-->
 
@@ -41,14 +41,14 @@
           [
             {text: "VAT"},
             {text: "Applicable in all cases"},
-            {text: "20% * £400.00"},
-            {text: "£80.00", classes: "r"}
+            {text: commodity.vats[0].calculation_string },
+            {text: commodity.vats[0].result | decimals(2), classes: "r"}
           ],
           [
             {text: "Excise duty"},
             {text: "n/a"},
-            {text: "n/a"},
-            {text: "£0.00", classes: "r"}
+            {text: commodity.excises[0].calculation_string },
+            {text: commodity.excises[0].result | decimals(2), classes: "r"}
           ]
         ]
       }) }}
@@ -72,9 +72,9 @@
           [
             {html: 'Third-country duty (<abbr title="Most-favoured nation duty">MFN</abbr>)'},
             {text: "Applicable in all cases | Applicable unless overridden by preferential duties, quotas, reliefs or suspensions"},
-            {text: "11.2% * £400.00"},
+            {text: commodity.mfns[0].calculation_string},
             {html: ''},
-            {text: "£44.80", classes: "r"}
+            {text: commodity.mfns[0].result | decimals(2), classes: "r"}
           ],
           [
             {html: 'Suspension <span class="normal">(Vessel relief)</span>'},

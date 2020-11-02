@@ -60,5 +60,34 @@ class Error_handler {
             return err;
         }
         return (err);
-    }}
+    }
+
+    validate_unit_value(req) {
+        console.log("Validating unit value");
+        var err = false;
+        var unit_value = req.session.data["unit_value"] + "";
+
+        if (unit_value == "") {
+            err = true;
+            return err;
+        }
+        return (err);
+    }
+
+    validate_meursing(req) {
+        console.log("Validating Meursing additional code");
+        var err = false;
+        var meursing_code = req.session.data["meursing_code"] + "";
+
+        if (meursing_code.length != 3) {
+            err = true;
+            return err;
+        } else {
+            req.session.data["meursing_code"] = "7" + req.session.data["meursing_code"];
+        }
+        return (err);
+    }
+}
+
+    
 module.exports = Error_handler
