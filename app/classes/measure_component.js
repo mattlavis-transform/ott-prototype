@@ -3,7 +3,7 @@ class MeasureComponent {
         this.id = item["id"];
         this.duty_amount = item["attributes"]["duty_amount"];
         this.monetary_unit_code = item["attributes"]["monetary_unit_code"];
-        this.monetary_unit_abbreviation = item["attributes"]["monetary_unit_abbreviation"];
+        this.monetary_unit_abbreviation = null;
         this.measurement_unit_code = item["attributes"]["measurement_unit_code"];
         this.duty_expression_description = item["attributes"]["duty_expression_description"];
         this.duty_expression_abbreviation = item["attributes"]["duty_expression_abbreviation"];
@@ -12,7 +12,22 @@ class MeasureComponent {
 
         this.parse_id();
         this.check_specific();
+        this.get_short_monetary_unit_code();
         this.get_duty_string();
+    }
+
+    get_short_monetary_unit_code() {
+        var currencies = [
+            {"long": "GBP", "short": "£"},
+            {"long": "EUR", "short": "€"}
+        ]
+        //console.log(currencies);
+        currencies.forEach(currency => {
+            if (this.monetary_unit_code == currency["long"]) {
+                this.monetary_unit_abbreviation = currency["short"];
+                //console.log("Found " + this.monetary_unit_abbreviation + " for " + this.monetary_unit_code + " for " + this.id);
+            }
+        });
     }
 
     check_specific() {
@@ -24,10 +39,6 @@ class MeasureComponent {
     }
 
     parse_id() {
-        // var parts = this.id.split('-');
-        // this.measure_id = parts[0];
-        // this.duty_expression_id = parts[1];
-
         this.measure_id = this.id.substring(0, this.id.length - 3);
         this.duty_expression_id = this.id.substring(this.id.length - 2, this.id.length);
 
@@ -48,7 +59,12 @@ class MeasureComponent {
 
     get_duty_string(decimal_places = 3)
     {
-        if (this.monetary_unit_code == "") {
+
+        //var MAX_STRING = " MAX ";
+        var MAX_STRING = " up to a maximum of ";
+        var MIN_STRING = " down to a maximum of ";
+        
+        if (this.monetary_unit_code == null) {
             decimal_places = 2;
         } else {
             decimal_places = 2;
@@ -63,7 +79,7 @@ class MeasureComponent {
                 if (this.monetary_unit_code == null) {
                     this.duty_string += duty_amount + "%";
                 } else {
-                    this.duty_string += duty_amount + " " + this.monetary_unit_code;
+                    this.duty_string += " " + this.monetary_unit_abbreviation + duty_amount + " ";
                     if (this.measurement_unit_code != null) {
                         this.duty_string += " / " + this.get_measurement_unit();
                         if (this.measurement_unit_qualifier_code != null) {
@@ -79,7 +95,7 @@ class MeasureComponent {
                 if (this.monetary_unit_code == null) {
                     this.duty_string += " + " + duty_amount + "%";
                 } else {
-                    this.duty_string += " + " + duty_amount + " " + this.monetary_unit_code;
+                    this.duty_string += " + " + this.monetary_unit_abbreviation + duty_amount + " ";
                     if (this.measurement_unit_code != null) {
                         this.duty_string += " / " + this.get_measurement_unit();
                         if (this.measurement_unit_qualifier_code != null) {
@@ -89,13 +105,13 @@ class MeasureComponent {
                 }
                 break;
             case "12":
-                this.duty_string += " + AC";
+                this.duty_string += " + <abbr title='Agricultural component'>AC</abbr>";
                 break;
             case "15":
                 if (this.monetary_unit_code == null) {
-                    this.duty_string += "MIN " + duty_amount + "%";
+                    this.duty_string += MIN_STRING + duty_amount + "%";
                 } else {
-                    this.duty_string += "MIN " + duty_amount + " " + this.monetary_unit_code;
+                    this.duty_string += MIN_STRING + this.monetary_unit_abbreviation + duty_amount + " ";
                     if (this.measurement_unit_code != null) {
                         this.duty_string += " / " + this.get_measurement_unit();
                         if (this.measurement_unit_qualifier_code != null) {
@@ -108,9 +124,9 @@ class MeasureComponent {
             case "17":
             case "35":
                 if (this.monetary_unit_code == null) {
-                    this.duty_string += "MAX " + duty_amount + "%";
+                    this.duty_string += MAX_STRING + duty_amount + "%";
                 } else {
-                    this.duty_string += "MAX " + duty_amount  + " " + this.monetary_unit_code;
+                    this.duty_string += MAX_STRING + this.monetary_unit_abbreviation + duty_amount  + " ";
                     if (this.measurement_unit_code != null) {
                         this.duty_string += " / " + this.get_measurement_unit();
                         if (this.measurement_unit_qualifier_code != null) {
@@ -120,19 +136,19 @@ class MeasureComponent {
                 }
                 break;
             case "21":
-                this.duty_string += " + SD";
+                this.duty_string += " + <abbr title='Sugar duty'>SD</abbr>";
                 break;
             case "27":
-                this.duty_string += " + FD";
+                this.duty_string += " + <abbr title='Flour duty'>FD</abbr>";
                 break;
             case "25":
-                this.duty_string += " + SD (reduced)";
+                this.duty_string += " + <abbr title='Sugar duty'>SD</abbr> (reduced)";
                 break;
             case "29":
-                this.duty_string += " + FD (reduced)";
+                this.duty_string += " + <abbr title='Flour duty'>FD</abbr> (reduced)";
                 break;
             case "14":
-                this.duty_string += " + AC (reduced)";
+                this.duty_string += " + <abbr title='Agricultural component'>AC</abbr> (reduced)";
                 break;
         }
     }

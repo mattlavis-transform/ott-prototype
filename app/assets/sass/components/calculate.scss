@@ -1,47 +1,8 @@
 /* Start - duty calculation */
 .calc_table {
-    .measure_type {
-        width: 25%;
-    }
 
-    .requirement {
-        width: 35%;
-    }
+    border-collapse: unset;
 
-    .calculation {
-        width: 20%;
-    }
-
-    .value {
-        width     : 20%;
-        text-align: right;
-    }
-
-    .duty_total {
-        padding-left: 0.5em !important;
-    }
-
-    .normal {
-        font-weight: 400 !important;
-    }
-
-    .govuk-caption-l {
-        margin: 1em 0px 1em 0em;
-    }
-
-
-    tr td,
-    tr th {
-        // padding: 0.5em 0.5em 0.5em 0px !important;
-        padding: 0.5em 0.5em 0.5em 0.5em !important;
-    }
-
-    tr th {
-        background-color: #F0F0F0;
-    }
-}
-
-.calc_table_optional {
     .measure_type {
         width: 20%;
     }
@@ -55,12 +16,18 @@
     }
 
     .apply {
-        width: 15%;
+        width       : 15%;
+        padding-left: 1em !important;
+    }
+
+    td.value {
+        background-color: #f0f0f0;
     }
 
     .value {
-        width     : 20%;
-        text-align: right;
+        width        : 20%;
+        text-align   : right;
+        padding-right: 1em;
     }
 
     .govuk-radios {
@@ -77,12 +44,47 @@
             font-size: 16px;
         }
     }
+
+    .duty_total {
+        padding-right: 1em !important;
+        text-align   : right;
+    }
+
+    .normal {
+        font-weight: 400 !important;
+    }
+
+    .govuk-caption-l {
+        margin: 1em 0px 1em 0em;
+    }
+
+    em {
+        color     : #666;
+        font-style: normal;
+    }
+
+
+    tr td,
+    tr th {
+        padding: 0.5em 0.5em 0.5em 0.5em !important;
+    }
+
+    tr th {
+        background-color: #F0F0F0;
+    }
 }
 
+.white {
+    background-color: #ffffff;
+    border          : 0px !important;
+}
 
-.grey {
-    background-color: #f0f0f0;
-    font-weight     : bold;
+.grand_total {
+    border: 2px solid black !important;
+}
+
+.total {
+    font-weight: bold;
 
     tr td,
     tr th {
@@ -99,8 +101,88 @@
     padding         : 10px 10px 10px 36px;
     background      : url(/public/images/icon-print-2x.png) no-repeat 10px 50%;
     background-size : 16px 18px;
-    font-size: 16px;
+    font-size       : 16px;
 
 }
+
+.quota_cell {
+    .govuk-details {
+        font-size: 16px;
+        margin   : 0px 0px 0.5em 0px;
+
+        .govuk-details__summary {
+            padding-left: 16px
+        }
+
+        .govuk-details__text {
+            padding-left  : 12px;
+            padding-top   : 0px;
+            padding-bottom: 0px;
+        }
+
+        dd,
+        dt,
+        p {
+            font-size: 14px;
+        }
+
+        dl {
+            margin : 0px;
+            padding: 0px;
+        }
+
+        dd {
+            margin : 0px;
+            padding: 0px;
+        }
+
+        dt {
+            margin     : 0.25em 0px 0px 0px;
+            padding    : 0px;
+            font-weight: bold;
+        }
+    }
+}
+
+.import_summary {
+
+    dd,
+    dt {
+        font-size: 14px;
+    }
+
+    dl {
+        width   : 100%;
+        overflow: hidden;
+        padding : 0;
+        margin  : 0
+    }
+
+    dt {
+        float  : left;
+        width  : 20%;
+        padding: 0 0 0.4em 0;
+        margin : 0
+    }
+
+    dd {
+        float  : left;
+        width  : 80%;
+        padding: 0 0 0.4em 0;
+        margin : 0
+    }
+
+}
+
+@media (min-width: 40.0625em) {
+    .import_summary {
+
+        dt,
+        dd {
+            font-size: 16px;
+        }
+    }
+}
+
 
 /* End - duty calculation */

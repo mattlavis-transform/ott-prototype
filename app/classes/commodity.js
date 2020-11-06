@@ -1,9 +1,13 @@
+const axios = require('axios')
+
 const Measure = require("./measure");
 const MeasureComponent = require("./measure_component");
 const MeasureType = require("./measure_type");
 const GeographicalArea = require("./geographical_area");
 const AdditionalCode = require("./additional_code");
 const Calculation = require("./calculation");
+const OrderNumber = require("./order_number");
+const Definition = require("./definition");
 
 class Commodity {
     constructor(sid = null, goods_nomenclature_item_id = null, productline_suffix = null, description = null, number_indents = null, leaf = null, parent_sid = null, indent_class = null) {
@@ -30,10 +34,12 @@ class Commodity {
         this.excises = [];
         this.preferences = [];
         this.remedies = [];
+        this.suspensions = [];
 
         this.mfn_array = ["103", "105"];
         this.preference_array = ["142", "145"];
         this.remedy_array = ["551", "552", "553", "554"];
+        this.suspension_array = ["112", "115", "117", "119"];
         this.quota_array = ["143", "146", "122", "123"];
         this.supplementary_unit_array = ["109", "110"];
 
@@ -73,19 +79,26 @@ class Commodity {
         1905319100 = Sandwich biscuits - has Meursing - Meursings are also weight-dependents
         0702000007 = Cherry tomatoes - has Entry Price System
         2710124900 = Light oil - Has excise in litres unit
+        8406810000 = Turbines - Has suspensions
+        2402100000 = Cheroots - VAT, excise and import duty
+        1704903000 = White chocolate - ceiling, also has multiple VAT rates
+        1704907100 = Boiled sweets (check Iceland) - the most complex measures
+        2206001000 = Piquette (type of wine) - has a minimum; also the MFN contains 2 units as well as 3 types of excise
         
         END GOOD EXAMPLES */
 
 
         this.origin = origin;
         this.origin_obj = new GeographicalArea();
-        this.country_name = this.origin_obj.get_description(origin);
+        this.country_name = this.origin_obj.get_country_description(origin);
 
         this.measures = [];
         this.measure_components = [];
         this.measure_types = [];
         this.geographical_areas = [];
         this.additional_codes = [];
+        this.order_numbers = [];
+        this.definitions = [];
 
         // Get all the measures + measure components
         this.included.forEach(item => {
@@ -100,6 +113,8 @@ class Commodity {
                 m.vat = item["attributes"]["vat"];
                 m.measure_type_id = item["relationships"]["measure_type"]["data"]["id"];
                 m.geographical_area_id = item["relationships"]["geographical_area"]["data"]["id"];
+
+                // Get additional code
                 if (item.hasOwnProperty("relationships")) {
                     item2 = item["relationships"];
                     if (item2.hasOwnProperty("additional_code")) {
@@ -107,6 +122,12 @@ class Commodity {
                     }
                 }
 
+                // Get quota order number
+                try {
+                    m.order_number_id = item["relationships"]["order_number"]["data"]["id"];
+                } catch (error) {
+                    // Do nothing
+                }
 
                 if (m.import == true) {
                     this.measures.push(m);
@@ -127,6 +148,14 @@ class Commodity {
             } else if (item["type"] == "additional_code") {
                 ac = new AdditionalCode(item);
                 this.additional_codes.push(ac);
+
+            } else if (item["type"] == "order_number") {
+                ac = new OrderNumber(item);
+                this.order_numbers.push(ac);
+
+            } else if (item["type"] == "definition") {
+                ac = new Definition(item);
+                this.definitions.push(ac);
             }
         });
 
@@ -135,22 +164,75 @@ class Commodity {
         this.remove_irrelevant_measures();
         this.assign_measure_components();
         this.get_units();
+        this.get_measure_type_descriptions();
+        this.get_measure_country_descriptions();
         this.categorise_measures();
+        this.assign_definitions_to_order_numbers();
 
-        console.log("Units: " + this.units);
-        console.log("VATs: " + this.vats);
-        console.log("Excises: " + this.excises);
-        console.log("MFNs: " + this.mfns);
-        console.log("Preferences: " + this.preferences);
-        console.log("Quotas: " + this.quotas);
-        console.log("Remedies: " + this.remedies);
+
+        // console.log("Units: " + this.units);
+        // console.log("VATs: " + this.vats);
+        // console.log("Excises: " + this.excises);
+        // console.log("MFNs: " + this.mfns);
+        // console.log("Preferences: " + this.preferences);
+        // console.log("Quotas: " + this.quotas);
+        // console.log("Remedies: " + this.remedies);
+
+        // this.quotas.forEach(quota => {
+        //     console.log("Quota order number : " + quota.order_number);
+        // });
 
         var valid_phases = ["results"];
         if (valid_phases.includes(this.phase)) {
             this.calculate_vat();
             this.calculate_excise();
             this.calculate_mfn();
+            this.calculate_quotas();
+            this.calculate_preferences();
         }
+    }
+
+    get_measure_country_descriptions() {
+        this.measures.forEach(measure => {
+            this.geographical_areas.forEach(geographical_area => {
+                if (geographical_area.id == measure.geographical_area_id) {
+                    measure.geographical_area_description = geographical_area.description;
+                    console.log("Found " + geographical_area.description);
+                }
+            });
+        });
+    }
+
+    get_measure_type_descriptions() {
+        this.measures.forEach(measure => {
+            this.measure_types.forEach(measure_type => {
+                if (measure_type.id == measure.measure_type_id) {
+                    measure.measure_type_description = measure_type.description;
+                }
+            });
+        });
+    }
+
+    assign_definitions_to_order_numbers() {
+        // this.order_numbers.forEach(order_number => {
+        //     console.log(order_number.id + " : " + order_number.definition_id);
+        // });
+
+        this.definitions.forEach(definition => {
+            this.order_numbers.forEach(order_number => {
+                if (order_number.definition_id == definition.id) {
+                    order_number.definition = definition;
+                }
+            });
+        });
+        this.measures.forEach(measure => {
+            this.order_numbers.forEach(order_number => {
+                if (order_number.id == measure.order_number_id) {
+                    measure.order_number = order_number;
+                }
+            });
+        });
+        
     }
 
     calculate_vat() {
@@ -167,6 +249,18 @@ class Commodity {
 
     calculate_mfn() {
         this.mfns.forEach(calc => {
+            calc.calculate();
+        });
+    }
+
+    calculate_quotas() {
+        this.quotas.forEach(calc => {
+            calc.calculate();
+        });
+    }
+
+    calculate_preferences() {
+        this.preferences.forEach(calc => {
             calc.calculate();
         });
     }
@@ -205,7 +299,6 @@ class Commodity {
                         this.meursing = true;
                     }
                     m.measure_components.push(mc);
-                    console.log("Pushed compnent");
                 }
             });
         });
@@ -242,7 +335,6 @@ class Commodity {
             if (!this.supplementary_unit_array.includes(m.measure_type_id)) {
                 m.measure_components.forEach(mc => {
                     if (mc.measurement_unit_code != null) {
-                        //console.log (m.id + " : " + m.measure_type_id + " : " + mc.measurement_unit_code)
                         this.units.push(mc.measurement_unit_code);
                     }
                 });
@@ -300,8 +392,12 @@ class Commodity {
             } else if (this.remedy_array.includes(m.measure_type_id)) {
                 this.remedies.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company));
 
+            } else if (this.suspension_array.includes(m.measure_type_id)) {
+                this.suspensions.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company));
+
             } else if (this.quota_array.includes(m.measure_type_id)) {
-                this.quotas.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company));
+                var obj = new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company);
+                this.quotas.push(obj);
 
             } else if (m.measure_type_series_id == "P") {
                 this.vats.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company));
@@ -341,5 +437,13 @@ class Commodity {
             return a;
         }, []);
     }
+
+    get_exchange_rate() {
+        axios.get('https://api.exchangeratesapi.io/latest')
+            .then((response) => {
+                //console.log(response.data);
+            });
+    }
+
 }
 module.exports = Commodity

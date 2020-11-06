@@ -3,7 +3,7 @@ var showdown = require('showdown');
 var _ = require('underscore');
 
 module.exports = function (env) {
-    
+
     /**
      * Instantiate object used to store the methods registered as a
      * 'filter' (of the same name) within nunjucks. You can override
@@ -43,6 +43,12 @@ module.exports = function (env) {
   
     ------------------------------------------------------------------ */
 
+    filters.capitalise = function (str) {
+        var _ = require('lodash');
+        str = _.capitalize(str);
+        return (str);
+    }
+
     filters.display_currency = function (str) {
         var euros = ["EUR", "EUROS", "EURO"];
         if (euros.includes(str)) {
@@ -55,6 +61,16 @@ module.exports = function (env) {
     filters.plural = function (str) {
         var pluralize = require('pluralize');
         var s = pluralize(str);
+        return s;
+    }
+
+    filters.format_number = function (str, dec_places) {
+        var s = format_number(str, dec_places);
+        return s;
+    }
+
+    filters.format_date = function (str, fmt) {
+        var s = format_date(str, fmt);
         return s;
     }
 
@@ -78,7 +94,17 @@ module.exports = function (env) {
             s = str.substr(0, 4) + separator;
             s += str.substr(4, 2) + separator;
             s += str.substr(6, 2) + separator;
-            s += str.substr(8, 2) ;
+            s += str.substr(8, 2);
+            return s;
+        } else {
+            return "";
+        }
+    }
+
+    filters.format_order_number = function (str, separator = ".") {
+        if (typeof str !== 'undefined') {
+            s = str.substr(0, 2) + separator;
+            s += str.substr(2, 4);
             return s;
         } else {
             return "";
@@ -98,7 +124,7 @@ module.exports = function (env) {
             converter = new showdown.Converter();
             converter.setOption("backslashEscapesHTMLTags", true)
             text = converter.makeHtml(str);
-            text = text.replace("&lt;", "<"); 
+            text = text.replace("&lt;", "<");
             text = text.replace("&gt;", ">");
             return text;
         } else {

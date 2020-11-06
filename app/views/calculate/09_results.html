@@ -21,153 +21,225 @@
     <div class="govuk-grid-column-full">
       <span class="govuk-caption-xl">Calculate import duties</span>
       <h1 class="govuk-heading-xl">Import duty calculation</h1>
-      <p>The following duties are applicable to the import of <strong>{{ c.goods_nomenclature_item_id | format_commodity_code }} </strong> from <strong>Albania</strong> on <strong>03 Jun 2021</strong>.</p>
+      <p>The following duties are applicable to the import of <strong>{{ c.goods_nomenclature_item_id | format_commodity_code }}
+        </strong> from <strong>{{ commodity.country_name }}</strong> on <strong>03 Jun 2021</strong>.</p>
+
+      <details class="govuk-details import_summary" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Details of your trade</span>
+        </summary>
+        <div class="govuk-details__text">
+          <dl>
+            <dt>Country</dt>
+            <dd>{{ commodity.country_name }}&nbsp;</dd>
+            <dt>Commodity</dt>
+            <dd>{{ c.goods_nomenclature_item_id | format_commodity_code }}&nbsp;</dd>
+            <dt>Date</dt>
+            <dd>1 Jan 2021&nbsp;</dd>
+            <dt>Monetary value</dt>
+            <dd>£2000.00&nbsp;</dd>
+          </dl>
+        </div>
+      </details>
 
       <!-- Start results //-->
 
-      {{ govukTable({
-        caption: "VAT and excise",
-        subcaption: "<abbr title='Value added tax'>VAT</abbr> is a national tax charged in addition to any other duties that apply. Excise is ...",
-        firstCellIsHeader: false,
-        classes: "calc_table govuk-table--m",
-        captionClasses: "govuk-caption-l",
-        head: [
-          {text: "Duty type", classes: "measure_type"},
-          {text: "Requirement", classes: "requirement"},
-          {text: "Calculation", classes: "calculation"},
-          {text: "Applicable duty", classes: "value r"}
-        ],
-        rows: [
-          [
-            {text: "VAT"},
-            {text: "Applicable in all cases"},
-            {text: commodity.vats[0].calculation_string },
-            {text: commodity.vats[0].result | decimals(2), classes: "r"}
-          ],
-          [
-            {text: "Excise duty"},
-            {text: "n/a"},
-            {text: commodity.excises[0].calculation_string },
-            {text: commodity.excises[0].result | decimals(2), classes: "r"}
-          ]
-        ]
-      }) }}
+      <table class="govuk-table calc_table govuk-table--m">
+        <caption class="govuk-table__caption govuk-caption-l">VAT and excise<br>
+          <span class="govuk-table__subcaption">
+            <abbr title='Value added tax'>VAT</abbr> is a national tax charged in addition to any other duties that apply. Excise is ...</span>
+        </caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header measure_type">Duty type</th>
+            <th scope="col" class="govuk-table__header calculation">Calculation</th>
+            <th scope="col" class="govuk-table__header value">Applicable amount</th>
+            <th scope="col" class="govuk-table__header apply">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {# BEGIN VAT #}
+          {% if commodity.vats %}
+            {% for item in commodity.vats %}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">{{ item.measure.measure_type_description }}<br>Words that describe how to use VAT</td>
+                <td class="govuk-table__cell">{{ item.calculation_string }}</td>
+                <td class="govuk-table__cell value">£{{ item.result | decimals(2) }}</td>
+                <td class="govuk-table__cell apply">&nbsp;</td>
+              </tr>
+            {% endfor %}
+          {% endif %}
+          {# END VAT #}
+
+          {# BEGIN EXCISES #}
+          {% if commodity.excises %}
+            {% for item in commodity.excises %}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  {{ item.measure.measure_type_description | capitalise }}
+                  <br>
+                  Words that describe how to use Excises
+                </td>
+                <td class="govuk-table__cell">{{ item.calculation_string | safe }}</td>
+                <td class="govuk-table__cell value">£{{ item.result | decimals(2) }}</td>
+                <td class="govuk-table__cell apply">&nbsp;</td>
+              </tr>
+            {% endfor %}
+          {% endif %}
+          {# END EXCISES #}
+
+        </tbody>
+      </table>
 
       <form>
 
-        {{ govukTable({
-        caption: "Customs duty",
-        subcaption: "The third-country duty may be reduced by the application of a preference, suspension, relief or quota.",
-        firstCellIsHeader: false,
-        classes: "calc_table calc_table_optional govuk-table--m",
-        captionClasses: "govuk-caption-l",
-        head: [
-          {text: "Duty type", classes: "measure_type"},
-          {text: "Requirement", classes: "requirement"},
-          {text: "Calculation", classes: "calculation"},
-          {text: "Apply option", classes: "apply"},
-          {text: "Applicable duty", classes: "value r"}
-        ],
-        rows: [
-          [
-            {html: 'Third-country duty (<abbr title="Most-favoured nation duty">MFN</abbr>)'},
-            {text: "Applicable in all cases | Applicable unless overridden by preferential duties, quotas, reliefs or suspensions"},
-            {text: commodity.mfns[0].calculation_string},
-            {html: ''},
-            {text: commodity.mfns[0].result | decimals(2), classes: "r"}
-          ],
-          [
-            {html: 'Suspension <span class="normal">(Vessel relief)</span>'},
-            {html: 'Enter <strong>XYZ</strong> in Box 44 on your import declaration.'},
-            {text: "0.0% * £400.00"},
-            {html: '<div class="govuk-radios govuk-radios--small">
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="apply_001" name="apply" type="checkbox" value="119" checked>
-        <label class="govuk-label govuk-radios__label" for="apply_001">
-          Applied
-        </label>
-      </div>
-    </div>'},
-            {text: "£0.00", classes: "r"}
-          ],
-          [
-            {html: 'Tariff preference <span class="normal">(goods imported from Canada)</span>'},
-            {html: 'Enter <strong>PRF</strong> in box 36 on your import declaration.'},
-            {text: "0.0% * £400.00"},
-            {html: '<div class="govuk-radios govuk-radios--small">
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="apply_002" name="apply" type="checkbox" value="142">
-        <label class="govuk-label govuk-radios__label" for="apply_002">
-          Apply
-        </label>
-      </div>
-    </div>'},
-            {text: "£0.00", classes: "r"}
-          ],
-          [
-            {html: 'Quota 09.1234'},
-            {html: 'Enter x in box y and 091234 in box z.<br><a href="">Find out more about quota 091234</a>'},
-            {text: "0.0% * £400.00"},
-            {html: '<div class="govuk-radios govuk-radios--small">
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="apply_003" name="apply" type="checkbox" value="143">
-        <label class="govuk-label govuk-radios__label" for="apply_003">
-          Apply
-        </label>
-      </div>
-    </div>'},
-            {text: "£0.00", classes: "r"}
-          ]
-        ]
-      }) }}
+        <table class="govuk-table calc_table govuk-table--m">
+          <caption class="govuk-table__caption govuk-caption-l">Customs duty<br>
+            <span class="govuk-table__subcaption">The third-country duty may be reduced by the application of a preference, suspension, relief or item.</span>
+          </caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header measure_type">Duty type</th>
+              <th scope="col" class="govuk-table__header calculation">Calculation</th>
+              <th scope="col" class="govuk-table__header value">Applicable amount</th>
+              <th scope="col" class="govuk-table__header apply">Apply</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+
+            {# BEGIN MFN #}
+            {% if commodity.mfns %}
+              {% for item in commodity.mfns %}
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell measure_type">
+                    Third-country duty (<abbr title="Most-favoured nation duty">MFN</abbr>)
+                    <br>
+                    Words that describe how to use MFNs
+                  </td>
+                  <td class="govuk-table__cell calculation">{{ item.calculation_string | safe }}</td>
+                  <td class="govuk-table__cell value">£{{ item.result | decimals(2) }}</td>
+                  <td class="govuk-table__cell apply">&nbsp;</td>
+                </tr>
+              {% endfor %}
+            {% endif %}
+            {# END MFN #}
+
+            {# BEGIN PREFERENCES #}
+            {% if commodity.preferences %}
+              {% for item in commodity.preferences %}
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell measure_type">
+                    Tariff preference for <strong>{{ item.measure.geographical_area_description }}</strong>
+                    <br>
+                    Words that describe how to use preferences</td>
+                  <td class="govuk-table__cell calculation">{{ item.calculation_string | safe }}</td>
+                  <td class="govuk-table__cell value">£{{ item.result | decimals(2) }}</td>
+                  <td class="govuk-table__cell apply">
+                    <div class="govuk-radios govuk-radios--small">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="apply_pref" name="apply" type="checkbox" value="apply_pref">
+                        <label class="govuk-label govuk-radios__label" for="apply_pref">Apply preference</label>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              {% endfor %}
+            {% endif %}
+            {# END PREFERENCES #}
+
+            {# BEGIN SUSPENSIONS #}
+            {% if commodity.suspensions %}
+              {% for item in commodity.suspensions %}
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell measure_type">
+                    {{ item.measure.measure_type_description }}
+                    <br>
+                    Words that describe how to use suspensions
+                  </td>
+                  <td class="govuk-table__cell calculation">{{ item.calculation_string | safe }}</td>
+                  <td class="govuk-table__cell value">£0.00</td>
+                  <td class="govuk-table__cell apply">
+                    <div class="govuk-radios govuk-radios--small">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="apply_pref" name="apply" type="checkbox" value="apply_pref">
+                        <label class="govuk-label govuk-radios__label" for="apply_pref">Apply suspension</label>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              {% endfor %}
+            {% endif %}
+            {# END SUSPENSIONS #}
+
+            {# BEGIN QUOTAS #}
+            {% if commodity.quotas %}
+              {% for item in commodity.quotas %}
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell quota_cell measure_type">
+                    <details class="govuk-details" data-module="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">Quota {{ item.measure.order_number_id | format_order_number }}</span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        {% if item.measure.order_number.licensed %}
+                          <p>Information on the availability of this quota can be obtained from the Rural Payments Agency.</p>
+                        {% else %}
+                          <dl>
+                            <dt>Quota period</dt>
+                            <dd>{{ item.measure.order_number.definition.validity_start_date | format_date("DD MMM YY") }} - {{ item.measure.order_number.definition.validity_end_date | format_date("DD MMM YY") }}</dd>
+
+                            <dt>Initial volume</dt>
+                            <dd>{{ item.measure.order_number.definition.initial_volume | format_number(0) }}
+                              {{ item.measure.order_number.definition.measurement_unit }}</dd>
+
+                            <dt>Current balance</dt>
+                            <dd>{{ item.measure.order_number.definition.balance | format_number(0) }}
+                              {{ item.measure.order_number.definition.measurement_unit }}</dd>
+
+                            <dt>Status</dt>
+                            <dd>{{ item.measure.order_number.definition.status  }}</dd>
+                          </dl>
+                        {% endif %}
+                      </div>
+                    </details>
+                    <div class="explainer">Words that describe how to use a quota.</div>
+                  </td>
+                  <td class="govuk-table__cell calculation">{{ item.calculation_string | safe }}</td>
+                  <td class="govuk-table__cell value">£{{ item.result | decimals(2) }}</td>
+                  <td class="govuk-table__cell apply">
+                    <div class="govuk-radios govuk-radios--small">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="apply_{{ item.measure.order_number_id }}" name="apply" type="checkbox" value="{{ item.measure.order_number_id }}">
+                        <label class="govuk-label govuk-radios__label" for="apply_{{ item.measure.order_number_id }}">Apply quota</label>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              {% endfor %}
+            {% endif %}
+            {# END QUOTAS #}
+          </tbody>
+        </table>
 
         <div class="rx">
           {{ govukButton({
-        text: "Update applied duties",
-        classes: "govuk-button--secondary"
+        text: "Update duties",
+        classes: "govuk-button"
       }) }}
         </div>
 
       </form>
 
       {{ govukTable({
-        caption: "Safeguards and trade remedies",
-        subcaption: "Lorem ipsum dolor sit amet.",
-        firstCellIsHeader: false,
-        classes: "calc_table govuk-table--m",
-        captionClasses: "govuk-caption-l",
-        head: [
-          {text: "Duty type", classes: "measure_type"},
-          {text: "Requirement", classes: "requirement"},
-          {text: "Calculation", classes: "calculation"},
-          {text: "Applicable duty", classes: "value r"}
-        ],
-        rows: [
-          [
-            {html: 'Steel safeguard'},
-            {html: "Enter <strong>XYZ</strong> in Box 44 on your import declaration."},
-            {text: "25% * £400.00"},
-            {text: "£100.00", classes: "r"}
-          ],
-          [
-            {html: 'Anti-dumping duty <span class="normal">(Vessel relief)</span>'},
-            {html: "Enter x in box y and 091234 in box z. Find out more about this quota"},
-            {text: "11.2% * £400.00"},
-            {text: "£44.80", classes: "r"}
-          ]
-        ]
-      }) }}
-
-      {{ govukTable({
         caption: "",
-        firstCellIsHeader: true,
-        classes: "calc_table grey",
+        firstCellIsHeader: false,
+        classes: "calc_table total",
         captionClasses: "govuk-caption-l",
         rows: [[
-          {text: "Duty total", classes: "duty_total"},
-          {text: "", classes: "requirement"},
-          {text: "", classes: "calculation"},
-          {text: "£145.60", classes: "value r"}
+          {text: "", classes: "measure_type"},
+          {text: "Duty total", classes: "calculation duty_total"},
+          {text: "£xxx.xx", classes: "value grand_total"},
+          {text: "", classes: "apply white"}
         ]]
       }) }}
 

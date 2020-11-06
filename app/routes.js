@@ -300,6 +300,7 @@ router.get('/calculate/results/:goods_nomenclature_item_id', function (req, res)
             c.pass_request(req);
             c.phase = "results";
             c.get_data(response.data);
+            c.get_exchange_rate();
             c.get_measure_data(req.session.data["origin"]);
             res.render('calculate/09_results', { 'commodity': c, 'error': err });
         });

@@ -14,15 +14,17 @@ class GeographicalArea {
                     this.parse_members();
                 }
             }
+            this.country_name = this.get_country_description(this.id);
         } else {
             this.id = null;
             this.description = null;
             this.children_geographical_areas = [];
             this.members = [];
+            this.country_name = null;
         }
     }
 
-    get_description(id) {
+    get_country_description(id) {
         var country_name;
         var countries = require('./countries.json');
         countries.forEach(item => {
