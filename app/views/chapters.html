@@ -6,7 +6,7 @@
       },
       html: 'This is an experimental service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
     }) }}
-    {{ govukBreadcrumbs({
+    {# {{ govukBreadcrumbs({
   items: [
     {
       text: "Home",
@@ -17,7 +17,7 @@
       href: ""
     }
   ]
-}) }}
+}) }} #}
 {% endblock %}
 
 {% block pageTitle %}
@@ -36,77 +36,22 @@
             <div class="panel">
                 <nav class="breadcrumb">
                     <ul class="govuk-list">
-                        <li>Section IV: Prepared foodstuffs; beverages, spirits and vinegar; tobacco and manufactured tobacco substitutes </li>
+                        {% for item in chapter.included %}
+                            {% if (item.type == "section") %}
+                                <li>Section {{ item.attributes.numeral }}: {{ item.attributes.title }}</li>
+                            {% endif %}
+                        {% endfor %}
                         <li class="crumb indent_1">
                             <div class="commodity">
-                                <span class="code mauve">01</span>
+                                <span class="code mauve">{{ chapter.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}</span>
                                 <span class="code blue"></span>
                                 <span class="code green"></span>
                                 <span class="code green"></span>
                                 <span class="code green"></span>
                             </div>
-                            <div class="description">Jams, fruit jellies, marmalades, fruit or nut purée and fruit or nut pastes, obtained by cooking, whether or not containing added sugar or other sweetening matter</div>
+                            <div class="description">{{ chapter.data.attributes.formatted_description }}</div>
                         </li>
-                        <li class="crumb indent_2">
-                            <div class="commodity">
-                                <span class="code mauve">01</span>
-                                <span class="code blue">01</span>
-                                <span class="code green"></span>
-                                <span class="code green"></span>
-                                <span class="code green"></span>
-                            </div>
-                            <div class="description">Other</div>
-                        </li>
-                        <li class="crumb indent_3">
-                            <div class="commodity">
-                                <span class="code mauve">01</span>
-                                <span class="code blue">01</span>
-                                <span class="code green">01</span>
-                                <span class="code green"></span>
-                                <span class="code green"></span>
-                            </div>
-                            <div class="description">Other</div>
-                        </li>
-                        <li class="crumb indent_4">
-                            <div class="commodity">
-                                <span class="code mauve">01</span>
-                                <span class="code blue">01</span>
-                                <span class="code green">01</span>
-                                <span class="code green">01</span>
-                                <span class="code green"></span>
-                            </div>
-                            <div class="description">Other</div>
-                        </li>
-                        <li class="crumb indent_5">
-                            <div class="commodity">
-                                <span class="code mauve">01</span>
-                                <span class="code blue">01</span>
-                                <span class="code green">01</span>
-                                <span class="code green">01</span>
-                                <span class="code green">01</span>
-                            </div>
-                            <div class="description">Other</div>
-                        </li>
-                        <li class="crumb indent_6">
-                            <div class="commodity">
-                                <span class="code mauve">01</span>
-                                <span class="code blue">01</span>
-                                <span class="code green">01</span>
-                                <span class="code green">01</span>
-                                <span class="code green">01</span>
-                            </div>
-                            <div class="description">Other</div>
-                        </li>
-                        <li class="crumb indent_7">
-                            <div class="commodity">
-                                <span class="code mauve">01</span>
-                                <span class="code blue">01</span>
-                                <span class="code green">01</span>
-                                <span class="code green">01</span>
-                                <span class="code green">01</span>
-                            </div>
-                            <div class="description">Other</div>
-                        </li>
+ 
                     </ul>
                 </nav>
             </div>

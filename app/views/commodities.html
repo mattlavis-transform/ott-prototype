@@ -6,7 +6,7 @@
       },
       html: 'This is an experimental service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
     }) }}
-    {{ govukBreadcrumbs({
+    {# {{ govukBreadcrumbs({
   items: [
     {
       text: "Home",
@@ -17,13 +17,94 @@
       href: ""
     }
   ]
-}) }}
+}) }} #}
+    {{ govukBackLink({
+        text: "Back",
+        href: "/headings/" +  commodity.data.attributes.goods_nomenclature_item_id | substring(0, 4)
+    }) }}
 {% endblock %}
 
 {% block content %}
+
     <h1 class="govuk-heading-l">
-        Commodity information for {{ commodity.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}: {{ heading.data.attributes.formatted_description }}
+        Trade data for commodity {{ commodity.data.attributes.goods_nomenclature_item_id }}
     </h1>
+    <p class="govuk-body-s">
+        This tariff is for {{ date_string }}
+        <a href="#" class="change_date">Change date</a>
+    </p>
+
+    <div class="panel">
+        <nav class="breadcrumb">
+            <ul class="govuk-list">
+                {% set counter = 2 %}
+                {% for item in commodity.included %}
+                    {% if (item.type == "section") %}
+                        <!-- Section //-->
+                        <li>
+                            <a href="/sections/{{ item.id }}">Section {{ item.attributes.numeral }}: {{ item.attributes.title }}</a>
+                        </li>
+                    {% endif %}
+                    {% if (item.type == "chapter") %}
+                        <!-- Chapter //-->
+                        <li class="crumb indent_1">
+                            <div class="commodity">
+                                <span class="code mauve">{{ item.attributes.goods_nomenclature_item_id | substring(0, 2) }}</span>
+                                <span class="code blue"></span>
+                                <span class="code green"></span>
+                                <span class="code green"></span>
+                                <span class="code green"></span>
+                            </div>
+                            <div class="description">
+                                <a href="/chapters/{{ item.attributes.goods_nomenclature_item_id | substring(0, 2) }}">{{ item.attributes.formatted_description }}</a>
+                            </div>
+                        </li>
+                    {% endif %}
+                    {% if (item.type == "heading") %}
+                        <!-- Heading //-->
+                        <li class="crumb indent_2">
+                            <div class="commodity">
+                                <span class="code mauve">{{ item.attributes.goods_nomenclature_item_id | substring(0, 2) }}</span>
+                                <span class="code blue">{{ item.attributes.goods_nomenclature_item_id | substring(2, 2) }}</span>
+                                <span class="code green"></span>
+                                <span class="code green"></span>
+                                <span class="code green"></span>
+                            </div>
+                            <div class="description">
+                                <a href="/headings/{{ item.attributes.goods_nomenclature_item_id | substring(0, 4) }}">{{ item.attributes.formatted_description }}</a>
+                            </div>
+                        </li>
+                    {% endif %}
+                    {% if (item.type == "commodity") %}
+                        {% set counter = (counter | default(2)) + 1 %}
+                        <!-- Heading //-->
+                        <li class="crumb indent_{{ counter }}">
+                            <div class="commodity">
+                                <span class="code mauve">{{ item.attributes.goods_nomenclature_item_id | substring(0, 2) }}</span>
+                                <span class="code blue">{{ item.attributes.goods_nomenclature_item_id | substring(2, 2) }}</span>
+                                <span class="code green">{{ item.attributes.goods_nomenclature_item_id | substring(4, 2) }}</span>
+                                <span class="code green">{{ item.attributes.goods_nomenclature_item_id | substring(6, 2) }}</span>
+                                <span class="code green">{{ item.attributes.goods_nomenclature_item_id | substring(8, 2) }}</span>
+                            </div>
+                            <div class="description">
+                                <a href="/headings/{{ item.attributes.goods_nomenclature_item_id | substring(0, 4) }}">{{ item.attributes.formatted_description }}</a>
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                <li class="crumb indent_{{ counter + 1 }}">
+                    <div class="commodity">
+                        <span class="code mauve">{{ commodity.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}</span>
+                        <span class="code blue">{{ commodity.data.attributes.goods_nomenclature_item_id | substring(2, 2) }}</span>
+                        <span class="code green">{{ commodity.data.attributes.goods_nomenclature_item_id | substring(4, 2) }}</span>
+                        <span class="code green">{{ commodity.data.attributes.goods_nomenclature_item_id | substring(6, 2) }}</span>
+                        <span class="code green">{{ commodity.data.attributes.goods_nomenclature_item_id | substring(8, 2) }}</span>
+                    </div>
+                    <div class="description">{{ commodity.data.attributes.formatted_description }}</div>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
     <div class="govuk-tabs" data-module="govuk-tabs">
         <h2 class="govuk-tabs__title">Contents</h2>
@@ -39,14 +120,17 @@
             </li>
         </ul>
         <div class="govuk-tabs__panel" id="overview">
-            <p>This information is for <strong>28 October 2020</strong>.</p>
+            <h2 class="govuk-heading-m">Overview</h2>
+            <p>This information is for <strong>{{ date_string }}</strong>.</p>
             <div class="panels govuk-grid-row">
                 <div class="panel govuk-grid-column-one-half" style="margin-right:1em">
                     <h2 class="govuk-heading-m">Import</h2>
                     <p>The commodity code for importing is <strong>{{ commodity.data.attributes.goods_nomenclature_item_id }}</strong>.</p>
                     <p>Goods are subject to VAT standard rate (<strong>20.00 %</strong>).</p>
                     <p>Importing from outside the EU is subject to a third country duty of <strong>{{ commodity.data.attributes.basic_duty_rate | safe }}</strong> unless subject to other measures.</p>
-                    <p><a href="/calculate/date/{{ commodity.data.attributes.goods_nomenclature_item_id }}">Calculate your import duties</a></p>
+                    <p>
+                        <a href="/calculate/date/{{ commodity.data.attributes.goods_nomenclature_item_id }}">Calculate your import duties</a>
+                    </p>
                     <p>Import measures and restrictions for specific countries can be found under the <a href="#import">import</a> tab.</p>
                 </div>
                 <div class="panel govuk-grid-column-one-half">
@@ -58,7 +142,7 @@
         </div>
         <div class="govuk-tabs__panel" id="import">
             <h2 class="govuk-heading-m">Import measures and restrictions</h2>
-            <p>This information is for <strong>28 October 2020</strong>.</p>
+            <p>This information is for <strong>{{ date_string }}</strong>.</p>
             {% include "includes/types_of_measure.html" %}
 
             <table class="govuk-table govuk-table--s measures">
@@ -89,17 +173,21 @@
                                         <li></li>
                                     </ul>
                                     <br>
-                                    
+
                                 </div>
                             </details>
                         </td>
                         <td class="govuk-table__cell">Third country duty</td>
                         <td class="govuk-table__cell">0.00 %</td>
-                        <td class="govuk-table__cell"><a href="">Conditions</a></td>
+                        <td class="govuk-table__cell">
+                            <a href="">Conditions</a>
+                        </td>
                         <td class="govuk-table__cell">&nbsp;</td>
                         <td class="govuk-table__cell c">R1925/17</td>
                         <td class="govuk-table__cell c">01/02/2015</td>
-                        <td class="govuk-table__cell footnotes r"><a href="">03026</a></td>
+                        <td class="govuk-table__cell footnotes r">
+                            <a href="">03026</a>
+                        </td>
                     </tr>
                     <tr class="govuk-table__row measure">
                         <td class="govuk-table__cell country">
@@ -115,21 +203,23 @@
                         </td>
                         <td class="govuk-table__cell">Third country duty</td>
                         <td class="govuk-table__cell">0.00 %</td>
-                        <td class="govuk-table__cell"><a href="">Conditions</a></td>
+                        <td class="govuk-table__cell">
+                            <a href="">Conditions</a>
+                        </td>
                         <td class="govuk-table__cell">&nbsp;</td>
                         <td class="govuk-table__cell c">R1925/17</td>
                         <td class="govuk-table__cell c">01/02/2015</td>
-                        <td class="govuk-table__cell footnotes r"><a href="">03026</a></td>
+                        <td class="govuk-table__cell footnotes r">
+                            <a href="">03026</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
 
-
-
         </div>
         <div class="govuk-tabs__panel" id="export">
             <h2 class="govuk-heading-m">Export measures and restrictions</h2>
-            <p>This information is for <strong>28 October 2020</strong>.</p>
+            <p>This information is for <strong>{{ date_string }}</strong>.</p>
             {% include "includes/types_of_measure.html" %}
         </div>
 

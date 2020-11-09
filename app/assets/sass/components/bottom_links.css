@@ -622,3 +622,11 @@
     left: auto;
     padding-left: 0
 }
+
+.gem-c {
+    font-family            : "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing : antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+

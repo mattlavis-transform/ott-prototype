@@ -341,7 +341,12 @@ div.indent_12 {
 }
 
 .search-field {
-    margin-right: 10px !important;
+    margin-right: 0px !important;
+    width       : 30em;
+}
+
+.change_date {
+    padding-left: 1em;
 }
 
 .form-inline {
@@ -355,8 +360,9 @@ div.panels {
 }
 
 div.panel {
-    background-color: #f8f8f8;
+    background-color: #F3F2F1;
     padding         : 1em;
+    margin-bottom   : 1.5em;
 }
 
 .measures {
@@ -456,14 +462,14 @@ ul.countries {
 }
 
 .govuk-table__caption {
-    width:100%;
+    width: 100%;
 }
 
 .govuk-table__subcaption {
     color      : #505A5F;
     font-size  : 16px;
     font-weight: normal !important;
-    width:100%;
+    width      : 100%;
 }
 
 @media (min-width: 40.0625em) {

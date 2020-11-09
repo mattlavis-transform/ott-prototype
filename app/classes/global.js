@@ -6,7 +6,7 @@ global.decimals = function (str, cnt) {
     return n;
 }
 
-global.format_number = function(s, dec_places = 0) {
+global.format_number = function (s, dec_places = 0) {
     var fmt = "0,0";
     if (dec_places != 0) {
         fmt += "." + "0".repeat(dec_places);
@@ -15,8 +15,14 @@ global.format_number = function(s, dec_places = 0) {
     return (s2);
 }
 
-global.format_date = function(s, fmt) {
+global.format_date = function (s, fmt) {
     var moment = require('moment');
     var formattedDate = moment(s).format(fmt);
     return formattedDate;
+}
+
+global.todays_date = function (s, fmt) {
+    var d = new Date();
+    var s = format_date(d, "D MMMM YYYY");
+    return (s);
 }

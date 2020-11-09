@@ -1,0 +1,1453 @@
+{
+    "data": {
+        "id": "32981",
+        "type": "heading",
+        "attributes": {
+            "goods_nomenclature_item_id": "1701000000",
+            "description": "Cane or beet sugar and chemically pure sucrose, in solid form",
+            "bti_url": "http://ec.europa.eu/taxation_customs/dds2/ebti/ebti_consultation.jsp?Lang=en&nomenc=1701000000&Expand=true",
+            "formatted_description": "Cane or beet sugar and chemically pure sucrose, in solid form"
+        },
+        "relationships": {
+            "footnotes": {
+                "data": [
+                    {
+                        "id": "084",
+                        "type": "footnote"
+                    },
+                    {
+                        "id": "701",
+                        "type": "footnote"
+                    }
+                ]
+            },
+            "section": {
+                "data": {
+                    "id": "4",
+                    "type": "section"
+                }
+            },
+            "chapter": {
+                "data": {
+                    "id": "32980",
+                    "type": "chapter"
+                }
+            },
+            "commodities": {
+                "data": [
+                    {
+                        "id": "94833",
+                        "type": "commodity"
+                    },
+                    {
+                        "id": "33002",
+                        "type": "commodity"
+                    },
+                    {
+                        "id": "33003",
+                        "type": "commodity"
+                    },
+                    {
+                        "id": "33006",
+                        "type": "commodity"
+                    },
+                    {
+                        "id": "94834",
+                        "type": "commodity"
+                    },
+                    {
+                        "id": "94836",
+                        "type": "commodity"
+                    },
+                    {
+                        "id": "94838",
+                        "type": "commodity"
+                    },
+                    {
+                        "id": "94835",
+                        "type": "commodity"
+                    },
+                    {
+                        "id": "94837",
+                        "type": "commodity"
+                    },
+                    {
+                        "id": "94839",
+                        "type": "commodity"
+                    },
+                    {
+                        "id": "33009",
+                        "type": "commodity"
+                    },
+                    {
+                        "id": "33010",
+                        "type": "commodity"
+                    },
+                    {
+                        "id": "33011",
+                        "type": "commodity"
+                    },
+                    {
+                        "id": "33012",
+                        "type": "commodity"
+                    },
+                    {
+                        "id": "33017",
+                        "type": "commodity"
+                    }
+                ]
+            }
+        }
+    },
+    "included": [
+        {
+            "id": "4",
+            "type": "section",
+            "attributes": {
+                "numeral": "IV",
+                "title": "Prepared foodstuffs; beverages, spirits and vinegar; tobacco and manufactured tobacco substitutes",
+                "position": 4,
+                "section_note": "###Note###\r\n1. In this section, the term ‘pellets’ means products which have been agglomerated either directly by compression or by the addition of a binder in a proportion not exceeding 3 % by weight."
+            }
+        },
+        {
+            "id": "23",
+            "type": "guide",
+            "attributes": {
+                "title": "Classification of goods",
+                "url": "https://www.gov.uk/government/collections/classification-of-goods"
+            }
+        },
+        {
+            "id": "32980",
+            "type": "chapter",
+            "attributes": {
+                "goods_nomenclature_item_id": "1700000000",
+                "description": "SUGARS AND SUGAR CONFECTIONERY",
+                "formatted_description": "Sugars and sugar confectionery",
+                "chapter_note": "* 1\\. This chapter does not cover:\r\n  * (a) sugar confectionery containing cocoa (heading 1806);\r\n  * (b) chemically pure sugars (other than sucrose, lactose, maltose, glucose and fructose) or other products of heading 2940; or\r\n  * (c) medicaments or other products of Chapter 30.\r\n\r\n## Subheading notes ##\r\n\r\n* 1\\. For the purposes of subheadings 1701 12, 1701 13 and 1701 14, 'raw sugar' means sugar whose content of sucrose by weight, in the dry state, corresponds to a polarimeter reading of less than 99.5°.\r\n* 2\\. Subheading 1701 13 covers only cane sugar obtained without centrifugation, whose content of sucrose by weight, in the dry state, corresponds to a polarimeter reading of 69° or more but less than 93°. The product contains only natural anhedral microcrystals, of irregular shape, not visible to the naked eye, which are surrounded by residues of molasses and other constituents of sugar cane.\r\n\r\n## Additional notes ##\r\n\r\n* 1\\. For the purpose of subheadings 1701 12 10, 1701 12 90, 1701 13 10, 1701 13 90, 1701 14 10 and 1701 14 90 'raw sugar' means sugar, not flavoured or coloured or containing any other added substances, containing, in the dry state, less than 99.5% by weight of sucrose determined by the polarimetric method.\r\n* 2\\. The duty applicable to raw sugar of subheadings 1701 12 10, 1701 13 10 and 1701 14 10 whose yield established according to part B(III) of Annex III to Regulation (EU) No 1308/2013 of the European Parliament and of the Council (OJ L 347, 20.12.2013, p. 671) differs from 92 % is fixed in the following manner: the relevant rate is multiplied by a correcting coefficient obtained by dividing the percentage yield established according to the above provisions by 92.\r\n* 3\\. For the purposes of subheading 1701 99 10, 'white sugar' means sugar, not flavoured or coloured or containing any other added substances, containing, in the dry state, 99.5% or more by weight of sucrose, determined by the polarimetric method.\r\n* 4\\. For products of subheadings 1702 2010, 1702 6095 and 1702 9071 the sugar content (sucrose, fructose, glucose and maltose, where the\r\nfructose and glucose are expressed in sucrose equivalent) is to be determined by applying the high performance liquid chromatography method (the\r\n“HPLC method”), using the following formula:\r\nS + 0,95 x (F + G) + M\r\nwhere:\r\n“S” is the sucrose content determined by the HPLC method;\r\n“F” is the fructose content determined by the HPLC method;\r\n“G” is the glucose content determined by the HPLC method;\r\n“M” is the maltose content determined by the HPLC method.\r\nFor products of subheadings 1702 60 80, 1702 90 80 and 1702 90 95, the sucrose content, including other sugars expressed as sucrose, is to be\r\ndetermined by the refractometry method (expressed in degrees Brix in accordance with the Annex to Commission Implementing Regulation (EU)\r\nNo 974/2014 (1)). For products of subheadings 1702 60 80 and 1702 90 80, the conversion of the results into sucrose equivalent is to be obtained by multiplying the degrees Brix by the coefficient 0,95.\r\n* 5\\. For the purposes of subheadings 1702 30 10, 1702 40 10, 1702 60 10 and 1702 90 30, the term 'isoglucose' means the product obtained from glucose or its polymers with a content by weight in the dry state of at least 10% fructose.\r\n For products of those subheadings, the sucrose content, including other sugars expressed as sucrose, is to be determined by the refractometry method\r\n(expressed in degrees Brix in accordance with the Annex to Implementing Regulation (EU) No 974/2014). \r\n * 6\\. 'Inulin syrup' means:\r\n  * (a) for the purposes of subheading 1702 60 80 the immediate product obtained by hydrolysis of inulin or oligofructoses, containing in the dry state more than 50% fructose in free form or as sucrose;\r\n  * (b) for the purposes of subheading 1702 90 80 the immediate product obtained by hydrolysis of inulin or oligofructoses, containing in the dry state at least 10% but not more than 50% of fructose in free form or as sucrose.\r\nThe quantity of \"fructose in free form or as sucrose\" shall be determined using the formula F + 0.5 S/0.95 calculated on the dry matter, where \"F\" is the fructose content and \"S\" is the sucrose content, as determined by the High Performance Liquid Chromatography method.\r\n* 7\\. When imported in the form of an assortment, goods of subheading 1704 90 are subject to an agricultural component (EA) fixed according to the average content in milk fats, milk proteins, sucrose, isoglucose, glucose and starch of the assortment as a whole.\r\n* 8\\. Throughout the Nomenclature, mixtures of sugar with small amounts of other substances are classified in Chapter 17 unless they have the character of a preparation classified elsewhere.",
+                "forum_url": null
+            },
+            "relationships": {
+                "guides": {
+                    "data": [
+                        {
+                            "id": "23",
+                            "type": "guide"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "084",
+            "type": "footnote",
+            "attributes": {
+                "code": "TN084",
+                "description": "Products consigned from Japan shall be accompanied by a Common Health Entry Document for Feed and Food of Non-Animal Origin (CHED-D) or a Common Health Entry Document for Products (CHED-P) according to Commission Implementing Regulation (EU) 2019/1787.",
+                "formatted_description": "Products consigned from Japan shall be accompanied by a Common Health Entry Document for Feed and Food of Non-Animal Origin (CHED-D) or a Common Health Entry Document for Products (CHED-P) according to Commission Implementing Regulation (EU) 2019/1787."
+            }
+        },
+        {
+            "id": "701",
+            "type": "footnote",
+            "attributes": {
+                "code": "TN701",
+                "description": "According to  the Council Regulation (EU) No 692/2014 (OJ L183, p. 9) it shall be prohibited to import into European Union goods originating in Crimea or Sevastopol.\nThe prohibition shall not apply in respect of: \n(a) the execution until 26 September 2014, of trade contracts concluded before 25 June 2014, or of ancillary contracts necessary for the execution of such contracts, provided that the natural or legal persons, entity or body seeking to perform the contract have notified, at least 10 working days in advance, the activity or transaction to the competent authority of the Member State in which they are established. \n(b) goods originating in Crimea or Sevastopol which have been made available to the Ukrainian authorities for examination, for which compliance with the conditions conferring entitlement to preferential origin has been verified and for which a certificate of origin has been issued in accordance with Regulation (EU) No 978/2012 and Regulation (EU) No 374/2014 or in accordance with the EU-Ukraine Association Agreement.",
+                "formatted_description": "According to  the Council Regulation (EU) No 692/2014 (OJ L183, p. 9) it shall be prohibited to import into European Union goods originating in Crimea or Sevastopol.<br/>The prohibition shall not apply in respect of: <br/>(a) the execution until 26 September 2014, of trade contracts concluded before 25 June 2014, or of ancillary contracts necessary for the execution of such contracts, provided that the natural or legal persons, entity or body seeking to perform the contract have notified, at least 10 working days in advance, the activity or transaction to the competent authority of the Member State in which they are established. <br/>(b) goods originating in Crimea or Sevastopol which have been made available to the Ukrainian authorities for examination, for which compliance with the conditions conferring entitlement to preferential origin has been verified and for which a certificate of origin has been issued in accordance with Regulation (EU) No 978/2012 and Regulation (EU) No 374/2014 or in accordance with the EU-Ukraine Association Agreement."
+            }
+        },
+        {
+            "id": "94833",
+            "type": "commodity",
+            "attributes": {
+                "description": "Raw sugar not containing added flavouring or colouring matter",
+                "number_indents": 1,
+                "goods_nomenclature_item_id": "1701120000",
+                "leaf": false,
+                "goods_nomenclature_sid": 94833,
+                "formatted_description": "Raw sugar not containing added flavouring or colouring matter",
+                "description_plain": "Raw sugar not containing added flavouring or colouring matter",
+                "producline_suffix": "10",
+                "parent_sid": null
+            },
+            "relationships": {
+                "overview_measures": {
+                    "data": []
+                }
+            }
+        },
+        {
+            "id": "33002",
+            "type": "commodity",
+            "attributes": {
+                "description": "Beet sugar",
+                "number_indents": 2,
+                "goods_nomenclature_item_id": "1701120000",
+                "leaf": false,
+                "goods_nomenclature_sid": 33002,
+                "formatted_description": "Beet sugar",
+                "description_plain": "Beet sugar",
+                "producline_suffix": "80",
+                "parent_sid": 94833
+            },
+            "relationships": {
+                "overview_measures": {
+                    "data": []
+                }
+            }
+        },
+        {
+            "id": "-579129-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "0.00 %",
+                "formatted_base": "<span title='0.0 '>0.00</span> %"
+            }
+        },
+        {
+            "id": "VTZ",
+            "type": "measure_type",
+            "attributes": {
+                "description": "VAT zero rate",
+                "national": null,
+                "measure_type_series_id": null,
+                "id": "VTZ"
+            }
+        },
+        {
+            "id": "-579129",
+            "type": "measure",
+            "attributes": {
+                "id": -579129,
+                "vat": true
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "-579129-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "VTZ",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "33003",
+            "type": "commodity",
+            "attributes": {
+                "description": "For refining",
+                "number_indents": 3,
+                "goods_nomenclature_item_id": "1701121000",
+                "leaf": true,
+                "goods_nomenclature_sid": 33003,
+                "formatted_description": "For refining",
+                "description_plain": "For refining",
+                "producline_suffix": "80",
+                "parent_sid": 33002
+            },
+            "relationships": {
+                "overview_measures": {
+                    "data": [
+                        {
+                            "id": "-579129",
+                            "type": "measure"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "2051515-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "41.90 EUR / 100 kg",
+                "formatted_base": "<span title='41.9 EUR'>41.90</span> EUR / <abbr title='Hectokilogram'>100 kg</abbr>"
+            }
+        },
+        {
+            "id": "103",
+            "type": "measure_type",
+            "attributes": {
+                "description": "Third country duty",
+                "national": null,
+                "measure_type_series_id": null,
+                "id": "103"
+            }
+        },
+        {
+            "id": "2051515",
+            "type": "measure",
+            "attributes": {
+                "id": 2051515,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "2051515-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "103",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "-579372-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "0.00 %",
+                "formatted_base": "<span title='0.0 '>0.00</span> %"
+            }
+        },
+        {
+            "id": "-579372",
+            "type": "measure",
+            "attributes": {
+                "id": -579372,
+                "vat": true
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "-579372-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "VTZ",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "33006",
+            "type": "commodity",
+            "attributes": {
+                "description": "Other",
+                "number_indents": 3,
+                "goods_nomenclature_item_id": "1701129000",
+                "leaf": true,
+                "goods_nomenclature_sid": 33006,
+                "formatted_description": "Other",
+                "description_plain": "Other",
+                "producline_suffix": "80",
+                "parent_sid": 33002
+            },
+            "relationships": {
+                "overview_measures": {
+                    "data": [
+                        {
+                            "id": "2051515",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "-579372",
+                            "type": "measure"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "3328617-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "kg/raw sugar",
+                "formatted_base": "<abbr title='Kilogram'>kg/raw sugar</abbr>"
+            }
+        },
+        {
+            "id": "110",
+            "type": "measure_type",
+            "attributes": {
+                "description": "Supplementary unit import",
+                "national": null,
+                "measure_type_series_id": null,
+                "id": "110"
+            }
+        },
+        {
+            "id": "3328617",
+            "type": "measure",
+            "attributes": {
+                "id": 3328617,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "3328617-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "110",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "3327235-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "kg/raw sugar",
+                "formatted_base": "<abbr title='Kilogram'>kg/raw sugar</abbr>"
+            }
+        },
+        {
+            "id": "3327235",
+            "type": "measure",
+            "attributes": {
+                "id": 3327235,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "3327235-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "110",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "3327239-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "kg/raw sugar",
+                "formatted_base": "<abbr title='Kilogram'>kg/raw sugar</abbr>"
+            }
+        },
+        {
+            "id": "3327239",
+            "type": "measure",
+            "attributes": {
+                "id": 3327239,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "3327239-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "110",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "3784113-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "kg/raw sugar",
+                "formatted_base": "<abbr title='Kilogram'>kg/raw sugar</abbr>"
+            }
+        },
+        {
+            "id": "3784113",
+            "type": "measure",
+            "attributes": {
+                "id": 3784113,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "3784113-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "110",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "94834",
+            "type": "commodity",
+            "attributes": {
+                "description": "Cane sugar specified in subheading note 2 to this chapter",
+                "number_indents": 2,
+                "goods_nomenclature_item_id": "1701130000",
+                "leaf": false,
+                "goods_nomenclature_sid": 94834,
+                "formatted_description": "Cane sugar specified in subheading note&nbsp;2&nbsp;to this chapter",
+                "description_plain": "Cane sugar specified in subheading note 2 to this chapter",
+                "producline_suffix": "80",
+                "parent_sid": 94833
+            },
+            "relationships": {
+                "overview_measures": {
+                    "data": [
+                        {
+                            "id": "3328617",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "3327235",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "3327239",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "3784113",
+                            "type": "measure"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "-579090-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "0.00 %",
+                "formatted_base": "<span title='0.0 '>0.00</span> %"
+            }
+        },
+        {
+            "id": "-579090",
+            "type": "measure",
+            "attributes": {
+                "id": -579090,
+                "vat": true
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "-579090-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "VTZ",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "94836",
+            "type": "commodity",
+            "attributes": {
+                "description": "For refining",
+                "number_indents": 3,
+                "goods_nomenclature_item_id": "1701131000",
+                "leaf": true,
+                "goods_nomenclature_sid": 94836,
+                "formatted_description": "For refining",
+                "description_plain": "For refining",
+                "producline_suffix": "80",
+                "parent_sid": 94834
+            },
+            "relationships": {
+                "overview_measures": {
+                    "data": [
+                        {
+                            "id": "-579090",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "3328617",
+                            "type": "measure"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "3218049-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "41.90 EUR / 100 kg",
+                "formatted_base": "<span title='41.9 EUR'>41.90</span> EUR / <abbr title='Hectokilogram'>100 kg</abbr>"
+            }
+        },
+        {
+            "id": "3218049",
+            "type": "measure",
+            "attributes": {
+                "id": 3218049,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "3218049-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "103",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "-578733-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "0.00 %",
+                "formatted_base": "<span title='0.0 '>0.00</span> %"
+            }
+        },
+        {
+            "id": "-578733",
+            "type": "measure",
+            "attributes": {
+                "id": -578733,
+                "vat": true
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "-578733-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "VTZ",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "94838",
+            "type": "commodity",
+            "attributes": {
+                "description": "Other",
+                "number_indents": 3,
+                "goods_nomenclature_item_id": "1701139000",
+                "leaf": true,
+                "goods_nomenclature_sid": 94838,
+                "formatted_description": "Other",
+                "description_plain": "Other",
+                "producline_suffix": "80",
+                "parent_sid": 94834
+            },
+            "relationships": {
+                "overview_measures": {
+                    "data": [
+                        {
+                            "id": "3218049",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "-578733",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "3328617",
+                            "type": "measure"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "3328618-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "kg/raw sugar",
+                "formatted_base": "<abbr title='Kilogram'>kg/raw sugar</abbr>"
+            }
+        },
+        {
+            "id": "3328618",
+            "type": "measure",
+            "attributes": {
+                "id": 3328618,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "3328618-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "110",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "3327236-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "kg/raw sugar",
+                "formatted_base": "<abbr title='Kilogram'>kg/raw sugar</abbr>"
+            }
+        },
+        {
+            "id": "3327236",
+            "type": "measure",
+            "attributes": {
+                "id": 3327236,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "3327236-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "110",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "3327240-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "kg/raw sugar",
+                "formatted_base": "<abbr title='Kilogram'>kg/raw sugar</abbr>"
+            }
+        },
+        {
+            "id": "3327240",
+            "type": "measure",
+            "attributes": {
+                "id": 3327240,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "3327240-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "110",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "94835",
+            "type": "commodity",
+            "attributes": {
+                "description": "Other cane sugar",
+                "number_indents": 2,
+                "goods_nomenclature_item_id": "1701140000",
+                "leaf": false,
+                "goods_nomenclature_sid": 94835,
+                "formatted_description": "Other cane sugar",
+                "description_plain": "Other cane sugar",
+                "producline_suffix": "80",
+                "parent_sid": 94833
+            },
+            "relationships": {
+                "overview_measures": {
+                    "data": [
+                        {
+                            "id": "3328618",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "3327236",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "3327240",
+                            "type": "measure"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "-578374-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "0.00 %",
+                "formatted_base": "<span title='0.0 '>0.00</span> %"
+            }
+        },
+        {
+            "id": "-578374",
+            "type": "measure",
+            "attributes": {
+                "id": -578374,
+                "vat": true
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "-578374-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "VTZ",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "94837",
+            "type": "commodity",
+            "attributes": {
+                "description": "For refining",
+                "number_indents": 3,
+                "goods_nomenclature_item_id": "1701141000",
+                "leaf": true,
+                "goods_nomenclature_sid": 94837,
+                "formatted_description": "For refining",
+                "description_plain": "For refining",
+                "producline_suffix": "80",
+                "parent_sid": 94835
+            },
+            "relationships": {
+                "overview_measures": {
+                    "data": [
+                        {
+                            "id": "-578374",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "3328618",
+                            "type": "measure"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "3218050-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "41.90 EUR / 100 kg",
+                "formatted_base": "<span title='41.9 EUR'>41.90</span> EUR / <abbr title='Hectokilogram'>100 kg</abbr>"
+            }
+        },
+        {
+            "id": "3218050",
+            "type": "measure",
+            "attributes": {
+                "id": 3218050,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "3218050-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "103",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "-578262-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "0.00 %",
+                "formatted_base": "<span title='0.0 '>0.00</span> %"
+            }
+        },
+        {
+            "id": "-578262",
+            "type": "measure",
+            "attributes": {
+                "id": -578262,
+                "vat": true
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "-578262-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "VTZ",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "94839",
+            "type": "commodity",
+            "attributes": {
+                "description": "Other",
+                "number_indents": 3,
+                "goods_nomenclature_item_id": "1701149000",
+                "leaf": true,
+                "goods_nomenclature_sid": 94839,
+                "formatted_description": "Other",
+                "description_plain": "Other",
+                "producline_suffix": "80",
+                "parent_sid": 94835
+            },
+            "relationships": {
+                "overview_measures": {
+                    "data": [
+                        {
+                            "id": "3218050",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "-578262",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "3328618",
+                            "type": "measure"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "33009",
+            "type": "commodity",
+            "attributes": {
+                "description": "Other",
+                "number_indents": 1,
+                "goods_nomenclature_item_id": "1701910000",
+                "leaf": false,
+                "goods_nomenclature_sid": 33009,
+                "formatted_description": "Other",
+                "description_plain": "Other",
+                "producline_suffix": "10",
+                "parent_sid": null
+            },
+            "relationships": {
+                "overview_measures": {
+                    "data": []
+                }
+            }
+        },
+        {
+            "id": "2051516-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "41.90 EUR / 100 kg",
+                "formatted_base": "<span title='41.9 EUR'>41.90</span> EUR / <abbr title='Hectokilogram'>100 kg</abbr>"
+            }
+        },
+        {
+            "id": "2051516",
+            "type": "measure",
+            "attributes": {
+                "id": 2051516,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "2051516-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "103",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "-578757-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "0.00 %",
+                "formatted_base": "<span title='0.0 '>0.00</span> %"
+            }
+        },
+        {
+            "id": "-578757",
+            "type": "measure",
+            "attributes": {
+                "id": -578757,
+                "vat": true
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "-578757-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "VTZ",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "3328619-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "kg/raw sugar",
+                "formatted_base": "<abbr title='Kilogram'>kg/raw sugar</abbr>"
+            }
+        },
+        {
+            "id": "3328619",
+            "type": "measure",
+            "attributes": {
+                "id": 3328619,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "3328619-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "110",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "33010",
+            "type": "commodity",
+            "attributes": {
+                "description": "Containing added flavouring or colouring matter",
+                "number_indents": 2,
+                "goods_nomenclature_item_id": "1701910000",
+                "leaf": true,
+                "goods_nomenclature_sid": 33010,
+                "formatted_description": "Containing added flavouring or colouring matter",
+                "description_plain": "Containing added flavouring or colouring matter",
+                "producline_suffix": "80",
+                "parent_sid": 33009
+            },
+            "relationships": {
+                "overview_measures": {
+                    "data": [
+                        {
+                            "id": "2051516",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "-578757",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "3328619",
+                            "type": "measure"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "2771820-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "41.90 EUR / 100 kg",
+                "formatted_base": "<span title='41.9 EUR'>41.90</span> EUR / <abbr title='Hectokilogram'>100 kg</abbr>"
+            }
+        },
+        {
+            "id": "2771820",
+            "type": "measure",
+            "attributes": {
+                "id": 2771820,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "2771820-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "103",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "3328620-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "kg/raw sugar",
+                "formatted_base": "<abbr title='Kilogram'>kg/raw sugar</abbr>"
+            }
+        },
+        {
+            "id": "3328620",
+            "type": "measure",
+            "attributes": {
+                "id": 3328620,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "3328620-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "110",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "3327238-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "kg/raw sugar",
+                "formatted_base": "<abbr title='Kilogram'>kg/raw sugar</abbr>"
+            }
+        },
+        {
+            "id": "3327238",
+            "type": "measure",
+            "attributes": {
+                "id": 3327238,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "3327238-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "110",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "3591291-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "kg/raw sugar",
+                "formatted_base": "<abbr title='Kilogram'>kg/raw sugar</abbr>"
+            }
+        },
+        {
+            "id": "3591291",
+            "type": "measure",
+            "attributes": {
+                "id": 3591291,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "3591291-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "110",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "3327242-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "kg/raw sugar",
+                "formatted_base": "<abbr title='Kilogram'>kg/raw sugar</abbr>"
+            }
+        },
+        {
+            "id": "3327242",
+            "type": "measure",
+            "attributes": {
+                "id": 3327242,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "3327242-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "110",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "3784116-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "kg/raw sugar",
+                "formatted_base": "<abbr title='Kilogram'>kg/raw sugar</abbr>"
+            }
+        },
+        {
+            "id": "3784116",
+            "type": "measure",
+            "attributes": {
+                "id": 3784116,
+                "vat": false
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "3784116-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "110",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "33011",
+            "type": "commodity",
+            "attributes": {
+                "description": "Other",
+                "number_indents": 2,
+                "goods_nomenclature_item_id": "1701990000",
+                "leaf": false,
+                "goods_nomenclature_sid": 33011,
+                "formatted_description": "Other",
+                "description_plain": "Other",
+                "producline_suffix": "80",
+                "parent_sid": 33009
+            },
+            "relationships": {
+                "overview_measures": {
+                    "data": [
+                        {
+                            "id": "2771820",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "3328620",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "3327238",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "3591291",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "3327242",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "3784116",
+                            "type": "measure"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "-399671-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "0.00 %",
+                "formatted_base": "<span title='0.0 '>0.00</span> %"
+            }
+        },
+        {
+            "id": "-399671",
+            "type": "measure",
+            "attributes": {
+                "id": -399671,
+                "vat": true
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "-399671-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "VTZ",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "33012",
+            "type": "commodity",
+            "attributes": {
+                "description": "White sugar",
+                "number_indents": 3,
+                "goods_nomenclature_item_id": "1701991000",
+                "leaf": true,
+                "goods_nomenclature_sid": 33012,
+                "formatted_description": "White sugar",
+                "description_plain": "White sugar",
+                "producline_suffix": "80",
+                "parent_sid": 33011
+            },
+            "relationships": {
+                "overview_measures": {
+                    "data": [
+                        {
+                            "id": "2771820",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "-399671",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "3328620",
+                            "type": "measure"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "-578342-duty_expression",
+            "type": "duty_expression",
+            "attributes": {
+                "base": "0.00 %",
+                "formatted_base": "<span title='0.0 '>0.00</span> %"
+            }
+        },
+        {
+            "id": "-578342",
+            "type": "measure",
+            "attributes": {
+                "id": -578342,
+                "vat": true
+            },
+            "relationships": {
+                "duty_expression": {
+                    "data": {
+                        "id": "-578342-duty_expression",
+                        "type": "duty_expression"
+                    }
+                },
+                "measure_type": {
+                    "data": {
+                        "id": "VTZ",
+                        "type": "measure_type"
+                    }
+                }
+            }
+        },
+        {
+            "id": "33017",
+            "type": "commodity",
+            "attributes": {
+                "description": "Other",
+                "number_indents": 3,
+                "goods_nomenclature_item_id": "1701999000",
+                "leaf": true,
+                "goods_nomenclature_sid": 33017,
+                "formatted_description": "Other",
+                "description_plain": "Other",
+                "producline_suffix": "80",
+                "parent_sid": 33011
+            },
+            "relationships": {
+                "overview_measures": {
+                    "data": [
+                        {
+                            "id": "2771820",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "-578342",
+                            "type": "measure"
+                        },
+                        {
+                            "id": "3328620",
+                            "type": "measure"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

@@ -8,19 +8,22 @@ const Heading = require('./classes/heading.js');
 const Commodity = require('./classes/commodity.js');
 const Error_handler = require('./classes/error_handler.js');
 
+
+require('./classes/global.js');
+
 // Add your routes here - above the module.exports line
 
 router.get('/sections', function (req, res) {
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections')
         .then((response) => {
-            res.render('sections', { 'sections': response.data });
+            res.render('sections', { 'sections': response.data, 'date_string': global.todays_date() });
         });
 });
 
 router.get('/sections/:sectionId', function (req, res) {
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections/' + req.params["sectionId"])
         .then((response) => {
-            res.render('section', { 'section': response.data });
+            res.render('section', { 'section': response.data, 'date_string': global.todays_date() });
         });
 });
 
@@ -29,7 +32,7 @@ router.get('/chapters/:chapterId', function (req, res) {
     s = s.padStart(2, "0");
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/chapters/' + s)
         .then((response) => {
-            res.render('chapters', { 'chapter': response.data });
+            res.render('chapters', { 'chapter': response.data, 'date_string': global.todays_date() });
         });
 });
 
@@ -37,7 +40,7 @@ router.get('/headings/:headingId', function (req, res) {
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/headings/' + req.params["headingId"])
         .then((response) => {
             h = new Heading(response.data);
-            res.render('headings', { 'heading': h });
+            res.render('headings', { 'heading': h, 'date_string': global.todays_date() });
         });
 });
 
@@ -45,14 +48,14 @@ router.get('/commodities/:goods_nomenclature_item_id', function (req, res) {
     req.session.data["error"] = "";
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
-            res.render('commodities', { 'commodity': response.data });
+            res.render('commodities', { 'commodity': response.data, 'date_string': global.todays_date() });
         });
 });
 
 router.get('/certificate_search', function (req, res) {
     axios.get('https://www.trade-tariff.service.gov.uk/certificates/')
         .then((response) => {
-            res.render('certificates', { 'certificates': response.data });
+            res.render('certificates', { 'certificates': response.data, 'date_string': global.todays_date() });
         });
 });
 

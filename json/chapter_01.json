@@ -1,0 +1,194 @@
+{
+    "data": {
+        "id": "27623",
+        "type": "chapter",
+        "attributes": {
+            "goods_nomenclature_sid": 27623,
+            "goods_nomenclature_item_id": "0100000000",
+            "description": "LIVE ANIMALS",
+            "formatted_description": "Live animals",
+            "chapter_note": "* 1\\. This chapter covers all live animals except:\r\n  * (a) fish and crustaceans, molluscs and other aquatic invertebrates, of heading 0301, 0306, 0307 or 0308;\r\n  * (b) cultures of micro-organisms and other products of heading 3002; and\r\n  * (c) animals of heading 9508.",
+            "forum_url": null,
+            "section_id": 1
+        },
+        "relationships": {
+            "section": {
+                "data": {
+                    "id": "1",
+                    "type": "section"
+                }
+            },
+            "guides": {
+                "data": [
+                    {
+                        "id": "23",
+                        "type": "guide"
+                    }
+                ]
+            },
+            "headings": {
+                "data": [
+                    {
+                        "id": "27624",
+                        "type": "heading"
+                    },
+                    {
+                        "id": "27633",
+                        "type": "heading"
+                    },
+                    {
+                        "id": "27762",
+                        "type": "heading"
+                    },
+                    {
+                        "id": "27773",
+                        "type": "heading"
+                    },
+                    {
+                        "id": "27783",
+                        "type": "heading"
+                    },
+                    {
+                        "id": "27802",
+                        "type": "heading"
+                    }
+                ]
+            }
+        }
+    },
+    "included": [
+        {
+            "id": "1",
+            "type": "section",
+            "attributes": {
+                "id": 1,
+                "numeral": "I",
+                "title": "Live animals; animal products",
+                "position": 1,
+                "section_note": "* 1\\. Any reference in this section to a particular genus or species of an animal, except where the context otherwise requires, includes a reference to the young of that genus or species.\r\n* 2\\. Except where the context otherwise requires, throughout the nomenclature any reference to 'dried' products also covers products which have been dehydrated, evaporated or freeze-dried.\r\n"
+            }
+        },
+        {
+            "id": "23",
+            "type": "guide",
+            "attributes": {
+                "title": "Classification of goods",
+                "url": "https://www.gov.uk/government/collections/classification-of-goods"
+            }
+        },
+        {
+            "id": "27624",
+            "type": "heading",
+            "attributes": {
+                "goods_nomenclature_sid": 27624,
+                "goods_nomenclature_item_id": "0101000000",
+                "declarable": false,
+                "description": "Live horses, asses, mules and hinnies",
+                "producline_suffix": "80",
+                "leaf": true,
+                "description_plain": "Live horses, asses, mules and hinnies",
+                "formatted_description": "Live horses, asses, mules and hinnies"
+            },
+            "relationships": {
+                "children": {
+                    "data": []
+                }
+            }
+        },
+        {
+            "id": "27633",
+            "type": "heading",
+            "attributes": {
+                "goods_nomenclature_sid": 27633,
+                "goods_nomenclature_item_id": "0102000000",
+                "declarable": false,
+                "description": "Live bovine animals",
+                "producline_suffix": "80",
+                "leaf": true,
+                "description_plain": "Live bovine animals",
+                "formatted_description": "Live bovine animals"
+            },
+            "relationships": {
+                "children": {
+                    "data": []
+                }
+            }
+        },
+        {
+            "id": "27762",
+            "type": "heading",
+            "attributes": {
+                "goods_nomenclature_sid": 27762,
+                "goods_nomenclature_item_id": "0103000000",
+                "declarable": false,
+                "description": "Live swine",
+                "producline_suffix": "80",
+                "leaf": true,
+                "description_plain": "Live swine",
+                "formatted_description": "Live swine"
+            },
+            "relationships": {
+                "children": {
+                    "data": []
+                }
+            }
+        },
+        {
+            "id": "27773",
+            "type": "heading",
+            "attributes": {
+                "goods_nomenclature_sid": 27773,
+                "goods_nomenclature_item_id": "0104000000",
+                "declarable": false,
+                "description": "Live sheep and goats",
+                "producline_suffix": "80",
+                "leaf": true,
+                "description_plain": "Live sheep and goats",
+                "formatted_description": "Live sheep and goats"
+            },
+            "relationships": {
+                "children": {
+                    "data": []
+                }
+            }
+        },
+        {
+            "id": "27783",
+            "type": "heading",
+            "attributes": {
+                "goods_nomenclature_sid": 27783,
+                "goods_nomenclature_item_id": "0105000000",
+                "declarable": false,
+                "description": "Live poultry, that is to say, fowls of the species Gallus domesticus, ducks, geese, turkeys and guinea fowls",
+                "producline_suffix": "80",
+                "leaf": true,
+                "description_plain": "Live poultry, that is to say, fowls of the species Gallus domesticus, ducks, geese, turkeys and guinea fowls",
+                "formatted_description": "Live poultry, that is to say, fowls of the species Gallus domesticus, ducks, geese, turkeys and guinea fowls"
+            },
+            "relationships": {
+                "children": {
+                    "data": []
+                }
+            }
+        },
+        {
+            "id": "27802",
+            "type": "heading",
+            "attributes": {
+                "goods_nomenclature_sid": 27802,
+                "goods_nomenclature_item_id": "0106000000",
+                "declarable": false,
+                "description": "Other live animals",
+                "producline_suffix": "80",
+                "leaf": true,
+                "description_plain": "Other live animals",
+                "formatted_description": "Other live animals"
+            },
+            "relationships": {
+                "children": {
+                    "data": []
+                }
+            }
+        }
+    ]
+}

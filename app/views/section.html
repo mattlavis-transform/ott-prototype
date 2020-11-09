@@ -6,7 +6,7 @@
       },
       html: 'This is an experimental service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
     }) }}
-    {{ govukBreadcrumbs({
+    {# {{ govukBreadcrumbs({
   items: [
     {
       text: "Home",
@@ -17,7 +17,7 @@
       href: ""
     }
   ]
-}) }}
+}) }} #}
 {% endblock %}
 
 {% block pageTitle %}
@@ -47,7 +47,9 @@
                                         {{ chapter.attributes.formatted_description }}<br>
 
                                     </a></p>
+                                    <!--
                                     <p class="govuk-!-margin-bottom-0">Get guidance on this product area: <a href="https://www.gov.uk/government/collections/classification-of-goods">Classification of goods</a></p>
+                                    //-->
                                 </td>
                             </tr>
                         {% endif %}

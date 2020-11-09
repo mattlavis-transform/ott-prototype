@@ -12,6 +12,7 @@ class Heading {
         this.measures = [];
         this.duty_expressions = [];
         this.footnotes = [];
+        this.data = this.json["data"];
         this.included = this.json["included"];
 
         // Get the basic data from the API, prior to organising into an atomic object for the nunjucks

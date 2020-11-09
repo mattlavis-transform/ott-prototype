@@ -6,7 +6,7 @@
       },
       html: 'This is an experimental service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
     }) }}
-    {{ govukBreadcrumbs({
+    {# {{ govukBreadcrumbs({
   items: [
     {
       text: "Home",
@@ -17,7 +17,7 @@
       href: ""
     }
   ]
-}) }}
+}) }} #}
 {% endblock %}
 
 {% block pageTitle %}
@@ -32,6 +32,41 @@
                 Chapter {{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}: {{ heading.data.attributes.formatted_description }}
             </h1>
             {% include "search.html" %}
+            <div class="panel">
+                <nav class="breadcrumb">
+                    <ul class="govuk-list">
+                        {% for item in heading.included %}
+                            {% if (item.type == "section") %}
+                                <!-- Section //-->
+                                <li><a href="/sections/{{ item.id }}">Section {{ item.attributes.numeral }}: {{ item.attributes.title }}</a></li>
+                            {% endif %}
+                            {% if (item.type == "chapter") %}
+                                <!-- Chapter //-->
+                                <li class="crumb indent_1">
+                                    <div class="commodity">
+                                        <span class="code mauve">{{ item.attributes.goods_nomenclature_item_id | substring(0, 2) }}</span>
+                                        <span class="code blue"></span>
+                                        <span class="code green"></span>
+                                        <span class="code green"></span>
+                                        <span class="code green"></span>
+                                    </div>
+                                    <div class="description"><a href="/chapters/{{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}">{{ item.attributes.formatted_description }}</a></div>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        <li class="crumb indent_2">
+                            <div class="commodity">
+                                <span class="code mauve">{{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}</span>
+                                <span class="code blue">{{ heading.data.attributes.goods_nomenclature_item_id | substring(2, 2) }}</span>
+                                <span class="code green"></span>
+                                <span class="code green"></span>
+                                <span class="code green"></span>
+                            </div>
+                            <div class="description">{{ heading.data.attributes.formatted_description }}</div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
 
             {{ govukInsetText({
                 html: "There are important notes for classifying your goods shown further down this page.<br><br>Get guidance on this product area: <a href='https://www.gov.uk/government/collections/classification-of-goods'>Classification of goods</a>"
