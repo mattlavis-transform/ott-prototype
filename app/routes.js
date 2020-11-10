@@ -48,9 +48,17 @@ router.get('/commodities/:goods_nomenclature_item_id', function (req, res) {
     req.session.data["error"] = "";
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
-            res.render('commodities', { 'commodity': response.data, 'date_string': global.todays_date() });
+            //res.render('commodities', { 'commodity': response.data, 'date_string': global.todays_date() });
+            c = new Commodity();
+            c.pass_request(req);
+            c.get_data(response.data);
+            c.get_measure_data("basic");
+            res.render('commodities', { 'commodity': c, 'date_string': global.todays_date() });
         });
 });
+
+
+
 
 router.get('/certificate_search', function (req, res) {
     axios.get('https://www.trade-tariff.service.gov.uk/certificates/')

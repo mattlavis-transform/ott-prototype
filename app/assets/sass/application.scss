@@ -365,6 +365,18 @@ div.panel {
     margin-bottom   : 1.5em;
 }
 
+@media (max-width: 40.0625em) {
+    div.panels {
+        display: block;
+        padding: 1em
+    }
+
+    div.panel {
+        width: 100%
+    }
+}
+
+
 .measures {
     th {
         text-align: left;
@@ -431,7 +443,11 @@ div.panel {
     tr th {
         background-color: #E1E8E8;
         font-weight     : normal;
-        padding         : 4px !important;
+        padding         : 4px 4px 4px 0px !important;
+    }
+
+    tr th:nth-child(1) {
+        padding-left: 4px !important;
     }
 
     tr:nth-child(even) {
@@ -449,7 +465,69 @@ div.panel {
     .govuk-details__text {
         border: 0px !important
     }
+
+    .govuk-details__summary::before {
+        margin-top  : 3px;
+        border-width: 6px 0 6px 10.392px;
+    }
+
+    .govuk-details[open]>.govuk-details__summary::before {
+        border-width: 6px 0 6px 10.392px;
+    }
+
+
+
+    @media (max-width: 40.0625em) {
+
+        .govuk-details {
+            margin  : 0px;
+            padding : 0px;
+            top     : -2px;
+            position: relative;
+        }
+
+        .govuk-details__summary-text {
+            font-size: 12px;
+        }
+
+        .govuk-details__summary {
+            padding-left: 0.75em;
+        }
+
+        .govuk-details__summary::before {
+            border-width: 3.5px 0 3.5px 6.62px;
+        }
+
+        .govuk-details[open]>.govuk-details__summary::before {
+            border-width: 6.62px 3.5px 0 3.5px;
+        }
+
+        .legal_base {
+            display: none;
+        }
+
+        td.country {
+            padding-left: 0px !important;
+        }
+
+        .footnotes {
+            display: none;
+        }
+
+        .conditions {
+            display: none;
+        }
+
+        .exclusions {
+            display: none;
+        }
+
+        .govuk-table__caption {
+            font-size: 14px;
+        }
+    }
 }
+
 
 ul.countries {
     margin         : 0px 0px 0px 5px;

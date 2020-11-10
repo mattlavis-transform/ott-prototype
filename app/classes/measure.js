@@ -16,6 +16,10 @@ class Measure {
         this.combined_duty = "";
         this.order_number = null;
         this.order_number_id = null;
+        this.import = null;
+        this.legal_base = "";
+        this.legal_acts = [];
+        this.legal_act_ids = [];
     }
 
     combine_duties() {

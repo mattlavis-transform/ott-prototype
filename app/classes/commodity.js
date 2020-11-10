@@ -8,6 +8,7 @@ const AdditionalCode = require("./additional_code");
 const Calculation = require("./calculation");
 const OrderNumber = require("./order_number");
 const Definition = require("./definition");
+const LegalAct = require("./legal_act");
 
 class Commodity {
     constructor(sid = null, goods_nomenclature_item_id = null, productline_suffix = null, description = null, number_indents = null, leaf = null, parent_sid = null, indent_class = null) {
@@ -67,7 +68,7 @@ class Commodity {
     }
 
     get_measure_data(origin) {
-        var m, mc, mt, g, ac, id, item2;
+        var m, mc, mt, g, ac, la, id, item2;
 
         /* START GOOD EXAMPLES
 
@@ -99,6 +100,7 @@ class Commodity {
         this.additional_codes = [];
         this.order_numbers = [];
         this.definitions = [];
+        this.legal_acts = [];
 
         // Get all the measures + measure components
         this.included.forEach(item => {
@@ -121,6 +123,11 @@ class Commodity {
                         m.additional_code_id = item["relationships"]["additional_code"]["data"]["id"];
                     }
                 }
+                // Get legal base / legal acts
+                var legal_acts = item["relationships"]["legal_acts"]["data"];
+                legal_acts.forEach(legal_act => {
+                    m.legal_act_ids.push(legal_act["id"]);
+                });
 
                 // Get quota order number
                 try {
@@ -156,18 +163,26 @@ class Commodity {
             } else if (item["type"] == "definition") {
                 ac = new Definition(item);
                 this.definitions.push(ac);
+
+            } else if (item["type"] == "legal_act") {
+                la = new LegalAct(item);
+                this.legal_acts.push(la);
             }
         });
 
         this.assign_geographical_areas();
         this.assign_additional_codes();
-        this.remove_irrelevant_measures();
+        console.log(this.measures.length);
+        if (origin != "basic") {
+            this.remove_irrelevant_measures();
+        }
         this.assign_measure_components();
         this.get_units();
         this.get_measure_type_descriptions();
         this.get_measure_country_descriptions();
         this.categorise_measures();
         this.assign_definitions_to_order_numbers();
+        this.assign_legal_acts_to_measures();
 
 
         // console.log("Units: " + this.units);
@@ -197,7 +212,9 @@ class Commodity {
             this.geographical_areas.forEach(geographical_area => {
                 if (geographical_area.id == measure.geographical_area_id) {
                     measure.geographical_area_description = geographical_area.description;
-                    console.log("Found " + geographical_area.description);
+                    if (measure.geographical_area_description == "ERGA OMNES") {
+                        measure.geographical_area_description = "All countries";
+                    }
                 }
             });
         });
@@ -214,10 +231,6 @@ class Commodity {
     }
 
     assign_definitions_to_order_numbers() {
-        // this.order_numbers.forEach(order_number => {
-        //     console.log(order_number.id + " : " + order_number.definition_id);
-        // });
-
         this.definitions.forEach(definition => {
             this.order_numbers.forEach(order_number => {
                 if (order_number.definition_id == definition.id) {
@@ -232,7 +245,25 @@ class Commodity {
                 }
             });
         });
-        
+    }
+
+    assign_legal_acts_to_measures() {
+        this.legal_acts.forEach(legal_act => {
+            this.measures.forEach(measure => {
+                measure.legal_act_ids.forEach(legal_act_id => {
+                    console.log(legal_act_id);
+                    if (legal_act_id == legal_act.id) {
+                        //console.log("Pushing");
+                        measure.legal_acts.push(legal_act);
+                    }
+                });
+            });
+        });
+        this.measures.forEach(measure => {
+            if (measure.legal_acts.length > 0) {
+                measure.legal_base = measure.legal_acts[0].friendly;
+            }
+        });
     }
 
     calculate_vat() {

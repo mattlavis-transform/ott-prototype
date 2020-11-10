@@ -152,67 +152,48 @@
                         <th scope="col" class="govuk-table__header country">Country</th>
                         <th scope="col" class="govuk-table__header measure">Measure</th>
                         <th scope="col" class="govuk-table__header value">Value</th>
-                        <th scope="col" class="govuk-table__header conditions">Conditions that apply</th>
+                        <th scope="col" class="govuk-table__header conditions">Conditions</th>
                         <th scope="col" class="govuk-table__header exclusions">Exclusions</th>
-                        <th scope="col" class="govuk-table__header legal_base c">Legal base</th>
-                        <th scope="col" class="govuk-table__header dates c">Start date<br>(End date)</th>
-                        <th scope="col" class="govuk-table__header footnotes r">Footnotes</th>
+                        <th scope="col" class="govuk-table__header legal_base">Legal base</th>
+                        <th scope="col" class="govuk-table__header dates">Date&nbsp;(s)</th>
+                        <th scope="col" class="govuk-table__header footnotes">Footnotes</th>
                     </tr>
                 </thead>
                 <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row measure">
-                        <td class="govuk-table__cell country">
-                            <details class="govuk-details" data-module="govuk-details">
-                                <summary class="govuk-details__summary">
-                                    <span class="govuk-details__summary-text">All countries (1011)</span>
-                                </summary>
-                                <div class="govuk-details__text">
-                                    <ul class="countries">
-                                        <li>Albania (AL)</li>
-                                        <li>Cocos Islands (or Keeling Islands) (CC)</li>
-                                        <li></li>
-                                    </ul>
-                                    <br>
+                    {% for measure in commodity.measures %}
+                        {% if (measure.import == true) %}
+                            <tr class="govuk-table__row measure">
+                                <td class="govuk-table__cell country">
+                                    <details class="govuk-details" data-module="govuk-details">
+                                        <summary class="govuk-details__summary">
+                                            <span class="govuk-details__summary-text">{{ measure.geographical_area_description }}</span>
+                                        </summary>
+                                        <div class="govuk-details__text">
+                                            <ul class="countries">
+                                                <li>Albania (AL)</li>
+                                                <li>Cocos Islands (or Keeling Islands) (CC)</li>
+                                                <li></li>
+                                            </ul>
+                                            <br>
 
-                                </div>
-                            </details>
-                        </td>
-                        <td class="govuk-table__cell">Third country duty</td>
-                        <td class="govuk-table__cell">0.00 %</td>
-                        <td class="govuk-table__cell">
-                            <a href="">Conditions</a>
-                        </td>
-                        <td class="govuk-table__cell">&nbsp;</td>
-                        <td class="govuk-table__cell c">R1925/17</td>
-                        <td class="govuk-table__cell c">01/02/2015</td>
-                        <td class="govuk-table__cell footnotes r">
-                            <a href="">03026</a>
-                        </td>
-                    </tr>
-                    <tr class="govuk-table__row measure">
-                        <td class="govuk-table__cell country">
-                            <details class="govuk-details" data-module="govuk-details">
-                                <summary class="govuk-details__summary">
-                                    <span class="govuk-details__summary-text">All countries (1011)</span>
-                                </summary>
-                                <div class="govuk-details__text">
-                                    Albania<br>
-                                    Cocos Islands (or Keeling Islands) (CC)
-                                </div>
-                            </details>
-                        </td>
-                        <td class="govuk-table__cell">Third country duty</td>
-                        <td class="govuk-table__cell">0.00 %</td>
-                        <td class="govuk-table__cell">
-                            <a href="">Conditions</a>
-                        </td>
-                        <td class="govuk-table__cell">&nbsp;</td>
-                        <td class="govuk-table__cell c">R1925/17</td>
-                        <td class="govuk-table__cell c">01/02/2015</td>
-                        <td class="govuk-table__cell footnotes r">
-                            <a href="">03026</a>
-                        </td>
-                    </tr>
+                                        </div>
+                                    </details>
+                                </td>
+                                <td class="govuk-table__cell measure">{{ measure.measure_type_description }}</td>
+                                <td class="govuk-table__cell value">TBC</td>
+                                <td class="govuk-table__cell conditions">
+                                    <a href="">TBC</a>
+                                </td>
+                                <td class="govuk-table__cell exclusions">TBC</td>
+                                <td class="govuk-table__cell legal_base">{{ measure.legal_base }}</td>
+                                <td class="govuk-table__cell dates">{{ measure.effective_start_date | format_date("DD MMM YY") }}</td>
+                                <td class="govuk-table__cell footnotes">
+                                    <a href="">TBC</a>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+
                 </tbody>
             </table>
 
