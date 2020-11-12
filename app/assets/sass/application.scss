@@ -360,10 +360,25 @@ div.panels {
 }
 
 div.panel {
-    background-color: #F3F2F1;
-    padding         : 1em;
-    margin-bottom   : 1.5em;
+    background-color       : #F3F2F1;
+    padding                : 1em;
+    margin-bottom          : 1.5em;
+    font-family            : "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing : antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
+div.panel_blue {
+    font-size       : 19px;
+    background-color: #d2edf9;
+    padding         : 0.5em !important;
+
+}
+
+.notbold {
+    font-weight: normal !important;
+}
+
 
 @media (max-width: 40.0625em) {
     div.panels {

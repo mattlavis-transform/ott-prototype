@@ -20,6 +20,8 @@ class Measure {
         this.legal_base = "";
         this.legal_acts = [];
         this.legal_act_ids = [];
+        this.excluded_countries = [];
+        this.excluded_country_ids = [];
     }
 
     combine_duties() {

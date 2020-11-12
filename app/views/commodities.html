@@ -2,9 +2,9 @@
 {% block beforeContent %}
     {{ govukPhaseBanner({
       tag: {
-        text: "experimental"
+        text: "beta"
       },
-      html: 'This is an experimental service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
+      html: 'This is a Beta service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
     }) }}
     {# {{ govukBreadcrumbs({
   items: [
@@ -41,7 +41,7 @@
                 {% for item in commodity.included %}
                     {% if (item.type == "section") %}
                         <!-- Section //-->
-                        <li>
+                        <li class="section">
                             <a href="/sections/{{ item.id }}">Section {{ item.attributes.numeral }}: {{ item.attributes.title }}</a>
                         </li>
                     {% endif %}
@@ -77,14 +77,14 @@
                     {% endif %}
                     {% if (item.type == "commodity") %}
                         {% set counter = (counter | default(2)) + 1 %}
-                        <!-- Heading //-->
+                        <!-- Ancestors //-->
                         <li class="crumb indent_{{ counter }}">
                             <div class="commodity">
-                                <span class="code mauve">{{ item.attributes.goods_nomenclature_item_id | substring(0, 2) }}</span>
-                                <span class="code blue">{{ item.attributes.goods_nomenclature_item_id | substring(2, 2) }}</span>
-                                <span class="code green">{{ item.attributes.goods_nomenclature_item_id | substring(4, 2) }}</span>
-                                <span class="code green">{{ item.attributes.goods_nomenclature_item_id | substring(6, 2) }}</span>
-                                <span class="code green">{{ item.attributes.goods_nomenclature_item_id | substring(8, 2) }}</span>
+                                <span class="code mauve">{{ item.attributes.formatted_commodity_code | substring(0, 2) }}</span>
+                                <span class="code blue">{{ item.attributes.formatted_commodity_code | substring(2, 2) }}</span>
+                                <span class="code green">{{ item.attributes.formatted_commodity_code | substring(4, 2) }}</span>
+                                <span class="code green">{{ item.attributes.formatted_commodity_code | substring(6, 2) }}</span>
+                                <span class="code green">{{ item.attributes.formatted_commodity_code | substring(8, 2) }}</span>
                             </div>
                             <div class="description">
                                 <a href="/headings/{{ item.attributes.goods_nomenclature_item_id | substring(0, 4) }}">{{ item.attributes.formatted_description }}</a>
@@ -164,6 +164,7 @@
                         {% if (measure.import == true) %}
                             <tr class="govuk-table__row measure">
                                 <td class="govuk-table__cell country">
+                                {% if (measure.geographical_area_code == 1) %}
                                     <details class="govuk-details" data-module="govuk-details">
                                         <summary class="govuk-details__summary">
                                             <span class="govuk-details__summary-text">{{ measure.geographical_area_description }}</span>
@@ -178,6 +179,9 @@
 
                                         </div>
                                     </details>
+                                    {% else %}
+                                    {{ measure.geographical_area_description }}
+                                    {% endif %}
                                 </td>
                                 <td class="govuk-table__cell measure">{{ measure.measure_type_description }}</td>
                                 <td class="govuk-table__cell value">TBC</td>
@@ -201,7 +205,7 @@
         <div class="govuk-tabs__panel" id="export">
             <h2 class="govuk-heading-m">Export measures and restrictions</h2>
             <p>This information is for <strong>{{ date_string }}</strong>.</p>
-            {% include "includes/types_of_measure.html" %}
+            {# {% include "includes/types_of_measure.html" %} #}
         </div>
 
     </div>

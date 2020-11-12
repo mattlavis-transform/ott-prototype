@@ -123,10 +123,17 @@ class Commodity {
                         m.additional_code_id = item["relationships"]["additional_code"]["data"]["id"];
                     }
                 }
+
                 // Get legal base / legal acts
                 var legal_acts = item["relationships"]["legal_acts"]["data"];
                 legal_acts.forEach(legal_act => {
                     m.legal_act_ids.push(legal_act["id"]);
+                });
+
+                // Get excluded_countries
+                var excluded_countries = item["relationships"]["excluded_countries"]["data"];
+                excluded_countries.forEach(excluded_country => {
+                    m.excluded_country_ids.push(excluded_country["id"]);
                 });
 
                 // Get quota order number
@@ -183,6 +190,7 @@ class Commodity {
         this.categorise_measures();
         this.assign_definitions_to_order_numbers();
         this.assign_legal_acts_to_measures();
+        this.assign_geographical_area_descriptions_to_exclusions();
 
 
         // console.log("Units: " + this.units);
@@ -212,6 +220,7 @@ class Commodity {
             this.geographical_areas.forEach(geographical_area => {
                 if (geographical_area.id == measure.geographical_area_id) {
                     measure.geographical_area_description = geographical_area.description;
+                    measure.geographical_area_code = geographical_area.geographical_area_code;
                     if (measure.geographical_area_description == "ERGA OMNES") {
                         measure.geographical_area_description = "All countries";
                     }
@@ -247,11 +256,34 @@ class Commodity {
         });
     }
 
+    assign_geographical_area_descriptions_to_exclusions() {
+        console.log ("assign_geographical_area_descriptions_to_exclusions");
+        this.geographical_areas.forEach(ga => {
+            this.measures.forEach(measure => {
+                measure.excluded_country_ids.forEach(excluded_country => {
+                    //console.log(excluded_country);
+                    if (excluded_country == ga.id) {
+                        console.log("Pushing excluded country");
+                        measure.excluded_countries.push(excluded_country);
+                    }
+                });
+            });
+        });
+
+        this.measures.forEach(measure => {
+            measure.excluded_country_string = "";
+            // <ul class="countries">
+            //     <li>Albania (AL)</li>
+            //     <li>Cocos Islands (or Keeling Islands) (CC)</li>
+            //     <li></li>
+            // </ul>
+        });
+    }
+
     assign_legal_acts_to_measures() {
         this.legal_acts.forEach(legal_act => {
             this.measures.forEach(measure => {
                 measure.legal_act_ids.forEach(legal_act_id => {
-                    console.log(legal_act_id);
                     if (legal_act_id == legal_act.id) {
                         //console.log("Pushing");
                         measure.legal_acts.push(legal_act);

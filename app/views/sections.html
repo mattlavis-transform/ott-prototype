@@ -2,9 +2,9 @@
 {% block beforeContent %}
 {{ govukPhaseBanner({
       tag: {
-        text: "experimental"
+        text: "beta"
       },
-      html: 'This is an experimental service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
+      html: 'This is a Beta service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
     }) }}
 
 {% endblock %}
@@ -19,6 +19,11 @@
             <h1 class="govuk-heading-l">
                 Trade Tariff: look up commodity codes, duty and VAT rates
             </h1>
+            <div class="panel panel_blue">
+            Are you trading with Northern Ireland? From January 1st 2021, Northern Ireland is operating under
+a dual tariff regime and the rules may differ if you are importing goods that are then at risk of being
+transported to the Republic of Ireland. In that case, use the <a href="#">Northern Ireland Tariff</a>.
+            </div>
             {% include "search.html" %}
             <table class="govuk-table">
                 <caption class="govuk-table__caption govuk-caption-l">All sections</caption>

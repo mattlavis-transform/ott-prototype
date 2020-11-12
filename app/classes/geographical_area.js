@@ -15,6 +15,7 @@ class GeographicalArea {
                 }
             }
             this.country_name = this.get_country_description(this.id);
+            this.check_area_type();
         } else {
             this.id = null;
             this.description = null;
@@ -22,6 +23,16 @@ class GeographicalArea {
             this.members = [];
             this.country_name = null;
         }
+    }
+
+    check_area_type() {
+        var str = "Hello World!";
+        if (this.id.length == 4) {
+            this.geographical_area_code = 1 // Area group
+        } else {
+            this.geographical_area_code = 0 // Country
+        }
+        var n = str.length; 
     }
 
     get_country_description(id) {
