@@ -9,13 +9,18 @@
   name: "search"
 }) }}
 
-  {# {{ govukButton({
+  {{ govukButton({
   text: "Search",
   classes: "inline-button",
   name: "btn_search",
   id: "btn_search"
-}) }} #}
+}) }}
 </form>
+
+{{ govukDetails({
+  summaryText: "Help with nationality",
+  text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+}) }}
 
 {# <p class="govuk-body-s">
   This tariff covers imports into England, Scotland and Wales and the UK tariff
@@ -47,10 +52,10 @@
   }
 }) }}
 
-{{ govukDetails({
+{# {{ govukDetails({
   summaryText: "Why the date is important",
   text: "Lorem ipsum ..."
-}) }}
+}) }} #}
 
 {{ govukButton({
   text: "Search"
