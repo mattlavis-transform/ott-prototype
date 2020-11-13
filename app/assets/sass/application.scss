@@ -368,10 +368,16 @@ div.panel {
     -moz-osx-font-smoothing: grayscale;
 }
 
+div.panel_grey {
+    font-size       : 19px;
+    background-color: #f0f0f0;
+    padding         : 0.5em 0.75em !important;
+
+}
+
 div.panel_blue {
     font-size       : 19px;
-    // background-color: #d2edf9;
-    background-color: #f0f0f0;
+    background-color: #d2edf9;
     padding         : 0.5em 0.75em !important;
 
 }
@@ -572,6 +578,9 @@ ul.countries {
     }
 }
 
+@import "components/attachments";
+@import "components/az";
+@import "components/bold_banner";
 @import "components/breadcrumbs";
 @import "components/calculate";
 @import "components/bottom_links";

@@ -13,13 +13,15 @@ require('./classes/global.js');
 
 // Add your routes here - above the module.exports line
 
-router.get('/sections', function (req, res) {
+// Search page
+router.get('/search', function (req, res) {
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections')
         .then((response) => {
-            res.render('sections', { 'sections': response.data, 'date_string': global.todays_date() });
+            res.render('search', { 'search': response.data, 'date_string': global.todays_date() });
         });
 });
 
+// Browse page
 router.get('/browse', function (req, res) {
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections')
         .then((response) => {
@@ -27,6 +29,7 @@ router.get('/browse', function (req, res) {
         });
 });
 
+// Browse within a section
 router.get('/sections/:sectionId', function (req, res) {
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections/' + req.params["sectionId"])
         .then((response) => {
@@ -34,6 +37,7 @@ router.get('/sections/:sectionId', function (req, res) {
         });
 });
 
+// Browse within a chapter
 router.get('/chapters/:chapterId', function (req, res) {
     s = req.params["chapterId"];
     s = s.padStart(2, "0");
@@ -43,6 +47,7 @@ router.get('/chapters/:chapterId', function (req, res) {
         });
 });
 
+// Browse within a heading
 router.get('/headings/:headingId', function (req, res) {
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/headings/' + req.params["headingId"])
         .then((response) => {
@@ -51,6 +56,7 @@ router.get('/headings/:headingId', function (req, res) {
         });
 });
 
+// Browse a single commodity
 router.get('/commodities/:goods_nomenclature_item_id', function (req, res) {
     req.session.data["error"] = "";
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
@@ -66,7 +72,17 @@ router.get('/commodities/:goods_nomenclature_item_id', function (req, res) {
 
 
 
+// A-Z index
+router.get('/a-z-index/:letter', function (req, res) {
+    var url = 'https://www.trade-tariff.service.gov.uk/api/v2/search_references.json?query[letter]=' + req.params["letter"];
+    console.log(url);
+    axios.get(url)
+        .then((response) => {
+            res.render('a-z-index', { 'headings': response.data, 'letter': req.params["letter"], alphabet: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'date_string': global.todays_date() });
+        });
+});
 
+// Certificates (dead)
 router.get('/certificate_search', function (req, res) {
     axios.get('https://www.trade-tariff.service.gov.uk/certificates/')
         .then((response) => {

@@ -10,7 +10,7 @@
   items: [
     {
       text: "Home",
-      href: "/sections"
+      href: "/search"
     },
     {
       text: "Section " + section.data.id,
@@ -31,7 +31,7 @@
             <h1 class="govuk-heading-l">
                 Section {{ section.data.id }}: {{ section.data.attributes.title }}
             </h1>
-            {% include "search.html" %}
+            {# {% include "includes/search.html" %} #}
             <table class="govuk-table">
                 <tbody class="govuk-table__body">
                     {% for chapter in section.included %}

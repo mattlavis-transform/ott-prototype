@@ -1,16 +1,10 @@
 {% extends "layout.html" %}
 {% block beforeContent %}
-    {{ govukPhaseBanner({
-      tag: {
-        text: "beta"
-      },
-      html: 'This is a Beta service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
-    }) }}
     {# {{ govukBreadcrumbs({
   items: [
     {
       text: "Home",
-      href: "/sections"
+      href: "/search"
     },
     {
       text: "Certificates",
@@ -31,7 +25,7 @@
             <h1 class="govuk-heading-l">
                 Chapter {{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}: {{ heading.data.attributes.formatted_description }}
             </h1>
-            {% include "search.html" %}
+            {# {% include "includes/search.html" %} #}
             <div class="panel">
                 <nav class="breadcrumb">
                     <ul class="govuk-list">

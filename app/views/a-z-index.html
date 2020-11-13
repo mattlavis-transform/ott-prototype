@@ -2,33 +2,42 @@
 {% block pageTitle %}
   Trade Tariff: A-Z of Classified Goods
 {% endblock %}
-{% block beforeContent %}
-    {{ govukPhaseBanner({
-      tag: {
-        text: "beta"
-      },
-      html: 'This is a Beta service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
-    }) }}
-    {{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Home",
-      href: "/sections"
-    },
-    {
-      text: "A-Z of Classified Goods",
-      href: ""
-    }
-  ]
-}) }}
-{% endblock %}
+{% block beforeContent %}{% endblock %}
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
+            <span class="govuk-caption-xl">The Trade Tariff</span>
             <h1 class="govuk-heading-l">
                 A-Z of Classified Goods
             </h1>
-            
+            <ul class="az">
+                {% for item in alphabet %}
+                    <li>
+                        <a href="/a-z-index/{{ item | lower() }}">{{ item }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <table class="govuk-table">
+                <caption class="govuk-table__caption">{{ letter | upper() }}</caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Product</th>
+                        <th scope="col" class="govuk-table__header r">Index</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    {% for heading in headings.data %}
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">
+                                <a href="/headings/{{ heading.attributes.referenced_id }}">{{ heading.attributes.title | capitalise() }}</a>
+                            </th>
+                            <td class="govuk-table__cell r">{{ heading.attributes.referenced_class }}&nbsp;{{ heading.attributes.referenced_id }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
         </div>
     </div>
 

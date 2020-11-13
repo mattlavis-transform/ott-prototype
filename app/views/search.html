@@ -1,57 +1,50 @@
-<form class="form-inline" method="get">
-  {{ govukInput({
-  label: {
-    text: "Search the UK Global Tariff"
-  },
-  classes: "xgovuk-input--width-20 search-field",
-  placeholder: "Enter the name of the goods or commodity code",
-  id: "search",
-  name: "search"
-}) }}
+{% extends "layout.html" %}
+{% block beforeContent %}{% endblock %}
 
-  {# {{ govukButton({
-  text: "Search",
-  classes: "inline-button",
-  name: "btn_search",
-  id: "btn_search"
-}) }} #}
-</form>
+{% block pageTitle %}
+  Trade Tariff: look up commodity codes, duty and VAT rates
+{% endblock %}
 
-{# <p class="govuk-body-s">
-  This tariff covers imports into England, Scotland and Wales and the UK tariff
-  as applies to Northern Ireland. From January 1st, Northern Ireland is
-  operating under a dual tariff regime.
-</p>
-<p class="govuk-body-s">
-  Switch to view <a href="">EU tariff for Northern Ireland</a> imports.
-  Find out more about the <a href="/dual_tariff.html">Dual Tariff regime for Northern Ireland</a>
-</p> #}
-
-{# <p class="govuk-body-s">
-  This tariff is for {{ date_string }}
-  <a href="#" class="change_date">Change date</a>
-</p> #}
-
-{{ govukDateInput({
-  id: "date_of_trade",
-  namePrefix: "date_of_trade",
-  fieldset: {
-    legend: {
-      text: "Date of trade?",
-      isPageHeading: false,
-      classes: "govuk-fieldset__legend--s notbold"
-    }
-  },
-  hintx: {
-    text: "For example, 31 6 2021"
-  }
-}) }}
-
-{{ govukDetails({
-  summaryText: "Why the date is important",
-  text: "Lorem ipsum ..."
-}) }}
-
-{{ govukButton({
-  text: "Search"
-}) }}
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <span class="govuk-caption-xl">The Trade Tariff</span>
+            <h1 class="govuk-heading-l">
+                {{ serviceName }}
+            </h1>
+            {% include "includes/intro_panel.html" %}
+            {% include "includes/search.html" %}
+            {# <table class="govuk-table">
+                <caption class="govuk-table__caption govuk-caption-l">All sections</caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Section title</th>
+                        <th scope="col" class="govuk-table__header">Section</th>
+                        <th scope="col" class="govuk-table__header">Chapters</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    {% for section in sections.data %}
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">
+                                <a href="/sections/{{ section.id }}">
+                                    {{ section.attributes.title }}
+                                </a>
+                            </td>
+                            <td class="govuk-table__cell c roman">
+                                {{ section.id | roman }}
+                            </td>
+                            <td class="govuk-table__cell">
+                                {% if (section.attributes.chapter_from != section.attributes.chapter_to) %}
+                                    {{ section.attributes.chapter_from|int }} to {{ section.attributes.chapter_to|int }}
+                                {% else %}
+                                    {{ section.attributes.chapter_from }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table> #}
+        </div>
+    </div>
+{% endblock %}

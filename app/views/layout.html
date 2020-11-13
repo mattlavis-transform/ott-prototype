@@ -45,26 +45,29 @@
   {{ govukHeader({
   homepageUrl: "https://www.gov.uk",
   serviceName: serviceName,
-  serviceUrl: "/sections",
+  serviceUrl: "/search",
   navigation: [
     {
-      href: "/sections",
-      text: "Search the tariff",
-      active: true
+      href: "/search",
+      text: "Search the tariff"
     },
     {
       href: "/browse",
-      text: "Browse the tariff"
+      text: "Browse the goods classification"
     },
     {
-      href: "a-z-index",
+      href: "/a-z-index/a",
       text: "A-Z index"
+    },
+    {
+      href: "/downloads",
+      text: "Downloads"
     }
   ]
 }) }}
 
+{% include "includes/nav_highlighter.html" %}
 {% endblock %}
-
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
 
 {% if useAutoStoreData %}
