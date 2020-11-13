@@ -35,20 +35,12 @@
 {% endblock %}
 
 {% block pageTitle %}
-  Trade Tariff: look up commodity codes, duty and VAT rates
+  {{ serviceName }}
 {% endblock %}
 
 {% block header %}
   {% include "includes/cookie-banner.html" %}
   {# Set serviceName in config.js. #}
-  <!--
-  {{ govukHeader({
-    homepageUrl: "/",
-    serviceName: serviceName,
-    serviceUrl: "/",
-    containerClasses: "govuk-width-container"
-  }) }}
-  //-->
 
   {{ govukHeader({
   homepageUrl: "https://www.gov.uk",
@@ -57,32 +49,16 @@
   navigation: [
     {
       href: "/sections",
-      text: "Search / browse",
-      xactive: true
+      text: "Search the tariff",
+      active: true
     },
     {
-      href: "/additional_codes",
-      text: "Additional codes"
-    },
-    {
-      href: "/certificates",
-      text: "Certificates"
-    },
-    {
-      href: "/footnotes",
-      text: "Footnotes"
-    },
-    {
-      href: "/quotas",
-      text: "Quotas"
-    },
-    {
-      href: "/cas",
-      text: "CAS"
+      href: "/browse",
+      text: "Browse the tariff"
     },
     {
       href: "a-z-index",
-      text: "A-Z"
+      text: "A-Z index"
     }
   ]
 }) }}

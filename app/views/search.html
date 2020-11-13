@@ -9,25 +9,20 @@
   name: "search"
 }) }}
 
-  {{ govukButton({
+  {# {{ govukButton({
   text: "Search",
   classes: "inline-button",
   name: "btn_search",
   id: "btn_search"
-}) }}
+}) }} #}
 </form>
-
-{{ govukDetails({
-  summaryText: "Help with nationality",
-  text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
-}) }}
 
 {# <p class="govuk-body-s">
   This tariff covers imports into England, Scotland and Wales and the UK tariff
   as applies to Northern Ireland. From January 1st, Northern Ireland is
   operating under a dual tariff regime.
-</p> #}
-{# <p class="govuk-body-s">
+</p>
+<p class="govuk-body-s">
   Switch to view <a href="">EU tariff for Northern Ireland</a> imports.
   Find out more about the <a href="/dual_tariff.html">Dual Tariff regime for Northern Ireland</a>
 </p> #}
@@ -47,15 +42,15 @@
       classes: "govuk-fieldset__legend--s notbold"
     }
   },
-  hint: {
+  hintx: {
     text: "For example, 31 6 2021"
   }
 }) }}
 
-{# {{ govukDetails({
+{{ govukDetails({
   summaryText: "Why the date is important",
   text: "Lorem ipsum ..."
-}) }} #}
+}) }}
 
 {{ govukButton({
   text: "Search"

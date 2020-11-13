@@ -20,6 +20,13 @@ router.get('/sections', function (req, res) {
         });
 });
 
+router.get('/browse', function (req, res) {
+    axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections')
+        .then((response) => {
+            res.render('browse', { 'sections': response.data, 'date_string': global.todays_date() });
+        });
+});
+
 router.get('/sections/:sectionId', function (req, res) {
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections/' + req.params["sectionId"])
         .then((response) => {
