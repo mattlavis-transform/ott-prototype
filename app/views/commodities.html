@@ -21,10 +21,98 @@
         Trade data for commodity {{ commodity.data.attributes.goods_nomenclature_item_id }}
     </h1>
     {% include "includes/intro_panel_short.html" %}
+
+
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      This tariff is for {{ date_string }}. Click to change
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    
+
+{{ govukDateInput({
+  id: "date",
+  namePrefix: "date",
+  fieldset: {
+    legend: {
+      text: "On which date will your trade take place?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      classes: "govuk-input--width-2",
+      name: "day",
+      value: "1"
+    },
+    {
+      classes: "govuk-input--width-2",
+      name: "month",
+      value: "1"
+    },
+    {
+      classes: "govuk-input--width-4",
+      name: "year",
+      value: "2021"
+    }
+  ]
+}) }}
+{{ govukButton({
+  text: "Update date"
+}) }}
+
+  </div>
+</details>
+{# 
     <p class="govuk-body-s">
         This tariff is for {{ date_string }}
         <a href="#" class="change_date">Change date</a>
     </p>
+
+    <div class="govuk-inset-text" id="date_switcher">
+
+        {{ govukDateInput({
+  id: "date",
+  namePrefix: "date",
+  fieldset: {
+    legend: {
+      text: "On which date will your trade take place?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      classes: "govuk-input--width-2",
+      name: "day",
+      value: "1"
+    },
+    {
+      classes: "govuk-input--width-2",
+      name: "month",
+      value: "1"
+    },
+    {
+      classes: "govuk-input--width-4",
+      name: "year",
+      value: "2021"
+    }
+  ]
+}) }}
+{{ govukButton({
+  text: "Update date"
+}) }}
+
+    </div> #}
 
     <div class="panel">
         <nav class="breadcrumb">

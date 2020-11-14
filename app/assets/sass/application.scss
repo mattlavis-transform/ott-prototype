@@ -579,11 +579,15 @@ ul.countries {
 }
 
 .mb10 li {
-    margin-bottom:1em;
+    margin-bottom: 1em;
 }
 
 .b {
     font-weight: bold;
+}
+
+#date_switcher {
+    display: none;
 }
 
 @import "components/attachments";

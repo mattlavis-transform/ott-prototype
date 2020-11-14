@@ -32,4 +32,12 @@ $(document).ready(function () {
         }
     });
 
+    $(".change_date").click(function (event) {
+        if( $("#date_switcher").css('display') != 'none') {
+            $("#date_switcher").hide();
+        } else {
+            $("#date_switcher").show();
+        }
+        event.preventDefault();
+    });
 });
