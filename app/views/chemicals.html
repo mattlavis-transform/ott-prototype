@@ -3,94 +3,55 @@
   Trade Tariff: Search by chemical
 {% endblock %}
 {% block beforeContent %}
-        {{ govukBreadcrumbs({
+  {{ govukBreadcrumbs({
   items: [
     {
       text: "Home",
-      href: "/search"
+      href: "/search/" + scopeId
     },
     {
       text: "Extras",
-      href: "/extras"
+      href: "/extras/" + scopeId
     },
     {
       text: "Chemicals",
-      href: "#"
+      href: ""
     }
   ]
 }) }}
 {% endblock %}
 {% block content %}
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
-            <h1 class="govuk-heading-l">
-                Search by chemical
-            </h1>
-            {{ govukSelect({
-  id: "sort",
-  name: "sort",
-  label: {
-    text: "Sort by"
-  },
-  items: [
-    {
-      value: "9",
-      text: "9 - National Document"
-    },
-    {
-      value: "A",
-      text: "A - Certificate of authenticity",
-      selected: true
-    },
-    {
-      value: "C",
-      text: "C - Other certificates"
-    },
-    {
-      value: "D",
-      text: "D - Anti-dumping/countervailing document"
-    },
-    {
-      value: "E",
-      text: "E - Export certificate/licence/document from country of origin"
-    },
-    {
-      value: "H",
-      text: "H - HANDI, LOOMS certificate"
-    },
-    {
-      value: "I",
-      text: "I - Surveillance certificate/licence/ document issued by one of the Member States"
-    },
-    {
-      value: "P",
-      text: "P - UN/EDIFACT certificates"
-    }
-  ]
-}) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-xl">{{ title }}</span>
+      <h1 class="govuk-heading-l">Search by chemical</h1>
 
-{{ govukInput({
-  label: {
-    text: "Certificate code"
-  },
-  classes: "govuk-input--width-10",
-  id: "certificate_code",
-  name: "certificate_code"
-}) }}
+      {{ govukInsetText({
+              text: "Introductory text describing this section"
+            }) }}
 
-{{ govukInput({
-  label: {
-    text: "Description"
-  },
+      {{ govukInput({
+        label: {
+            text: "CAS number"
+        },
+        classes: "govuk-input--width-10",
+        id: "certificate_code",
+        name: "certificate_code"
+        }) }}
+
+      {{ govukInput({
+        label: {
+            text: "Chemical name"
+        },
   classes: "govuk-input--width-20",
   id: "description",
   name: "description"
 }) }}
 
-{{ govukButton({
+      {{ govukButton({
   text: "Search"
 }) }}
-<!--
+      <!--
 I	Surveillance certificate/licence/ document issued by one of the Member States
 K	Tariff quota
 L	Import certificate/licence/document
@@ -103,8 +64,8 @@ X	Export licence
 Y	Particular provisions
 Z	More certificates
 //-->
-        </div>
     </div>
+  </div>
 
 {% endblock %}
 </html>

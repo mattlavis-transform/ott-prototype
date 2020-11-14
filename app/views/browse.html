@@ -1,5 +1,17 @@
 {% extends "layout.html" %}
 {% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/search/" + scopeId
+    },
+    {
+      text: "Browse the Goods Classification",
+      href: ""
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block pageTitle %}
@@ -9,9 +21,9 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
-            <span class="govuk-caption-xl">The Trade Tariff</span>
+            <span class="govuk-caption-xl">{{ title }}</span>
             <h1 class="govuk-heading-l">
-                {# {{ serviceName }} #}Browse the Goods Classification
+                Browse the Goods Classification
             </h1>
             {% include "includes/intro_panel.html" %}
             <table class="govuk-table">
@@ -27,7 +39,7 @@
                     {% for section in sections.data %}
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell">
-                                <a href="/sections/{{ section.id }}">
+                                <a href="/sections/{{ section.id }}/{{ scopeId }}">
                                     {{ section.attributes.title }}
                                 </a>
                             </td>

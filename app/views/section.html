@@ -1,23 +1,17 @@
 {% extends "layout.html" %}
 {% block beforeContent %}
-    {{ govukPhaseBanner({
-      tag: {
-        text: "beta"
-      },
-      html: 'This is a Beta service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
-    }) }}
-    {# {{ govukBreadcrumbs({
+    {{ govukBreadcrumbs({
   items: [
     {
       text: "Home",
-      href: "/search"
+      href: "/search/" + scopeId
     },
     {
-      text: "Section " + section.data.id,
+      text: "Browse the Goods Classification",
       href: ""
     }
   ]
-}) }} #}
+}) }}
 {% endblock %}
 
 {% block pageTitle %}
@@ -28,11 +22,18 @@
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
+            <span class="govuk-caption-xl">{{ title }}</span>
             <h1 class="govuk-heading-l">
                 Section {{ section.data.id }}: {{ section.data.attributes.title }}
             </h1>
-            {# {% include "includes/search_include.html" %} #}
+            {% include "includes/intro_panel_short.html" %}
             <table class="govuk-table">
+                <thead>
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header">Chapter</th>
+                        <th class="govuk-table__header">Description</th>
+                    </tr>
+                </thead>
                 <tbody class="govuk-table__body">
                     {% for chapter in section.included %}
                         {% if (chapter.type == "chapter") %}
@@ -43,13 +44,9 @@
                                     </span>
                                 </td>
                                 <td class="govuk-table__cell">
-                                    <p><a href="/chapters/{{ chapter.attributes.goods_nomenclature_item_id | substring(0, 2) }}">
-                                        {{ chapter.attributes.formatted_description }}<br>
-
-                                    </a></p>
-                                    <!--
-                                    <p class="govuk-!-margin-bottom-0">Get guidance on this product area: <a href="https://www.gov.uk/government/collections/classification-of-goods">Classification of goods</a></p>
-                                    //-->
+                                    <a href="/chapters/{{ chapter.attributes.goods_nomenclature_item_id | substring(0, 2) }}/{{ scopeId }}">
+                                        {{ chapter.attributes.formatted_description }}
+                                    </a>
                                 </td>
                             </tr>
                         {% endif %}

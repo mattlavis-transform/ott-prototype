@@ -4,11 +4,11 @@
   items: [
     {
       text: "Home",
-      href: "/search"
+      href: "/search/" + scopeId
     },
     {
       text: "Extras",
-      href: "#"
+      href: ""
     }
   ]
 }) }}
@@ -26,27 +26,29 @@
             <h1 class="govuk-heading-l">Additional tariff data</h1>
 
             {{ govukInsetText({
-            text: "Some intro text goes here"
+            text: "Intro text goes here"
             }) }}
-            <ul class="govuk-list">
+            <ul class="govuk-list mb10">
+                {% if scopeId != "ni" %}
+                    <li>
+                        <a href="/quotas/{{ scopeId }}">Quotas</a>
+                        <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
+                </li>
+                {% endif %}
                 <li>
-                    <a href="/quotas">Quotas</a>
+                    <a href="/certificates/{{ scopeId }}">Certificates</a>
                     <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
                 </li>
                 <li>
-                    <a href="/certificates">Certificates</a>
+                    <a href="/additional_codes/{{ scopeId }}">Additional codes</a>
                     <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
                 </li>
                 <li>
-                    <a href="/additional_codes">Additional codes</a>
+                    <a href="/footnotes/{{ scopeId }}">Footnotes</a>
                     <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
                 </li>
                 <li>
-                    <a href="/footnotes">Footnotes</a>
-                    <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
-                </li>
-                <li>
-                    <a href="/chemicals">Chemicals</a>
+                    <a href="/chemicals/{{ scopeId }}">Chemicals</a>
                     <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
                 </li>
                 <li>

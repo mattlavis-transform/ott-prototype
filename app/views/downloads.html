@@ -3,10 +3,23 @@
   Trade Tariff: Search by chemical
 {% endblock %}
 
-{% block beforeContent %}{% endblock %}
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/search/" + scopeId
+    },
+    {
+      text: "Downloads",
+      href: ""
+    }
+  ]
+}) }}
+{% endblock %}
 
 {% block content %}
-  <span class="govuk-caption-xl">The Trade Tariff</span>
+  <span class="govuk-caption-xl">{{ title }}</span>
   <h1 class="govuk-heading-l">Downloads</h1>
 
   {{ govukInsetText({

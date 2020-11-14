@@ -2,11 +2,23 @@
 {% block pageTitle %}
   Trade Tariff: A-Z of Classified Goods
 {% endblock %}
-{% block beforeContent %}{% endblock %}
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/search/" + scopeId
+    },
+    {
+      text: "A to Z",
+      href: ""
+    }
+  ]
+}) }}{% endblock %}
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
-            <span class="govuk-caption-xl">The Trade Tariff</span>
+            <span class="govuk-caption-xl">{{ title }}</span>
             <h1 class="govuk-heading-l">
                 A-Z of Classified Goods
             </h1>

@@ -578,6 +578,14 @@ ul.countries {
     }
 }
 
+.mb10 li {
+    margin-bottom:1em;
+}
+
+.b {
+    font-weight: bold;
+}
+
 @import "components/attachments";
 @import "components/az";
 @import "components/bold_banner";

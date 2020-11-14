@@ -1,5 +1,17 @@
 {% extends "layout.html" %}
 {% block beforeContent %}
+    {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/search/" + scopeId
+    },
+    {
+      text: "Browse the Goods Classification",
+      href: ""
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block pageTitle %}
@@ -10,10 +22,11 @@
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
+            <span class="govuk-caption-xl">{{ title }}</span>
             <h1 class="govuk-heading-l">
                 Chapter {{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}: {{ heading.data.attributes.formatted_description }}
             </h1>
-            {# {% include "includes/search_include.html" %} #}
+            {% include "includes/intro_panel_short.html" %}
             <div class="panel">
                 <nav class="breadcrumb">
                     <ul class="govuk-list">
@@ -21,7 +34,7 @@
                             {% if (item.type == "section") %}
                                 <!-- Section //-->
                                 <li class="section">
-                                    <a href="/sections/{{ item.id }}">Section {{ item.attributes.numeral }}: {{ item.attributes.title }}</a>
+                                    <a href="/sections/{{ item.id }}/{{ scopeId }}">Section {{ item.attributes.numeral }}: {{ item.attributes.title }}</a>
                                 </li>
                             {% endif %}
                             {% if (item.type == "chapter") %}
@@ -35,7 +48,7 @@
                                         <span class="code green"></span>
                                     </div>
                                     <div class="description">
-                                        <a href="/chapters/{{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}">{{ item.attributes.formatted_description }}</a>
+                                        <a href="/chapters/{{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}/{{ scopeId }}">{{ item.attributes.formatted_description }}</a>
                                     </div>
                                 </li>
                             {% endif %}
@@ -70,7 +83,8 @@
                     {% if (item.leaf == true) %}
                         <div class="description">
                             <div class="indent_{{ item.number_indents }}{{ item.indent_class }}">
-                                <a href="/commodities/{{ item.goods_nomenclature_item_id }}?currency=EUR">{{ item.description | safe }}</a>
+                                {# <a href="/commodities/{{ item.goods_nomenclature_item_id }}?currency=EUR">{{ item.description | safe }}</a> #}
+                                <a href="/commodities/{{ item.goods_nomenclature_item_id }}/{{ scopeId }}">{{ item.description | safe }}</a>
                             </div>
                         </div>
                         <div class="vat expendable">{{ item.vat | safe }}</div>

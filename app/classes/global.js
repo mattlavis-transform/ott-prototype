@@ -31,16 +31,16 @@ global.get_scope = function (s) {
     if ((s == "ni") || (s == "eu")) {
         var scopeId = "ni";
     } else {
-        var scopeId = "gb";
+        var scopeId = "";
     }
     return (scopeId);
 }
 
-global.get_root = function (req, scopeId) {
-    var root = req.url;
-    root = root.replace(scopeId, "{{ scopeId }}")
-
-    return (root);
+global.get_root_url = function (req, scopeId) {
+    var root_url = req.url;
+    root_url = root_url.replace("/ni", "/{{ scopeId }}");
+    root_url = root_url.replace("/gb", "/{{ scopeId }}");
+    return (root_url);
 }
 
 global.get_title = function (scopeId) {
@@ -49,6 +49,5 @@ global.get_title = function (scopeId) {
     } else {
         var title = "The UK Global Tariff";
     }
-
     return (title);
 }

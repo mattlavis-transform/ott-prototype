@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
 {% block pageTitle %}
-  Trade Tariff: Search by quota
+  Trade Tariff: Search by chemical
 {% endblock %}
 {% block beforeContent %}
-    {{ govukBreadcrumbs({
+        {{ govukBreadcrumbs({
   items: [
     {
       text: "Home",
@@ -14,7 +14,7 @@
       href: "/extras/" + scopeId
     },
     {
-      text: "Quotas",
+      text: "Exchange rates",
       href: ""
     }
   ]
@@ -24,9 +24,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
             <span class="govuk-caption-xl">{{ title }}</span>
-            <h1 class="govuk-heading-l">
-                Search by quota
-            </h1>
+            <h1 class="govuk-heading-l">Exchange rates</h1>
       {{ govukInsetText({
               text: "Introductory text describing this section"
             }) }}

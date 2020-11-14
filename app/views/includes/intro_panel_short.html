@@ -1,0 +1,27 @@
+<script>
+    $(document).ready(function () {
+        var toggle_count = 2;
+    });
+</script>
+
+{% set ni_url = root_url | new_scope("ni") %}
+{% set uk_url = root_url | new_scope("") %}
+
+{% if scopeId == "ni" %}
+    <div class="panel panel_blue toggle1">
+        Switch to the <a href="{{ uk_url }}">UK Global Tariff</a>.
+    </div>
+
+    <div class="panel panel_grey toggle2">
+        Switch to the <a href="{{ uk_url }}">UK Global Tariff</a>.
+    </div>
+
+{% else %}
+    <div class="panel panel_blue toggle1">
+        Switch to the <a href="{{ ni_url }}">Northern Ireland (EU) Tariff</a>.
+    </div>
+
+    <div class="panel panel_grey toggle2">
+        Switch to the <a href="{{ ni_url }}">Northern Ireland (EU) Tariff</a>.
+    </div>
+{% endif %}

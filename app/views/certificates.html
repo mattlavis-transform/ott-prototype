@@ -4,15 +4,15 @@
   items: [
     {
       text: "Home",
-      href: "/search"
+      href: "/search/" + scopeId
     },
     {
       text: "Extras",
-      href: "/extras"
+      href: "/extras/" + scopeId
     },
     {
       text: "Certificates",
-      href: "#"
+      href: ""
     }
   ]
 }) }}
@@ -23,6 +23,10 @@
             <h1 class="govuk-heading-l">
                 Search by certificate
             </h1>
+      {{ govukInsetText({
+              text: "Introductory text describing this section"
+            }) }}
+
             {{ govukSelect({
   id: "sort",
   name: "sort",

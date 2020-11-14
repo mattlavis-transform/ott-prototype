@@ -4,19 +4,21 @@
     });
 </script>
 
-{% set ni_url = root | new_scope("ni") %}
-{% set uk_url = root | new_scope("") %}
+{% set ni_url = root_url | new_scope("ni") %}
+{% set uk_url = root_url | new_scope("") %}
 
 {% if scopeId == "ni" %}
     <div class="panel panel_blue toggle1">
         Use the Northern Ireland (EU) Tariff to look up commodity codes, duty, VAT and controls if you are importing goods
-        that are then at risk of being transported to the Republic of Ireland.<br><br>
+        that are at risk of being transported to the Republic of Ireland. Find out more about the <a href="/dual_tariff">dual tariff regime</a>
+        for Northern Ireland.<br><br>
         For all other cases, use the <a href="{{ uk_url }}">UK Global Tariff</a>.
     </div>
 
     <div class="panel panel_grey toggle2">
         Use the Northern Ireland (EU) Tariff to look up commodity codes, duty, VAT and controls if you are importing goods
-        that are then at risk of being transported to the Republic of Ireland.<br><br>
+        that are at risk of being transported to the Republic of Ireland. Find out more about the <a href="/dual_tariff">dual tariff regime</a>
+        for Northern Ireland.<br><br>
         For all other cases, use the <a href="{{ uk_url }}">UK Global Tariff</a>.
     </div>
 
@@ -26,9 +28,11 @@
         </div>
 
         <div class="app-c-header-notice__content">
-            <p class="app-c-header-notice__text govuk-body">Use the Northern Ireland (EU) Tariff to look up commodity codes, duty, VAT and controls if you are importing goods
-        that are then at risk of being transported to the Republic of Ireland.<br><br>
-        For all other cases, use the <a href="{{ uk_url }}">UK Global Tariff</a>.</p>
+            <p class="app-c-header-notice__text govuk-body">        Use the Northern Ireland (EU) Tariff to look up commodity codes, duty, VAT and controls if you are importing goods
+        that are at risk of being transported to the Republic of Ireland. Find out more about the <a href="/dual_tariff">dual tariff regime</a>
+        for Northern Ireland.<br><br>
+        For all other cases, use the <a href="{{ uk_url }}">UK Global Tariff</a>.
+</p>
         </div>
     </section>
 

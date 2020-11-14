@@ -1,17 +1,17 @@
 {% extends "layout.html" %}
 {% block beforeContent %}
-    {# {{ govukBreadcrumbs({
+    {{ govukBreadcrumbs({
   items: [
     {
       text: "Home",
-      href: "/search"
+      href: "/search/" + scopeId
     },
     {
-      text: "Certificates",
+      text: "Browse the Goods Classification",
       href: ""
     }
   ]
-}) }} #}
+}) }}
 {% endblock %}
 
 {% block pageTitle %}
@@ -22,17 +22,20 @@
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
+            <span class="govuk-caption-xl">{{ title }}</span>
             <h1 class="govuk-heading-l">
                 Chapter {{ chapter.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}: {{ chapter.data.attributes.formatted_description }}
             </h1>
-            {# {% include "includes/search_include_include.html" %} #}
+            {% include "includes/intro_panel_short.html" %}
 
             <div class="panel">
                 <nav class="breadcrumb">
                     <ul class="govuk-list">
                         {% for item in chapter.included %}
                             {% if (item.type == "section") %}
-                                <li class="section"><a href="/sections/{{ item.id }}">Section {{ item.attributes.numeral }}: {{ item.attributes.title }}</a></li>
+                                <li class="section">
+                                    <a href="/sections/{{ item.id }}/{{ scopeId }}">Section {{ item.attributes.numeral }}: {{ item.attributes.title }}</a>
+                                </li>
                             {% endif %}
                         {% endfor %}
                         <li class="crumb indent_1">
@@ -45,7 +48,7 @@
                             </div>
                             <div class="description">{{ chapter.data.attributes.formatted_description }}</div>
                         </li>
- 
+
                     </ul>
                 </nav>
             </div>
@@ -54,6 +57,13 @@
                 html: "There are important notes for classifying your goods shown further down this page.<br><br>Get guidance on this product area: <a href='https://www.gov.uk/government/collections/classification-of-goods'>Classification of goods</a>"
             }) }}
 
+            <h2 class="govuk-heading-m">Choose the heading that best matches your goods</h2>
+            <div class="chapter_row">
+                <div class="commodity b">
+                    Heading
+                </div>
+                <div class="description b">Description</div>
+            </div>
             {% for heading in chapter.included %}
                 {% if (heading.type == "heading") %}
                     <div class="chapter_row">
@@ -62,7 +72,7 @@
                             <span class="code mauve">{{ heading.attributes.goods_nomenclature_item_id | substring(2, 2) }}</span>
                         </div>
                         <div class="description">
-                            <a href="/headings/{{ heading.attributes.goods_nomenclature_item_id | substring(0, 4) }}">
+                            <a href="/headings/{{ heading.attributes.goods_nomenclature_item_id | substring(0, 4) }}/{{ scopeId }}">
                                 {{ heading.attributes.formatted_description }}
                             </a>
                         </div>
