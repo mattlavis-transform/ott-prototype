@@ -3,15 +3,19 @@
   Trade Tariff: Search by additional code
 {% endblock %}
 {% block beforeContent %}
-    {{ govukBreadcrumbs({
+        {{ govukBreadcrumbs({
   items: [
     {
       text: "Home",
       href: "/search"
     },
     {
-      text: "Certificates",
-      href: ""
+      text: "Extras",
+      href: "/extras"
+    },
+    {
+      text: "Additional codes",
+      href: "#"
     }
   ]
 }) }}

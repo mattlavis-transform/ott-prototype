@@ -1,14 +1,18 @@
 {% extends "layout.html" %}
 {% block beforeContent %}
-    {{ govukBreadcrumbs({
+        {{ govukBreadcrumbs({
   items: [
     {
       text: "Home",
       href: "/search"
     },
     {
+      text: "Extras",
+      href: "/extras"
+    },
+    {
       text: "Certificates",
-      href: ""
+      href: "#"
     }
   ]
 }) }}

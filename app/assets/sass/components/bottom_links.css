@@ -1,5 +1,5 @@
 .gem-c-subscription-links__item, .gem-c-step-nav-related__link, .gem-c-related-navigation__section-link, .govuk-link {
-    font-family: "nta", Arial, sans-serif;
+    font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
 }
@@ -62,7 +62,7 @@
 }
 
 .gem-c-related-navigation__main-heading {
-    font-family: "nta", Arial, sans-serif;
+    font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 700;
@@ -93,7 +93,7 @@
 }
 
 .gem-c-related-navigation__sub-heading {
-    font-family: "nta", Arial, sans-serif;
+    font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 400;
@@ -125,7 +125,7 @@
 }
 
 .gem-c-related-navigation__sub-heading--footer {
-    font-family: "nta", Arial, sans-serif;
+    font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 700;
@@ -163,7 +163,7 @@
 }
 
 .gem-c-related-navigation__sub-heading--other {
-    font-family: "nta", Arial, sans-serif;
+    font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 700;
@@ -200,7 +200,7 @@
 .gem-c-related-navigation__link {
     list-style-type: none;
     margin-top: 15px;
-    font-family: "nta", Arial, sans-serif;
+    font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 400;
@@ -248,7 +248,7 @@
 }
 
 .gem-c-related-navigation__toggle {
-    font-family: "nta", Arial, sans-serif;
+    font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     display: none
@@ -354,7 +354,7 @@
 }
 
 .gem-c-search__label {
-    font-family: "nta", Arial, sans-serif;
+    font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 400;
@@ -386,7 +386,7 @@
 }
 
 .gem-c-search__label h1 {
-    font-family: "nta", Arial, sans-serif;
+    font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 400;
@@ -430,7 +430,7 @@
 }
 
 .gem-c-search__input[type="search"], #global-header .gem-c-search__input[type="search"]:focus {
-    font-family: "nta", Arial, sans-serif;
+    font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 400;
@@ -571,7 +571,7 @@
 }
 
 .gem-c-search--large .gem-c-search__label {
-    font-family: "nta", Arial, sans-serif;
+    font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 400;
@@ -624,9 +624,7 @@
 }
 
 .gem-c {
-    font-family            : "GDS Transport", arial, sans-serif;
-    -webkit-font-smoothing : antialiased;
+    font-family: "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
 }
-

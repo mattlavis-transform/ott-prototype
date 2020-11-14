@@ -4,29 +4,60 @@
     });
 </script>
 
-<div class="panel panel_blue toggle1">
+{% set ni_url = root | new_scope("ni") %}
+{% set uk_url = root | new_scope("") %}
+
+{% if scopeId == "ni" %}
+    <div class="panel panel_blue toggle1">
+        Use the Northern Ireland (EU) Tariff to look up commodity codes, duty, VAT and controls if you are importing goods
+        that are then at risk of being transported to the Republic of Ireland.<br><br>
+        For all other cases, use the <a href="{{ uk_url }}">UK Global Tariff</a>.
+    </div>
+
+    <div class="panel panel_grey toggle2">
+        Use the Northern Ireland (EU) Tariff to look up commodity codes, duty, VAT and controls if you are importing goods
+        that are then at risk of being transported to the Republic of Ireland.<br><br>
+        For all other cases, use the <a href="{{ uk_url }}">UK Global Tariff</a>.
+    </div>
+
+    <section class="app-c-header-notice toggle3" aria-label="notice" role="region" lang="en">
+        <div class="app-c-header-notice__header">
+            <h2 class="app-c-header-notice__title">The Northern Ireland (EU) Tariff</h2>
+        </div>
+
+        <div class="app-c-header-notice__content">
+            <p class="app-c-header-notice__text govuk-body">Use the Northern Ireland (EU) Tariff to look up commodity codes, duty, VAT and controls if you are importing goods
+        that are then at risk of being transported to the Republic of Ireland.<br><br>
+        For all other cases, use the <a href="{{ uk_url }}">UK Global Tariff</a>.</p>
+        </div>
+    </section>
+
+
+{% else %}
+    <div class="panel panel_blue toggle1">
         Use the UK Global Tariff to look up commodity codes, duty, VAT and controls.<br><br>
         Are you trading with Northern Ireland? From January 1st 2021, Northern Ireland is operating under
-        a dual tariff regime and the rules may differ if you are importing goods that are then at risk of being
-        transported to the Republic of Ireland. In that case, use the <a href="#">Northern Ireland (EU) Tariff</a>.
+        a <a href="/dual_tariff">dual tariff regime</a> and the rules may differ if you are importing goods that are then at risk of being
+        transported to the Republic of Ireland. In that case, use the <a href="{{ ni_url }}">Northern Ireland (EU) Tariff</a>.
     </div>
 
-<div class="panel panel_grey toggle2">
+    <div class="panel panel_grey toggle2">
         Use the UK Global Tariff to look up commodity codes, duty, VAT and controls.<br><br>
         Are you trading with Northern Ireland? From January 1st 2021, Northern Ireland is operating under
-        a dual tariff regime and the rules may differ if you are importing goods that are then at risk of being
-        transported to the Republic of Ireland. In that case, use the <a href="#">Northern Ireland (EU) Tariff</a>.
+        a <a href="/dual_tariff">dual tariff regime</a> and the rules may differ if you are importing goods that are then at risk of being
+        transported to the Republic of Ireland. In that case, use the <a href="{{ ni_url }}">Northern Ireland (EU) Tariff</a>.
     </div>
 
-<section class="app-c-header-notice toggle3" aria-label="notice" role="region" lang="en">
-    <div class="app-c-header-notice__header">
-        <h2 class="app-c-header-notice__title">The UK Global Tariff</h2>
-    </div>
+    <section class="app-c-header-notice toggle3" aria-label="notice" role="region" lang="en">
+        <div class="app-c-header-notice__header">
+            <h2 class="app-c-header-notice__title">The UK Global Tariff</h2>
+        </div>
 
-    <div class="app-c-header-notice__content">
-        <p class="app-c-header-notice__text govuk-body">Use the UK Global Tariff to look up commodity codes, duty, VAT and controls.<br><br>
+        <div class="app-c-header-notice__content">
+            <p class="app-c-header-notice__text govuk-body">Use the UK Global Tariff to look up commodity codes, duty, VAT and controls.<br><br>
             Are you trading with Northern Ireland? From January 1st 2021, Northern Ireland is operating under
-            a dual tariff regime and the rules may differ if you are importing goods that are then at risk of being
-            transported to the Republic of Ireland. In that case, use the <a href="#">Northern Ireland (EU) Tariff</a>.</p>
-    </div>
-</section>
+            a <a href="/dual_tariff">dual tariff regime</a> and the rules may differ if you are importing goods that are then at risk of being
+            transported to the Republic of Ireland. In that case, use the <a href="{{ ni_url }}">Northern Ireland (EU) Tariff</a>.</p>
+        </div>
+    </section>
+{% endif %}

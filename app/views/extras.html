@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+    {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/search"
+    },
+    {
+      text: "Extras",
+      href: "#"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Trade Tariff: look up commodity codes, duty and VAT rates
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-xl">{{ title }}</span>
+            <h1 class="govuk-heading-l">Additional tariff data</h1>
+
+            {{ govukInsetText({
+            text: "Some intro text goes here"
+            }) }}
+            <ul class="govuk-list">
+                <li>
+                    <a href="/quotas">Quotas</a>
+                    <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
+                </li>
+                <li>
+                    <a href="/certificates">Certificates</a>
+                    <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
+                </li>
+                <li>
+                    <a href="/additional_codes">Additional codes</a>
+                    <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
+                </li>
+                <li>
+                    <a href="/footnotes">Footnotes</a>
+                    <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
+                </li>
+                <li>
+                    <a href="/chemicals">Chemicals</a>
+                    <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
+                </li>
+                <li>
+                    <a href="/exchange_rates">Exchange rates</a>
+                    <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

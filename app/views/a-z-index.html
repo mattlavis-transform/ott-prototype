@@ -11,6 +11,7 @@
                 A-Z of Classified Goods
             </h1>
             <ul class="az">
+                {% set alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
                 {% for item in alphabet %}
                     <li>
                         <a href="/a-z-index/{{ item | lower() }}">{{ item }}</a>

@@ -43,6 +43,11 @@ module.exports = function (env) {
   
     ------------------------------------------------------------------ */
 
+    filters.lowerFirst = function (str) {
+        var _ = require('lodash');
+        str = _.lowerFirst(str);
+        return (str);
+    }
     filters.capitalise = function (str) {
         var _ = require('lodash');
         str = _.capitalize(str);
@@ -130,6 +135,15 @@ module.exports = function (env) {
         } else {
             return "";
         }
+    }
+
+    filters.new_scope = function (str, scope) {
+        if (str.indexOf("{{ scopeId }}") > -1) {
+            str = str.replace("{{ scopeId }}", scope);
+        } else {
+            str = str + scope;
+        }
+        return (str);
     }
     /* ------------------------------------------------------------------
       keep the following line to return your filters to the app

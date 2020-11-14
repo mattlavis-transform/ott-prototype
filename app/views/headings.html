@@ -1,17 +1,5 @@
 {% extends "layout.html" %}
 {% block beforeContent %}
-    {# {{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Home",
-      href: "/search"
-    },
-    {
-      text: "Certificates",
-      href: ""
-    }
-  ]
-}) }} #}
 {% endblock %}
 
 {% block pageTitle %}
@@ -25,14 +13,16 @@
             <h1 class="govuk-heading-l">
                 Chapter {{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}: {{ heading.data.attributes.formatted_description }}
             </h1>
-            {# {% include "includes/search.html" %} #}
+            {# {% include "includes/search_include.html" %} #}
             <div class="panel">
                 <nav class="breadcrumb">
                     <ul class="govuk-list">
                         {% for item in heading.included %}
                             {% if (item.type == "section") %}
                                 <!-- Section //-->
-                                <li class="section"><a href="/sections/{{ item.id }}">Section {{ item.attributes.numeral }}: {{ item.attributes.title }}</a></li>
+                                <li class="section">
+                                    <a href="/sections/{{ item.id }}">Section {{ item.attributes.numeral }}: {{ item.attributes.title }}</a>
+                                </li>
                             {% endif %}
                             {% if (item.type == "chapter") %}
                                 <!-- Chapter //-->
@@ -44,7 +34,9 @@
                                         <span class="code green"></span>
                                         <span class="code green"></span>
                                     </div>
-                                    <div class="description"><a href="/chapters/{{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}">{{ item.attributes.formatted_description }}</a></div>
+                                    <div class="description">
+                                        <a href="/chapters/{{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}">{{ item.attributes.formatted_description }}</a>
+                                    </div>
                                 </li>
                             {% endif %}
                         {% endfor %}

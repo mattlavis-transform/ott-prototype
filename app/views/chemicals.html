@@ -3,15 +3,19 @@
   Trade Tariff: Search by chemical
 {% endblock %}
 {% block beforeContent %}
-    {{ govukBreadcrumbs({
+        {{ govukBreadcrumbs({
   items: [
     {
       text: "Home",
       href: "/search"
     },
     {
-      text: "Certificates",
-      href: ""
+      text: "Extras",
+      href: "/extras"
+    },
+    {
+      text: "Chemicals",
+      href: "#"
     }
   ]
 }) }}

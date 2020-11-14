@@ -1,0 +1,55 @@
+<form class="form-inline" method="get">
+  {{ govukInput({
+  label: {
+    text: "Search " + title | lowerFirst()
+  },
+  classes: "xgovuk-input--width-20 search-field",
+  placeholder: "Enter the name of the goods or commodity code",
+  id: "search",
+  name: "search"
+}) }}
+
+</form>
+
+
+{{ govukDateInput({
+  id: "date_of_trade",
+  namePrefix: "date_of_trade",
+  fieldset: {
+    legend: {
+      text: "Date of trade?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--s notbold"
+    }
+  },
+  hint: {
+    text: "If you leave the date blank, then today's date will be used."
+  },
+  items: [
+    {
+      classes: "govuk-input--width-2",
+      name: "day",
+      value: "1"
+    },
+    {
+      classes: "govuk-input--width-2",
+      name: "month",
+      value: "1"
+    },
+    {
+      classes: "govuk-input--width-4",
+      name: "year",
+      value: "2021"
+    }
+  ]
+}) }}
+
+{{ govukDetails({
+  summaryText: "Why the date is important",
+  text: " You should change the date to match the date you are planning to trade, to ensure that you return the correct duties and controls."
+}) }}
+
+{{ govukButton({
+  text: "Search"
+}) }}
+<p class="govuk-body">You can also find commodity codes, duty, VAT rates and controls by manually <a href="/browse/">browsing the goods classification</a>.</p>

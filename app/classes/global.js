@@ -26,3 +26,29 @@ global.todays_date = function (s, fmt) {
     var s = format_date(d, "D MMMM YYYY");
     return (s);
 }
+
+global.get_scope = function (s) {
+    if ((s == "ni") || (s == "eu")) {
+        var scopeId = "ni";
+    } else {
+        var scopeId = "gb";
+    }
+    return (scopeId);
+}
+
+global.get_root = function (req, scopeId) {
+    var root = req.url;
+    root = root.replace(scopeId, "{{ scopeId }}")
+
+    return (root);
+}
+
+global.get_title = function (scopeId) {
+    if (scopeId == "ni") {
+        var title = "The Northern Ireland (EU) Tariff";
+    } else {
+        var title = "The UK Global Tariff";
+    }
+
+    return (title);
+}
