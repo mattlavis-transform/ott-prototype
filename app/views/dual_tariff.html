@@ -1,5 +1,18 @@
-{% extends "layout_start.html" %}
-
+{% extends "layout.html" %}
+{% block beforeContent %}
+    {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/search/" + scopeId
+    },
+    {
+      text: "The Northern Ireland Dual Tariff regime",
+      href: ""
+    }
+  ]
+}) }}
+{% endblock %}
 {% block pageTitle %}
   Trade Tariff: look up commodity codes, duty and VAT rates 
 {% endblock %}

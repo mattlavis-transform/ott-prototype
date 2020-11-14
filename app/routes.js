@@ -108,7 +108,6 @@ router.get(['/a-z-index/:letter', '/a-z-index/:letter/:scopeId'], function (req,
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
     var url = 'https://www.trade-tariff.service.gov.uk/api/v2/search_references.json?query[letter]=' + req.params["letter"];
-    console.log(url);
     axios.get(url)
         .then((response) => {
             res.render('a-z-index', { 'headings': response.data, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'letter': req.params["letter"], 'date_string': global.todays_date() });
