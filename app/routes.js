@@ -91,7 +91,7 @@ router.get(['/commodities/:goods_nomenclature_item_id/', '/commodities/:goods_no
 /* ############################################################################ */
 
 // Search page
-router.get(['/search/:scopeId', '/search/'], function (req, res) {
+router.get(['/search/:scopeId', '/search/', '/sections/'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
