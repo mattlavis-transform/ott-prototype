@@ -9,6 +9,7 @@ class MeasureComponent {
         this.duty_expression_abbreviation = item["attributes"]["duty_expression_abbreviation"];
         this.meursing_duty_expressions = ["12", "14", "21", "25", "27", "29"];
         this.measurement_unit_qualifier_code = null;
+        this.is_meursing = false;
 
         this.parse_id();
         this.check_specific();
@@ -31,7 +32,7 @@ class MeasureComponent {
     }
 
     check_specific() {
-        if ((this.measurement_unit_code != null) || (this.meursing)) {
+        if ((this.measurement_unit_code != null) || (this.is_meursing)) {
             this.specific = true;
         } else {
             this.specific = false;
@@ -43,9 +44,9 @@ class MeasureComponent {
         this.duty_expression_id = this.id.substring(this.id.length - 2, this.id.length);
 
         if (this.meursing_duty_expressions.includes(this.duty_expression_id)) {
-            this.meursing = true;
+            this.is_meursing = true;
         } else {
-            this.meursing = false;
+            this.is_meursing = false;
         }
     }
 

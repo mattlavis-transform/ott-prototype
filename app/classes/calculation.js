@@ -1,17 +1,21 @@
 require("./global");
 
 class Calculation {
-    constructor(m, currency, monetary_value, unit_value, meursing_code, company) {
+    constructor(m, currency, monetary_value, unit_value, meursing_code, company, meursing_blob) {
         this.measure = m;
         this.currency = currency;
         this.monetary_value = monetary_value;
         this.unit_value = unit_value;
         this.meursing_code = meursing_code;
         this.company = company;
+        this.meursing_blob = meursing_blob;
+
         this.has_specifics = false;
         this.unit = null;
+        this.has_meursing = false;
 
         this.calculation_string = "";
+        this.calculation_string_after_meursing = "";
         this.result = 0.00;
         this.result_string = "";
     }
@@ -33,6 +37,7 @@ class Calculation {
         if (this.has_specifics) {
             this.calculation_string += "(<em>on " + decimals(this.unit_value, 2) + " " + this.unit + "</em>)";
         }
+        //this.calculation_string += this.meursing_code;
     }
 
     decimals = function (str, cnt) {

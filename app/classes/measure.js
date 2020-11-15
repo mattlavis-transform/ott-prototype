@@ -14,6 +14,7 @@ class Measure {
         this.additional_code_id = null;
         this.additional_code = null;
         this.combined_duty = "";
+        this.combined_duty_after_meursing = "";
         this.order_number = null;
         this.order_number_id = null;
         this.import = null;
@@ -22,12 +23,16 @@ class Measure {
         this.legal_act_ids = [];
         this.excluded_countries = [];
         this.excluded_country_ids = [];
+        this.has_meursing = false;
     }
 
     combine_duties() {
         this.combined_duty = "";
         this.measure_components.forEach(mc => {
             this.combined_duty += mc.duty_string + " ";
+            if (mc.is_meursing) {
+                this.has_meursing = true;
+            }
         });
     }
 

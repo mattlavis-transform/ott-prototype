@@ -8,27 +8,14 @@ const Heading = require('./classes/heading.js');
 const Commodity = require('./classes/commodity.js');
 const Error_handler = require('./classes/error_handler.js');
 
-
 require('./classes/global.js');
 
 // Add your routes here - above the module.exports line
 var scopeId;
 
-
 /* ############################################################################ */
-/* ###################         BEGIN SEARCH AND BROWSE        ################# */
+/* ###################              BEGIN BROWSE              ################# */
 /* ############################################################################ */
-
-// Search page
-router.get(['/search/:scopeId', '/search/'], function (req, res) {
-    scopeId = global.get_scope(req.params["scopeId"]);
-    root_url = global.get_root_url(req, scopeId);
-    title = global.get_title(scopeId);
-    axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections')
-        .then((response) => {
-            res.render('search', { 'search': response.data, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
-        });
-});
 
 // Browse page
 router.get(['/browse/:scopeId', '/browse/'], function (req, res) {
@@ -78,7 +65,7 @@ router.get(['/headings/:headingId', '/headings/:headingId/:scopeId'], function (
 });
 
 // Browse a single commodity
-router.get(['/commodities/:goods_nomenclature_item_id', '/commodities/:goods_nomenclature_item_id/:scopeId'], function (req, res) {
+router.get(['/commodities/:goods_nomenclature_item_id/', '/commodities/:goods_nomenclature_item_id/:scopeId'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -95,8 +82,43 @@ router.get(['/commodities/:goods_nomenclature_item_id', '/commodities/:goods_nom
 });
 
 /* ############################################################################ */
-/* ###################          END SEARCH AND BROWSE         ################# */
+/* ###################                END BROWSE              ################# */
 /* ############################################################################ */
+
+
+/* ############################################################################ */
+/* ###################              BEGIN SEARCH              ################# */
+/* ############################################################################ */
+
+// Search page
+router.get(['/search/:scopeId', '/search/'], function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    title = global.get_title(scopeId);
+    axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections')
+        .then((response) => {
+            res.render('search', { 'search': response.data, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+        });
+});
+
+// Search results / data handler
+router.post(['/search/data_handler/', '/search/data_handler/:goods_nomenclature_item_id/:scopeId'], function (req, res) {
+    //console.log("Search results handler");
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    var search_term = req.session.data["search"];
+
+    if (Number.isSafeInteger(search_term) && (search_term.length == 10)) {
+        res.redirect("/commodities/" + req.session.data["search"]);
+    } else {
+        //res.redirect("/search/");
+        res.redirect("/commodities/" + req.session.data["search"]);
+    }
+});
+/* ############################################################################ */
+/* ###################               END SEARCH               ################# */
+/* ############################################################################ */
+
 
 /* ############################################################################ */
 /* ###################       BEGIN SUBSIDIARY NAVIGATION      ################# */
@@ -189,6 +211,8 @@ router.get(['/exchange_rates/', '/exchange_rates/:scopeId'], function (req, res)
 /* ###################           END EXTRAS SECTION           ################# */
 /* ############################################################################ */
 
+
+
 /* ############################################################################ */
 /* ###################           BEGIN CALCULATOR             ################# */
 /* ############################################################################ */
@@ -198,7 +222,7 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
     var err, referer, c;
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
-    console.log("Data handler");
+    //console.log("Data handler");
     referer = req.headers.referer;
 
     if (referer.indexOf("date") !== -1) {
@@ -214,7 +238,7 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
         }
     } else if (referer.indexOf("destination") !== -1) {
         // Validate the destination form
-        console.log("Checking destination");
+        //console.log("Checking destination");
         e = new Error_handler();
         contains_errors = e.validate_destination(req); // Gets data from destination form and validates it
         if (contains_errors) {
@@ -237,7 +261,7 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
         }
     } else if (referer.indexOf("origin") !== -1) {
         // Validate the origin form
-        console.log("Checking origin");
+        //console.log("Checking origin");
         e = new Error_handler();
         contains_errors = e.validate_origin(req); // Gets data from origin form and validates it
         if (contains_errors) {
@@ -249,7 +273,7 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
         }
     } else if (referer.indexOf("monetary_value") !== -1) {
         // Validate the monetary value form
-        console.log("Checking monetary value");
+        //console.log("Checking monetary value");
         e = new Error_handler();
         contains_errors = e.validate_monetary_value(req); // Gets data from monetary svalue form and validates it
         if (contains_errors) {
@@ -264,7 +288,7 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
                     c.get_data(response.data);
                     c.get_measure_data(req.session.data["origin"]);
                     req.session.data["country_name"] = c.country_name;
-                    if ((c.units.length > 0) || (c.meursing)) {
+                    if ((c.units.length > 0) || (c.has_meursing)) {
                         res.redirect("/calculate/unit_value/" + req.params["goods_nomenclature_item_id"]);
                     } else if (c.remedies.length > 0) {
                         res.redirect("/calculate/company/" + req.params["goods_nomenclature_item_id"]);
@@ -276,7 +300,7 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
         }
     } else if (referer.indexOf("unit_value") !== -1) {
         // Validate the unit value form
-        console.log("Checking unit value");
+        //console.log("Checking unit value");
         e = new Error_handler();
         contains_errors = e.validate_unit_value(req); // Gets data from unit value form and validates it
         if (contains_errors) {
@@ -290,7 +314,7 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
                     c.get_data(response.data);
                     c.get_measure_data(req.session.data["origin"]);
                     req.session.data["country_name"] = c.country_name;
-                    if (c.meursing) {
+                    if (c.has_meursing) {
                         res.redirect("/calculate/meursing/" + req.params["goods_nomenclature_item_id"]);
                     } else if (c.remedies.length > 0) {
                         res.redirect("/calculate/company/" + req.params["goods_nomenclature_item_id"]);
@@ -301,7 +325,7 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
         }
     } else if (referer.indexOf("meursing") !== -1) {
         // Validate the unit value form
-        console.log("Checking Meursing code");
+        //console.log("Checking Meursing code");
         e = new Error_handler();
         contains_errors = e.validate_meursing(req); // Gets data from meursing code form and validates it
         if (contains_errors) {
@@ -329,7 +353,7 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
 router.get('/calculate/date/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
-    console.log("Date");
+    //console.log("Date");
     var err = req.session.data["error"];
     var import_date_day = req.session.data["import_date-day"];
     var import_date_month = req.session.data["import_date-month"];
@@ -347,7 +371,7 @@ router.get('/calculate/date/:goods_nomenclature_item_id', function (req, res) {
 router.get('/calculate/destination/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
-    console.log("Destination");
+    //console.log("Destination");
     var err = req.session.data["error"];
     var destination = req.session.data["destination"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
@@ -360,7 +384,7 @@ router.get('/calculate/destination/:goods_nomenclature_item_id', function (req, 
 router.get('/calculate/origin/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
-    console.log("Origin");
+    //console.log("Origin");
     var err = req.session.data["error"];
     var origin = req.session.data["origin"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
@@ -373,7 +397,7 @@ router.get('/calculate/origin/:goods_nomenclature_item_id', function (req, res) 
 router.get('/calculate/monetary_value/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
-    console.log("Monetary value");
+    //console.log("Monetary value");
     var err = req.session.data["error"];
     var monetary_value = req.session.data["monetary_value"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
@@ -386,7 +410,7 @@ router.get('/calculate/monetary_value/:goods_nomenclature_item_id', function (re
 router.get('/calculate/unit_value/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
-    console.log("Unit value");
+    //console.log("Unit value");
     var err = req.session.data["error"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
@@ -402,7 +426,7 @@ router.get('/calculate/unit_value/:goods_nomenclature_item_id', function (req, r
 router.get('/calculate/meursing/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
-    console.log("Meursing");
+    //console.log("Meursing");
     var err = req.session.data["error"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
@@ -414,7 +438,7 @@ router.get('/calculate/meursing/:goods_nomenclature_item_id', function (req, res
 router.get('/calculate/company/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
-    console.log("Company");
+    //console.log("Company");
     var err = req.session.data["error"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
@@ -431,7 +455,7 @@ router.get('/calculate/company/:goods_nomenclature_item_id', function (req, res)
 router.get('/calculate/confirm/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
-    console.log("Confirm");
+    //console.log("Confirm");
     var err = req.session.data["error"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {

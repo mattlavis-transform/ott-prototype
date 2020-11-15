@@ -21,7 +21,7 @@
     <div class="govuk-grid-column-full">
       <span class="govuk-caption-xl">Calculate import duties</span>
       <h1 class="govuk-heading-xl">Import duty calculation</h1>
-      <p>The following duties are applicable to the import of <strong>{{ c.goods_nomenclature_item_id | format_commodity_code }}
+      <p>The following duties are applicable to the import of <strong>{{ commodity.goods_nomenclature_item_id | format_commodity_code }}
         </strong> from <strong>{{ commodity.country_name }}</strong> on <strong>03 Jun 2021</strong>.</p>
 
       <details class="govuk-details import_summary" data-module="govuk-details">
@@ -30,13 +30,17 @@
         </summary>
         <div class="govuk-details__text">
           <dl>
-            <dt>Country</dt>
+            <dt>Origin:</dt>
             <dd>{{ commodity.country_name }}&nbsp;</dd>
-            <dt>Commodity</dt>
-            <dd>{{ c.goods_nomenclature_item_id | format_commodity_code }}&nbsp;</dd>
-            <dt>Date</dt>
+
+            <dt>Commodity:</dt>
+            <dd>{{ commodity.goods_nomenclature_item_id | format_commodity_code }}<br>
+            {{ commodity.description | safe }}</dd>
+
+            <dt>Import date:</dt>
             <dd>1 Jan 2021&nbsp;</dd>
-            <dt>Monetary value</dt>
+
+            <dt>Monetary value:</dt>
             <dd>£2000.00&nbsp;</dd>
           </dl>
         </div>
@@ -95,7 +99,7 @@
 
         <table class="govuk-table calc_table govuk-table--m">
           <caption class="govuk-table__caption govuk-caption-l">Customs duty<br>
-            <span class="govuk-table__subcaption">The third-country duty may be reduced by the application of a preference, suspension, relief or item.</span>
+            <span class="govuk-table__subcaption">The third-country duty may be reduced by the application of a preference, suspension, relief or quota.</span>
           </caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
@@ -116,7 +120,7 @@
                     <br>
                     Words that describe how to use MFNs
                   </td>
-                  <td class="govuk-table__cell calculation">{{ item.calculation_string | safe }}</td>
+                  <td class="govuk-table__cell calculation">{{ item.calculation_string | safe }}{{ item.calculation_string_after_meursing | safe }}</td>
                   <td class="govuk-table__cell value">£{{ item.result | decimals(2) }}</td>
                   <td class="govuk-table__cell apply">&nbsp;</td>
                 </tr>

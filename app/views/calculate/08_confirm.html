@@ -28,7 +28,7 @@
           <dt class="govuk-summary-list__key">Commodity code</dt>
           <dd class="govuk-summary-list__value">{{ commodity.goods_nomenclature_item_id | format_commodity_code(" ") }}</dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
+            <a class="govuk-link" href="/search/">
               Change<span class="govuk-visually-hidden"> name</span>
             </a>
           </dd>
@@ -38,7 +38,7 @@
           <dt class="govuk-summary-list__key">Date of import</dt>
           <dd class="govuk-summary-list__value">1 January 2021 (<em>incomplete</em>)</dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
+            <a class="govuk-link" href="/calculate/date/{{ commodity.goods_nomenclature_item_id }}">
               Change<span class="govuk-visually-hidden"> date of import</span>
             </a>
           </dd>
@@ -48,7 +48,7 @@
           <dt class="govuk-summary-list__key">Destination</dt>
           <dd class="govuk-summary-list__value">{{ data["destination"] }}</dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
+            <a class="govuk-link" href="/calculate/destination/{{ commodity.goods_nomenclature_item_id }}">
               Change<span class="govuk-visually-hidden"> destination</span>
             </a>
           </dd>
@@ -58,7 +58,7 @@
           <dt class="govuk-summary-list__key">Origin</dt>
           <dd class="govuk-summary-list__value">{{ data["country_name"] }}</dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
+            <a class="govuk-link" href="/calculate/origin/{{ commodity.goods_nomenclature_item_id }}">
               Change<span class="govuk-visually-hidden"> origin</span>
             </a>
           </dd>
@@ -68,7 +68,7 @@
           <dt class="govuk-summary-list__key">Monetary value</dt>
           <dd class="govuk-summary-list__value">{{ data["currency"] | display_currency }}{{ data["monetary_value"] | decimals(2) }}</dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
+            <a class="govuk-link" href="/calculate/monetary_value/{{ commodity.goods_nomenclature_item_id }}">
               Change<span class="govuk-visually-hidden"> monetary value</span>
             </a>
           </dd>
@@ -79,7 +79,7 @@
             <dt class="govuk-summary-list__key">Unit value</dt>
             <dd class="govuk-summary-list__value">{{ data["unit_value"] }} {{ commodity.measurement_unit }}</dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="/calculate/unit_value/{{ commodity.goods_nomenclature_item_id }}">
               Change<span class="govuk-visually-hidden"> unit value</span>
               </a>
             </dd>
@@ -91,7 +91,7 @@
             <dt class="govuk-summary-list__key">Meursing code</dt>
             <dd class="govuk-summary-list__value">{{ data["meursing_code"] }}</dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="/calculate/meursing/{{ commodity.goods_nomenclature_item_id }}">
               Change<span class="govuk-visually-hidden"> Meursing code</span>
               </a>
             </dd>
@@ -103,7 +103,7 @@
             <dt class="govuk-summary-list__key">Company</dt>
             <dd class="govuk-summary-list__value">{{ data["company"] }}</dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="/calculate/company/{{ commodity.goods_nomenclature_item_id }}">
               Change<span class="govuk-visually-hidden"> Company</span>
               </a>
             </dd>

@@ -25,7 +25,9 @@
 
         {# Get error message #}
         {% if (error == "destination") %}
-          {% set error_message = { text: "Select a valid destination" } %}
+          {% set error_message = {
+            text: "Select a valid destination"
+          } %}
           {% set error_class = "govuk-input--error" %}
         {% else %}
           {% set error_message = null %}
@@ -33,40 +35,67 @@
         {% endif %}
 
         {# Display the destination radio buttons #}
+        {% set niHtml %}
+
         {{ govukRadios({
-            idPrefix: "destination",
-            name: "destination",
-            fieldset: {
-                legend: {
-                text: "Which part of the UK are you importing into?",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--xl"
-                }
+  idPrefix: "organisation",
+  name: "organisation",
+  classes: "govuk-radios--small",
+  fieldset: {
+    legend: {
+      text: "After arriving in Northern Ireland, will your goods be further transported to the Republic of Ireland?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes, the goods will be transported to the Republic of Ireland"
+    },
+    {
+      value: "no",
+      text: "No, the goods will remain in Northern Ireland"
+    }
+  ]
+}) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "destination",
+          name: "destination",
+          fieldset: {
+            legend: {
+              text: "Which part of the UK are you importing into?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "The duty you are charged may be dependent on the part of the UK to which you are importing."
+          },
+          items: [
+            {
+              value: "England",
+              text: "England"
             },
-            hint: {
-                text: "The duty you are charged may be dependent on the part of the UK to which you are importing."
+            {
+              value: "Scotland",
+              text: "Scotland"
             },
-            errorMessage: error_message,
-            items: [
-                {
-                value: "England",
-                text: "England",
-                checked: true
-                },
-                {
-                value: "Scotland",
-                text: "Scotland"
-                },
-                {
-                value: "Wales",
-                text: "Wales"
-                },
-                {
-                value: "Northern Ireland",
-                text: "Northern Ireland"
-                }
-            ]
-            }) }}
+            {
+              value: "Wales",
+              text: "Wales"
+            },
+            {
+              value: "Northern Ireland",
+              text: "Northern Ireland",
+              conditional: {
+                html: niHtml
+              }
+            }
+          ]
+        }) }}
 
         {# Display the Continue button #}
         {{ govukButton({

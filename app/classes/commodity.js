@@ -24,7 +24,7 @@ class Commodity {
         this.supplementary_unit = null;
         this.measure_type_series_id = null;
         this.measures = [];
-        this.meursing = false;
+        this.has_meursing = false;
         this.country_name = "";
         this.phase = "";
         this.units = [];
@@ -43,6 +43,7 @@ class Commodity {
         this.suspension_array = ["112", "115", "117", "119"];
         this.quota_array = ["143", "146", "122", "123"];
         this.supplementary_unit_array = ["109", "110"];
+        this.meursing_blob = null;
 
         if (this.goods_nomenclature_item_id != null) {
             this.formatted_commodity_code = this.goods_nomenclature_item_id
@@ -179,7 +180,7 @@ class Commodity {
 
         this.assign_geographical_areas();
         this.assign_additional_codes();
-        console.log(this.measures.length);
+        //console.log(this.measures.length);
         if (origin != "basic") {
             this.remove_irrelevant_measures();
         }
@@ -257,13 +258,13 @@ class Commodity {
     }
 
     assign_geographical_area_descriptions_to_exclusions() {
-        console.log ("assign_geographical_area_descriptions_to_exclusions");
+        //console.log ("assign_geographical_area_descriptions_to_exclusions");
         this.geographical_areas.forEach(ga => {
             this.measures.forEach(measure => {
                 measure.excluded_country_ids.forEach(excluded_country => {
                     //console.log(excluded_country);
                     if (excluded_country == ga.id) {
-                        console.log("Pushing excluded country");
+                        //console.log("Pushing excluded country");
                         measure.excluded_countries.push(excluded_country);
                     }
                 });
@@ -357,9 +358,9 @@ class Commodity {
         this.measure_components.forEach(mc => {
             this.measures.forEach(m => {
                 if (mc.measure_id == m.id) {
-                    if (mc.meursing) {
-                        m.meursing = true;
-                        this.meursing = true;
+                    if (mc.is_meursing) {
+                        m.has_meursing = true;
+                        this.has_meursing = true;
                     }
                     m.measure_components.push(mc);
                 }
@@ -405,7 +406,7 @@ class Commodity {
         });
         this.units = this.set(this.units);
 
-        if (this.meursing) {
+        if (this.has_meursing) {
             this.units = ["KGM"];
             this.measurement_unit = "kilograms";
         } else {
@@ -443,30 +444,61 @@ class Commodity {
         }
     }
 
+    xxx_get_meursing_blob() {
+        //var url = "http://127.0.0.1:5000/meursing/" + this.meursing_code + "/JP";
+        // var url = "http://127.0.0.1:5000/meursing/859/JP";
+        // var response = await axios.get(url);
+        // console.log(response.data);
+        // this.meursing_blob = response.data;
+        // axios.get(url)
+        //     .then((response) => {
+        //         this.meursing_blob = response.data;
+        //         console.log("Getting response.data");
+        //         console.log(response.data);
+        //     });
+    }
+
+    get_meursing_blob = async () => {
+        try {
+            var url = "http://127.0.0.1:5000/meursing/859/JP";
+            var response = await axios.get(url);
+            this.meursing_blob = response.data;
+            //console.log(response.data);
+        } catch (err) {
+            // Handle Error Here
+            console.error(err);
+        }
+    };
+
     // Categorise the measures
     categorise_measures() {
+        //console.log("this.has_meursing" + this.has_meursing);
+        // if (this.has_meursing) {
+        //     this.get_meursing_blob();
+        // }
+        //console.log(this.meursing_blob);
         this.measures.forEach(m => {
             if (this.mfn_array.includes(m.measure_type_id)) {
-                this.mfns.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company));
+                this.mfns.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (this.preference_array.includes(m.measure_type_id)) {
-                this.preferences.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company));
+                this.preferences.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (this.remedy_array.includes(m.measure_type_id)) {
-                this.remedies.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company));
+                this.remedies.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (this.suspension_array.includes(m.measure_type_id)) {
-                this.suspensions.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company));
+                this.suspensions.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (this.quota_array.includes(m.measure_type_id)) {
-                var obj = new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company);
+                var obj = new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob);
                 this.quotas.push(obj);
 
             } else if (m.measure_type_series_id == "P") {
-                this.vats.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company));
+                this.vats.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (m.measure_type_series_id == "Q") {
-                this.excises.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company));
+                this.excises.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
 
             }
         });

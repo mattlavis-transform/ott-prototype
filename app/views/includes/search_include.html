@@ -1,19 +1,16 @@
-<form class="form-inline" method="get">
+<form action="/search/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}" method="post">
   {{ govukInput({
   label: {
     text: "Search " + title | lowerFirst(),
     classes: "b"
   },
-  classes: "xgovuk-input--width-20 search-field",
+  classes: "search-field",
   placeholder: "Enter the name of the goods or commodity code",
   id: "search",
   name: "search"
 }) }}
 
-</form>
-
-
-{{ govukDateInput({
+  {{ govukDateInput({
   id: "date_of_trade",
   namePrefix: "date_of_trade",
   fieldset: {
@@ -44,13 +41,15 @@
     }
   ]
 }) }}
-
-{{ govukDetails({
+  {{ govukDetails({
   summaryText: "Why the date is important",
   text: " You should change the date to match the date you are planning to trade, to ensure that you return the correct duties and controls."
 }) }}
 
-{{ govukButton({
+  {{ govukButton({
   text: "Search"
 }) }}
+</form>
+
+
 <p class="govuk-body">You can also find commodity codes, duty, VAT rates and controls by manually <a href="/browse/{{ scopeId }}">browsing the goods classification</a>.</p>

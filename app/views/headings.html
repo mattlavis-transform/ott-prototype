@@ -24,7 +24,7 @@
         <div class="govuk-grid-column-full">
             <span class="govuk-caption-xl">{{ title }}</span>
             <h1 class="govuk-heading-l">
-                Chapter {{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}: {{ heading.data.attributes.formatted_description }}
+                Chapter {{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}: {{ heading.data.attributes.formatted_description | safe }}
             </h1>
             {% include "includes/intro_panel_short.html" %}
             <div class="panel">
@@ -34,7 +34,7 @@
                             {% if (item.type == "section") %}
                                 <!-- Section //-->
                                 <li class="section">
-                                    <a href="/sections/{{ item.id }}/{{ scopeId }}">Section {{ item.attributes.numeral }}: {{ item.attributes.title }}</a>
+                                    <a href="/sections/{{ item.id }}/{{ scopeId }}">Section {{ item.attributes.numeral }}: {{ item.attributes.title | safe }}</a>
                                 </li>
                             {% endif %}
                             {% if (item.type == "chapter") %}
@@ -48,7 +48,7 @@
                                         <span class="code green"></span>
                                     </div>
                                     <div class="description">
-                                        <a href="/chapters/{{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}/{{ scopeId }}">{{ item.attributes.formatted_description }}</a>
+                                        <a href="/chapters/{{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}/{{ scopeId }}">{{ item.attributes.formatted_description | safe }}</a>
                                     </div>
                                 </li>
                             {% endif %}
@@ -61,7 +61,7 @@
                                 <span class="code green"></span>
                                 <span class="code green"></span>
                             </div>
-                            <div class="description">{{ heading.data.attributes.formatted_description }}</div>
+                            <div class="description">{{ heading.data.attributes.formatted_description | safe }}</div>
                         </li>
                     </ul>
                 </nav>

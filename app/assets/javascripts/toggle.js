@@ -13,7 +13,7 @@ $(document).ready(function () {
     $("body").keydown(function (event) {
         if (event.target.tagName == "BODY") {
             if ((event.which == 84) || (event.which == 116)) {
-                console.log("toggle pressed. toggle_count = " + toggle_count);
+                //console.log("toggle pressed. toggle_count = " + toggle_count);
                 event.preventDefault();
 
                 for (i = 1; i <= toggle_count; i++) {

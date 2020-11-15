@@ -60,7 +60,9 @@ article.notes {
     margin-top: 2em;
     clear     : both;
 
-    ul {
+    ul,
+    ol,
+    p {
         font-family            : "GDS Transport", arial, sans-serif;
         -webkit-font-smoothing : antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -77,6 +79,7 @@ article.notes {
         li {
             margin-bottom: 15px;
         }
+
     }
 
 }

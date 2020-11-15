@@ -24,7 +24,7 @@
         <div class="govuk-grid-column-full">
             <span class="govuk-caption-xl">{{ title }}</span>
             <h1 class="govuk-heading-l">
-                Section {{ section.data.id }}: {{ section.data.attributes.title }}
+                Section {{ section.data.id | roman }}: {{ section.data.attributes.title }}
             </h1>
             {% include "includes/intro_panel_short.html" %}
             <table class="govuk-table">
@@ -45,7 +45,7 @@
                                 </td>
                                 <td class="govuk-table__cell">
                                     <a href="/chapters/{{ chapter.attributes.goods_nomenclature_item_id | substring(0, 2) }}/{{ scopeId }}">
-                                        {{ chapter.attributes.formatted_description }}
+                                        {{ chapter.attributes.formatted_description | safe }}
                                     </a>
                                 </td>
                             </tr>

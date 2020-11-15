@@ -13,7 +13,7 @@
     }) }}
   {{ govukBackLink({
   text: "Back",
-  href: "/commodities/" + commodity.data.attributes.goods_nomenclature_item_id
+  href: "/commodities/" + commodity.data.attributes.goods_nomenclature_item_id + "/" + scopeId
 }) }}
 {% endblock %}
 

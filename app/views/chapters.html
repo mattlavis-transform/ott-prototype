@@ -24,7 +24,7 @@
         <div class="govuk-grid-column-full">
             <span class="govuk-caption-xl">{{ title }}</span>
             <h1 class="govuk-heading-l">
-                Chapter {{ chapter.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}: {{ chapter.data.attributes.formatted_description }}
+                Chapter {{ chapter.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}: {{ chapter.data.attributes.formatted_description | safe }}
             </h1>
             {% include "includes/intro_panel_short.html" %}
 
@@ -34,7 +34,7 @@
                         {% for item in chapter.included %}
                             {% if (item.type == "section") %}
                                 <li class="section">
-                                    <a href="/sections/{{ item.id }}/{{ scopeId }}">Section {{ item.attributes.numeral }}: {{ item.attributes.title }}</a>
+                                    <a href="/sections/{{ item.id }}/{{ scopeId }}">Section {{ item.attributes.numeral }}: {{ item.attributes.title | safe }}</a>
                                 </li>
                             {% endif %}
                         {% endfor %}
@@ -46,7 +46,7 @@
                                 <span class="code green"></span>
                                 <span class="code green"></span>
                             </div>
-                            <div class="description">{{ chapter.data.attributes.formatted_description }}</div>
+                            <div class="description">{{ chapter.data.attributes.formatted_description | safe }}</div>
                         </li>
 
                     </ul>
@@ -73,7 +73,7 @@
                         </div>
                         <div class="description">
                             <a href="/headings/{{ heading.attributes.goods_nomenclature_item_id | substring(0, 4) }}/{{ scopeId }}">
-                                {{ heading.attributes.formatted_description }}
+                                {{ heading.attributes.formatted_description | safe }}
                             </a>
                         </div>
                     </div>
