@@ -54,7 +54,7 @@ class Heading {
                     var measure_id = obj["id"].replace("-duty_expression", "");
                     var base = obj["attributes"]["base"];
                     var formatted_base = obj["attributes"]["formatted_base"];
-                    de = new Duty_expression(measure_id, base, formatted_base);
+                    de = new DutyExpression(measure_id, base, formatted_base);
                     this.duty_expressions.push(de);
                     break
 

@@ -7,7 +7,7 @@
       href: "/search/" + scopeId
     },
     {
-      text: "Extras",
+      text: "Tools",
       href: ""
     }
   ]
@@ -23,37 +23,37 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <span class="govuk-caption-xl">{{ title }}</span>
-            <h1 class="govuk-heading-l">Additional tariff data</h1>
+            <h1 class="govuk-heading-l">Tariff tools</h1>
 
-            {{ govukInsetText({
+            {# {{ govukInsetText({
             text: "Intro text goes here"
-            }) }}
+            }) }} #}
             <ul class="govuk-list mb10">
                 {% if scopeId != "ni" %}
                     <li>
                         <a href="/quotas/{{ scopeId }}">Quotas</a>
-                        <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
+                        <br>Search for specific quotas
                 </li>
                 {% endif %}
                 <li>
                     <a href="/certificates/{{ scopeId }}">Certificates</a>
-                    <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
+                    <br>Search for certificates, licenses and other document codes.
                 </li>
                 <li>
                     <a href="/additional_codes/{{ scopeId }}">Additional codes</a>
-                    <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
+                    <br>Search for additional codes. Additional codes ...
                 </li>
                 <li>
                     <a href="/footnotes/{{ scopeId }}">Footnotes</a>
-                    <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
+                    <br>Search for footnotes
                 </li>
                 <li>
                     <a href="/chemicals/{{ scopeId }}">Chemicals</a>
-                    <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
+                    <br>Search for chemicals
                 </li>
                 <li>
                     <a href="/exchange_rates">Exchange rates</a>
-                    <br>Irure qui reprehenderit nulla ex eu consectetur. Fugiat velit elit non laborum
+                    <br>View current and past exchange rates
                 </li>
             </ul>
         </div>

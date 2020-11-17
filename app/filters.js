@@ -48,9 +48,20 @@ module.exports = function (env) {
         str = _.lowerFirst(str);
         return (str);
     }
+
     filters.capitalise = function (str) {
         var _ = require('lodash');
         str = _.capitalize(str);
+        return (str);
+    }
+
+    filters.title_case = function (str) {
+        var _ = require('lodash');
+        str = _.capitalize(_.toLower(str));
+        str = str.replace("uk", "UK");
+        str = str.replace("union", "Union");
+        str = str.replace("Vat", "VAT");
+        str = str.replace("Hmi", "HMI");
         return (str);
     }
 

@@ -1,4 +1,4 @@
-var toggle_count = 3;
+var toggle_count = 2;
 
 $(document).ready(function () {
     var toggle_state = 1;

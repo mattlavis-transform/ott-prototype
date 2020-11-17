@@ -22,17 +22,15 @@
     </h1>
     {% include "includes/intro_panel_short.html" %}
 
-
-<details class="govuk-details" data-module="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
+    <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
       This tariff is for {{ date_string }}. Click to change
     </span>
-  </summary>
-  <div class="govuk-details__text">
-    
+        </summary>
+        <div class="govuk-details__text">
 
-{{ govukDateInput({
+            {{ govukDateInput({
   id: "date",
   namePrefix: "date",
   fieldset: {
@@ -63,56 +61,12 @@
     }
   ]
 }) }}
-{{ govukButton({
+            {{ govukButton({
   text: "Update date"
 }) }}
 
-  </div>
-</details>
-{# 
-    <p class="govuk-body-s">
-        This tariff is for {{ date_string }}
-        <a href="#" class="change_date">Change date</a>
-    </p>
-
-    <div class="govuk-inset-text" id="date_switcher">
-
-        {{ govukDateInput({
-  id: "date",
-  namePrefix: "date",
-  fieldset: {
-    legend: {
-      text: "On which date will your trade take place?",
-      isPageHeading: false,
-      classes: "govuk-fieldset__legend--s"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      classes: "govuk-input--width-2",
-      name: "day",
-      value: "1"
-    },
-    {
-      classes: "govuk-input--width-2",
-      name: "month",
-      value: "1"
-    },
-    {
-      classes: "govuk-input--width-4",
-      name: "year",
-      value: "2021"
-    }
-  ]
-}) }}
-{{ govukButton({
-  text: "Update date"
-}) }}
-
-    </div> #}
+        </div>
+    </details>
 
     <div class="panel">
         <nav class="breadcrumb">
@@ -180,7 +134,7 @@
                         <span class="code green">{{ commodity.data.attributes.goods_nomenclature_item_id | substring(6, 2) }}</span>
                         <span class="code green">{{ commodity.data.attributes.goods_nomenclature_item_id | substring(8, 2) }}</span>
                     </div>
-                    <div class="description">{{ commodity.data.attributes.formatted_description | safe }}</div>
+                    <div class="description">{{ commodity.data.attributes.formatted_description }}</div>
                 </li>
             </ul>
         </nav>
@@ -223,63 +177,83 @@
         <div class="govuk-tabs__panel" id="import">
             <h2 class="govuk-heading-m">Import measures and restrictions</h2>
             <p>This information is for <strong>{{ date_string }}</strong>.</p>
-            {% include "includes/types_of_measure.html" %}
+            
+            {% include "includes/country_selector.html" %}
 
-            <table class="govuk-table govuk-table--s measures">
-                <caption class="govuk-table__caption">Measures for Antarctica</caption>
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header country">Country</th>
-                        <th scope="col" class="govuk-table__header measure">Measure</th>
-                        <th scope="col" class="govuk-table__header value">Value</th>
-                        <th scope="col" class="govuk-table__header conditions">Conditions</th>
-                        <th scope="col" class="govuk-table__header exclusions">Exclusions</th>
-                        <th scope="col" class="govuk-table__header legal_base">Legal base</th>
-                        <th scope="col" class="govuk-table__header dates">Date&nbsp;(s)</th>
-                        <th scope="col" class="govuk-table__header footnotes">Footnotes</th>
-                    </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                    {% for measure in commodity.measures %}
-                        {% if (measure.import == true) %}
-                            <tr class="govuk-table__row measure">
-                                <td class="govuk-table__cell country">
-                                    {% if (measure.geographical_area_code == 1) %}
-                                        <details class="govuk-details" data-module="govuk-details">
-                                            <summary class="govuk-details__summary">
-                                                <span class="govuk-details__summary-text">{{ measure.geographical_area_description }}</span>
-                                            </summary>
-                                            <div class="govuk-details__text">
-                                                <ul class="countries">
-                                                    <li>Albania (AL)</li>
-                                                    <li>Cocos Islands (or Keeling Islands) (CC)</li>
-                                                    <li></li>
-                                                </ul>
-                                                <br>
+            {% for display_block in commodity.display_blocks %}
+                <h2 class="govuk-heading-s govuk-!-margin-top-7 govuk-!-margin-bottom-0">{{ display_block.block }} on {{ commodity.goods_nomenclature_item_id | format_commodity_code }}</h2>
+                {% if display_block.explainers %}
+                    <details class="govuk-details govuk-!-font-size-16 govuk-!-margin-top-2 govuk-!-margin-bottom-2" data-module="govuk-details">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">{{ display_block.explainers.title }}</span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            <ul class="govuk-list govuk-!-font-size-16">
+                                {% for explainer in display_block.explainers.items %}
+                                    <li>
+                                        <strong>{{ explainer.measure_type | safe }}</strong><br>{{ explainer.description | safe }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </details>
+                {% endif %}
+                <table class="govuk-table govuk-table--s measures2 app-flexible-table">
+                    <thead class="govuk-table__head app-flexible-table__head">
+                        <tr class="govuk-table__row app-flexible-table__row">
+                            <th scope="col" class="govuk-table__header country app-flexible-table__header">Country</th>
+                            {# <th scope="col" class="govuk-table__header exclusions app-flexible-table__header">Exclusions</th> #}
+                            <th scope="col" class="govuk-table__header measure app-flexible-table__header">Measure type</th>
+                            <th scope="col" class="govuk-table__header value app-flexible-table__header">Value</th>
+                            <th scope="col" class="govuk-table__header conditions app-flexible-table__header">Conditions</th>
+                            <th scope="col" class="govuk-table__header dates app-flexible-table__header">Date&nbsp;(s)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body  app-flexible-table__body">
+                        {% for measure in commodity.measures %}
+                            {% if (measure.import == true) and (measure.display_block.block == display_block.block) %}
+                                <tr class="govuk-table__row measure app-flexible-table__row">
+                                    <td class="govuk-table__cell country app-flexible-table__cell">
+                                        {% if (measure.geographical_area.geographical_area_code == 100) %}
+                                            <details class="govuk-details" data-module="govuk-details">
+                                                <summary class="govuk-details__summary">
+                                                    <span class="govuk-details__summary-text">{{ measure.geographical_area_description }}</span>
+                                                </summary>
+                                                <div class="govuk-details__text">
+                                                    <ul class="countries">
+                                                        <li>Albania (AL)</li>
+                                                        <li>Cocos Islands (or Keeling Islands) (CC)</li>
+                                                        <li></li>
+                                                    </ul>
+                                                    <br>
 
-                                            </div>
-                                        </details>
-                                    {% else %}
-                                        {{ measure.geographical_area_description }}
-                                    {% endif %}
-                                </td>
-                                <td class="govuk-table__cell measure">{{ measure.measure_type_description }}</td>
-                                <td class="govuk-table__cell value">TBC</td>
-                                <td class="govuk-table__cell conditions">
-                                    <a href="">TBC</a>
-                                </td>
-                                <td class="govuk-table__cell exclusions">TBC</td>
-                                <td class="govuk-table__cell legal_base">{{ measure.legal_base }}</td>
-                                <td class="govuk-table__cell dates">{{ measure.effective_start_date | format_date("DD MMM YY") }}</td>
-                                <td class="govuk-table__cell footnotes">
-                                    <a href="">TBC</a>
-                                </td>
-                            </tr>
-                        {% endif %}
-                    {% endfor %}
+                                                </div>
+                                            </details>
+                                        {% else %}
+                                            {{ measure.geographical_area_description }}
+                                            {% if measure.excluded_country_string != "" %}
+                                             <br><span class="govuk-!-font-size-14 grey">excluding {{ measure.excluded_country_string }}</span>
+                                            {% endif %}
+                                        {% endif %}
+                                    </td>
+                                    <td class="govuk-table__cell measure app-flexible-table__cell">
+                                        {{ measure.measure_type_description | title_case }}
+                                        {% if measure.order_number_id %}
+                                            Order no: <a href="#">{{ measure.order_number_id | format_order_number }}</a>
+                                        {% endif %}
+                                    </td>
+                                    <td class="govuk-table__cell value app-flexible-table__cell">{{ measure.duty_expression.formatted_base | safe }}</td>
+                                    <td class="govuk-table__cell conditions app-flexible-table__cell">
+                                        <a href="">TBC</a>
+                                    </td>
+                                    <td class="govuk-table__cell dates app-flexible-table__cell nw" nowrap>{{ measure.effective_start_date | format_date("DD MMM YY") }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+                <p class="govuk-body govuk-!-margin-top-4 govuk-!-font-size-16x">{{ display_block.link_text | safe }}</p>
+            {% endfor %}
 
         </div>
         <div class="govuk-tabs__panel" id="export">

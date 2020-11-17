@@ -6,7 +6,7 @@
 
 {% set ni_url = root_url | new_scope("ni") %}
 {% set uk_url = root_url | new_scope("") %}
-
+<!--
 {% if scopeId == "ni" %}
     <div class="govuk-warning-text toggle2">
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -26,8 +26,31 @@
         For all other cases, use the <a href="{{ uk_url }}">UK Trade Tariff</a>.
     </div>
 
+    <!--
+    <section class="app-c-header-notice toggle3" aria-label="notice" role="region" lang="en">
+        <div class="app-c-header-notice__header">
+            <h2 class="app-c-header-notice__title">The Northern Ireland (EU) Tariff</h2>
+        </div>
+
+        <div class="app-c-header-notice__content">
+            <p class="app-c-header-notice__text govuk-body">        Use the Northern Ireland (EU) Tariff to look up commodity codes, duty, VAT and controls if you are importing goods
+                that are at risk of being transported to the Republic of Ireland. Find out more about the <a href="/dual_tariff">dual tariff regime</a>
+                for Northern Ireland.<br><br>
+                For all other cases, use the <a href="{{ uk_url }}">UK Trade Tariff</a>.
+            </p>
+        </div>
+    </section>
+    //-->
 
 {% else %}
+
+    <!--
+    <div class="panel panel_blue toggle1">
+        Are you trading in Northern Ireland? From January 1st 2021, Northern Ireland is operating under
+        a <a href="/dual_tariff">dual tariff regime</a> and the rules may differ if you are importing goods that are at risk of being
+        transported to the Republic of Ireland. In that case, use the <a href="{{ ni_url }}">Northern Ireland (EU) Tariff</a>.
+    </div>
+    //-->
 
     <div class="govuk-warning-text toggle2">
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -48,3 +71,4 @@
     
 <p>Use the UK Trade Tariff to look up commodity codes, duty, VAT and controls.</p>
 {% endif %}
+//-->

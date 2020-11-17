@@ -15,6 +15,18 @@ global.format_number = function (s, dec_places = 0) {
     return (s2);
 }
 
+global.format_commodity_code = function (str, separator = " ") {
+    if (typeof str !== 'undefined') {
+        s = str.substr(0, 4) + separator;
+        s += str.substr(4, 2) + separator;
+        s += str.substr(6, 2) + separator;
+        s += str.substr(8, 2);
+        return s;
+    } else {
+        return "";
+    }
+}
+
 global.format_date = function (s, fmt) {
     var moment = require('moment');
     var formattedDate = moment(s).format(fmt);
@@ -47,7 +59,7 @@ global.get_title = function (scopeId) {
     if (scopeId == "ni") {
         var title = "The Northern Ireland (EU) Tariff";
     } else {
-        var title = "The UK Global Tariff";
+        var title = "The UK Trade Tariff";
     }
     return (title);
 }

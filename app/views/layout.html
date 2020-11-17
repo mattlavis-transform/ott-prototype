@@ -42,6 +42,31 @@
   {% include "includes/cookie-banner.html" %}
   {# Set serviceName in config.js. #}
 
+{% if scopeId == "ni" %}
+  {{ govukHeader({
+  homepageUrl: "https://www.gov.uk",
+  serviceName: serviceName,
+  serviceUrl: "/search",
+  navigation: [
+    {
+      href: "/search/" + scopeId,
+      text: "Search the Tariff"
+    },
+    {
+      href: "/browse/" + scopeId,
+      text: "Browse the Goods Classification"
+    },
+    {
+      href: "/a-z-index/a/" + scopeId,
+      text: "A to Z"
+    },
+    {
+      href: "/tools/" + scopeId,
+      text: "Tools"
+    }
+  ]
+}) }}
+{% else %}
   {{ govukHeader({
   homepageUrl: "https://www.gov.uk",
   serviceName: serviceName,
@@ -64,11 +89,12 @@
       text: "Downloads"
     },
     {
-      href: "/extras/" + scopeId,
-      text: "Extras"
+      href: "/tools/" + scopeId,
+      text: "Tools"
     }
   ]
 }) }}
+{% endif %}
 
 {% include "includes/nav_highlighter.html" %}
 {% endblock %}

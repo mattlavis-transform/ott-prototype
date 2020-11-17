@@ -81,6 +81,26 @@ router.get(['/commodities/:goods_nomenclature_item_id/', '/commodities/:goods_no
         });
 });
 
+
+// Browse a single commodity (version 2: sorted)
+router.get(['/commodities2/:goods_nomenclature_item_id/', '/commodities2/:goods_nomenclature_item_id/:scopeId'], function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    title = global.get_title(scopeId);
+    req.session.data["error"] = "";
+    axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
+        .then((response) => {
+            //res.render('commodities', { 'commodity': response.data, 'date_string': global.todays_date() });
+            c = new Commodity();
+            c.pass_request(req);
+            c.get_data(response.data);
+            c.get_measure_data("basic");
+            c.sort_measures();
+            //country_picker = new CountryPicker()
+            res.render('commodities2', {'commodity': c, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+        });
+});
+
 /* ############################################################################ */
 /* ###################                END BROWSE              ################# */
 /* ############################################################################ */
@@ -148,15 +168,15 @@ router.get(['/downloads/', '/downloads/:scopeId'], function (req, res) {
 /* ############################################################################ */
 
 /* ############################################################################ */
-/* ###################         BEGIN EXTRAS SECTION           ################# */
+/* ###################         BEGIN TOOLS SECTION           ################# */
 /* ############################################################################ */
 
-// Extras
-router.get(['/extras/', '/extras/:scopeId'], function (req, res) {
+// Tools
+router.get(['/tools/', '/tools/:scopeId'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
-    res.render('extras', {'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
+    res.render('tools', {'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
 });
 
 // Quotas
@@ -208,7 +228,7 @@ router.get(['/exchange_rates/', '/exchange_rates/:scopeId'], function (req, res)
 });
 
 /* ############################################################################ */
-/* ###################           END EXTRAS SECTION           ################# */
+/* ###################           END TOOLS SECTION           ################# */
 /* ############################################################################ */
 
 

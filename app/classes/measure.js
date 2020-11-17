@@ -21,9 +21,21 @@ class Measure {
         this.legal_base = "";
         this.legal_acts = [];
         this.legal_act_ids = [];
+        this.excluded_country_string = "";
         this.excluded_countries = [];
         this.excluded_country_ids = [];
         this.has_meursing = false;
+        this.display_block = "";
+    }
+
+    get_excluded_country_string() {
+        var listify = require('listify');
+        this.excluded_country_descriptions = [];
+        this.excluded_countries.forEach(ex => {
+            this.excluded_country_descriptions.push(ex.description);
+        });
+        this.excluded_country_string = listify(this.excluded_country_descriptions);
+        this.excluded_country_string = this.excluded_country_string.replace(", and", " and");
     }
 
     combine_duties() {
@@ -35,6 +47,8 @@ class Measure {
             }
         });
     }
+
+
 
 }
 module.exports = Measure

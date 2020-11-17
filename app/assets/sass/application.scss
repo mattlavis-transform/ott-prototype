@@ -553,6 +553,65 @@ div.panel_blue {
     }
 }
 
+.measures2 {
+
+    .govuk-details {
+        font-size     : 14px;
+        padding-top   : 0px;
+        margin-top    : 0px;
+        padding-bottom: 0px;
+        margin-bottom : 0px;
+    }
+
+    .govuk-details__summary {
+        font-size     : 16px;
+        padding-top   : 0px;
+        margin-top    : 0px;
+        padding-bottom: 0px;
+        margin-bottom : 0px;
+    }
+
+    .govuk-details__summary::before {
+        margin-top  : 3px;
+        border-width: 6px 0 6px 10.392px;
+    }
+
+    .govuk-details[open]>.govuk-details__summary::before {
+        border-width: 6px 0 6px 10.392px;
+    }
+
+    .grey {
+        color: #666;
+    }
+
+    @media (min-width: 800px) {
+        .country {
+            width: 30%
+        }
+
+        .exclusions {
+            width: 20%
+        }
+
+        .measure {
+            width: 30%
+        }
+
+        .value {
+            width: 20%
+        }
+
+        .conditions {
+            width: 10%
+        }
+
+        .dates {
+            width     : 10%;
+            text-align: right;
+        }
+    }
+}
+
 
 ul.countries {
     margin         : 0px 0px 0px 5px;
@@ -593,13 +652,19 @@ ul.countries {
     display: none;
 }
 
+
+// tr:last-of-type .govuk-table__cell {
+//     border-bottom: 0px;
+// }
+
+@import "components/app-flexible-table";
 @import "components/attachments";
 @import "components/az";
 @import "components/bold_banner";
 @import "components/breadcrumbs";
 @import "components/calculate";
+@import "components/country-picker";
 @import "components/bottom_links";
 @import "location-autocomplete.min";
-
 
 @import "bz";

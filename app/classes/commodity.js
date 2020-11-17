@@ -9,6 +9,7 @@ const Calculation = require("./calculation");
 const OrderNumber = require("./order_number");
 const Definition = require("./definition");
 const LegalAct = require("./legal_act");
+const DutyExpression = require("./duty_expression");
 
 class Commodity {
     constructor(sid = null, goods_nomenclature_item_id = null, productline_suffix = null, description = null, number_indents = null, leaf = null, parent_sid = null, indent_class = null) {
@@ -28,6 +29,7 @@ class Commodity {
         this.country_name = "";
         this.phase = "";
         this.units = [];
+        this.duty_expressions = [];
 
         this.quotas = [];
         this.mfns = [];
@@ -38,7 +40,8 @@ class Commodity {
         this.suspensions = [];
 
         this.mfn_array = ["103", "105"];
-        this.preference_array = ["142", "145"];
+        this.agri_array = ["488", "489", "490"];
+        this.preference_array = ["142", "145", "106", "109"];
         this.remedy_array = ["551", "552", "553", "554"];
         this.suspension_array = ["112", "115", "117", "119"];
         this.quota_array = ["143", "146", "122", "123"];
@@ -175,9 +178,17 @@ class Commodity {
             } else if (item["type"] == "legal_act") {
                 la = new LegalAct(item);
                 this.legal_acts.push(la);
+
+            } else if (item["type"] == "duty_expression") {
+                var measure_id = item["id"].replace("-duty_expression", "");
+                var base = item["attributes"]["base"];
+                var formatted_base = item["attributes"]["formatted_base"];
+                var obj = new DutyExpression(measure_id, base, formatted_base);
+                this.duty_expressions.push(obj);
             }
         });
 
+        this.assign_duty_expressions();
         this.assign_geographical_areas();
         this.assign_additional_codes();
         //console.log(this.measures.length);
@@ -235,6 +246,7 @@ class Commodity {
             this.measure_types.forEach(measure_type => {
                 if (measure_type.id == measure.measure_type_id) {
                     measure.measure_type_description = measure_type.description;
+                    measure.measure_type_series_id = measure_type.measure_type_series_id;
                 }
             });
         });
@@ -258,26 +270,18 @@ class Commodity {
     }
 
     assign_geographical_area_descriptions_to_exclusions() {
-        //console.log ("assign_geographical_area_descriptions_to_exclusions");
         this.geographical_areas.forEach(ga => {
             this.measures.forEach(measure => {
                 measure.excluded_country_ids.forEach(excluded_country => {
-                    //console.log(excluded_country);
                     if (excluded_country == ga.id) {
-                        //console.log("Pushing excluded country");
-                        measure.excluded_countries.push(excluded_country);
+                        measure.excluded_countries.push(ga);
                     }
                 });
             });
         });
 
         this.measures.forEach(measure => {
-            measure.excluded_country_string = "";
-            // <ul class="countries">
-            //     <li>Albania (AL)</li>
-            //     <li>Cocos Islands (or Keeling Islands) (CC)</li>
-            //     <li></li>
-            // </ul>
+            measure.get_excluded_country_string();
         });
     }
 
@@ -286,7 +290,6 @@ class Commodity {
             this.measures.forEach(measure => {
                 measure.legal_act_ids.forEach(legal_act_id => {
                     if (legal_act_id == legal_act.id) {
-                        //console.log("Pushing");
                         measure.legal_acts.push(legal_act);
                     }
                 });
@@ -335,6 +338,18 @@ class Commodity {
             this.geographical_areas.forEach(g => {
                 if (m.geographical_area_id == g.id) {
                     m.geographical_area = g;
+                }
+            });
+        });
+
+    }
+
+    // Assign duty expressions
+    assign_duty_expressions() {
+        this.measures.forEach(m => {
+            this.duty_expressions.forEach(de => {
+                if (m.id == de.measure_id) {
+                    m.duty_expression = de;
                 }
             });
         });
@@ -470,35 +485,273 @@ class Commodity {
         }
     };
 
+    sort_measures() {
+        console.log("Sorting measures");
+        this.measures.sort(compare_blocks);
+        this.measures.sort(compare_measure_types);
+        this.measures.sort(compare_geo);
+
+        function compare_geo(a, b) {
+            if (a.geographical_area.geographical_area_code < b.geographical_area.geographical_area_code) {
+                return 1;
+            }
+            if (a.geographical_area.geographical_area_code > b.geographical_area.geographical_area_code) {
+                return -1;
+            }
+            return 0;
+        }
+
+        function compare_measure_types(a, b) {
+            if (a.measure_type_id < b.measure_type_id) {
+                return -1;
+            }
+            if (a.measure_type_id > b.measure_type_id) {
+                return 1;
+            }
+            return 0;
+        }
+
+        function compare_blocks(a, b) {
+            if (a.sort_block.sort < b.sort_block.sort) {
+                return -1;
+            }
+            if (a.sort_block.sort > b.sort_block.sort) {
+                return 1;
+            }
+            return 0;
+        }
+    }
+
+
     // Categorise the measures
     categorise_measures() {
-        //console.log("this.has_meursing" + this.has_meursing);
-        // if (this.has_meursing) {
-        //     this.get_meursing_blob();
-        // }
-        //console.log(this.meursing_blob);
+        console.log("Categorising measures");
+
+        var display_block_options = {
+            "vat_excise": {
+                "block": "VAT and excise",
+                "explainers": {
+                    "title": "More information about VAT and excise",
+                    "items": [
+                        {
+                            "measure_type": "VAT",
+                            "description": "VAT is a national tax charged in addition to any other duties that apply"
+                        },
+                        {
+                            "measure_type": "Excise",
+                            "description": "Lorem ipsum"
+                        }
+                    ]
+                }
+            },
+            "tariffs_charges": {
+                "block": "Tariffs and charges",
+                "explainers": {
+                    "title": "What are the main types of tariffs and charges",
+                    "items": [
+                        {
+                            "measure_type": "Third country duty",
+                            "description": "Lorem ipsum"
+                        },
+                        {
+                            "measure_type": "Tariff preferences",
+                            "description": "Lorem ipsum"
+                        },
+                        {
+                            "measure_type": "Suspensions and reliefs",
+                            "description": "Lorem ipsum"
+                        },
+                        {
+                            "measure_type": "Customs Union duties",
+                            "description": "Lorem ipsum"
+                        }
+                    ]
+                },
+                "link_text": "Click to <a href='/calculate/date/" + this.goods_nomenclature_item_id + "'>calculate import duties and taxes for importing commodity " + global.format_commodity_code(this.goods_nomenclature_item_id) + "</a>."
+            },
+            "quotas": {
+                "block": "Quotas",
+                "explainers": {
+                    "title": "More information about quotas",
+                    "items": [
+                        {
+                            "measure_type": "Quotas",
+                            "description": "Lorem ipsum"
+                        }
+                    ]
+                }
+            },
+            "other": {
+                "block": "Import controls",
+                "explainers": {
+                    "title": "More information about import controls",
+                    "items": [
+                        {
+                            "measure_type": "Import controls",
+                            "description": "Import controls can be either prohibitions, where goods cannot be imported under any circumstances, or restrictions, where goods can be imported only under certain circumstances. Check the conditions related to this type of measure. "
+                        }
+                    ]
+                }
+            },
+            "remedies": {
+                "block": "Trade Remedies and safeguards",
+                "explainers": {
+                    "title": "More information about Trade Remedies and safeguards",
+                    "items": [
+                        {
+                            "measure_type": "Anti-dumping",
+                            "description": "Lorem ipsum"
+                        },
+                        {
+                            "measure_type": "Anti-subsidy",
+                            "description": "Lorem ipsum"
+                        },
+                        {
+                            "measure_type": "Safeguards",
+                            "description": "Lorem ipsum"
+                        }
+                    ]
+                }
+            }
+        }
+
+        var display_sort_options = {
+            "vat": {
+                "sort": "00_vat",
+                "block": "vat_excise"
+            },
+            "excise": {
+                "sort": "01_excise",
+                "block": "vat_excise"
+            },
+            "mfns": {
+                "sort": "02_mfns",
+                "block": "tariffs_charges"
+            },
+            "agri": {
+                "sort": "03_agri",
+                "block": "tariffs_charges"
+            },
+            "preferences": {
+                "sort": "03_preferences",
+                "block": "tariffs_charges"
+            },
+            "suspensions": {
+                "sort": "04_suspensions",
+                "block": "tariffs_charges"
+            },
+            "quotas": {
+                "sort": "05_quotas",
+                "block": "quotas"
+            },
+            "other": {
+                "sort": "06_other",
+                "block": "other"
+            },
+            "remedies": {
+                "sort": "99_remedies",
+                "block": "remedies"
+            }
+        }
+
+        this.display_blocks = [];
+        var block = "";
         this.measures.forEach(m => {
             if (this.mfn_array.includes(m.measure_type_id)) {
+                block = "mfns"
+                m.sort_block = display_sort_options[block]
+                m.display_block = display_block_options[m.sort_block.block]
+
+                if (!this.display_blocks.includes(m.display_block)) {
+                    this.display_blocks.push(m.display_block);
+                }
                 this.mfns.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
 
+            } else if (this.agri_array.includes(m.measure_type_id)) {
+                block = "agri"
+                m.sort_block = display_sort_options[block]
+                m.display_block = display_block_options[m.sort_block.block]
+
+                if (!this.display_blocks.includes(m.display_block)) {
+                    this.display_blocks.push(m.display_block);
+                }
+                //this.mfns.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
+
             } else if (this.preference_array.includes(m.measure_type_id)) {
+                block = "preferences"
+                m.sort_block = display_sort_options[block]
+                m.display_block = display_block_options[m.sort_block.block]
+
+                if (!this.display_blocks.includes(m.display_block)) {
+                    this.display_blocks.push(m.display_block);
+                }
+
                 this.preferences.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (this.remedy_array.includes(m.measure_type_id)) {
+                block = "remedies"
+                m.sort_block = display_sort_options[block]
+                m.display_block = display_block_options[m.sort_block.block]
+
+                if (!this.display_blocks.includes(m.display_block)) {
+                    this.display_blocks.push(m.display_block);
+                }
+
                 this.remedies.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (this.suspension_array.includes(m.measure_type_id)) {
+                block = "suspensions"
+                m.sort_block = display_sort_options[block]
+                m.display_block = display_block_options[m.sort_block.block]
+
+                if (!this.display_blocks.includes(m.display_block)) {
+                    this.display_blocks.push(m.display_block);
+                }
+
                 this.suspensions.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (this.quota_array.includes(m.measure_type_id)) {
+                block = "quotas"
+                m.sort_block = display_sort_options[block]
+                m.display_block = display_block_options[m.sort_block.block]
+
+                if (!this.display_blocks.includes(m.display_block)) {
+                    this.display_blocks.push(m.display_block);
+                }
+
                 var obj = new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob);
                 this.quotas.push(obj);
 
             } else if (m.measure_type_series_id == "P") {
+                block = "vat"
+                m.sort_block = display_sort_options[block]
+                m.display_block = display_block_options[m.sort_block.block]
+
+                if (!this.display_blocks.includes(m.display_block)) {
+                    this.display_blocks.push(m.display_block);
+                }
+
                 this.vats.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (m.measure_type_series_id == "Q") {
+                block = "excise"
+                m.sort_block = display_sort_options[block]
+                m.display_block = display_block_options[m.sort_block.block]
+
+                if (!this.display_blocks.includes(m.display_block)) {
+                    this.display_blocks.push(m.display_block);
+                }
+
                 this.excises.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
+
+            } else {
+                block = "other"
+                m.sort_block = display_sort_options[block]
+                m.display_block = display_block_options[m.sort_block.block]
+
+                if (!this.display_blocks.includes(m.display_block)) {
+                    this.display_blocks.push(m.display_block);
+                }
 
             }
         });
