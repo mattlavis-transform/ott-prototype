@@ -29,7 +29,7 @@
 
 {% else %}
 
-    <div class="govuk-warning-text toggle2">
+    {# <div class="govuk-warning-text toggle2">
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
         <strong class="govuk-warning-text__text">
             <span class="govuk-warning-text__assistive">Warning</span>
@@ -37,9 +37,16 @@
             a <a href="/dual_tariff">dual tariff regime</a> and the rules may differ if you are importing goods that are at risk of being
             transported to the Republic of Ireland. In that case, use the <a href="{{ ni_url }}">Northern Ireland (EU) Tariff</a>.
         </strong>
-    </div>
+    </div> #}
 
     <div class="panel panel_grey toggle1">
+        Are you trading in Northern Ireland? From January 1st 2021, Northern Ireland is operating under
+        a <a href="/dual_tariff">dual tariff regime</a> and the rules may differ if you are importing goods that are at risk of being
+        transported to the Republic of Ireland. In that case, use the <a href="{{ ni_url }}">Northern Ireland (EU) Tariff</a>.
+    </div>
+
+
+    <div class="panel panel_grey toggle2">
         Are you trading in Northern Ireland? From January 1st 2021, Northern Ireland is operating under
         a <a href="/dual_tariff">dual tariff regime</a> and the rules may differ if you are importing goods that are at risk of being
         transported to the Republic of Ireland. In that case, use the <a href="{{ ni_url }}">Northern Ireland (EU) Tariff</a>.

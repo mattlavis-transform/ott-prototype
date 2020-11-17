@@ -149,10 +149,15 @@ module.exports = function (env) {
     }
 
     filters.new_scope = function (str, scope) {
-        // console.log(str);
-        // console.log(scope);
-        if (str.slice(-1) != "/") {
-            str += "/";
+        console.log(str);
+        console.log(scope);
+        var lastChar = str[str.length -1];
+        console.log(lastChar);
+
+        if (str != "") {
+            if (str.slice(-1) != "/") {
+                str += "/";
+            }
         }
         if (str.indexOf("{{ scopeId }}") > -1) {
             str = str.replace("{{ scopeId }}", scope);
