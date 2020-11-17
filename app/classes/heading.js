@@ -1,6 +1,6 @@
 const Commodity = require('./commodity.js')
 const Measure = require('./measure.js')
-const Duty_expression = require('./duty_expression.js')
+const DutyExpression = require('./duty_expression.js')
 const Footnote = require('./footnote.js')
 
 class Heading {

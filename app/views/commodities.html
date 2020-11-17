@@ -264,7 +264,7 @@
                                     {% endif %}
                                 </td>
                                 <td class="govuk-table__cell measure">{{ measure.measure_type_description }}</td>
-                                <td class="govuk-table__cell value">TBC</td>
+                                <td class="govuk-table__cell value">{{ measure.duty_expression.formatted_base | safe }}</td>
                                 <td class="govuk-table__cell conditions">
                                     <a href="">TBC</a>
                                 </td>
