@@ -22,6 +22,9 @@
             <h1 class="govuk-heading-l">
                 A-Z of Classified Goods
             </h1>
+            {{ govukInsetText({
+            text: "Use the A-Z index to find ..."
+            }) }}
             <ul class="az">
                 {% set alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
                 {% for item in alphabet %}

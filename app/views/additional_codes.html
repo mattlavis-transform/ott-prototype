@@ -25,27 +25,25 @@
     <div class="govuk-grid-column-full">
       <span class="govuk-caption-xl">{{ title }}</span>
       <h1 class="govuk-heading-l">Search by additional code</h1>
-      {{ govukInsetText({
-              text: "Introductory text describing this section"
-            }) }}
 
-      {{ govukSelect({
-        id: "type",
-        name: "type",
-        label: {
-          text: "Type"
-        },
-        items: [
-          {
-            value: "9",
-            text: "9 - National Document"
-          }
-        ]
-      }) }}
+      <div class="xgovuk-inset-text">
+        <p>Search for additional codes. Additional codes are used on the tariff for a number of purposes:</p>
+  
+
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>To identify exporting companies against which anti-dumping or anti-subsidy duties have been levied.</li>
+        <li>To more fully identify a commodity</li>
+        <li>To identify the constituent parts of a complex agrigood</li>
+        <li>etc.</li>
+      </ul></div>
 
       {{ govukInput({
         label: {
-          text: "Code"
+          text: "Additional code"
+        },
+        hint: {
+          text: "Additional codes are made up of 4 alphanumeric digits. Enter the 4-digit code here."
         },
         classes: "govuk-input--width-10",
         id: "code",
@@ -55,6 +53,9 @@
       {{ govukInput({
         label: {
           text: "Description"
+        },
+        hint: {
+          text: "If you know a key phrase included in the additional code description, enter it here"
         },
         classes: "govuk-input--width-20",
         id: "description",

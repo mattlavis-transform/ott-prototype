@@ -22,20 +22,36 @@
 {% endblock %}
 {% block content %}
     <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
+        <div class="govuk-grid-column-two-thirds">
             <span class="govuk-caption-xl">{{ title }}</span>
             <h1 class="govuk-heading-l">
-                Search by quota
+                Search for quotas
             </h1>
       {{ govukInsetText({
-              text: "Introductory text describing this section"
+              text: "Search for tariff quotas, including daily updated balances."
             }) }}
 
-            {{ govukSelect({
-  id: "sort",
-  name: "sort",
+
+            {{ govukInput({
   label: {
-    text: "Sort by"
+    text: "Commodity code"
+  },
+  hint: {
+    text: "Enter the full 10-digit commodity code"
+  },
+  classes: "govuk-input--width-10",
+  id: "width-10",
+  name: "width-10"
+}) }}
+
+            {{ govukSelect({
+  id: "country",
+  name: "country",
+  label: {
+    text: "Country"
+  },
+  hint: {
+    text: "Enter the full 10-digit commodity code"
   },
   items: [
     {
@@ -43,71 +59,65 @@
       text: "9 - National Document"
     },
     {
-      value: "A",
-      text: "A - Certificate of authenticity",
+      value: "Andorra",
+      text: "Andorra",
       selected: true
-    },
-    {
-      value: "C",
-      text: "C - Other certificates"
-    },
-    {
-      value: "D",
-      text: "D - Anti-dumping/countervailing document"
-    },
-    {
-      value: "E",
-      text: "E - Export certificate/licence/document from country of origin"
-    },
-    {
-      value: "H",
-      text: "H - HANDI, LOOMS certificate"
-    },
-    {
-      value: "I",
-      text: "I - Surveillance certificate/licence/ document issued by one of the Member States"
-    },
-    {
-      value: "P",
-      text: "P - UN/EDIFACT certificates"
     }
   ]
 }) }}
 
 {{ govukInput({
   label: {
-    text: "Certificate code"
+    text: "Quota order number"
   },
-  classes: "govuk-input--width-10",
-  id: "certificate_code",
-  name: "certificate_code"
+  hint: {
+    text: "Enter the 6-digit quota order number"
+  },
+  classes: "govuk-input--width-5",
+  id: "width-10",
+  name: "width-10"
 }) }}
 
-{{ govukInput({
-  label: {
-    text: "Description"
+
+{{ govukCheckboxes({
+  idPrefix: "year",
+  name: "year",
+  classes: "govuk-checkboxes--small",
+  fieldset: {
+    legend: {
+      text: "Year of operation",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s notbold"
+    }
   },
-  classes: "govuk-input--width-20",
-  id: "description",
-  name: "description"
+  hint: {
+    text: "You can search back up to 4 years for quotas. Select the years in which you would like to search for quotas."
+  },
+  items: [
+    {
+      value: "2021",
+      text: "2021"
+    },
+    {
+      value: "2020",
+      text: "2020"
+    },
+    {
+      value: "2019",
+      text: "2019"
+    },
+    {
+      value: "2018",
+      text: "2018"
+    }
+  ]
 }) }}
 
 {{ govukButton({
-  text: "Search"
+  text: "Search for quotas",
+  href: "/quota_results.html"
 }) }}
-<!--
-I	Surveillance certificate/licence/ document issued by one of the Member States
-K	Tariff quota
-L	Import certificate/licence/document
-N	UN/EDIFACT certificates
-P	Ingredients
-R	Export refunds
-T	T-Document
-U	Proofs of origin
-X	Export licence
-Y	Particular provisions
-Z	More certificates
-//-->
+
         </div>
     </div>
 

@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block beforeContent %}
-        {{ govukBreadcrumbs({
+  {{ govukBreadcrumbs({
   items: [
     {
       text: "Home",
@@ -18,16 +18,16 @@
 }) }}
 {% endblock %}
 {% block content %}
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
-            <h1 class="govuk-heading-l">
-                Search by certificate
-            </h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Search by certificate</h1>
+
       {{ govukInsetText({
-              text: "Introductory text describing this section"
+              text: "Search for certificates, licences and other document codes. Document codes may be needed to 
+              complete your import or export declaration."
             }) }}
 
-            {{ govukSelect({
+      {{ govukSelect({
   id: "sort",
   name: "sort",
   label: {
@@ -70,7 +70,7 @@
   ]
 }) }}
 
-{{ govukInput({
+      {{ govukInput({
   label: {
     text: "Certificate code"
   },
@@ -79,7 +79,7 @@
   name: "certificate_code"
 }) }}
 
-{{ govukInput({
+      {{ govukInput({
   label: {
     text: "Description"
   },
@@ -88,10 +88,10 @@
   name: "description"
 }) }}
 
-{{ govukButton({
+      {{ govukButton({
   text: "Search"
 }) }}
-<!--
+      <!--
 I	Surveillance certificate/licence/ document issued by one of the Member States
 K	Tariff quota
 L	Import certificate/licence/document
@@ -104,8 +104,8 @@ X	Export licence
 Y	Particular provisions
 Z	More certificates
 //-->
-        </div>
     </div>
+  </div>
 
 {% endblock %}
 </html>

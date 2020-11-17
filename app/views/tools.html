@@ -32,8 +32,8 @@
                 {% if scopeId != "ni" %}
                     <li>
                         <a href="/quotas/{{ scopeId }}">Quotas</a>
-                        <br>Search for specific quotas
-                </li>
+                        <br>Search for tariff quotas, including daily updated balances.
+                    </li>
                 {% endif %}
                 <li>
                     <a href="/certificates/{{ scopeId }}">Certificates</a>
@@ -43,18 +43,18 @@
                     <a href="/additional_codes/{{ scopeId }}">Additional codes</a>
                     <br>Search for additional codes. Additional codes ...
                 </li>
-                <li>
+                {# <li>
                     <a href="/footnotes/{{ scopeId }}">Footnotes</a>
                     <br>Search for footnotes
-                </li>
+                </li> #}
                 <li>
                     <a href="/chemicals/{{ scopeId }}">Chemicals</a>
-                    <br>Search for chemicals
+                    <br>Search the tariff for chemicals by <abbr title="Chemical Abstracts Service">CAS</abbr> Registry Number (RN)
                 </li>
-                <li>
+                {# <li>
                     <a href="/exchange_rates">Exchange rates</a>
                     <br>View current and past exchange rates
-                </li>
+                </li> #}
             </ul>
         </div>
     </div>
