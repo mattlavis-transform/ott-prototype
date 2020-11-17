@@ -26,37 +26,7 @@
                 Browse the Goods Classification
             </h1>
             {% include "includes/intro_panel.html" %}
-            <table class="govuk-table">
-                <caption class="govuk-table__caption govuk-caption-l">All sections</caption>
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header">Section title</th>
-                        <th scope="col" class="govuk-table__header">Section</th>
-                        <th scope="col" class="govuk-table__header">Chapters</th>
-                    </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                    {% for section in sections.data %}
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">
-                                <a href="/sections/{{ section.id }}/{{ scopeId }}">
-                                    {{ section.attributes.title }}
-                                </a>
-                            </td>
-                            <td class="govuk-table__cell c roman">
-                                {{ section.id | roman }}
-                            </td>
-                            <td class="govuk-table__cell">
-                                {% if (section.attributes.chapter_from != section.attributes.chapter_to) %}
-                                    {{ section.attributes.chapter_from|int }} to {{ section.attributes.chapter_to|int }}
-                                {% else %}
-                                    {{ section.attributes.chapter_from }}
-                                {% endif %}
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            {% include "includes/browse_component.html" %}
         </div>
     </div>
 {% endblock %}

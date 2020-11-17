@@ -117,9 +117,24 @@ router.get(['/search/:scopeId', '/search/', '/sections/'], function (req, res) {
     title = global.get_title(scopeId);
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections')
         .then((response) => {
-            res.render('search', { 'search': response.data, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+            res.render('search', { 'sections': response.data, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
         });
 });
+
+
+
+
+// router.get(['/browse/:scopeId', '/browse/'], function (req, res) {
+//     scopeId = global.get_scope(req.params["scopeId"]);
+//     root_url = global.get_root_url(req, scopeId);
+//     title = global.get_title(scopeId);
+//     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections')
+//         .then((response) => {
+//             res.render('browse', { 'sections': response.data, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+//         });
+// });
+
+
 
 // Search results / data handler
 router.post(['/search/data_handler/', '/search/data_handler/:goods_nomenclature_item_id/:scopeId'], function (req, res) {
