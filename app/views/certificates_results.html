@@ -1,0 +1,205 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/search/" + scopeId
+    },
+    {
+      text: "Tools",
+      href: "/tools/" + scopeId
+    },
+    {
+      text: "Certificates",
+      href: ""
+    }
+  ]
+}) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">Search by certificate, license or document - results</h1>
+      <p>The following certificates, licences and documents match your search:</p>
+      <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+          A001 Certificate of authenticity fresh 'EMPEROR' table grapes 
+        </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+
+            {{ govukTable({
+  caption: "Certificate A001 is associated with the following commodity codes",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Commodity code(s)"
+    },
+    {
+      text: "Description"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "0102 03 04 05"
+      },
+      {
+        html: "<a href=''>Ea officia sint laborum pariatur mollit non eiusmod nulla. Eu sint aliquip velit excepteur elit Lorem mollit pariatur non. Nostrud Lorem proident culpa do duis laborum nostrud cillum elit enim magna velit.</a>"
+      }
+    ],
+    [
+      {
+        text: "0102 03 04 05"
+      },
+      {
+        html: "<a href=''>Ea officia sint laborum pariatur mollit non eiusmod nulla. Eu sint aliquip velit excepteur elit Lorem mollit pariatur non. Nostrud Lorem proident culpa do duis laborum nostrud cillum elit enim magna velit.</a>"
+      }
+    ]
+  ]
+}) }}
+
+          </div>
+        </div>
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+          A004 Certificate of authenticity Tobacco 
+        </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+            {{ govukTable({
+  caption: "Certificate A001 is associated with the following commodity codes",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Commodity code(s)"
+    },
+    {
+      text: "Description"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "0102 03 04 05"
+      },
+      {
+        html: "<a href=''>Ea officia sint laborum pariatur mollit non eiusmod nulla. Eu sint aliquip velit excepteur elit Lorem mollit pariatur non. Nostrud Lorem proident culpa do duis laborum nostrud cillum elit enim magna velit.</a>"
+      }
+    ],
+    [
+      {
+        text: "0102 03 04 05"
+      },
+      {
+        html: "<a href=''>Ea officia sint laborum pariatur mollit non eiusmod nulla. Eu sint aliquip velit excepteur elit Lorem mollit pariatur non. Nostrud Lorem proident culpa do duis laborum nostrud cillum elit enim magna velit.</a>"
+      }
+    ]
+  ]
+}) }}
+          </div>
+        </div>
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+          A007 Certificate of authenticity - Frozen beef and veal (crop, chuck and blade and brisket cuts)
+        </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+            {{ govukTable({
+  caption: "Certificate A001 is associated with the following commodity codes",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Commodity code(s)"
+    },
+    {
+      text: "Description"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "0102 03 04 05"
+      },
+      {
+        html: "<a href=''>Ea officia sint laborum pariatur mollit non eiusmod nulla. Eu sint aliquip velit excepteur elit Lorem mollit pariatur non. Nostrud Lorem proident culpa do duis laborum nostrud cillum elit enim magna velit.</a>"
+      }
+    ],
+    [
+      {
+        text: "0102 03 04 05"
+      },
+      {
+        html: "<a href=''>Ea officia sint laborum pariatur mollit non eiusmod nulla. Eu sint aliquip velit excepteur elit Lorem mollit pariatur non. Nostrud Lorem proident culpa do duis laborum nostrud cillum elit enim magna velit.</a>"
+      }
+    ]
+  ]
+}) }}
+          </div>
+        </div>
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+          A008 Certificate of authenticity fresh sweet oranges "high quality" 
+        </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+            {{ govukTable({
+  caption: "Certificate A001 is associated with the following commodity codes",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Commodity code(s)"
+    },
+    {
+      text: "Description"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "0102 03 04 05"
+      },
+      {
+        html: "<a href=''>Ea officia sint laborum pariatur mollit non eiusmod nulla. Eu sint aliquip velit excepteur elit Lorem mollit pariatur non. Nostrud Lorem proident culpa do duis laborum nostrud cillum elit enim magna velit.</a>"
+      }
+    ],
+    [
+      {
+        text: "0102 03 04 05"
+      },
+      {
+        html: "<a href=''>Ea officia sint laborum pariatur mollit non eiusmod nulla. Eu sint aliquip velit excepteur elit Lorem mollit pariatur non. Nostrud Lorem proident culpa do duis laborum nostrud cillum elit enim magna velit.</a>"
+      }
+    ]
+  ]
+}) }}
+          </div>
+        </div>
+      </div>
+
+      <p class="govuk-body">Data correct as of 17 Nov 20.</p>
+
+      {{ govukBackLink({
+  text: "Back",
+  href: "/quotas"
+}) }}
+
+    </div>
+  </div>
+
+{% endblock %}
+</html>

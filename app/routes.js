@@ -127,13 +127,12 @@ router.post(['/search/data_handler/', '/search/data_handler/:goods_nomenclature_
     //console.log("Search results handler");
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
-    var search_term = req.session.data["search"];
+    var search_term = req.session.data["search"].replace(" ", "");
 
     if (Number.isSafeInteger(search_term) && (search_term.length == 10)) {
-        res.redirect("/commodities/" + req.session.data["search"]);
+        res.redirect("/commodities/" + search_term);
     } else {
-        //res.redirect("/search/");
-        res.redirect("/commodities/" + req.session.data["search"]);
+        res.redirect("/search/");
     }
 });
 /* ############################################################################ */

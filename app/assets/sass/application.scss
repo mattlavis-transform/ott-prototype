@@ -653,13 +653,18 @@ ul.countries {
 }
 
 .toggle2 {
-    display:none
+    display: none
+}
+
+.hangingindent {
+    padding-left: 22px;
+    text-indent : -22px;
 }
 
 
-// tr:last-of-type .govuk-table__cell {
-//     border-bottom: 0px;
-// }
+tr:last-of-type .govuk-table__cell {
+    border-bottom: 0px;
+}
 
 @import "components/app-flexible-table";
 @import "components/attachments";

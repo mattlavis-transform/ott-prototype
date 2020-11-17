@@ -19,15 +19,15 @@
 {% endblock %}
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Search by certificate</h1>
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">Search by certificate, license or document</h1>
 
       {{ govukInsetText({
-              text: "Search for certificates, licences and other document codes. Document codes may be needed to 
-              complete your import or export declaration."
+              text: "Search for certificates, licences and other document codes and the commodities which reference them.
+              Document codes may be needed to complete your import or export declaration."
             }) }}
 
-      {{ govukSelect({
+      {# {{ govukSelect({
   id: "sort",
   name: "sort",
   label: {
@@ -68,13 +68,16 @@
       text: "P - UN/EDIFACT certificates"
     }
   ]
-}) }}
+}) }} #}
 
       {{ govukInput({
   label: {
     text: "Certificate code"
   },
-  classes: "govuk-input--width-10",
+  hint: {
+    text: "Enter the 4 digit certificate code"
+  },
+  classes: "govuk-input--width-5",
   id: "certificate_code",
   name: "certificate_code"
 }) }}
@@ -83,27 +86,19 @@
   label: {
     text: "Description"
   },
+  hint: {
+    text: "Enter key terms from the certificate description"
+  },
   classes: "govuk-input--width-20",
   id: "description",
   name: "description"
 }) }}
 
       {{ govukButton({
-  text: "Search"
+  text: "Search for a certificate",
+  href: "/certificates_results"
 }) }}
-      <!--
-I	Surveillance certificate/licence/ document issued by one of the Member States
-K	Tariff quota
-L	Import certificate/licence/document
-N	UN/EDIFACT certificates
-P	Ingredients
-R	Export refunds
-T	T-Document
-U	Proofs of origin
-X	Export licence
-Y	Particular provisions
-Z	More certificates
-//-->
+     
     </div>
   </div>
 
