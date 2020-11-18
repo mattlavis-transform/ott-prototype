@@ -97,7 +97,7 @@ router.get(['/commodities2/:goods_nomenclature_item_id/', '/commodities2/:goods_
             c.get_measure_data("basic");
             c.sort_measures();
             //country_picker = new CountryPicker()
-            res.render('commodities2', {'commodity': c, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+            res.render('commodities2', { 'commodity': c, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
         });
 });
 
@@ -127,9 +127,10 @@ router.post(['/search/data_handler/', '/search/data_handler/:goods_nomenclature_
     //console.log("Search results handler");
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
-    var search_term = req.session.data["search"].replace(" ", "");
+    var search_term = req.session.data["search"].trim().replace(" ", "");
 
-    if (Number.isSafeInteger(search_term) && (search_term.length == 10)) {
+    //if (Number.isSafeInteger(search_term) && (search_term.length == 10)) {
+    if (search_term.length == 10) {
         res.redirect("/commodities/" + search_term);
     } else {
         res.redirect("/search/");
@@ -161,7 +162,7 @@ router.get(['/downloads/', '/downloads/:scopeId'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
-    res.render('downloads', {'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
+    res.render('downloads', { 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
 });
 /* ############################################################################ */
 /* ###################        END SUBSIDIARY NAVIGATION       ################# */
@@ -176,7 +177,7 @@ router.get(['/tools/', '/tools/:scopeId'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
-    res.render('tools', {'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
+    res.render('tools', { 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
 });
 
 // Quotas
@@ -184,7 +185,7 @@ router.get(['/quotas/', '/quotas/:scopeId'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
-    res.render('quotas', {'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
+    res.render('quotas', { 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
 });
 
 // Certificates
@@ -192,7 +193,7 @@ router.get(['/certificates/', '/certificates/:scopeId'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
-    res.render('certificates', {'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
+    res.render('certificates', { 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
 });
 
 // Additional codes
@@ -200,7 +201,7 @@ router.get(['/additional_codes/', '/additional_codes/:scopeId'], function (req, 
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
-    res.render('additional_codes', {'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
+    res.render('additional_codes', { 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
 });
 
 // Footnotes
@@ -208,7 +209,7 @@ router.get(['/footnotes/', '/footnotes/:scopeId'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
-    res.render('footnotes', {'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
+    res.render('footnotes', { 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
 });
 
 // Chemicals
@@ -216,7 +217,7 @@ router.get(['/chemicals/', '/chemicals/:scopeId'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
-    res.render('chemicals', {'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
+    res.render('chemicals', { 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
 });
 
 // Exchange rates
@@ -224,7 +225,7 @@ router.get(['/exchange_rates/', '/exchange_rates/:scopeId'], function (req, res)
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
-    res.render('exchange_rates', {'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
+    res.render('exchange_rates', { 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
 });
 
 /* ############################################################################ */
