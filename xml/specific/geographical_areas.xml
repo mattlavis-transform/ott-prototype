@@ -1,0 +1,1977 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<env:envelope xmlns="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0" id="5000">
+	<env:transaction id="200216">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="1">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200216</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>1</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10058</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>485</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>1006</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="2">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200216</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>2</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10058</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>485</oub:geographical.area.sid>
+						<oub:geographical.area.id>1006</oub:geographical.area.id>
+						<oub:description>UK-Canada agreement: re-imported goods</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200217">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="3">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200217</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>3</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10059</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>232</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>1007</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="4">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200217</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>4</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10059</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>232</oub:geographical.area.sid>
+						<oub:geographical.area.id>1007</oub:geographical.area.id>
+						<oub:description>UK-Switzerland agreement: re-imported goods</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200218">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="5">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200218</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>5</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10060</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>234</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>1032</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="6">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200218</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>6</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10060</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>234</oub:geographical.area.sid>
+						<oub:geographical.area.id>1032</oub:geographical.area.id>
+						<oub:description>Transitional Protection Measure</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200219">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="7">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200219</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>7</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10061</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>62</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>2005</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="8">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200219</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>8</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10061</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>62</oub:geographical.area.sid>
+						<oub:geographical.area.id>2005</oub:geographical.area.id>
+						<oub:description>GSP - LDC Framework</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200220">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="9">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200220</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>9</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10062</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>217</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>2020</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="10">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200220</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>10</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10062</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>217</oub:geographical.area.sid>
+						<oub:geographical.area.id>2020</oub:geographical.area.id>
+						<oub:description>GSP - General Framework</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200221">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="11">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200221</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>11</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10063</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>51</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>2027</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="12">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200221</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>12</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10063</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>51</oub:geographical.area.sid>
+						<oub:geographical.area.id>2027</oub:geographical.area.id>
+						<oub:description>GSP - Enhanced Framework</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200222">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="13">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200222</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>13</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10064</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>93</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>BN</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="14">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200222</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>14</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10064</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>93</oub:geographical.area.sid>
+						<oub:geographical.area.id>BN</oub:geographical.area.id>
+						<oub:description>Brunei Darussalam</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200223">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="15">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200223</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>15</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10065</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>413</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>BU</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="16">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200223</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>16</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10065</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>413</oub:geographical.area.sid>
+						<oub:geographical.area.id>BU</oub:geographical.area.id>
+						<oub:description>Myanmar</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200224">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="17">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200224</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>17</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10066</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>191</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>CC</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="18">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200224</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>18</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10066</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>191</oub:geographical.area.sid>
+						<oub:geographical.area.id>CC</oub:geographical.area.id>
+						<oub:description>Cocos (Keeling) Islands</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200225">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="19">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200225</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>19</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10067</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>436</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>CG</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="20">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200225</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>20</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10067</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>436</oub:geographical.area.sid>
+						<oub:geographical.area.id>CG</oub:geographical.area.id>
+						<oub:description>Congo (Brazzaville)</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200226">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="21">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200226</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>21</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10068</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>385</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>CI</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="22">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200226</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>22</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10068</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>385</oub:geographical.area.sid>
+						<oub:geographical.area.id>CI</oub:geographical.area.id>
+						<oub:description>Côte d&apos;Ivoire</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200227">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="23">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200227</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>23</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10069</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>104</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>CZ</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="24">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200227</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>24</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10069</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>104</oub:geographical.area.sid>
+						<oub:geographical.area.id>CZ</oub:geographical.area.id>
+						<oub:description>Czechia</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200228">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="25">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200228</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>25</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10070</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>264</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>ES</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="26">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200228</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>26</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10070</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>264</oub:geographical.area.sid>
+						<oub:geographical.area.id>ES</oub:geographical.area.id>
+						<oub:description>Spain</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200229">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="27">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200229</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>27</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10071</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>179</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>GF</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="28">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200229</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>28</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10071</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>179</oub:geographical.area.sid>
+						<oub:geographical.area.id>GF</oub:geographical.area.id>
+						<oub:description>French Guiana</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200230">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="29">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200230</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>29</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10072</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>31</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>GS</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="30">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200230</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>30</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10072</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>31</oub:geographical.area.sid>
+						<oub:geographical.area.id>GS</oub:geographical.area.id>
+						<oub:description>South Georgia and the South Sandwich Islands</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200231">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="31">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200231</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>31</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10073</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>394</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>GW</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="32">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200231</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>32</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10073</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>394</oub:geographical.area.sid>
+						<oub:geographical.area.id>GW</oub:geographical.area.id>
+						<oub:description>Guinea-Bissau</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200232">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="33">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200232</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>33</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10074</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>213</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>HK</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="34">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200232</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>34</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10074</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>213</oub:geographical.area.sid>
+						<oub:geographical.area.id>HK</oub:geographical.area.id>
+						<oub:description>Hong Kong, Special Administrative Region of China</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200233">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="35">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200233</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>35</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10075</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>336</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>KH</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="36">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200233</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>36</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10075</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>336</oub:geographical.area.sid>
+						<oub:geographical.area.id>KH</oub:geographical.area.id>
+						<oub:description>Cambodia</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200234">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="37">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200234</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>37</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10076</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>338</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>KM</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="38">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200234</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>38</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10076</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>338</oub:geographical.area.sid>
+						<oub:geographical.area.id>KM</oub:geographical.area.id>
+						<oub:description>Comoros</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200235">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="39">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200235</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>39</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10077</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>446</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>KN</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="40">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200235</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>40</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10077</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>446</oub:geographical.area.sid>
+						<oub:geographical.area.id>KN</oub:geographical.area.id>
+						<oub:description>Saint Kitts and Nevis</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200236">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="41">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200236</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>41</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10078</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>115</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>KP</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="42">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200236</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>42</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10078</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>115</oub:geographical.area.sid>
+						<oub:geographical.area.id>KP</oub:geographical.area.id>
+						<oub:description>Korea, Democratic People&apos;s Republic of</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200237">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="43">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200237</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>43</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10079</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>273</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>KR</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="44">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200237</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>44</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10079</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>273</oub:geographical.area.sid>
+						<oub:geographical.area.id>KR</oub:geographical.area.id>
+						<oub:description>Korea, Republic of</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200238">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="45">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200238</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>45</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10080</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>116</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>LA</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="46">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200238</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>46</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10080</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>116</oub:geographical.area.sid>
+						<oub:geographical.area.id>LA</oub:geographical.area.id>
+						<oub:description>Lao PDR</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200239">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="47">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200239</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>47</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10081</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>277</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>LC</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="48">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200239</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>48</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10081</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>277</oub:geographical.area.sid>
+						<oub:geographical.area.id>LC</oub:geographical.area.id>
+						<oub:description>Saint Lucia</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200240">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="49">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200240</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>49</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10082</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>279</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>MD</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="50">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200240</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>50</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10082</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>279</oub:geographical.area.sid>
+						<oub:geographical.area.id>MD</oub:geographical.area.id>
+						<oub:description>Moldova</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200241">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="51">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200241</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>51</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10083</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>180</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>MK</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="52">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200241</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>52</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10083</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>180</oub:geographical.area.sid>
+						<oub:geographical.area.id>MK</oub:geographical.area.id>
+						<oub:description>Republic of North Macedonia</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200242">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="53">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200242</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>53</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10084</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>342</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>NC</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="54">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200242</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>54</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10084</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>342</oub:geographical.area.sid>
+						<oub:geographical.area.id>NC</oub:geographical.area.id>
+						<oub:description>New Caledonia</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200243">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="55">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200243</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>55</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10085</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>34</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>NU</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="56">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200243</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>56</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10085</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>34</oub:geographical.area.sid>
+						<oub:geographical.area.id>NU</oub:geographical.area.id>
+						<oub:description>Niue</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200244">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="57">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200244</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>57</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10086</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>86</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>PS</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="58">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200244</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>58</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10086</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>86</oub:geographical.area.sid>
+						<oub:geographical.area.id>PS</oub:geographical.area.id>
+						<oub:description>Palestinian Territory, Occupied</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200245">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="59">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200245</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>59</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10087</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>26</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>RE</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="60">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200245</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>60</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10087</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>26</oub:geographical.area.sid>
+						<oub:geographical.area.id>RE</oub:geographical.area.id>
+						<oub:description>Réunion</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200246">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="61">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200246</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>61</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10088</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>200</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>SC</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="62">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200246</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>62</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10088</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>200</oub:geographical.area.sid>
+						<oub:geographical.area.id>SC</oub:geographical.area.id>
+						<oub:description>Seychelles</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200247">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="63">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200247</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>63</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10089</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>40</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>SH</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="64">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200247</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>64</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10089</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>40</oub:geographical.area.sid>
+						<oub:geographical.area.id>SH</oub:geographical.area.id>
+						<oub:description>Saint Helena</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200248">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="65">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200248</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>65</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10090</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>87</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>SJ</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="66">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200248</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>66</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10090</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>87</oub:geographical.area.sid>
+						<oub:geographical.area.id>SJ</oub:geographical.area.id>
+						<oub:description>Svalbard and Jan Mayen Islands</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200249">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="67">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200249</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>67</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10091</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>433</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>ST</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="68">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200249</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>68</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10091</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>433</oub:geographical.area.sid>
+						<oub:geographical.area.id>ST</oub:geographical.area.id>
+						<oub:description>Sao Tome and Principe</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200250">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="69">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200250</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>69</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10092</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>145</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>SY</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="70">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200250</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>70</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10092</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>145</oub:geographical.area.sid>
+						<oub:geographical.area.id>SY</oub:geographical.area.id>
+						<oub:description>Syrian Arab Republic (Syria)</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200251">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="71">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200251</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>71</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10093</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>76</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>SZ</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="72">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200251</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>72</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10093</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>76</oub:geographical.area.sid>
+						<oub:geographical.area.id>SZ</oub:geographical.area.id>
+						<oub:description>Eswatini</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200252">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="73">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200252</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>73</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10094</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>325</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>VC</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="74">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200252</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>74</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10094</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>325</oub:geographical.area.sid>
+						<oub:geographical.area.id>VC</oub:geographical.area.id>
+						<oub:description>Saint Vincent and Grenadines</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200253">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="75">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200253</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>75</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10095</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>391</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>VG</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="76">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200253</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>76</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10095</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>391</oub:geographical.area.sid>
+						<oub:geographical.area.id>VG</oub:geographical.area.id>
+						<oub:description>British Virgin Islands</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200254">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="77">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200254</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>77</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10096</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>208</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>VI</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="78">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200254</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>78</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10096</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>208</oub:geographical.area.sid>
+						<oub:geographical.area.id>VI</oub:geographical.area.id>
+						<oub:description>Virgin Islands, US</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200255">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="79">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200255</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>79</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10097</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>392</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>VN</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="80">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200255</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>80</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10097</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>392</oub:geographical.area.sid>
+						<oub:geographical.area.id>VN</oub:geographical.area.id>
+						<oub:description>Vietnam</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200256">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="81">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200256</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>81</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10098</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>81</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>9A40</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="82">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200256</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>82</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10098</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>81</oub:geographical.area.sid>
+						<oub:geographical.area.id>9A40</oub:geographical.area.id>
+						<oub:description>Overseas countries and territories (OCTs) - historical: do not use</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200257">
+		<!-- Begin updated geographical area -->
+		<env:app.message id="83">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200257</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>83</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10099</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>445</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>2080</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="84">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200257</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>84</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10099</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>445</oub:geographical.area.sid>
+						<oub:geographical.area.id>2080</oub:geographical.area.id>
+						<oub:description>UK OCTs (Overseas Countries and Territories)</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated geographical area -->
+	</env:transaction>
+	<env:transaction id="200258">
+		<!-- Begin new geographical area -->
+		<env:app.message id="85">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200258</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>85</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area>
+						<oub:geographical.area.sid>10000</oub:geographical.area.sid>
+						<oub:geographical.area.id>N006</oub:geographical.area.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.code>1</oub:geographical.code>
+					</oub:geographical.area>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="86">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200258</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>86</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10100</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>10000</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>N006</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="87">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200258</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>87</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10100</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>10000</oub:geographical.area.sid>
+						<oub:geographical.area.id>N006</oub:geographical.area.id>
+						<oub:description>Phytosanitary certificates</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new geographical area -->
+	</env:transaction>
+	<env:transaction id="200259">
+		<!-- Begin new geographical area -->
+		<env:app.message id="88">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200259</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>88</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area>
+						<oub:geographical.area.sid>10001</oub:geographical.area.sid>
+						<oub:geographical.area.id>N065</oub:geographical.area.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.code>1</oub:geographical.code>
+					</oub:geographical.area>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="89">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200259</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>89</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10101</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>10001</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>N065</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="90">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200259</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>90</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10101</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>10001</oub:geographical.area.sid>
+						<oub:geographical.area.id>N065</oub:geographical.area.id>
+						<oub:description>Home Office - Precursor Drugs Licensing - Exports</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new geographical area -->
+	</env:transaction>
+	<env:transaction id="200260">
+		<!-- Begin new geographical area -->
+		<env:app.message id="91">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200260</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>91</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area>
+						<oub:geographical.area.sid>10002</oub:geographical.area.sid>
+						<oub:geographical.area.id>N064</oub:geographical.area.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.code>1</oub:geographical.code>
+					</oub:geographical.area>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="92">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200260</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>92</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10102</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>10002</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>N064</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="93">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200260</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>93</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10102</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>10002</oub:geographical.area.sid>
+						<oub:geographical.area.id>N064</oub:geographical.area.id>
+						<oub:description>Home Office - Precursor Drugs Licensing - Exports</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new geographical area -->
+	</env:transaction>
+	<env:transaction id="200261">
+		<!-- Begin new geographical area -->
+		<env:app.message id="94">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200261</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>94</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area>
+						<oub:geographical.area.sid>10003</oub:geographical.area.sid>
+						<oub:geographical.area.id>N063</oub:geographical.area.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.code>1</oub:geographical.code>
+					</oub:geographical.area>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="95">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200261</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>95</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10103</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>10003</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>N063</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="96">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200261</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>96</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10103</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>10003</oub:geographical.area.sid>
+						<oub:geographical.area.id>N063</oub:geographical.area.id>
+						<oub:description>Home Office - Precursor Drugs Licensing - Exports</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new geographical area -->
+	</env:transaction>
+	<env:transaction id="200262">
+		<!-- Begin new geographical area -->
+		<env:app.message id="97">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200262</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>97</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area>
+						<oub:geographical.area.sid>10004</oub:geographical.area.sid>
+						<oub:geographical.area.id>N010</oub:geographical.area.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.code>1</oub:geographical.code>
+					</oub:geographical.area>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="98">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200262</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>98</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10104</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>10004</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>N010</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="99">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200262</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>99</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10104</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>10004</oub:geographical.area.sid>
+						<oub:geographical.area.id>N010</oub:geographical.area.id>
+						<oub:description>Home Office - Precursor Drugs Licensing - Exports</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new geographical area -->
+	</env:transaction>
+	<env:transaction id="200263">
+		<!-- Begin new geographical area -->
+		<env:app.message id="100">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200263</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>100</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area>
+						<oub:geographical.area.sid>10005</oub:geographical.area.sid>
+						<oub:geographical.area.id>5050</oub:geographical.area.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.code>1</oub:geographical.code>
+					</oub:geographical.area>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="101">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200263</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>101</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description.period>
+						<oub:geographical.area.description.period.sid>10105</oub:geographical.area.description.period.sid>
+						<oub:geographical.area.sid>10005</oub:geographical.area.sid>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:geographical.area.id>5050</oub:geographical.area.id>
+					</oub:geographical.area.description.period>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="102">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200263</oub:transaction.id>
+					<oub:record.code>250</oub:record.code>
+					<oub:subrecord.code>10</oub:subrecord.code>
+					<oub:record.sequence.number>102</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:geographical.area.description>
+						<oub:geographical.area.description.period.sid>10105</oub:geographical.area.description.period.sid>
+						<oub:language.id>EN</oub:language.id>
+						<oub:geographical.area.sid>10005</oub:geographical.area.sid>
+						<oub:geographical.area.id>5050</oub:geographical.area.id>
+						<oub:description>Countries subject to UK safeguard measures</oub:description>
+					</oub:geographical.area.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new geographical area -->
+	</env:transaction>
+</env:envelope>

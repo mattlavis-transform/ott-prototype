@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<env:envelope xmlns="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0" id="5000">
+	<env:transaction id="200160">
+		<!-- Begin new footnote type -->
+		<env:app.message id="1">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200160</oub:transaction.id>
+					<oub:record.code>100</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>1</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:footnote.type>
+						<oub:footnote.type.id>FC</oub:footnote.type.id>
+						<oub:validity.start.date>1970-01-01</oub:validity.start.date>
+						<oub:application.code>2</oub:application.code>
+					</oub:footnote.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="2">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200160</oub:transaction.id>
+					<oub:record.code>100</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>2</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:footnote.type.description>
+						<oub:footnote.type.id>FC</oub:footnote.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Footnote to be applied to goods classification</oub:description>
+					</oub:footnote.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new footnote type -->
+	</env:transaction>
+	<env:transaction id="200161">
+		<!-- Begin new footnote type -->
+		<env:app.message id="3">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200161</oub:transaction.id>
+					<oub:record.code>100</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>3</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:footnote.type>
+						<oub:footnote.type.id>FM</oub:footnote.type.id>
+						<oub:validity.start.date>1970-01-01</oub:validity.start.date>
+						<oub:application.code>7</oub:application.code>
+					</oub:footnote.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="4">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200161</oub:transaction.id>
+					<oub:record.code>100</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>4</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:footnote.type.description>
+						<oub:footnote.type.id>FM</oub:footnote.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Footnote to be applied to measures</oub:description>
+					</oub:footnote.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new footnote type -->
+	</env:transaction>
+	<env:transaction id="200162">
+		<!-- Begin new footnote type -->
+		<env:app.message id="5">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200162</oub:transaction.id>
+					<oub:record.code>100</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>5</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:footnote.type>
+						<oub:footnote.type.id>JG</oub:footnote.type.id>
+						<oub:validity.start.date>1970-01-01</oub:validity.start.date>
+						<oub:application.code>7</oub:application.code>
+					</oub:footnote.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="6">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200162</oub:transaction.id>
+					<oub:record.code>100</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>6</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:footnote.type.description>
+						<oub:footnote.type.id>JG</oub:footnote.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Footnote applicable specifically to Jersey / Guernsey</oub:description>
+					</oub:footnote.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new footnote type -->
+	</env:transaction>
+</env:envelope>

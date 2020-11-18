@@ -1,0 +1,1627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<env:envelope xmlns="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0" id="5000">
+	<env:transaction id="200170">
+		<!-- Begin updated measure type description -->
+		<env:app.message id="1">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200170</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>1</oub:record.sequence.number>
+					<oub:update.type>1</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>105</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Third country duty under authorised use</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated measure type description -->
+	</env:transaction>
+	<env:transaction id="200171">
+		<!-- Begin updated measure type description -->
+		<env:app.message id="2">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200171</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>2</oub:record.sequence.number>
+					<oub:update.type>1</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>123</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Non-preferential tariff quota under authorised use</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated measure type description -->
+	</env:transaction>
+	<env:transaction id="200172">
+		<!-- Begin updated measure type description -->
+		<env:app.message id="3">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200172</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>3</oub:record.sequence.number>
+					<oub:update.type>1</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>145</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Tariff preference under authorised use</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated measure type description -->
+	</env:transaction>
+	<env:transaction id="200173">
+		<!-- Begin updated measure type description -->
+		<env:app.message id="4">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200173</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>4</oub:record.sequence.number>
+					<oub:update.type>1</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>146</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Preferential tariff quota under authorised use</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated measure type description -->
+	</env:transaction>
+	<env:transaction id="200174">
+		<!-- Begin updated measure type description -->
+		<env:app.message id="5">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200174</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>5</oub:record.sequence.number>
+					<oub:update.type>1</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>552</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Final anti-dumping duty</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated measure type description -->
+	</env:transaction>
+	<env:transaction id="200175">
+		<!-- Begin updated measure type description -->
+		<env:app.message id="6">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200175</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>6</oub:record.sequence.number>
+					<oub:update.type>1</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>553</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Provisional anti-subsidy duty</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated measure type description -->
+	</env:transaction>
+	<env:transaction id="200176">
+		<!-- Begin updated measure type description -->
+		<env:app.message id="7">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200176</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>7</oub:record.sequence.number>
+					<oub:update.type>1</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>554</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Final anti-subsidy duty</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated measure type description -->
+	</env:transaction>
+	<env:transaction id="200177">
+		<!-- Begin updated measure type description -->
+		<env:app.message id="8">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200177</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>8</oub:record.sequence.number>
+					<oub:update.type>1</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>555</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Anti-dumping / anti-subsidy duty - Pending collection</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated measure type description -->
+	</env:transaction>
+	<env:transaction id="200178">
+		<!-- Begin updated measure type description -->
+		<env:app.message id="9">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200178</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>9</oub:record.sequence.number>
+					<oub:update.type>1</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>561</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Notice of initiation of an anti-dumping or anti-subsidy proceeding</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated measure type description -->
+	</env:transaction>
+	<env:transaction id="200179">
+		<!-- Begin updated measure type description -->
+		<env:app.message id="10">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200179</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>10</oub:record.sequence.number>
+					<oub:update.type>1</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>562</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Suspended anti-dumping or anti-subsidy duty</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated measure type description -->
+	</env:transaction>
+	<env:transaction id="200180">
+		<!-- Begin updated measure type description -->
+		<env:app.message id="11">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200180</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>11</oub:record.sequence.number>
+					<oub:update.type>1</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>564</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Anti-dumping or anti-subsidy registration</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated measure type description -->
+	</env:transaction>
+	<env:transaction id="200181">
+		<!-- Begin updated measure type description -->
+		<env:app.message id="12">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200181</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>12</oub:record.sequence.number>
+					<oub:update.type>1</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>565</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Anti-dumping / anti-subsidy review</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated measure type description -->
+	</env:transaction>
+	<env:transaction id="200182">
+		<!-- Begin updated measure type description -->
+		<env:app.message id="13">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200182</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>13</oub:record.sequence.number>
+					<oub:update.type>1</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>566</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Anti-dumping / anti-subsidy statistic</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated measure type description -->
+	</env:transaction>
+	<env:transaction id="200183">
+		<!-- Begin updated measure type description -->
+		<env:app.message id="14">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200183</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>14</oub:record.sequence.number>
+					<oub:update.type>1</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>570</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Anti-dumping / anti-subsidy duty – Control</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End updated measure type description -->
+	</env:transaction>
+	<env:transaction id="200184">
+		<!-- Begin new measure type -->
+		<env:app.message id="15">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200184</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>15</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>130</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>1</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>C</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="16">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200184</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>16</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>130</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Registered aircraft relief</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200185">
+		<!-- Begin new measure type -->
+		<env:app.message id="17">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200185</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>17</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>131</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>1</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>C</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="18">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200185</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>18</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>131</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Pharmaceutical relief</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200186">
+		<!-- Begin new measure type -->
+		<env:app.message id="19">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200186</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>19</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>132</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>1</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>C</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="20">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200186</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>20</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>132</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Vessels / platform relief</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200187">
+		<!-- Begin new measure type -->
+		<env:app.message id="21">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200187</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>21</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>133</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>1</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>C</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="22">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200187</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>22</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>133</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Authorised release relief</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200188">
+		<!-- Begin new measure type -->
+		<env:app.message id="23">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200188</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>23</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>134</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>1</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>C</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="24">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200188</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>24</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>134</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Relief for certain types of aircraft</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200189">
+		<!-- Begin new measure type -->
+		<env:app.message id="25">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200189</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>25</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>350</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>5</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="26">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200189</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>26</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>350</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Animal Health Certificate</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200190">
+		<!-- Begin new measure type -->
+		<env:app.message id="27">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200190</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>27</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>351</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>5</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="28">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200190</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>28</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>351</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Health and Safety Executive Import Licensing Firearms and Ammunition</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200191">
+		<!-- Begin new measure type -->
+		<env:app.message id="29">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200191</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>29</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>352</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>5</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="30">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200191</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>30</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>352</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Attestation Document (horticulture and potatoes)</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200192">
+		<!-- Begin new measure type -->
+		<env:app.message id="31">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200192</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>31</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>353</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>1</oub:trade.movement.code>
+						<oub:priority.code>5</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="32">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200192</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>32</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>353</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>DCMS Open General Export Licence</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200193">
+		<!-- Begin new measure type -->
+		<env:app.message id="33">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200193</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>33</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>354</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>1</oub:trade.movement.code>
+						<oub:priority.code>5</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="34">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200193</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>34</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>354</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Home Office Controlled Drugs (export)</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200194">
+		<!-- Begin new measure type -->
+		<env:app.message id="35">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200194</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>35</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>355</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>5</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="36">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200194</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>36</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>355</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>HMI Conformity Certificate (fruit and veg) issued in UK</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200195">
+		<!-- Begin new measure type -->
+		<env:app.message id="37">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200195</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>37</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>356</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>5</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="38">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200195</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>38</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>356</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Common Veterinary Entry Document (CVED)</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200196">
+		<!-- Begin new measure type -->
+		<env:app.message id="39">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200196</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>39</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>357</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>1</oub:trade.movement.code>
+						<oub:priority.code>5</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="40">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200196</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>40</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>357</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Certificate of Conformity</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200197">
+		<!-- Begin new measure type -->
+		<env:app.message id="41">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200197</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>41</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>358</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>5</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="42">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200197</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>42</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>358</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Home Office pre-cursor chemical authorisation</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200198">
+		<!-- Begin new measure type -->
+		<env:app.message id="43">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200198</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>43</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>359</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>5</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="44">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200198</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>44</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>359</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Health and Safety Executive (imports)</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200199">
+		<!-- Begin new measure type -->
+		<env:app.message id="45">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200199</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>45</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>360</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>5</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="46">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200199</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>46</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>360</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Phytosanitary Certificate (import)</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200200">
+		<!-- Begin new measure type -->
+		<env:app.message id="47">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200200</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>47</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>361</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>1</oub:trade.movement.code>
+						<oub:priority.code>5</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="48">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200200</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>48</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>361</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Home Office Pre-cursor chemicals</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200201">
+		<!-- Begin new measure type -->
+		<env:app.message id="49">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200201</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>49</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>362</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>5</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="50">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200201</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>50</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>362</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Home Office Controlled Drugs (import)</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200202">
+		<!-- Begin new measure type -->
+		<env:app.message id="51">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200202</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>51</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>363</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>5</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="52">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200202</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>52</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>363</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Quarantine Release Certificate</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200203">
+		<!-- Begin new measure type -->
+		<env:app.message id="53">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200203</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>53</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>780</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>1</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>1</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>8</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="54">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200203</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>54</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>780</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Export control (UK military and dual use)</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200204">
+		<!-- Begin new measure type -->
+		<env:app.message id="55">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200204</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>55</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>781</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>1</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>1</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>8</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="56">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200204</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>56</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>781</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Export control (radioactive sources)</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200205">
+		<!-- Begin new measure type -->
+		<env:app.message id="57">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200205</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>57</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>782</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>1</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>1</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>8</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="58">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200205</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>58</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>782</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Export control (torture and capital punishment)</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200206">
+		<!-- Begin new measure type -->
+		<env:app.message id="59">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200206</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>59</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>783</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>1</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>1</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>8</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="60">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200206</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>60</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>783</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Export control (firearms)</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200207">
+		<!-- Begin new measure type -->
+		<env:app.message id="61">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200207</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>61</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>784</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>1</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>1</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>8</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="62">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200207</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>62</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>784</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Export control (retained dual use)</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200208">
+		<!-- Begin new measure type -->
+		<env:app.message id="63">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200208</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>63</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>785</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="64">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200208</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>64</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>785</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Import control</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200209">
+		<!-- Begin new measure type -->
+		<env:app.message id="65">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200209</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>65</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>786</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="66">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200209</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>66</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>786</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Import control</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200210">
+		<!-- Begin new measure type -->
+		<env:app.message id="67">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200210</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>67</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>787</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="68">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200210</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>68</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>787</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Import control</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200211">
+		<!-- Begin new measure type -->
+		<env:app.message id="69">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200211</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>69</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>788</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="70">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200211</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>70</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>788</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Import control</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200212">
+		<!-- Begin new measure type -->
+		<env:app.message id="71">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200212</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>71</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>789</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>0</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>0</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>10</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="72">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200212</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>72</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>789</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Import control</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200213">
+		<!-- Begin new measure type -->
+		<env:app.message id="73">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200213</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>73</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>790</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>1</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>1</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>8</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="74">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200213</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>74</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>790</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Export control (sanction)</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200214">
+		<!-- Begin new measure type -->
+		<env:app.message id="75">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200214</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>75</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>791</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>1</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>1</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>8</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="76">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200214</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>76</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>791</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Export control (sanction - internal repression goods and technologies)</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+	<env:transaction id="200215">
+		<!-- Begin new measure type -->
+		<env:app.message id="77">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200215</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>00</oub:subrecord.code>
+					<oub:record.sequence.number>77</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type>
+						<oub:measure.type.id>792</oub:measure.type.id>
+						<oub:validity.start.date>2020-02-01</oub:validity.start.date>
+						<oub:trade.movement.code>1</oub:trade.movement.code>
+						<oub:priority.code>1</oub:priority.code>
+						<oub:measure.component.applicable.code>0</oub:measure.component.applicable.code>
+						<oub:origin.dest.code>1</oub:origin.dest.code>
+						<oub:order.number.capture.code>2</oub:order.number.capture.code>
+						<oub:measure.explosion.level>8</oub:measure.explosion.level>
+						<oub:measure.type.series.id>B</oub:measure.type.series.id>
+					</oub:measure.type>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<env:app.message id="78">
+			<oub:transmission xmlns:oub="urn:publicid:-:DGTAXUD:TARIC:MESSAGE:1.0" xmlns:env="urn:publicid:-:DGTAXUD:GENERAL:ENVELOPE:1.0">
+				<oub:record>
+					<oub:transaction.id>200215</oub:transaction.id>
+					<oub:record.code>235</oub:record.code>
+					<oub:subrecord.code>05</oub:subrecord.code>
+					<oub:record.sequence.number>78</oub:record.sequence.number>
+					<oub:update.type>3</oub:update.type>
+					<oub:measure.type.description>
+						<oub:measure.type.id>792</oub:measure.type.id>
+						<oub:language.id>EN</oub:language.id>
+						<oub:description>Export control (sanction - interception and monitoring)</oub:description>
+					</oub:measure.type.description>
+				</oub:record>
+			</oub:transmission>
+		</env:app.message>
+		<!-- End new measure type -->
+	</env:transaction>
+</env:envelope>
