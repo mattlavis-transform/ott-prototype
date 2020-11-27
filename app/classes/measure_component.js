@@ -19,8 +19,8 @@ class MeasureComponent {
 
     get_short_monetary_unit_code() {
         var currencies = [
-            {"long": "GBP", "short": "£"},
-            {"long": "EUR", "short": "€"}
+            { "long": "GBP", "short": "£" },
+            { "long": "EUR", "short": "€" }
         ]
         //console.log(currencies);
         currencies.forEach(currency => {
@@ -51,20 +51,26 @@ class MeasureComponent {
     }
 
     get_measurement_unit() {
-        return this.measurement_unit_code
+        var measurement_units = require('./measurement_units.json');
+        var s;
+        s = this.measurement_unit_code;
+        measurement_units.forEach(item => {
+            if (item.measurement_unit_code == this.measurement_unit_code) {
+                s = item.abbreviation;
+            }
+        });
+        return (s);
     }
 
     get_qualifier() {
         return this.measurement_unit_qualifier_code
     }
 
-    get_duty_string(decimal_places = 3)
-    {
-
+    get_duty_string(decimal_places = 3) {
         //var MAX_STRING = " MAX ";
         var MAX_STRING = " up to a maximum of ";
         var MIN_STRING = " down to a maximum of ";
-        
+
         if (this.monetary_unit_code == null) {
             decimal_places = 2;
         } else {
@@ -127,7 +133,7 @@ class MeasureComponent {
                 if (this.monetary_unit_code == null) {
                     this.duty_string += MAX_STRING + duty_amount + "%";
                 } else {
-                    this.duty_string += MAX_STRING + this.monetary_unit_abbreviation + duty_amount  + " ";
+                    this.duty_string += MAX_STRING + this.monetary_unit_abbreviation + duty_amount + " ";
                     if (this.measurement_unit_code != null) {
                         this.duty_string += " / " + this.get_measurement_unit();
                         if (this.measurement_unit_qualifier_code != null) {

@@ -25,7 +25,7 @@
 
         {# Get error message #}
         {% if (error == "date") %}
-          {% set error_message = { text: "Enter a valid, future date" } %}
+          {% set error_message = { text: "Enter a valid future date" } %}
           {% set error_class = "govuk-input--error" %}
         {% else %}
           {% set error_message = null %}

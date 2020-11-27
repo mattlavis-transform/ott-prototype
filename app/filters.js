@@ -139,32 +139,33 @@ module.exports = function (env) {
         if (typeof str !== 'undefined') {
             converter = new showdown.Converter();
             converter.setOption("backslashEscapesHTMLTags", true)
-            text = converter.makeHtml(str);
-            text = text.replace("&lt;", "<");
-            text = text.replace("&gt;", ">");
-            return text;
+            markdown_text = converter.makeHtml(str);
+            markdown_text = markdown_text.replace("&lt;", "<");
+            markdown_text = markdown_text.replace("&gt;", ">");
+            return markdown_text;
         } else {
             return "";
         }
     }
 
-    filters.new_scope = function (str, scope) {
-        console.log(str);
-        console.log(scope);
-        var lastChar = str[str.length -1];
-        console.log(lastChar);
+    filters.new_scope = function (s, scope) {
+        console.log("str = " + s);
+        console.log("scope = " + scope);
+        s = String(s)
+        var lastChar = s[s.length -1];
 
-        if (str != "") {
-            if (str.slice(-1) != "/") {
-                str += "/";
+        if (s != "") {
+            if (s.slice(-1) != "/") {
+                s += "/";
             }
         }
-        if (str.indexOf("{{ scopeId }}") > -1) {
-            str = str.replace("{{ scopeId }}", scope);
+        if (s.indexOf("{{ scopeId }}") > -1) {
+            s = s.replace("{{ scopeId }}", scope);
         } else {
-            str = str + scope;
+            s = s + scope;
         }
-        return (str);
+        s = s.replace("//", "/");
+        return (s);
     }
     /* ------------------------------------------------------------------
       keep the following line to return your filters to the app

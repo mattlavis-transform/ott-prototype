@@ -29,6 +29,7 @@ class Commodity {
         this.country_name = "";
         this.phase = "";
         this.units = [];
+        this.multiplier = 1;
         this.duty_expressions = [];
 
         this.quotas = [];
@@ -191,7 +192,7 @@ class Commodity {
         this.assign_duty_expressions();
         this.assign_geographical_areas();
         this.assign_additional_codes();
-        //console.log(this.measures.length);
+
         if (origin != "basic") {
             this.remove_irrelevant_measures();
         }
@@ -410,6 +411,8 @@ class Commodity {
 
     // Work out the units
     get_units() {
+        // Check all of the measures associated with this commodity / country context
+        // and assign them to the "units" array
         this.measures.forEach(m => {
             if (!this.supplementary_unit_array.includes(m.measure_type_id)) {
                 m.measure_components.forEach(mc => {
@@ -419,27 +422,40 @@ class Commodity {
                 });
             }
         });
+        // Compress the units using set functionality (Python)
         this.units = this.set(this.units);
+        this.multiplier = 1;
 
+        // If the goods use Meursing, then the unit must be kilogrammes, as that is how the Meursing
+        // duties are assigned
         if (this.has_meursing) {
             this.units = ["KGM"];
             this.measurement_unit = "kilograms";
         } else {
+            // Otherwise, look up the unit in the measurement units file
+            // Bring back the unit to use (e.g. if it is DTN, use tonnes)
             this.measurement_unit = "";
             if (this.units.length == 1) {
                 var measurement_units = require('./measurement_units.json');
                 measurement_units.forEach(item => {
                     if (item["measurement_unit_code"] == this.units[0]) {
-                        this.measurement_unit = item["description"];
+                        if (item.hasOwnProperty("unit_to_use")) {
+                            this.measurement_unit = item["unit_to_use"];
+                            this.multiplier = item["multiplier"];
+                        } else {
+                            this.measurement_unit = item["description"];
+                        }
                         if (item.hasOwnProperty("warning")) {
                             this.warning = item["warning"] + " [" + this.measurement_unit + "]";
                         } else {
                             this.warning = "";
                         }
+                        this.warning = "";
                     }
                 });
             }
         }
+        console.log(this.measurement_unit);
     }
 
     pass_request(req) {
@@ -665,7 +681,7 @@ class Commodity {
                 if (!this.display_blocks.includes(m.display_block)) {
                     this.display_blocks.push(m.display_block);
                 }
-                this.mfns.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
+                this.mfns.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (this.agri_array.includes(m.measure_type_id)) {
                 block = "agri"
@@ -675,7 +691,7 @@ class Commodity {
                 if (!this.display_blocks.includes(m.display_block)) {
                     this.display_blocks.push(m.display_block);
                 }
-                //this.mfns.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
+                //this.mfns.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (this.preference_array.includes(m.measure_type_id)) {
                 block = "preferences"
@@ -686,7 +702,7 @@ class Commodity {
                     this.display_blocks.push(m.display_block);
                 }
 
-                this.preferences.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
+                this.preferences.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (this.remedy_array.includes(m.measure_type_id)) {
                 block = "remedies"
@@ -697,7 +713,7 @@ class Commodity {
                     this.display_blocks.push(m.display_block);
                 }
 
-                this.remedies.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
+                this.remedies.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (this.suspension_array.includes(m.measure_type_id)) {
                 block = "suspensions"
@@ -708,7 +724,7 @@ class Commodity {
                     this.display_blocks.push(m.display_block);
                 }
 
-                this.suspensions.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
+                this.suspensions.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (this.quota_array.includes(m.measure_type_id)) {
                 block = "quotas"
@@ -719,7 +735,7 @@ class Commodity {
                     this.display_blocks.push(m.display_block);
                 }
 
-                var obj = new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob);
+                var obj = new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.multiplier, this.meursing_code, this.company, this.meursing_blob);
                 this.quotas.push(obj);
 
             } else if (m.measure_type_series_id == "P") {
@@ -731,7 +747,7 @@ class Commodity {
                     this.display_blocks.push(m.display_block);
                 }
 
-                this.vats.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
+                this.vats.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (m.measure_type_series_id == "Q") {
                 block = "excise"
@@ -742,7 +758,7 @@ class Commodity {
                     this.display_blocks.push(m.display_block);
                 }
 
-                this.excises.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.meursing_code, this.company, this.meursing_blob));
+                this.excises.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
 
             } else {
                 block = "other"

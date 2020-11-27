@@ -21,7 +21,8 @@
     <div class="govuk-grid-column-full">
       <span class="govuk-caption-xl">Calculate import duties</span>
       <h1 class="govuk-heading-xl">Import duty calculation</h1>
-      <p>The following duties are applicable to the import of <strong>{{ commodity.goods_nomenclature_item_id | format_commodity_code }}
+      <p>The following duties are applicable to the import of commodity <a href="/commodities/{{ commodity.goods_nomenclature_item_id }}">
+          <strong>{{ commodity.goods_nomenclature_item_id | format_commodity_code }}</a>
         </strong> from <strong>{{ commodity.country_name }}</strong> on <strong>03 Jun 2021</strong>.</p>
 
       <details class="govuk-details import_summary" data-module="govuk-details">
@@ -35,7 +36,7 @@
 
             <dt>Commodity:</dt>
             <dd>{{ commodity.goods_nomenclature_item_id | format_commodity_code }}<br>
-            {{ commodity.description | safe }}</dd>
+              {{ commodity.description | safe }}</dd>
 
             <dt>Import date:</dt>
             <dd>1 Jan 2021&nbsp;</dd>
@@ -66,7 +67,7 @@
           {% if commodity.vats %}
             {% for item in commodity.vats %}
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell">{{ item.measure.measure_type_description }}<br>Words that describe how to use VAT</td>
+                <td class="govuk-table__cell">{{ item.measure.measure_type_description }}<!--<br>Words that describe how to use VAT//--></td>
                 <td class="govuk-table__cell">{{ item.calculation_string }}</td>
                 <td class="govuk-table__cell value">£{{ item.result | decimals(2) }}</td>
                 <td class="govuk-table__cell apply">&nbsp;</td>
@@ -81,8 +82,8 @@
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell">
                   {{ item.measure.measure_type_description | capitalise }}
-                  <br>
-                  Words that describe how to use Excises
+                  {# <br>
+                  Words that describe how to use Excises #}
                 </td>
                 <td class="govuk-table__cell">{{ item.calculation_string | safe }}</td>
                 <td class="govuk-table__cell value">£{{ item.result | decimals(2) }}</td>
@@ -96,11 +97,20 @@
       </table>
 
       <form>
+        <h1 class="govuk-heading-m govuk-!-margin-bottom-1">Customs duty</h1>
+        <p class="govuk-hint">The third-country duty may be reduced by the application of a preference, suspension, relief or quota.</p>
+        <details class="govuk-details import_summary" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">What makes up a customs duty</span>
+          </summary>
+          <div class="govuk-details__text">
+          </div>
+        </details>
 
         <table class="govuk-table calc_table govuk-table--m">
-          <caption class="govuk-table__caption govuk-caption-l">Customs duty<br>
+          {# <caption class="govuk-table__caption govuk-caption-l">Customs duty<br>
             <span class="govuk-table__subcaption">The third-country duty may be reduced by the application of a preference, suspension, relief or quota.</span>
-          </caption>
+          </caption> #}
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header measure_type">Duty type</th>
@@ -117,8 +127,8 @@
                 <tr class="govuk-table__row">
                   <td class="govuk-table__cell measure_type">
                     Third-country duty (<abbr title="Most-favoured nation duty">MFN</abbr>)
-                    <br>
-                    Words that describe how to use MFNs
+                    {# <br>
+                    Words that describe how to use MFNs #}
                   </td>
                   <td class="govuk-table__cell calculation">{{ item.calculation_string | safe }}{{ item.calculation_string_after_meursing | safe }}</td>
                   <td class="govuk-table__cell value">£{{ item.result | decimals(2) }}</td>
@@ -134,8 +144,9 @@
                 <tr class="govuk-table__row">
                   <td class="govuk-table__cell measure_type">
                     Tariff preference for <strong>{{ item.measure.geographical_area_description }}</strong>
-                    <br>
-                    Words that describe how to use preferences</td>
+                    {# <br>
+                    Words that describe how to use preferences #}
+                    </td>
                   <td class="govuk-table__cell calculation">{{ item.calculation_string | safe }}</td>
                   <td class="govuk-table__cell value">£{{ item.result | decimals(2) }}</td>
                   <td class="govuk-table__cell apply">
@@ -157,8 +168,8 @@
                 <tr class="govuk-table__row">
                   <td class="govuk-table__cell measure_type">
                     {{ item.measure.measure_type_description }}
-                    <br>
-                    Words that describe how to use suspensions
+                    {# <br>
+                    Words that describe how to use suspensions #}
                   </td>
                   <td class="govuk-table__cell calculation">{{ item.calculation_string | safe }}</td>
                   <td class="govuk-table__cell value">£0.00</td>
@@ -206,7 +217,7 @@
                         {% endif %}
                       </div>
                     </details>
-                    <div class="explainer">Words that describe how to use a quota.</div>
+                    {# <div class="explainer">Words that describe how to use a quota.</div> #}
                   </td>
                   <td class="govuk-table__cell calculation">{{ item.calculation_string | safe }}</td>
                   <td class="govuk-table__cell value">£{{ item.result | decimals(2) }}</td>

@@ -14,6 +14,7 @@ class Heading {
         this.footnotes = [];
         this.data = this.json["data"];
         this.included = this.json["included"];
+        this.section_note = "";
 
         // Get the basic data from the API, prior to organising into an atomic object for the nunjucks
         this.included.forEach(obj => {
@@ -56,14 +57,25 @@ class Heading {
                     var formatted_base = obj["attributes"]["formatted_base"];
                     de = new DutyExpression(measure_id, base, formatted_base);
                     this.duty_expressions.push(de);
-                    break
+                    break;
 
                 case "footnote":
                     var code = obj["attributes"]["code"];
                     var description = obj["attributes"]["formatted_description"];
                     f = new Footnote(code, description);
                     this.footnotes.push(f);
-                    break
+                    break;
+
+                case "section":
+                    var section_note = obj["attributes"]["section_note"];
+                    if (typeof (section_note) == "object") {
+                        console.log("I AM AN OBJECT");
+                        this.section_note = section_note["content"];
+                    } else {
+                        console.log("I AM A STRING");
+                        this.section_note = section_note;
+                    }
+                    break;
             }
         });
 

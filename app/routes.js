@@ -259,9 +259,10 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
         }
     } else if (referer.indexOf("destination") !== -1) {
         // Validate the destination form
-        //console.log("Checking destination");
+        console.log("Checking destination");
         e = new Error_handler();
         contains_errors = e.validate_destination(req); // Gets data from destination form and validates it
+        console.log(contains_errors);
         if (contains_errors) {
             req.session.data["error"] = "destination";
             res.redirect("/calculate/destination/" + req.params["goods_nomenclature_item_id"]);

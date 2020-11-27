@@ -23,7 +23,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
             <span class="govuk-caption-xl">{{ title }}</span>
-            <h1 class="govuk-heading-l">
+            <h1 class="govuk-heading-m">
                 Chapter {{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}: {{ heading.data.attributes.formatted_description | safe }}
             </h1>
             {% include "includes/intro_panel_short.html" %}
@@ -83,7 +83,6 @@
                     {% if (item.leaf == true) %}
                         <div class="description">
                             <div class="indent_{{ item.number_indents }}{{ item.indent_class }}">
-                                {# <a href="/commodities/{{ item.goods_nomenclature_item_id }}?currency=EUR">{{ item.description | safe }}</a> #}
                                 <a href="/commodities/{{ item.goods_nomenclature_item_id }}/{{ scopeId }}">{{ item.description | safe }}</a>
                             </div>
                         </div>
@@ -135,11 +134,11 @@
                     {% if (item.type == "chapter") %}
                         <h2 class="govuk-heading-s">Chapter notes</h2>
                         {{ item.attributes.chapter_note | showdown | safe }}
-                    {% elif(item.type == "section") %}
-                        <h2 class="govuk-heading-s">Section notes</h2>
-                        {{ item.attributes.section_note | showdown | safe }}
+                        {{ item.attributes.chapter_note }}
                     {% endif %}
                 {% endfor %}
+                <h2 class="govuk-heading-s">Section notes</h2>
+                {{ heading.section_note | showdown | safe }}
             </article>
         </div>
     </div>
