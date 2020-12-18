@@ -35,10 +35,22 @@ router.get(['/browse/:scopeId', '/browse/'], function (req, res) {
 /* ############################################################################ */
 
 // Sections page - this is a temporary combination of the two pages until we can disassociate the two
-router.get(['/sections/', '/sections/ni'], function (req, res) {
-    scopeId = global.get_scope(req.params["scopeId"]);
+router.get(['/sections/'], function (req, res) {
+    scopeId = "";
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
+    console.log("Title = " + title);
+    axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections')
+        .then((response) => {
+            res.render('sections', { 'sections': response.data, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+        });
+});
+// Sections page - this is a temporary combination of the two pages until we can disassociate the two
+router.get(['/sections/ni'], function (req, res) {
+    scopeId = "ni";
+    root_url = global.get_root_url(req, scopeId);
+    title = global.get_title(scopeId);
+    console.log(title)
     console.log("Title = " + title);
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections')
         .then((response) => {
