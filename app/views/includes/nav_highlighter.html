@@ -10,11 +10,12 @@
 
         var search_array = ["search"];
         var browse_array = ["browse", "sections", "heading", "chapter", "commodity"];
+        var search_browse_array = ["search", "browse", "sections", "heading", "chapter", "commodity"];
         var az_array = ["a-z-index"];
         var downloads_array = ["downloads"];
         var tools_array = ["tools", "quotas", "additional_codes", "chemicals", "certificates", "footnotes"];
 
-        if (search_array.includes(path2)) {
+        {# if (search_array.includes(path2)) {
             $("ul#navigation li:nth-of-type(1)").addClass("govuk-header__navigation-item--active");
         } else if (browse_array.includes(path2)) {
             $("ul#navigation li:nth-of-type(2)").addClass("govuk-header__navigation-item--active");
@@ -24,6 +25,14 @@
             $("ul#navigation li:nth-of-type(4)").addClass("govuk-header__navigation-item--active");
         } else if (tools_array.includes(path2)) {
             $("ul#navigation li:nth-of-type(5)").addClass("govuk-header__navigation-item--active");
+        } #}
+
+        if (search_browse_array.includes(path2)) {
+            $("ul#navigation li:nth-of-type(1)").addClass("govuk-header__navigation-item--active");
+        } else if (az_array.includes(path2)) {
+            $("ul#navigation li:nth-of-type(2)").addClass("govuk-header__navigation-item--active");
+        } else if (tools_array.includes(path2)) {
+            $("ul#navigation li:nth-of-type(3)").addClass("govuk-header__navigation-item--active");
         }
     });
 </script>

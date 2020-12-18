@@ -679,3 +679,137 @@ table.small-table.measures dl dd ul li {
 .search-results .commodity-code .code-text+.code-text {
     margin-left: 2px
 }
+
+.tariff-search {
+    margin-bottom:20px
+   }
+   .search-header .searchfield {
+    position:relative;
+    max-width:70ex
+   }
+   .search-header .select2-selection__arrow {
+    display:none
+   }
+   .search-header .search-submit {
+    position:absolute;
+    bottom:0;
+    right:0;
+    height:40px;
+    width:40px;
+    overflow:visible
+   }
+   .search-header input.govuk-button {
+    box-shadow:none;
+    width:40px;
+    height:40px;
+    text-indent:-5000px;
+    background-image:url(//assets-dev.trade-tariff.service.gov.uk/packs/media/images/search-button-90225d30063f1d14610ca718245a6b13.png);
+    background-repeat:no-repeat;
+    background-position:1px -17px
+   }
+   .search-header .govuk-form-group.date-picker,
+   .search-header .govuk-form-group.searchfield {
+    margin-bottom:15px
+   }
+   .search-header .change-date-link {
+    white-space:nowrap
+   }
+   .search-header fieldset.inline {
+    display:inline-block;
+    width:auto;
+    font-family:GDS Transport,arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-weight:400;
+    padding-top:0;
+    padding-bottom:0;
+    border:none
+   }
+   @media print {
+    .search-header fieldset.inline {
+     font-family:sans-serif
+    }
+   }
+   .select2-selection {
+    font-weight:400!important;
+    font-size:16px!important;
+    font-size:1rem!important;
+    line-height:1.25!important;
+    box-sizing:border-box!important;
+    width:100%!important;
+    height:40px!important;
+    height:2.5rem!important;
+    margin-top:0!important;
+    padding:0 5px!important;
+    border:2px solid #0b0c0c!important;
+    border-radius:0!important
+   }
+   .select2-selection .select2-selection__placeholder,
+   .select2-selection .select2-selection__rendered {
+    width:100%;
+    padding:0;
+    line-height:40px
+   }
+   .select2-selection .select2-selection__placeholder {
+    height:40px
+   }
+   .select2-selection .select2-selection__rendered {
+    height:40px;
+    font-family:GDS Transport,arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-weight:400;
+    font-size:16px;
+    font-size:1rem;
+    line-height:1.25;
+    color:#0b0c0c!important
+   }
+   @media print {
+    .select2-selection .select2-selection__rendered {
+     font-family:sans-serif
+    }
+   }
+   @media (min-width:40.0625em) {
+    .select2-selection .select2-selection__rendered {
+     font-size:19px;
+     font-size:1.1875rem;
+     line-height:1.31579
+    }
+   }
+   @media print {
+    .select2-selection .select2-selection__rendered {
+     font-size:14pt;
+     line-height:1.15
+    }
+   }
+   .select2-selection__arrow {
+    height:100%!important;
+    right:10px!important
+   }
+   .select2-selection__arrow b {
+    border-color:#0b0c0c rgba(0,0,0,0) rgba(0,0,0,0)!important;
+    border-width:8px 7px 0!important
+   }
+   .select2-search__field {
+    font-weight:400!important;
+    font-size:16px!important;
+    font-size:1rem!important;
+    line-height:1.25!important;
+    box-sizing:border-box!important;
+    width:100%!important;
+    height:40px!important;
+    height:2.5rem!important;
+    margin-top:0!important;
+    padding:0 5px!important;
+    border:2px solid #0b0c0c!important;
+    border-radius:0!important
+   }
+   .select2-selection__rendered {
+    line-height:38px!important;
+    height:auto!important;
+    max-width:calc(100% - 2em)
+   }
+   .select2-container--open .select2-dropdown--below {
+    border-width:2px!important;
+    border-color:#0b0c0c!important
+   }

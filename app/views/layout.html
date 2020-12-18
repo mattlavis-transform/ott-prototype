@@ -46,15 +46,11 @@
   {{ govukHeader({
   homepageUrl: "https://www.gov.uk",
   serviceName: "The Online Trade Tariff",
-  serviceUrl: "/search",
+  serviceUrl: "/sections",
   navigation: [
     {
-      href: "/search/" + scopeId,
-      text: "Search the Tariff"
-    },
-    {
-      href: "/browse/" + scopeId,
-      text: "Browse the Goods Classification"
+      href: "/sections/" + scopeId,
+      text: "Search or browse the Tariff"
     },
     {
       href: "/a-z-index/a/" + scopeId,
@@ -66,8 +62,9 @@
     }
   ]
 }) }}
-{% else %}
-  {{ govukHeader({
+
+
+{# {{ govukHeader({
   homepageUrl: "https://www.gov.uk",
   serviceName: "The Online Trade Tariff",
   serviceUrl: "/search",
@@ -78,7 +75,51 @@
     },
     {
       href: "/browse/" + scopeId,
-      text: "Browse the Goods Classification"
+      text: browse_breadcrumb
+    },
+    {
+      href: "/a-z-index/a/" + scopeId,
+      text: "A to Z"
+    },
+    {
+      href: "/tools/" + scopeId,
+      text: "Tools"
+    }
+  ]
+}) }} #}
+{% else %}
+  {{ govukHeader({
+  homepageUrl: "https://www.gov.uk",
+  serviceName: "The Online Trade Tariff",
+  serviceUrl: "/search",
+  navigation: [
+    {
+      href: "/sections/" + scopeId,
+      text: "Search or browse the Tariff"
+    },
+    {
+      href: "/a-z-index/a/" + scopeId,
+      text: "A to Z"
+    },
+    {
+      href: "/tools/" + scopeId,
+      text: "Tools"
+    }
+  ]
+}) }}
+
+{# {{ govukHeader({
+  homepageUrl: "https://www.gov.uk",
+  serviceName: "The Online Trade Tariff",
+  serviceUrl: "/search",
+  navigation: [
+    {
+      href: "/search/" + scopeId,
+      text: "Search the Tariff"
+    },
+    {
+      href: "/browse/" + scopeId,
+      text: browse_breadcrumb
     },
     {
       href: "/a-z-index/a/" + scopeId,
@@ -93,7 +134,7 @@
       text: "Tools"
     }
   ]
-}) }}
+}) }} #}
 {% endif %}
 
 {% include "includes/nav_highlighter.html" %}

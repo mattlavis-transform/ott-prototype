@@ -343,6 +343,10 @@ div.indent_12 {
     background-position: 1px -17px;
 }
 
+.ml_float {
+    float: left
+}
+
 .search-field {
     margin-right: 0px !important;
     width       : 30em;
@@ -375,7 +379,6 @@ div.panel_grey {
     font-size       : 19px;
     background-color: #f0f0f0;
     padding         : 0.5em 0.75em !important;
-
 }
 
 div.panel_blue {
@@ -398,6 +401,11 @@ div.panel_blue {
 
     div.panel {
         width: 100%
+    }
+
+    div.panel_grey {
+        font-size: 16px;
+        width    : 95%
     }
 }
 

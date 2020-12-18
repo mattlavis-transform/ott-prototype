@@ -12,6 +12,8 @@ require('./classes/global.js');
 
 // Add your routes here - above the module.exports line
 var scopeId;
+//var browse_breadcrumb = "Browse the Goods Classification";
+var browse_breadcrumb = "Search or browse the Tariff";
 
 /* ############################################################################ */
 /* ###################              BEGIN BROWSE              ################# */
@@ -24,7 +26,23 @@ router.get(['/browse/:scopeId', '/browse/'], function (req, res) {
     title = global.get_title(scopeId);
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections')
         .then((response) => {
-            res.render('browse', { 'sections': response.data, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+            res.render('browse', { 'sections': response.data, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+        });
+});
+
+/* ############################################################################ */
+/* ###################                TEMPORARY               ################# */
+/* ############################################################################ */
+
+// Sections page - this is a temporary combination of the two pages until we can disassociate the two
+router.get(['/sections/', '/sections/ni'], function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    title = global.get_title(scopeId);
+    console.log("Title = " + title);
+    axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections')
+        .then((response) => {
+            res.render('sections', { 'sections': response.data, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
         });
 });
 
@@ -35,7 +53,7 @@ router.get(['/sections/:sectionId', '/sections/:sectionId/:scopeId'], function (
     title = global.get_title(scopeId);
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections/' + req.params["sectionId"])
         .then((response) => {
-            res.render('section', { 'section': response.data, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+            res.render('section', { 'section': response.data, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
         });
 });
 
@@ -48,7 +66,7 @@ router.get(['/chapters/:chapterId', '/chapters/:chapterId/:scopeId'], function (
     s = s.padStart(2, "0");
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/chapters/' + s)
         .then((response) => {
-            res.render('chapters', { 'chapter': response.data, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+            res.render('chapters', { 'chapter': response.data, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
         });
 });
 
@@ -60,7 +78,7 @@ router.get(['/headings/:headingId', '/headings/:headingId/:scopeId'], function (
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/headings/' + req.params["headingId"])
         .then((response) => {
             h = new Heading(response.data);
-            res.render('headings', { 'heading': h, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+            res.render('headings', { 'heading': h, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
         });
 });
 
@@ -77,7 +95,7 @@ router.get(['/commodities/:goods_nomenclature_item_id/', '/commodities/:goods_no
             c.pass_request(req);
             c.get_data(response.data);
             c.get_measure_data("basic");
-            res.render('commodities', { 'commodity': c, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+            res.render('commodities', { 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
         });
 });
 
@@ -97,7 +115,7 @@ router.get(['/commodities2/:goods_nomenclature_item_id/', '/commodities2/:goods_
             c.get_measure_data("basic");
             c.sort_measures();
             //country_picker = new CountryPicker()
-            res.render('commodities2', { 'commodity': c, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+            res.render('commodities2', { 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
         });
 });
 
@@ -111,15 +129,16 @@ router.get(['/commodities2/:goods_nomenclature_item_id/', '/commodities2/:goods_
 /* ############################################################################ */
 
 // Search page
-router.get(['/search/:scopeId', '/search/', '/search//', '/sections/'], function (req, res) {
+router.get(['/search/:scopeId', '/search/', '/search//'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections')
         .then((response) => {
-            res.render('search', { 'sections': response.data, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+            res.render('search', { 'sections': response.data, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
         });
 });
+
 
 
 // Search results / data handler

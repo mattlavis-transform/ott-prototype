@@ -1,32 +1,26 @@
 {% extends "layout.html" %}
-{% block beforeContent %}
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Home",
-      href: "/search/" + scopeId
-    },
-    {
-      text: browse_breadcrumb,
-      href: ""
-    }
-  ]
-}) }}
-{% endblock %}
+{% block beforeContent %}{% endblock %}
 
 {% block pageTitle %}
   Trade Tariff: look up commodity codes, duty and VAT rates
 {% endblock %}
 
 {% block content %}
+<script>
+    $(document).ready(function () {
+        var toggle_count = 2;
+    });
+</script>
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
             <span class="govuk-caption-xl">{{ title }}</span>
             <h1 class="govuk-heading-l">
-                Browse the Goods Classification
+                {{ serviceName }}
             </h1>
             {% include "includes/intro_panel.html" %}
+            {% include "includes/search_include_bz.html" %}
             {% include "includes/browse_component.html" %}
         </div>
     </div>
+
 {% endblock %}

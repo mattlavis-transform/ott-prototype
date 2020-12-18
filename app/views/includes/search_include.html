@@ -1,4 +1,6 @@
 <form action="/search/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}" method="post">
+
+
   {{ govukInput({
   label: {
     text: "Search " + title | lowerFirst(),
@@ -50,6 +52,5 @@
   text: "Search"
 }) }}
 </form>
-
 
 <p class="govuk-body">You can also find commodity codes, duty, VAT rates and controls by manually <a href="/browse/{{ scopeId }}">browsing the goods classification</a>.</p>
