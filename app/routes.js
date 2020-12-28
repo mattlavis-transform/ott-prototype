@@ -29,6 +29,17 @@ router.get(['/browse/:scopeId', '/browse/'], function (req, res) {
             res.render('browse', { 'sections': response.data, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
         });
 });
+/* ############################################################################ */
+/* ###################               FURNITURE                ################# */
+/* ############################################################################ */
+
+// Browse page
+router.get(['/cookies/:scopeId', '/cookies/'], function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    title = global.get_title(scopeId);
+    res.render('cookies', { 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+});
 
 /* ############################################################################ */
 /* ###################                TEMPORARY               ################# */
@@ -149,6 +160,16 @@ router.get(['/search/:scopeId', '/search/', '/search//'], function (req, res) {
         .then((response) => {
             res.render('search', { 'sections': response.data, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
         });
+});
+
+
+// Search results page
+router.get(['/search_results/:scopeId'], function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    title = global.get_title(scopeId);
+    title = "sdfs";
+    res.render('search_results', { 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
 });
 
 

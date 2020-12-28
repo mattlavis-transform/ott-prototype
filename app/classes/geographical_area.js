@@ -48,12 +48,16 @@ class GeographicalArea {
     }
 
     parse_members() {
+        var member;
         if (this.has_members) {
             this.children_geographical_areas.forEach(cga => {
-                this.members.push(cga.id);
+                member = new GeographicalArea();
+                member.id = cga.id;
+                member.description = this.get_country_description(member.id)
+                this.members.push(member);
             });
         }
-        this.children_geographical_areas = null;
+        //this.children_geographical_areas = null;
     }
 
 }

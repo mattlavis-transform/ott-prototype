@@ -1,5 +1,5 @@
 .country_selector {
-    background-color: #f0f0f0;
+    background-color: govuk-colour("light-grey");
     padding         : 1em 1em 0px 1em;
 }
 
@@ -23,7 +23,7 @@
     // background-color: transparent;
     background-color: #fff;
     position        : relative;
-    xwidth           : 70%;
+    xwidth          : 70%;
 }
 
 .autocomplete__hint {
@@ -32,7 +32,7 @@
 }
 
 .autocomplete__input--default {
-    padding: 5px;
+    padding         : 5px;
     background-color: #fff;
 }
 

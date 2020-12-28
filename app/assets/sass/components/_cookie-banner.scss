@@ -3,12 +3,12 @@
   @include govuk-text-colour;
 
   box-sizing: border-box;
-  width: 100%;
+  width     : 100%;
 
-  padding-top: govuk-spacing(3);
-  padding-right: govuk-spacing(3);
-  padding-bottom: govuk-spacing(3);
-  padding-left: govuk-spacing(3);
+  padding-top     : govuk-spacing(3);
+  padding-right   : govuk-spacing(3);
+  padding-bottom  : govuk-spacing(3);
+  padding-left    : govuk-spacing(3);
   background-color: lighten(desaturate(govuk-colour("light-blue"), 8.46), 42.55);
 }
 
@@ -21,4 +21,18 @@
   .app-cookie-banner {
     display: none !important;
   }
+}
+
+#cookies_hide_message {
+  display: none;
+}
+
+.cookie-settings__confirmation {
+  border             : 5px solid;
+  border-top-color   : currentcolor;
+  border-right-color : currentcolor;
+  border-bottom-color: currentcolor;
+  border-left-color  : currentcolor;
+  border-color       : #1d70b8;
+  display            : none;
 }

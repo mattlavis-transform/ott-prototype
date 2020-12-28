@@ -1038,5 +1038,21 @@
 	{
 		"geographical_area_id" : "ZW",
 		"description" : "Zimbabwe"
+	},
+	{
+		"geographical_area_id" : "XC",
+		"description" : "Ceuta"
+	},
+	{
+		"geographical_area_id" : "XK",
+		"description" : "Kosovo"
+	},
+	{
+		"geographical_area_id" : "XL",
+		"description" : "Melilla"
+	},
+	{
+		"geographical_area_id" : "XS",
+		"description" : "Serbia"
 	}
 ]

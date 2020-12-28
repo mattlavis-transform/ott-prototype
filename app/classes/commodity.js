@@ -43,7 +43,7 @@ class Commodity {
         this.mfn_array = ["103", "105"];
         this.agri_array = ["488", "489", "490"];
         this.preference_array = ["142", "145", "106", "109"];
-        this.remedy_array = ["551", "552", "553", "554"];
+        this.remedy_array = ["551", "552", "553", "554", "555", "561", "562", "563", "564", "565", "566", "570", "695", "696"];
         this.suspension_array = ["112", "115", "117", "119"];
         this.quota_array = ["143", "146", "122", "123"];
         this.supplementary_unit_array = ["109", "110"];
@@ -204,6 +204,7 @@ class Commodity {
         this.assign_definitions_to_order_numbers();
         this.assign_legal_acts_to_measures();
         this.assign_geographical_area_descriptions_to_exclusions();
+        this.strip_exclusions_from_geographical_area()
 
 
         // console.log("Units: " + this.units);
@@ -226,6 +227,21 @@ class Commodity {
             this.calculate_quotas();
             this.calculate_preferences();
         }
+    }
+
+    strip_exclusions_from_geographical_area() {
+        this.measures.forEach(measure => {
+            if (measure.geographical_area.geographical_area_code == 1) {
+                var exclusions = measure.excluded_country_ids;
+                var looper = 0;
+                measure.geographical_area.members.forEach(ga => {
+                    if (exclusions.includes(ga.id)) {
+                        measure.geographical_area.members.splice(looper,  1);
+                    }
+                    looper += 1;
+                });
+            }
+        });
     }
 
     get_measure_country_descriptions() {
@@ -506,6 +522,13 @@ class Commodity {
         this.measures.sort(compare_blocks);
         this.measures.sort(compare_measure_types);
         this.measures.sort(compare_geo);
+        this.measures.forEach(m => {
+            if (m.order_number_id == "098633") {
+                console.log("xx" + m.order_number_id);
+                console.log(m);
+            }
+
+        });
 
         function compare_geo(a, b) {
             if (a.geographical_area.geographical_area_code < b.geographical_area.geographical_area_code) {
@@ -551,7 +574,7 @@ class Commodity {
                     "items": [
                         {
                             "measure_type": "VAT",
-                            "description": "VAT is a national tax charged in addition to any other duties that apply"
+                            "description": "VAT is a national tax charged in addition to any other duties that apply. <a href='https://www.gov.uk/guidance/rates-of-vat-on-different-goods-and-services'>Please see guidance for when zero rate VAT applies</a>."
                         },
                         {
                             "measure_type": "Excise",

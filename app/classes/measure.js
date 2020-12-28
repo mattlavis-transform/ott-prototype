@@ -1,3 +1,5 @@
+const GeographicalArea = require('./geographical_area');
+
 class Measure {
     constructor(id = null, measure_type_id = null, vat = null, measure_class = null) {
         this.id = id;

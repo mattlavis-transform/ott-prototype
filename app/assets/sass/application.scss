@@ -168,7 +168,7 @@ article.notes {
         padding-top   : 2px;
 
         abbr,
-        span {
+        xspan {
             padding: 0px 3px 0px 3px;
         }
     }
@@ -220,13 +220,26 @@ article.notes {
     border-bottom  : 1px solid #B1B4B6;
 
     div.commodity {
-        margin-right: 2%
+        margin-right: 2%;
+        width       : 15%;
+    }
+
+    div.description {
+        width: 85%;
     }
 }
 
 @media (min-width: 40.0625em) {
     .chapter_row {
         font-size: 19px;
+
+        div.commodity {
+            width: 12%;
+        }
+
+        div.description {
+            width: 88%;
+        }
     }
 
     .heading_row {
@@ -238,37 +251,69 @@ article.notes {
 
 /* Start commodity code bars (generic) */
 .code {
-    white-space: nowrap;
-    text-align : center;
-    margin-left: 4px;
-    font-size  : 12px;
-    padding    : 4px 1px 1px 1px;
-    height     : 16px;
-    width      : 20px;
-    min-width  : 20px;
-    max-width  : 20px;
-    color      : #000;
+    white-space : nowrap;
+    text-align  : center;
+    margin-left : 1px !important;
+    margin-right: 1px !important;
+    font-size   : 12px;
+    padding     : 3px 0px 0px 0px;
+    height      : 20px;
+    width       : 22px;
+    min-width   : 22px;
+    max-width   : 22px;
+    color       : #000;
+    display     : block;
+    float       : left;
 }
 
 @media (min-width: 40.0625em) {
     .code {
         font-size: 16px;
-        padding  : 3px 4px !important;
+        padding  : 3px 3px 3px 3px !important;
         height   : 22px;
-        width    : 24px;
+        width    : 22px;
+        min-width: 22px;
+        max-width: 22px;
     }
 }
 
+/*
+govuk-colour("red") 	#d4351c 	
+govuk-colour("yellow") 	#ffdd00 	
+govuk-colour("green") 	#00703c 	
+govuk-colour("blue") 	#1d70b8 	
+govuk-colour("dark-blue") 	#003078 	
+govuk-colour("light-blue") 	#5694ca
+govuk-colour("dark-grey") 	#505a5f 	
+govuk-colour("mid-grey") 	#b1b4b6 	
+govuk-colour("light-grey") 	#f3f2f1 	
+govuk-colour("white") 	#ffffff 	
+govuk-colour("light-purple") 	#6f72af 	
+govuk-colour("bright-purple") 	#912b88 	
+govuk-colour("pink") 	#d53880 	
+govuk-colour("light-pink") 	#f499be 	
+govuk-colour("orange") 	#f47738 	
+govuk-colour("brown") 	#b58840 	
+govuk-colour("light-green") 	#85994b 	
+govuk-colour("turquoise") 	#28a197
+*/
+
 .mauve {
-    background-color: #d1d2e6;
+    background-color    : #D1D2E6;
+    // xbackground-color: #d4351c;
+    // xcolor: #fff;
 }
 
 .blue {
-    background-color: #b3d9ee;
+    background-color    : #B3D9EE;
+    // xbackground-color: #ffdd00;
+    // xcolor: #000;
 }
 
 .green {
-    background-color: #abeae5;
+    background-color    : #ABEAE5;
+    // xbackground-color: #00703c;
+    // xcolor: #fff;
 }
 
 /* End commodity code bars (generic) */
@@ -409,7 +454,7 @@ div.panel_blue {
     }
 }
 
-
+/*
 .measures {
     th {
         text-align: left;
@@ -560,9 +605,8 @@ div.panel_blue {
         }
     }
 }
-
+*/
 .measures2 {
-
     .govuk-details {
         font-size     : 14px;
         padding-top   : 0px;
@@ -571,26 +615,50 @@ div.panel_blue {
         margin-bottom : 0px;
     }
 
+    .govuk-details__text {
+        padding:0px 0px 0px 2px;
+        margin-left: 3px;
+        margin-top: 5px;
+    }
+
     .govuk-details__summary {
-        font-size     : 16px;
+        font-size     : 14px;
         padding-top   : 0px;
         margin-top    : 0px;
         padding-bottom: 0px;
         margin-bottom : 0px;
+        padding-left  : 1em;
     }
 
     .govuk-details__summary::before {
-        margin-top  : 3px;
-        border-width: 6px 0 6px 10.392px;
+        border-width: 5px 0 5px 8.5px;
     }
 
     .govuk-details[open]>.govuk-details__summary::before {
-        border-width: 6px 0 6px 10.392px;
+        border-width: 8.5px 5px 0 5px;
     }
 
     .grey {
         color: #666;
     }
+
+    tr:nth-child(even) {
+        background: #f8f8f8
+    }
+
+    tr:nth-child(odd) {
+        background: #FFF
+    }
+
+    @media (max-width: 40.0625em) {
+        table.measures2 {
+            tr {
+                background: none;
+            }
+        }
+    }
+
+
 
     @media (min-width: 800px) {
         .country {
@@ -674,7 +742,8 @@ tr:last-of-type .govuk-table__cell {
     border-bottom: 0px;
 }
 
-@import "components/app-flexible-table";
+// @import "components/app-flexible-table";
+@import "components/flexible-tables";
 @import "components/attachments";
 @import "components/az";
 @import "components/bold_banner";
@@ -684,5 +753,6 @@ tr:last-of-type .govuk-table__cell {
 @import "components/bottom_links";
 @import "location-autocomplete.min.css";
 @import "components/section-chapter-notes";
+@import "components/search_results";
 
 @import "bz";

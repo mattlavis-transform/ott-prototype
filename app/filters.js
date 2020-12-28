@@ -64,6 +64,18 @@ module.exports = function (env) {
         str = str.replace("Hmi", "HMI");
         return (str);
     }
+    filters.title_case_vat_excise = function (str) {
+        var _ = require('lodash');
+        var tmp = _.toLower(str);
+        if (tmp.indexOf("excise") > -1) {
+            str = _.capitalize(_.toLower(str));
+            str = str.replace("uk", "UK");
+            str = str.replace("union", "Union");
+            str = str.replace("Vat", "VAT");
+            str = str.replace("Hmi", "HMI");
+        }
+        return (str);
+    }
 
     filters.display_currency = function (str) {
         var euros = ["EUR", "EUROS", "EURO"];
@@ -152,7 +164,7 @@ module.exports = function (env) {
         console.log("str = " + s);
         console.log("scope = " + scope);
         s = String(s)
-        var lastChar = s[s.length -1];
+        var lastChar = s[s.length - 1];
 
         if (s != "") {
             if (s.slice(-1) != "/") {
