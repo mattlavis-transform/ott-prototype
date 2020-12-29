@@ -50,7 +50,7 @@ $(document).ready(function () {
     });
 
     $("#hide_cookie_panel").click(function (event) {
-        $("#cookies_hide_message").hide();
+        $(".app-cookie-banner").hide();
         event.preventDefault();
     });
 
