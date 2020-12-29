@@ -43,14 +43,13 @@ $(document).ready(function () {
 
 
     $(".cookie_accept_all").click(function (event) {
-        document.cookie = "cookies_preferences_set=true; expires=Thu, 18 Dec 2023 12:00:00 UTC";
+        document.cookie = "cookies_preferences_set=true; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
         $("#cookies_consent_mechanism").hide();
         $("#cookies_hide_message").show();
         event.preventDefault();
     });
 
-
-    $(".hide_cookie_panel").click(function (event) {
+    $("#hide_cookie_panel").click(function (event) {
         $("#cookies_hide_message").hide();
         event.preventDefault();
     });
@@ -60,7 +59,5 @@ $(document).ready(function () {
         window.scrollTo(0, 0);
         event.preventDefault();
     });
-
-
 
 });

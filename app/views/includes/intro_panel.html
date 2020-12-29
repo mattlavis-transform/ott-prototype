@@ -1,57 +1,17 @@
-<script>
-    $(document).ready(function () {
-        var toggle_count = 2;
-    });
-</script>
-
 {% set ni_url = root_url | new_scope("ni") %}
 {% set uk_url = root_url | new_scope("") %}
 
 {% if scopeId == "ni" %}
-    <div class="govuk-warning-text toggle2">
-        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-        <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive">Warning</span>
-            Use the Northern Ireland (EU) Tariff to look up commodity codes, duty, VAT and controls if you are importing goods
-        that are at risk of being transported to Ireland. Find out more about the <a href="https://www.gov.uk/government/publications/the-northern-ireland-protocol">dual tariff regime</a>
-        for Northern Ireland.<br><br>
-        For all other cases, use the <a href="{{ uk_url }}">UK Trade Tariff</a>.
-        </strong>
-    </div>
 
-    <div class="panel panel_grey toggle1">
-        Use the Northern Ireland (EU) Tariff to look up commodity codes, duty, VAT and controls if you are importing goods
-        that are at risk of being transported to Ireland. Find out more about the <a href="https://www.gov.uk/government/publications/the-northern-ireland-protocol">dual tariff regime</a>
-        for Northern Ireland.<br><br>
-        For all other cases, use the <a href="{{ uk_url }}">UK Trade Tariff</a>.
+    <div class="panel panel_grey">
+    From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate <a href="https://www.gov.uk/guidance/check-if-you-can-declare-goods-you-bring-into-northern-ireland-not-at-risk-of-moving-to-the-eu-from-1-january-2021">if your goods are not ‘at risk’ of onward movement to the EU</a>. If they are at risk of onward movement to the EU, use <a href="{{ uk_url }}">the Online Trade Tariff</a>.
     </div>
-
 
 {% else %}
 
-    {# <div class="govuk-warning-text toggle2">
-        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-        <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive">Warning</span>
-            Are you trading in Northern Ireland? From January 1st 2021, Northern Ireland is operating under
-            a <a href="https://www.gov.uk/government/publications/the-northern-ireland-protocol">dual tariff regime</a> and the rules may differ if you are importing goods that are at risk of being
-            transported to Ireland. In that case, use the <a href="{{ ni_url }}">Northern Ireland (EU) Tariff</a>.
-        </strong>
-    </div> #}
-
-    <div class="panel panel_grey toggle1">
-        Are you trading in Northern Ireland? From January 1st 2021, Northern Ireland is operating under
-        a <a href="https://www.gov.uk/government/publications/the-northern-ireland-protocol">dual tariff regime</a> and the rules may differ if you are importing goods that are at risk of being
-        transported to Ireland. In that case, use the <a href="{{ ni_url }}">Northern Ireland (EU) Tariff</a>.
+    <div class="panel panel_grey">
+    From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate <a href="https://www.gov.uk/guidance/check-if-you-can-declare-goods-you-bring-into-northern-ireland-not-at-risk-of-moving-to-the-eu-from-1-january-2021">if your goods are not ‘at risk’ of onward movement to the EU</a>. If they are not at risk of onward movement to the EU, use <a href="{{ ni_url }}">the Northern Ireland (EU) Tariff</a>.
     </div>
 
-
-    <div class="panel panel_grey toggle2">
-        Are you trading in Northern Ireland? From January 1st 2021, Northern Ireland is operating under
-        a <a href="https://www.gov.uk/government/publications/the-northern-ireland-protocol">dual tariff regime</a> and the rules may differ if you are importing goods that are at risk of being
-        transported to Ireland. In that case, use the <a href="{{ ni_url }}">Northern Ireland (EU) Tariff</a>.
-    </div>
-
-    
-<p>Use the UK Trade Tariff to look up commodity codes, duty, VAT and controls.</p>
+    <p>Use the UK Trade Tariff to look up commodity codes, duty, VAT and controls.</p>
 {% endif %}
