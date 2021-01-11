@@ -75,25 +75,6 @@ class Commodity {
     get_measure_data(origin) {
         var m, mc, mt, g, ac, la, id, item2;
 
-        /* START GOOD EXAMPLES
-
-        7202118000 = Ferro-alloy (basic ad valorem)
-        0201100021 = Bison - has units
-        0406103010 = Mozzarella - has units
-        8518400010 = Amplifiers - has a supplementary unit
-        8708701080 = Tyres - has anti-dumping (China)
-        1905319100 = Sandwich biscuits - has Meursing - Meursings are also weight-dependents
-        0702000007 = Cherry tomatoes - has Entry Price System
-        2710124900 = Light oil - Has excise in litres unit
-        8406810000 = Turbines - Has suspensions
-        2402100000 = Cheroots - VAT, excise and import duty
-        1704903000 = White chocolate - ceiling, also has multiple VAT rates
-        1704907100 = Boiled sweets (check Iceland) - the most complex measures
-        2206001000 = Piquette (type of wine) - has a minimum; also the MFN contains 2 units as well as 3 types of excise
-        
-        END GOOD EXAMPLES */
-
-
         this.origin = origin;
         this.origin_obj = new GeographicalArea();
         this.country_name = this.origin_obj.get_country_description(origin);
@@ -237,6 +218,7 @@ class Commodity {
                 measure.geographical_area.members.forEach(ga => {
                     if (exclusions.includes(ga.id)) {
                         measure.geographical_area.members.splice(looper,  1);
+                        measure.geographical_area.member_strings.splice(looper,  1);
                     }
                     looper += 1;
                 });
@@ -393,6 +375,7 @@ class Commodity {
                     if (mc.is_meursing) {
                         m.has_meursing = true;
                         this.has_meursing = true;
+                        console.log("Found a Meursing");
                     }
                     m.measure_components.push(mc);
                 }
@@ -401,6 +384,7 @@ class Commodity {
         this.measures.forEach(m => {
             m.combine_duties();
         });
+        var a = 1;
     }
 
     // Remove any measures that are not financial or are not relevant to my country
@@ -413,7 +397,8 @@ class Commodity {
                     m.measure_type_series_id = mt.measure_type_series_id;
                 }
             });
-            if ((m.geographical_area_id == this.origin) || (m.geographical_area.members.includes(this.origin))) {
+            var a = 1;
+            if ((m.geographical_area_id == this.origin) || (m.geographical_area.member_strings.includes(this.origin))) {
                 m.relevant = true;
             }
         });
@@ -432,8 +417,11 @@ class Commodity {
         this.measures.forEach(m => {
             if (!this.supplementary_unit_array.includes(m.measure_type_id)) {
                 m.measure_components.forEach(mc => {
-                    if (mc.measurement_unit_code != null) {
-                        this.units.push(mc.measurement_unit_code);
+                    if (m.measure_type_id != '490') {
+                        if (mc.measurement_unit_code != null) {
+                            this.units.push(mc.measurement_unit_code);
+                            console.log(m);
+                        }
                     }
                 });
             }

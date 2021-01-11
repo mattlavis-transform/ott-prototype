@@ -9,6 +9,7 @@ const Commodity = require('./classes/commodity.js');
 const Error_handler = require('./classes/error_handler.js');
 
 require('./classes/global.js');
+require('./classes/validator.js');
 
 // Add your routes here - above the module.exports line
 var scopeId;
@@ -286,6 +287,12 @@ router.get(['/exchange_rates/', '/exchange_rates/:scopeId'], function (req, res)
 
 
 
+
+
+
+
+
+
 /* ############################################################################ */
 /* ###################           BEGIN CALCULATOR             ################# */
 /* ############################################################################ */
@@ -295,83 +302,20 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
     var err, referer, c;
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
-    //console.log("Data handler");
     referer = req.headers.referer;
 
     if (referer.indexOf("date") !== -1) {
-        // Validate the date form
-        e = new Error_handler();
-        contains_errors = e.validate_date(req); // Gets data from Date form and validates it
-        if (contains_errors) {
-            req.session.data["error"] = "date";
-            res.redirect("/calculate/date/" + req.params["goods_nomenclature_item_id"]);
-        } else {
-            req.session.data["error"] = "";
-            res.redirect("/calculate/destination/" + req.params["goods_nomenclature_item_id"]);
-        }
+        global.validate_date(req, res);
+
     } else if (referer.indexOf("destination") !== -1) {
-        // Validate the destination form
-        console.log("Checking destination");
-        e = new Error_handler();
-        contains_errors = e.validate_destination(req); // Gets data from destination form and validates it
-        console.log(contains_errors);
-        if (contains_errors) {
-            req.session.data["error"] = "destination";
-            res.redirect("/calculate/destination/" + req.params["goods_nomenclature_item_id"]);
-        } else {
-            req.session.data["error"] = "";
-            // Check if the MFN is 0.00. If it is, then there is no value in proceeding
-            axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
-                .then((response) => {
-                    c = new Commodity();
-                    c.get_data(response.data);
-                    if (c.basic_duty_rate == "0.00 %") {
-                        res.redirect("/calculate/results/" + req.params["goods_nomenclature_item_id"]);
-                    } else {
-                        res.redirect("/calculate/origin/" + req.params["goods_nomenclature_item_id"]);
-                    }
+        global.validate_destination(req, res);
 
-                });
-        }
     } else if (referer.indexOf("origin") !== -1) {
-        // Validate the origin form
-        //console.log("Checking origin");
-        e = new Error_handler();
-        contains_errors = e.validate_origin(req); // Gets data from origin form and validates it
-        if (contains_errors) {
-            req.session.data["error"] = "origin";
-            res.redirect("/calculate/origin/" + req.params["goods_nomenclature_item_id"]);
-        } else {
-            req.session.data["error"] = "";
-            res.redirect("/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"]);
-        }
+        global.validate_origin(req, res);
+
     } else if (referer.indexOf("monetary_value") !== -1) {
-        // Validate the monetary value form
-        //console.log("Checking monetary value");
-        e = new Error_handler();
-        contains_errors = e.validate_monetary_value(req); // Gets data from monetary svalue form and validates it
-        if (contains_errors) {
-            req.session.data["error"] = "monetary_value";
-            res.redirect("/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"]);
-        } else {
-            req.session.data["error"] = "";
+        global.validate_monetary_value(req, res);
 
-            axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
-                .then((response) => {
-                    c = new Commodity();
-                    c.get_data(response.data);
-                    c.get_measure_data(req.session.data["origin"]);
-                    req.session.data["country_name"] = c.country_name;
-                    if ((c.units.length > 0) || (c.has_meursing)) {
-                        res.redirect("/calculate/unit_value/" + req.params["goods_nomenclature_item_id"]);
-                    } else if (c.remedies.length > 0) {
-                        res.redirect("/calculate/company/" + req.params["goods_nomenclature_item_id"]);
-                    } else {
-                        res.redirect("/calculate/confirm/" + req.params["goods_nomenclature_item_id"]);
-                    }
-
-                });
-        }
     } else if (referer.indexOf("unit_value") !== -1) {
         // Validate the unit value form
         //console.log("Checking unit value");
@@ -486,7 +430,8 @@ router.get('/calculate/unit_value/:goods_nomenclature_item_id', function (req, r
     root_url = global.get_root_url(req, scopeId);
     //console.log("Unit value");
     var err = req.session.data["error"];
-    axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
+    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    axios.get(url)
         .then((response) => {
             c = new Commodity();
             c.pass_request(req);
@@ -502,7 +447,8 @@ router.get('/calculate/meursing/:goods_nomenclature_item_id', function (req, res
     root_url = global.get_root_url(req, scopeId);
     //console.log("Meursing");
     var err = req.session.data["error"];
-    axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
+    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    axios.get(url)
         .then((response) => {
             res.render('calculate/06_meursing', { 'commodity': response.data, 'error': err });
         });
@@ -514,7 +460,8 @@ router.get('/calculate/company/:goods_nomenclature_item_id', function (req, res)
     root_url = global.get_root_url(req, scopeId);
     //console.log("Company");
     var err = req.session.data["error"];
-    axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
+    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    axios.get(url)
         .then((response) => {
             c = new Commodity();
             c.pass_request(req);
@@ -531,7 +478,8 @@ router.get('/calculate/confirm/:goods_nomenclature_item_id', function (req, res)
     root_url = global.get_root_url(req, scopeId);
     //console.log("Confirm");
     var err = req.session.data["error"];
-    axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
+    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    axios.get(url)
         .then((response) => {
             c = new Commodity();
             c.pass_request(req);
@@ -547,7 +495,8 @@ router.get('/calculate/results/:goods_nomenclature_item_id', function (req, res)
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     var err = req.session.data["error"];
-    axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
+    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    axios.get(url)
         .then((response) => {
             c = new Commodity();
             c.pass_request(req);

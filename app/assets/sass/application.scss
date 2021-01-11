@@ -742,6 +742,17 @@ tr:last-of-type .govuk-table__cell {
     border-bottom: 0px;
 }
 
+.textual_button {
+    font-family: GDS Transport, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+    top: 9px !important;
+    position: relative;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
 // @import "components/app-flexible-table";
 @import "components/flexible-tables";
 @import "components/attachments";

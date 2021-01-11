@@ -42,7 +42,7 @@ class MeasureComponent {
     parse_id() {
         this.measure_id = this.id.substring(0, this.id.length - 3);
         this.duty_expression_id = this.id.substring(this.id.length - 2, this.id.length);
-
+        console.log(this.measure_id + ' : ' + this.duty_expression_id);
         if (this.meursing_duty_expressions.includes(this.duty_expression_id)) {
             this.is_meursing = true;
         } else {

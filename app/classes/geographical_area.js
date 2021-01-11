@@ -5,6 +5,7 @@ class GeographicalArea {
             this.description = item["attributes"]["description"];
             this.children_geographical_areas = [];
             this.members = [];
+            this.member_strings = [];
 
             if (item.hasOwnProperty("relationships")) {
                 var item2 = item["relationships"];
@@ -21,6 +22,7 @@ class GeographicalArea {
             this.description = null;
             this.children_geographical_areas = [];
             this.members = [];
+            this.member_strings = [];
             this.country_name = null;
         }
     }
@@ -55,6 +57,7 @@ class GeographicalArea {
                 member.id = cga.id;
                 member.description = this.get_country_description(member.id)
                 this.members.push(member);
+                this.member_strings.push(member.id);
             });
         }
         //this.children_geographical_areas = null;

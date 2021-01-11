@@ -48,6 +48,24 @@ global.get_scope = function (s) {
     return (scopeId);
 }
 
+global.set_tariff = function (req) {
+    var destination = req.session.data["destination"];
+    var ireland_option = req.session.data["ireland_option"];
+    if ((destination == "Northern Ireland") && (ireland_option == "yes")) {
+        req.session.data["tariff"] = "xi/";
+    } else {
+        req.session.data["tariff"] = "";
+    }
+    console.log(req.session.data["tariff"]);
+}
+
+global.get_domain = function (req) {
+    console.log("Getting domain");
+    var tariff = req.session.data["tariff"];
+    var domain = 'https://www.trade-tariff.service.gov.uk/' + tariff + 'api/v2/commodities/';
+    return (domain);
+}
+
 global.get_root_url = function (req, scopeId) {
     var root_url = req.url;
     root_url = root_url.replace("/ni", "/{{ scopeId }}");

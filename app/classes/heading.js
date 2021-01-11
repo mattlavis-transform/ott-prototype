@@ -68,12 +68,12 @@ class Heading {
 
                 case "section":
                     var section_note = obj["attributes"]["section_note"];
-                    if (typeof (section_note) == "object") {
+                    if ((typeof (section_note) == "object") && (section_note != null)) {
                         console.log("I AM AN OBJECT");
                         this.section_note = section_note["content"];
                     } else {
                         console.log("I AM A STRING");
-                        this.section_note = section_note;
+                        this.section_note == null ? "" : section_note;
                     }
                     break;
             }
