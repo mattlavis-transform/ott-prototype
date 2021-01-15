@@ -370,8 +370,12 @@ class Commodity {
     // Assign the measure components to the measures - also check for Meursing
     assign_measure_components() {
         this.measure_components.forEach(mc => {
+            if (mc.measure_id == 2772110) {
+                var a = 1;
+            }
             this.measures.forEach(m => {
                 if (mc.measure_id == m.id) {
+                    var a = 1;
                     if (mc.is_meursing) {
                         m.has_meursing = true;
                         this.has_meursing = true;

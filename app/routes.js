@@ -9,6 +9,7 @@ const Commodity = require('./classes/commodity.js');
 const Error_handler = require('./classes/error_handler.js');
 
 require('./classes/global.js');
+require('./classes/news.js');
 require('./classes/validator.js');
 
 // Add your routes here - above the module.exports line
@@ -217,6 +218,15 @@ router.get(['/downloads/', '/downloads/:scopeId'], function (req, res) {
     title = global.get_title(scopeId);
     res.render('downloads', { 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
 });
+
+// News
+router.get(['/news/', '/news/:scopeId'], function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    title = global.get_title(scopeId);
+    news = global.get_news();
+    res.render('news', { 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'news': news, 'date_string': global.todays_date() });
+});
 /* ############################################################################ */
 /* ###################        END SUBSIDIARY NAVIGATION       ################# */
 /* ############################################################################ */
@@ -326,7 +336,9 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
             res.redirect("/calculate/unit_value/" + req.params["goods_nomenclature_item_id"]);
         } else {
             req.session.data["error"] = "";
-            axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
+            var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+            console.log(url);
+            axios.get(url)
                 .then((response) => {
                     c = new Commodity();
                     c.get_data(response.data);
@@ -343,7 +355,7 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
         }
     } else if (referer.indexOf("meursing") !== -1) {
         // Validate the unit value form
-        //console.log("Checking Meursing code");
+        console.log("Checking Meursing code");
         e = new Error_handler();
         contains_errors = e.validate_meursing(req); // Gets data from meursing code form and validates it
         if (contains_errors) {
@@ -351,7 +363,10 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
             res.redirect("/calculate/meursing/" + req.params["goods_nomenclature_item_id"]);
         } else {
             req.session.data["error"] = "";
-            axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
+
+            var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+            console.log(url);
+            axios.get(url)
                 .then((response) => {
                     c = new Commodity();
                     c.get_data(response.data);

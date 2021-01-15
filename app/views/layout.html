@@ -59,6 +59,10 @@
     {
       href: "/tools/" + scopeId,
       text: "Tools"
+    },
+    {
+      href: "/news/" + scopeId,
+      text: "Latest news"
     }
   ]
 }) }}
@@ -102,8 +106,16 @@
       text: "A to Z"
     },
     {
+      href: "/downloads/" + scopeId,
+      text: "Downloads"
+    },
+    {
       href: "/tools/" + scopeId,
       text: "Tools"
+    },
+    {
+      href: "/news/" + scopeId,
+      text: "Latest news"
     }
   ]
 }) }}
@@ -138,11 +150,13 @@
 {% endif %}
 
 {% include "includes/nav_highlighter.html" %}
+
 {% endblock %}
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
 
 {% if useAutoStoreData %}
   {% block footer %}
+  {% include "includes/feedback_component.html" %}
 
     {{ govukFooter({
   navigation: [

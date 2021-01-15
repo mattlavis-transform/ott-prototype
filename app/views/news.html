@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Trade Tariff: Latest news
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/sections/" + scopeId
+    },
+    {
+      text: "Latest news",
+      href: ""
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+  <span class="govuk-caption-xl">{{ title }}</span>
+  <h1 class="govuk-heading-l">Latest news</h1>
+
+  {# {{ govukInsetText({
+  text: "This page contains news of updates to the Online Tariff tool"
+}) }} #}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      {% for story in news %}
+        <div class="news">
+          <div class="news_date">{{ story.date_formatted }}</div>
+          <div class="news_story">{{ story.html | safe }}</div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+
+{% endblock %}
+</html>

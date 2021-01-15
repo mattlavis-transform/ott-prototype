@@ -23,41 +23,139 @@
   <h1 class="govuk-heading-l">Downloads</h1>
 
   {{ govukInsetText({
-  text: "This page contains downloadable versions of the UK tariff"
+  text: "This page contains downloadable versions of entities within the UK tariff"
 }) }}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <div class="attachments">
-        <div>
-          <a class="thumbnail" href="https://paas-s3-broker-prod-lon-1d727700-4f96-4362-9c2d-2fdacddd43a2.s3.eu-west-2.amazonaws.com/eur/UK-Trade-Tariff-latest.pdf"><img alt="" src="/public/images/volume2.png"></a>
-        </div>
-        <div>
-          <h2 class="title">
-            <a href="https://paas-s3-broker-prod-lon-1d727700-4f96-4362-9c2d-2fdacddd43a2.s3.eu-west-2.amazonaws.com/eur/UK-Trade-Tariff-latest.pdf">Volume 2 of the Integrated Tariff of the UK</a>
-          </h2>
-          <p class="metadata">
-            Schedule of duty and trade statistical descriptions, codes and rates<br>
-            <span class="type">PDF</span>, <span class="file-size">94MB</span>, <span class="page-length">6,090 pages</span>
-          </p>
-        </div>
-      </div>
+    <div class="govuk-grid-column-full">
+
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukTable({
+  caption: "",
+  classes: "xgovuk-table--m",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Link to the data"
+    },
+    {
+      text: "Format"
+    },
+    {
+      text: "Last updated"
+    },
+    {
+      text: "About this data"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: "<a href='#'>Measures</a>"
+      },
+      {
+        text: "CSV"
+      },
+      {
+        text: "13 Jan 2021"
+      },
+      {
+        text: "Lorem ipsum dolor sit amet ..."
+      }
+    ],
+    [
+      {
+        html: "<a href='#'>Commodities</a>"
+      },
+      {
+        text: "CSV"
+      },
+      {
+        text: "13 Jan 2021"
+      },
+      {
+        text: "Lorem ipsum dolor sit amet ..."
+      }
+    ],
+    [
+      {
+        html: "<a href='#'>Quotas</a>"
+      },
+      {
+        text: "CSV"
+      },
+      {
+        text: "13 Jan 2021"
+      },
+      {
+        text: "Lorem ipsum dolor sit amet ..."
+      }
+    ],
+    [
+      {
+        html: "<a href='#'>Quota definition periods</a>"
+      },
+      {
+        text: "CSV"
+      },
+      {
+        text: "13 Jan 2021"
+      },
+      {
+        text: "Lorem ipsum dolor sit amet ..."
+      }
+    ],
+    [
+      {
+        html: "<a href='#'>Geographical areas</a>"
+      },
+      {
+        text: "CSV"
+      },
+      {
+        text: "13 Jan 2021"
+      },
+      {
+        text: "Lorem ipsum dolor sit amet ..."
+      }
+    ],
+    [
+      {
+        html: "<a href='#'>Additional codes</a>"
+      },
+      {
+        text: "CSV"
+      },
+      {
+        text: "13 Jan 2021"
+      },
+      {
+        text: "Lorem ipsum dolor sit amet ..."
+      }
+    ],
+    [
+      {
+        html: "<a href='#'>Certificates</a>"
+      },
+      {
+        text: "CSV"
+      },
+      {
+        text: "13 Jan 2021"
+      },
+      {
+        text: "Lorem ipsum dolor sit amet ..."
+      }
+    ]
+  ]
+}) }}
+
+
+
+
 
     </div>
-    <div class="govuk-grid-column-one-third">
-      <aside class="app-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">Related content</h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list">
-            <li>
-              <a class="govuk-link" href="https://www.gov.uk/government/collections/uk-trade-tariff-volume-1"> UK Trade Tariff: Volume 1</a><br>Background information for importers and exporters
-            </li>
-            <li>
-              <a class="govuk-link" href="https://www.gov.uk/government/collections/uk-trade-tariff-volume-3">UK Trade Tariff: Volume 3</a><br>Procedures, codes and declaration entry details
-            </li>
-          </ul>
-        </nav>
-      </aside>
-    </div>
+
   </div>
 
 {% endblock %}

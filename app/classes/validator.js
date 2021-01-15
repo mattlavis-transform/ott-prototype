@@ -66,7 +66,6 @@ global.validate_monetary_value = function (req, res) {
         req.session.data["error"] = "";
 
         var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
-        console.log(url);
         axios.get(url)
             .then((response) => {
                 c = new Commodity();
