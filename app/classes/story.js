@@ -30,7 +30,7 @@ class Story {
     };
 
     govify() {
-      this.html = this.html.replace("<h1", "<h1 class='govuk-heading-s'")
+      this.html = this.html.replace("<h1", "<h1 class='govuk-heading-s govuk-!-margin-bottom-1'")
     }
 }
 module.exports = Story
