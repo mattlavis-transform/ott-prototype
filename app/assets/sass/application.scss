@@ -316,6 +316,10 @@ govuk-colour("turquoise") 	#28a197
     // xcolor: #fff;
 }
 
+.govuk-green {
+    color: #00703c;
+}
+
 /* End commodity code bars (generic) */
 
 div.indent_1 {
@@ -616,9 +620,9 @@ div.panel_blue {
     }
 
     .govuk-details__text {
-        padding:0px 0px 0px 2px;
+        padding    : 0px 0px 0px 2px;
         margin-left: 3px;
-        margin-top: 5px;
+        margin-top : 5px;
     }
 
     .govuk-details__summary {
@@ -636,10 +640,6 @@ div.panel_blue {
 
     .govuk-details[open]>.govuk-details__summary::before {
         border-width: 8.5px 5px 0 5px;
-    }
-
-    .grey {
-        color: #666;
     }
 
     tr:nth-child(even) {
@@ -724,6 +724,10 @@ ul.countries {
     font-weight: bold;
 }
 
+.grey {
+    color: #666;
+}
+
 #date_switcher {
     display: none;
 }
@@ -743,14 +747,25 @@ tr:last-of-type .govuk-table__cell {
 }
 
 .textual_button {
-    font-family: GDS Transport, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
+    font-family            : GDS Transport, Arial, sans-serif;
+    -webkit-font-smoothing : antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 16px;
-    top: 9px !important;
-    position: relative;
-    margin-right: 15px;
-    margin-left: 15px;
+    font-size              : 16px;
+    top                    : 9px !important;
+    position               : relative;
+    margin-right           : 15px;
+    margin-left            : 15px;
+}
+
+.app-contents {
+    list-style-type: none;
+    padding        : 0;
+    margin         : 0;
+}
+
+.app-contents li:before {
+    content: "\2014";
+    margin : 0 1em 0 0;
 }
 
 // @import "components/app-flexible-table";

@@ -62,6 +62,9 @@ global.set_tariff = function (req) {
 global.get_domain = function (req) {
     console.log("Getting domain");
     var tariff = req.session.data["tariff"];
+    if (typeof tariff === 'undefined') {
+        tariff = "";
+    }
     var domain = 'https://www.trade-tariff.service.gov.uk/' + tariff + 'api/v2/commodities/';
     return (domain);
 }

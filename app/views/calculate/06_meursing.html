@@ -22,27 +22,27 @@
       <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}">
         <span class="govuk-caption-xl">Calculate import duties</span>
         {{ govukInput({
-                id: "meursing_code",
-                name: "meursing_code",
-                label: {
-                    text: "What is the Meursing code for your commodity?",
-                    classes: "govuk-label--xl",
-                    isPageHeading: true
-                },
-                hint: {
-                    html: "A Meursing additional code is used to identify the determine duties
-                    for the import or export of goods containing certain types of milk and sugars.
-                    Your code will be 3 numeric digits long, preceded by a number 7 (pre-populated).
-                    <br><br>
-                    To find your Meursing additional code, visit
-                    <a target='_blank' href='https://www.gov.uk/additional-commodity-code'>https://www.gov.uk/additional-commodity-code</a>."
-                },
-                prefix: {
-                    text: "7"
-                },
-                classes: "govuk-input--width-4",
-                spellcheck: false
-                }) }}
+          id: "meursing_code",
+          name: "meursing_code",
+          label: {
+              text: "What is the Meursing code for your commodity?",
+              classes: "govuk-label--xl",
+              isPageHeading: true
+          },
+          hint: {
+              html: "A Meursing additional code is used to identify the determine duties
+              for the import or export of goods containing certain types of milk and sugars.
+              Your code will be 3 numeric digits long, preceded by a number 7 (pre-populated).
+              <br><br>
+              To find your Meursing additional code, visit
+              <a target='_blank' href='https://www.gov.uk/additional-commodity-code'>https://www.gov.uk/additional-commodity-code</a>."
+          },
+          prefix: {
+              text: "7"
+          },
+          classes: "govuk-input--width-4",
+          spellcheck: false
+        }) }}
 
         {{ govukButton({
             text: "Continue"

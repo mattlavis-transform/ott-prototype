@@ -7,6 +7,7 @@ global.get_news = function (str, cnt) {
     const directoryPath = path.join(__dirname, 'news');
     var stories = [];
 
+    stories.push(new Story("2021-01-03.md"));
     stories.push(new Story("2021-01-02.md"));
     stories.push(new Story("2021-01-01.md"));
 

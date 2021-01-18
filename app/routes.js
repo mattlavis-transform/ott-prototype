@@ -426,6 +426,32 @@ router.get('/calculate/origin/:goods_nomenclature_item_id', function (req, res) 
         });
 });
 
+// Calculator - UK trader scheme (XI only)
+router.get('/calculate/uk_trader/:goods_nomenclature_item_id', function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    //console.log("Origin");
+    var err = req.session.data["error"];
+    var origin = req.session.data["origin"];
+    axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
+        .then((response) => {
+            res.render('calculate/03b_uktrader', { 'commodity': response.data, 'error': err, 'origin': origin });
+        });
+});
+
+// Calculator - certificate of origin (XI only)
+router.get('/calculate/uk_origin/:goods_nomenclature_item_id', function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    //console.log("Origin");
+    var err = req.session.data["error"];
+    var origin = req.session.data["origin"];
+    axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
+        .then((response) => {
+            res.render('calculate/03c_uk_origin', { 'commodity': response.data, 'error': err, 'origin': origin });
+        });
+});
+
 // Calculator - Monetary value
 router.get('/calculate/monetary_value/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
@@ -487,6 +513,42 @@ router.get('/calculate/company/:goods_nomenclature_item_id', function (req, res)
         });
 });
 
+// Calculator - VAT rate choice
+router.get('/calculate/vat/:goods_nomenclature_item_id', function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    //console.log("Company");
+    var err = req.session.data["error"];
+    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    axios.get(url)
+        .then((response) => {
+            c = new Commodity();
+            c.pass_request(req);
+            c.phase = "company";
+            c.get_data(response.data);
+            c.get_measure_data(req.session.data["origin"]);
+            res.render('calculate/08_vat', { 'commodity': c, 'error': err });
+        });
+});
+
+// Calculator - excise rate choice
+router.get('/calculate/excise/:goods_nomenclature_item_id', function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    //console.log("Company");
+    var err = req.session.data["error"];
+    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    axios.get(url)
+        .then((response) => {
+            c = new Commodity();
+            c.pass_request(req);
+            c.phase = "company";
+            c.get_data(response.data);
+            c.get_measure_data(req.session.data["origin"]);
+            res.render('calculate/09_excise', { 'commodity': c, 'error': err });
+        });
+});
+
 // Calculator - Confirm
 router.get('/calculate/confirm/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
@@ -501,7 +563,7 @@ router.get('/calculate/confirm/:goods_nomenclature_item_id', function (req, res)
             c.phase = "confirm";
             c.get_data(response.data);
             c.get_measure_data(req.session.data["origin"]);
-            res.render('calculate/08_confirm', { 'commodity': c, 'error': err });
+            res.render('calculate/50_confirm', { 'commodity': c, 'error': err });
         });
 });
 
@@ -519,7 +581,26 @@ router.get('/calculate/results/:goods_nomenclature_item_id', function (req, res)
             c.get_data(response.data);
             c.get_exchange_rate();
             c.get_measure_data(req.session.data["origin"]);
-            res.render('calculate/09_results', { 'commodity': c, 'error': err });
+            res.render('calculate/99_results', { 'commodity': c, 'error': err });
+        });
+});
+
+// Calculator - Results
+router.get('/calculate/results_flat/:goods_nomenclature_item_id', function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    scopeId = "";
+    root_url = global.get_root_url(req, scopeId);
+    var err = req.session.data["error"];
+    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    axios.get(url)
+        .then((response) => {
+            c = new Commodity();
+            c.pass_request(req);
+            c.phase = "results";
+            c.get_data(response.data);
+            c.get_exchange_rate();
+            c.get_measure_data(req.session.data["origin"]);
+            res.render('calculate/99_results_flat', { 'commodity': c, 'error': err });
         });
 });
 

@@ -1,0 +1,202 @@
+openapi: '3.0.0'
+
+info:
+  title: Trade Tariff Public API - Duty calculator
+  description: |
+    Use this API to calculate the duties applicable for the import into the UK of any commodity code.
+
+  version: '1'
+
+servers:
+  - url: https://www.trade-tariff.service.gov.uk/api/v2
+
+paths:
+  /duties:
+    get:
+      summary: Retrieves duty options according to the supplied parameters
+      description:
+        This API retrieves a number of options that can be applied by a trader
+        in importing a certain commodity, according to the various input provided, as follows
+        - commodity code
+
+        - date of import
+
+        - import destination
+
+        - import origin
+
+        - total monetary value of import (including shipping and insurance)
+
+        - unit of import
+
+        - unit value of import
+
+        - Meursing code applicable to import
+
+        - company from which the commodity is imported
+
+        - currency used to specify the result
+
+      parameters:
+        - name: 'commodity'
+          in: query
+          required: true
+          description: 
+            The `commodity code` for which the duty is to be calculated.
+          schema:
+            type: string
+            minLength: 10
+            maxLength: 10
+            example: '0702000007'
+        - name: 'date'
+          in: query
+          required: true
+          description: 
+            The `date` on which the import declaration is to be made
+          schema:
+            type: string
+            format: date
+            pattern: '^\d{4}-\d{2}-\d{2}$'
+            example: '2021-03-27'
+        - name: 'destination'
+          in: query
+          required: true
+          description: 
+            The `destination` region within the UK to which the good will be imported (England, Scotland, Wales, Northern Ireland)
+          schema:
+            type: string
+            minLength: 2
+            maxLength: 2
+            enum: [EN, SC, WA, NI]
+            example: 'EN'
+        - name: 'origin'
+          in: query
+          required: true
+          description: 
+            The `origin` country or region from which the item is being imported
+          schema:
+            type: string
+            minLength: 2
+            maxLength: 2
+            example: 'US'
+        - name: 'monetary_value'
+          in: query
+          required: true
+          description: 
+            The `monetary value` of the goods being imported
+          schema:
+            type: number
+            format: float
+            minimum: 0
+            example: '2000.00'
+        - name: 'unit'
+          in: query
+          required: false
+          description: 
+            The `currency` specified for the monetary value of the goods being imported
+          schema:
+            type: string
+            minLength: 3
+            maxLength: 3
+            enum: [EUR, GBP]
+            example: 'GBP'
+        - name: 'unit_value'
+          in: query
+          required: false
+          description: 
+            The `currency` specified for the monetary value of the goods being imported
+          schema:
+            type: string
+            minLength: 3
+            maxLength: 3
+            enum: [EUR, GBP]
+            example: 'GBP'
+        - name: 'meursing'
+          in: query
+          required: false
+          description: 
+            The `Meursing code` applicable to the import
+          schema:
+            type: string
+            minLength: 4
+            maxLength: 4
+            example: '7077'
+        - name: 'company'
+          in: query
+          required: false
+          description: 
+            The `company` from which the commodity is imported, in case a trade remedy applies
+            expressed in terms of a 4-digit additional code
+          schema:
+            type: string
+            minLength: 4
+            maxLength: 4
+            example: 'C233'
+      responses:
+        200:
+          description: Duties were found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Duties'
+              # example:
+              #   $ref: '#/components/schemas/Duties/1'
+        404:
+          description: No duties were found
+        5XX:
+          description: Unexpected error.
+      # x-code-samples:
+      #   /api/v2/sections:
+      #     lang: shell
+      #     source: |-
+      #       curl -X GET https://www.trade-tariff.service.gov.uk/api/v2/sections/1
+
+components:
+  schemas:
+
+    Duties:
+      description: |
+        A list of applicable duties
+      type: object
+      properties:
+        data:trade_instrument_group:
+          type: string
+          description: The trade instrument group to which the duty belongs
+        data:more_information:
+          type: string
+          description: More information about this duty
+        data:more_information_url:
+          type: string
+          description: The link to follow to get more information about this duty
+        data:measure_type_id:
+          type: string
+          description: The measure type ID of the relevant duty
+        data:measure_type_description:
+          type: string
+          description: The measure type description for the relevant duty
+        data:duty_calculation:
+          type: string
+          description: The string that represents the calculation made, according to the specified input parameters
+        data:duty_amount:
+          type: number
+          format: float
+          description: The numeric value of the duty
+        data:duty_currency:
+          type: string
+          enum: [EUR, GBP]
+          description: The numeric value 
+        data:operation_type:
+          type: string
+          enum: [mandatory, add, replace]
+          description: Describes if the duty replaces the other, or is added on
+      example:
+        data:
+        - trade_instrument_group: vat
+          more_information: VAT is charged on goods ...
+          more_information_url: www.google.com
+          measure_type_id: 103
+          measure_type_description: Third country duty
+          duty_calculation: 100 * s
+          duty_amount: 400
+          duty_currency: GBP
+          operation_type: mandatory
