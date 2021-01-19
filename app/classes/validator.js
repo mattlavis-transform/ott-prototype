@@ -103,7 +103,7 @@ global.validate_origin = function (req, res) {
             if (origin == "GB") {
                 req.session.data["message"] = {
                     "title": "System checks",
-                    "message": "The system will check first if there are any EU trade defence measures.</p><ul class='govuk-list govuk-list--bullet'><li>If there are trade defence measures, then the trade is definitely at risk.</li><li>What constitutes a Trade Defence measure? Does this include provisionally applied measures and safeguards?</li><li>If there are no Trade Defence measures, then check if the EU MFN duty is 0%.</li><li>If the MFN duty is 0%, then there is no import duty.</li></ul>"
+                    "message": "The system will check first if there are any EU trade defence measures.</p><ul class='govuk-list govuk-list--bullet'><li>If there are trade defence measures, then the trade is definitely at risk, and this screen will not be shown.</li><li>Question - my feeling is that we should be as open and upfront as possible with the user and be explicit that Trade Remedies are in place, therefore the trade is 'at risk'</li><li>What constitutes a Trade Defence measure? Does this include provisionally applied measures and safeguards?</li><li>If there are no Trade Defence measures, then check if the EU MFN duty is 0%.</li><li>If the MFN duty is 0%, then there is no import duty.</li></ul>"
                 };
                 url = "/calculate/uk_trader/" + req.params["goods_nomenclature_item_id"];
             } else if (eu.includes(origin)) {
