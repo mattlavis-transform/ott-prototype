@@ -162,10 +162,12 @@
                     <p>The commodity code for importing is <strong>{{ commodity.data.attributes.goods_nomenclature_item_id }}</strong>.</p>
                     <p>Goods are subject to VAT standard rate (<strong>20.00 %</strong>).</p>
                     <p>Importing from outside the EU is subject to a third country duty of <strong>{{ commodity.data.attributes.basic_duty_rate | safe }}</strong> unless subject to other measures.</p>
-                    <p>
-                        <a href="/calculate/date/{{ commodity.data.attributes.goods_nomenclature_item_id }}">Calculate your import duties</a>
-                    </p>
                     <p>Import measures and restrictions for specific countries can be found under the <a href="#import">import</a> tab.</p>
+                    <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Duty calculation</h2>
+                    <p>Use our new step-by-step guide to work out the 
+                        <a href="/calculate/date/{{ commodity.data.attributes.goods_nomenclature_item_id }}">duties
+                        applicable to the import of commodity {{ commodity.data.attributes.goods_nomenclature_item_id }} into the United Kingdom</a>.
+                    </p>
                 </div>
                 <div class="panel govuk-grid-column-one-half">
                     <h2 class="govuk-heading-m">Export</h2>

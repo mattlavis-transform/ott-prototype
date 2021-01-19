@@ -5,39 +5,39 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukPhaseBanner({
+    {{ govukPhaseBanner({
       tag: {
         text: "beta"
       },
       html: 'This is a Beta service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
     }) }}
-  {{ govukBackLink({
+    {{ govukBackLink({
   text: "Back",
   href: "/calculate/date/" + commodity.data.attributes.goods_nomenclature_item_id
 }) }}
 {% endblock %}
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
-      <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters">
+            <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}">
 
-        <span class="govuk-caption-xl">Calculate import duties</span>
+                <span class="govuk-caption-xl">Calculate import duties</span>
 
-        {# Get error message #}
-        {% if (error == "destination") %}
-          {% set error_message = {
-            text: "Select a valid destination"
-          } %}
-          {% set error_class = "govuk-input--error" %}
-        {% else %}
-          {% set error_message = null %}
-          {% set error_class = "" %}
-        {% endif %}
+                {# Get error message #}
+                {% if (error == "destination") %}
+                    {% set error_message = {
+                        text: "Select a valid destination"
+                    } %}
+                    {% set error_class = "govuk-input--error" %}
+                {% else %}
+                    {% set error_message = null %}
+                    {% set error_class = "" %}
+                {% endif %}
 
-        {# Display the destination radio buttons #}
-        {% set niHtml %}
+                {# Display the destination radio buttons #}
+                {% set niHtml %}
 
-        {{ govukRadios({
+                {{ govukRadios({
   idPrefix: "ireland_option",
   name: "ireland_option",
   classes: "govuk-radios--small",
@@ -59,9 +59,9 @@
     }
   ]
 }) }}
-        {% endset -%}
+                {% endset -%}
 
-        {{ govukRadios({
+                {{ govukRadios({
           idPrefix: "destination",
           name: "destination",
           fieldset: {
@@ -76,20 +76,15 @@
           },
           items: [
             {
-              value: "England",
-              text: "England"
-            },
-            {
-              value: "Scotland",
-              text: "Scotland"
-            },
-            {
-              value: "Wales",
-              text: "Wales"
+              value: "GB",
+              text: "England, Scotland or Wales (GB)"
             },
             {
               value: "Northern Ireland",
               text: "Northern Ireland",
+              xhint: {
+                html: "sfsd"
+              },
               xconditional: {
                 html: niHtml
               }
@@ -97,15 +92,30 @@
           ]
         }) }}
 
-        {# Display the Continue button #}
-        {{ govukButton({
-            text: "Continue"
-            }) }}
+                {# Display the Continue button #}
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
 
-        {# <p>Click on 'Continue' to enter the <strong>origin</strong> of the product you are looking to import.</p> #}
-      </form>
+            </form>
+            <div class="gem-c-contextual-footer">
+                <div class="gem-c-related-navigation">
+                    <nav role="navigation" class="gem-c-related-navigation__nav-section">
+                        <h2 id="related-nav-topics-c7e51674" class="gem-c-related-navigation__sub-heading gem-c-related-navigation__sub-heading--footer">Explore the topic</h2>
+                        <ul class="gem-c-related-navigation__link-list">
+                        
+                            <li class="gem-c-related-navigation__link">
+                                <a class="gem-c-related-navigation__section-link gem-c-related-navigation__section-link--footer" href="https://www.gov.uk/import-goods-into-uk">Import goods into the UK: step by step</a>
+                            </li>
+                            <li class="gem-c-related-navigation__link">
+                                <a class="gem-c-related-navigation__section-link gem-c-related-navigation__section-link--footer" href="https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland-from-1-january-2021">Trading and moving goods in and out of Northern Ireland</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
 {% endblock %}
 </html>
