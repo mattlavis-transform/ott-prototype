@@ -74,13 +74,12 @@
         {{ govukInput({
             label: {
                 text: "What is the shipping cost?",
-                classes: "govuk-label--s " + error_class_mv,
+                classes: "govuk-label--s",
                 isPageHeading: false
             },
             classes: "govuk-input--width-10",
-            errorMessage: error_message_mv,
-            id: "monetary_value",
-            name: "monetary_value",
+            id: "shipping_cost",
+            name: "shipping_cost",
             hint: {
               html: "Only costs up to the place of introduction of the imported goods into the UK border need to be included."
             },
@@ -93,13 +92,12 @@
         {{ govukInput({
             label: {
                 text: "What is the cost of insuring the goods?",
-                classes: "govuk-label--s " + error_class_mv,
+                classes: "govuk-label--s",
                 isPageHeading: false
             },
             classes: "govuk-input--width-10",
-            errorMessage: error_message_mv,
-            id: "monetary_value",
-            name: "monetary_value",
+            id: "insurance_cost",
+            name: "insurance_cost",
             hint: {
               html: "Only insurance costs up to the place of introduction of the imported goods into the UK border need to be included."
             },

@@ -21,13 +21,13 @@
     <div class="govuk-grid-column-three-quarters">
       <span class="govuk-caption-xl">Calculate import duties</span>
       <h1 class="govuk-heading-xl">Import duty calculation</h1>
-      <h2 class="govuk-heading-s">Questions</h1>
+      {# <h2 class="govuk-heading-s">Questions</h1>
       <ul class="govuk-list govuk-list--bullet">
         <li>Sequence of calculation - is it the case that VAT is applied on top of import price and excise?</li>
         <li>Excise - Why are there wine duties on a beer commodity?</li>
         <li>Excise - why are fuel duties so vague? 2710192500</li>
         <li></li>
-      </ul>
+      </ul> #}
       <p>The following duties are applicable to the import of commodity <a href="/commodities/{{ commodity.goods_nomenclature_item_id }}">
           <strong>{{ commodity.goods_nomenclature_item_id | format_commodity_code }}</a>
         </strong> from <strong>{{ commodity.country_name }}</strong> on <strong>03 Jun 2021</strong>.</p>
@@ -132,27 +132,31 @@
           ],
           [
             {
-              text: "Excise duty"
+              text: "Excise duty",
+              classes: "excise_row"
             },
             {
-              text: "n/a"
+              text: "n/a",
+              classes: "excise_row"
             },
             {
               text: "£0.00",
-              classes: "r"
+              classes: "r excise_row"
             }
           ],
           [
             {
               xhtml: "<abbr title='Value Added Tax'>VAT</abbr> <span class='grey'>(calculated on the total of the CIF import value, import duties and excise)</span>",
-              html: "<abbr title='Value Added Tax'>VAT</abbr>"
+              html: "<abbr title='Value Added Tax'>VAT</abbr>",
+              classes: "vat_row"
             },
             {
-              text: "20% * £1,650.00"
+              text: "20% * £1,650.00",
+              classes: "vat_row"
             },
             {
               text: "£330.00",
-              classes: "r"
+              classes: "r vat_row"
             }
           ],
           [
@@ -217,27 +221,31 @@
           ],
           [
             {
-              text: "Excise duty"
+              text: "Excise duty",
+              classes: "excise_row"
             },
             {
-              text: "n/a"
+              text: "n/a",
+              classes: "excise_row"
             },
             {
               text: "£0.00",
-              classes: "r"
+              classes: "r excise_row"
             }
           ],
           [
             {
               xhtml: "<abbr title='Value Added Tax'>VAT</abbr> <span class='grey'>(calculated on the total of the CIF import value, import duties and excise)</span>",
-              html: "<abbr title='Value Added Tax'>VAT</abbr>"
+              html: "<abbr title='Value Added Tax'>VAT</abbr>",
+              classes: "vat_row"
             },
             {
-              text: "20% * £1,500.00"
+              text: "20% * £1,500.00",
+              classes: "vat_row"
             },
             {
               text: "£300.00",
-              classes: "r"
+              classes: "r vat_row"
             }
           ],
           [
@@ -308,27 +316,31 @@
           ],
           [
             {
-              text: "Excise duty"
+              text: "Excise duty",
+              classes: "excise_row"
             },
             {
-              text: "n/a"
+              text: "n/a",
+              classes: "excise_row"
             },
             {
               text: "£0.00",
-              classes: "r"
+              classes: "r excise_row"
             }
           ],
           [
             {
               xhtml: "<abbr title='Value Added Tax'>VAT</abbr> <span class='grey'>(calculated on the total of the CIF import value, import duties and excise)</span>",
-              html: "<abbr title='Value Added Tax'>VAT</abbr>"
+              html: "<abbr title='Value Added Tax'>VAT</abbr>",
+              classes: "vat_row"
             },
             {
-              text: "20% * £1,500.00"
+              text: "20% * £1,500.00",
+              classes: "vat_row"
             },
             {
               text: "£300.00",
-              classes: "r"
+              classes: "r vat_row"
             }
           ],
           [
@@ -392,27 +404,31 @@
           ],
           [
             {
-              text: "Excise duty"
+              text: "Excise duty",
+              classes: "excise_row"
             },
             {
-              text: "n/a"
+              text: "n/a",
+              classes: "excise_row"
             },
             {
               text: "£0.00",
-              classes: "r"
+              classes: "r excise_row"
             }
           ],
           [
             {
               xhtml: "<abbr title='Value Added Tax'>VAT</abbr> <span class='grey'>(calculated on the total of the CIF import value, import duties and excise)</span>",
-              html: "<abbr title='Value Added Tax'>VAT</abbr>"
+              html: "<abbr title='Value Added Tax'>VAT</abbr>",
+              classes: "vat_row"
             },
             {
-              text: "20% * £1,500.00"
+              text: "20% * £1,500.00",
+              classes: "vat_row"
             },
             {
               text: "£300.00",
-              classes: "r"
+              classes: "r vat_row"
             }
           ],
           [
@@ -489,27 +505,31 @@
           ],
           [
             {
-              text: "Excise duty"
+              text: "Excise duty",
+              classes: "excise_row"
             },
             {
-              text: "n/a"
+              text: "n/a",
+              classes: "excise_row"
             },
             {
               text: "£0.00",
-              classes: "r"
+              classes: "r excise_row"
             }
           ],
           [
             {
               xhtml: "<abbr title='Value Added Tax'>VAT</abbr> <span class='grey'>(calculated on the total of the CIF import value, import duties and excise)</span>",
-              html: "<abbr title='Value Added Tax'>VAT</abbr>"
+              html: "<abbr title='Value Added Tax'>VAT</abbr>",
+              classes: "vat_row"
             },
             {
-              text: "20% * £1,875.00"
+              text: "20% * £1,875.00",
+              classes: "vat_row"
             },
             {
               text: "£375.00",
-              classes: "r"
+              classes: "r vat_row"
             }
           ],
           [
@@ -575,27 +595,31 @@
           ],
           [
             {
-              text: "Excise duty"
+              text: "Excise duty",
+              classes: "excise_row"
             },
             {
-              text: "n/a"
+              text: "n/a",
+              classes: "excise_row"
             },
             {
               text: "£0.00",
-              classes: "r"
+              classes: "r excise_row"
             }
           ],
           [
             {
               xhtml: "<abbr title='Value Added Tax'>VAT</abbr> <span class='grey'>(calculated on the total of the CIF import value, import duties and excise)</span>",
-              html: "<abbr title='Value Added Tax'>VAT</abbr>"
+              html: "<abbr title='Value Added Tax'>VAT</abbr>",
+              classes: "vat_row"
             },
             {
-              text: "20% * £1,875.00"
+              text: "20% * £1,875.00",
+              classes: "vat_row"
             },
             {
               text: "£375.00",
-              classes: "r"
+              classes: "r vat_row"
             }
           ],
           [

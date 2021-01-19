@@ -768,6 +768,18 @@ tr:last-of-type .govuk-table__cell {
     margin : 0 1em 0 0;
 }
 
+.excise_row {
+    display: none;
+}
+
+.vat_row {
+    display: none;
+}
+
+.question {
+    color:red;
+}
+
 // @import "components/app-flexible-table";
 @import "components/flexible-tables";
 @import "components/attachments";

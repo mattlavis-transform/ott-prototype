@@ -23,23 +23,12 @@
             <span class="govuk-caption-xl">Calculate import duties</span>
             <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}" method="get">
 
-                {# Get error message #}
-                {% if (error == "origin") %}
-                    {% set error_message = "Enter a valid future date" %}
-                    {% set error_class = "govuk-select--error" %}
-                    {% set group_error_class = "govuk-form-group--error" %}
-                {% else %}
-                    {% set error_message = "" %}
-                    {% set group_error_class = "" %}
-                    {% set error_class = "" %}
-                {% endif %}
-
                 {# Display the type-ahead select control #}
                 <fieldset class="govuk-fieldset">
 
                     {{ govukRadios({
-                        idPrefix: "uktrader_scheme",
-                        name: "uktrader_scheme",
+                        idPrefix: "origin_certificate",
+                        name: "origin_certificate",
                         fieldset: {
                             legend: {
                             text: "Do you have a valid Certificate of Origin?",
@@ -48,7 +37,9 @@
                             }
                         },
                         hint: {
-                            text: "If you have a valid Certificate of Origin proving that your goods were materially manufactured in the UK, then you are eligible to take advantage of the 0% import duties made available under tth UK / EU Trade and Cooperation Agreement."
+                            html: "If you have a valid Certificate of Origin proving that your goods were materially
+                            manufactured in the UK, then you are eligible to take advantage of the 0% import duties
+                            made available under the UK / EU Trade and Cooperation Agreement."
                         },
                         items: [
                             {

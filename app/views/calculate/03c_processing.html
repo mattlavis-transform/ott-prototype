@@ -20,14 +20,14 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-three-quarters">
-        <!-- Show rules messages // -->
-         {% if (data['message']) %}
-        <div class="panel panel_grey">
-            <h2 class="govuk-heading-s">{{ data['message'].title }}</h1>
-            <p class="govuk-body">{{ data['message'].message | safe }}</p>
-        </div>
-        {% endif %}
-        <!-- End show rules messages // -->
+            <!-- Show rules messages // -->
+            {% if (data['message']) %}
+            <div class="panel panel_grey">
+                <h2 class="govuk-heading-s">{{ data['message'].title }}</h1>
+                <p class="govuk-body">{{ data['message'].message | safe }}</p>
+            </div>
+            {% endif %}
+            <!-- End show rules messages // -->
 
             <span class="govuk-caption-xl">Calculate import duties</span>
             <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}" method="get">
@@ -47,36 +47,42 @@
                 <fieldset class="govuk-fieldset">
 
                     {{ govukRadios({
-                        idPrefix: "uktrader_scheme",
-                        name: "uktrader_scheme",
+                        idPrefix: "processing",
+                        name: "processing",
                         fieldset: {
                             legend: {
-                            text: "Are you registered with the UK Trader scheme?",
+                            text: "How will these goods be processed after import?",
                             isPageHeading: true,
                             classes: "govuk-fieldset__legend--xl"
                             }
                         },
                         hint: {
-                            html: "If you are importing goods or sale to, or final use by, end consumers located in the UK
-                            and you are a trader authorised under the UK Trader Scheme, then your goods may be treated as
-                            being not 'at risk' of further movement into the EU and are not subject to EU import duties.
-                            <br><br>If you are not yet registered with the Scheme, then
-                            <a href='https://www.gov.uk/guidance/apply-for-authorisation-for-the-uk-trader-scheme-if-you-bring-goods-into-northern-ireland-from-1-january-2021'>
-                            apply for authorisation for the UK Trader Scheme</a> here."
+                            html: "Your import will be treated as not at risk, and will therefore not be subject to EU
+                            import duties, if you can verify that your goods will not be subject to further processing
+                            after import, or will be processed according to strict guidelines."
                         },
                         items: [
                             {
-                                value: "yes",
-                                text: "Yes, I am registered under the UK Trader scheme",
-                                xhint: {
-                                    text: "Your goods will not be liable for the EU import duties"
+                                value: "no_processing",
+                                text: "The goods will be sold to an end-user without any processing",
+                                hint: {
+                                    html: "If requested, you will need to verify this."
                                 }
                             },
                             {
-                                value: "no",
-                                text: "No, I am not registered with the UK Trader Scheme",
-                                xhint: {
-                                    text: "Your goods will be liable for the EU import duties"
+                                value: "permitted_processing",
+                                text: "The goods will undergo permitted processing",
+                                hint: {
+                                    html: "Goods that are imported and then processed for the purposes of
+                                    making food consumed in NI, the construction of properties in NI and for
+                                    the benefit of non-profit organisations in NI will be exempt from EU import duties."
+                                }
+                            },
+                            {
+                                value: "prohibited_processing",
+                                text: "The goods will be further processed for purposes other that those listed above",
+                                hint: {
+                                    text: "Such goods cannot be declared as not at risk, and EU duties may apply"
                                 }
                             }
                         ]

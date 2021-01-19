@@ -56,10 +56,10 @@ class Error_handler {
             err = true;
             return err;
         }
-        if ((currency == "") || (currency == "undefined")) {
-            err = true;
-            return err;
-        }
+        // if ((currency == "") || (currency == "undefined")) {
+        //     err = true;
+        //     return err;
+        // }
         return (err);
     }
 

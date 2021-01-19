@@ -320,8 +320,17 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
     } else if (referer.indexOf("destination") !== -1) {
         global.validate_destination(req, res);
 
-    } else if (referer.indexOf("origin") !== -1) {
+    } else if ((referer.indexOf("origin") !== -1) && (referer.indexOf("certificate") === -1)) {
         global.validate_origin(req, res);
+
+    } else if (referer.indexOf("uk_trader") !== -1) {
+        global.validate_uk_trader(req, res);
+
+    } else if (referer.indexOf("processing") !== -1) {
+        global.validate_processing(req, res);
+
+    } else if (referer.indexOf("certificate_of_origin") !== -1) {
+        global.certificate_of_origin(req, res);
 
     } else if (referer.indexOf("monetary_value") !== -1) {
         global.validate_monetary_value(req, res);
@@ -439,8 +448,8 @@ router.get('/calculate/uk_trader/:goods_nomenclature_item_id', function (req, re
         });
 });
 
-// Calculator - certificate of origin (XI only)
-router.get('/calculate/uk_origin/:goods_nomenclature_item_id', function (req, res) {
+// Calculator - UK trader scheme (XI only)
+router.get('/calculate/processing/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     //console.log("Origin");
@@ -448,7 +457,20 @@ router.get('/calculate/uk_origin/:goods_nomenclature_item_id', function (req, re
     var origin = req.session.data["origin"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
-            res.render('calculate/03c_uk_origin', { 'commodity': response.data, 'error': err, 'origin': origin });
+            res.render('calculate/03c_processing', { 'commodity': response.data, 'error': err, 'origin': origin });
+        });
+});
+
+// Calculator - certificate of origin (XI only)
+router.get('/calculate/certificate_of_origin/:goods_nomenclature_item_id', function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    //console.log("Origin");
+    var err = req.session.data["error"];
+    var origin = req.session.data["origin"];
+    axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
+        .then((response) => {
+            res.render('calculate/03d_certificate_of_origin', { 'commodity': response.data, 'error': err, 'origin': origin });
         });
 });
 
@@ -585,7 +607,7 @@ router.get('/calculate/results/:goods_nomenclature_item_id', function (req, res)
         });
 });
 
-// Calculator - Results
+// Calculator - Results (flat - dummy HTML)
 router.get('/calculate/results_flat/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     scopeId = "";
@@ -601,6 +623,25 @@ router.get('/calculate/results_flat/:goods_nomenclature_item_id', function (req,
             c.get_exchange_rate();
             c.get_measure_data(req.session.data["origin"]);
             res.render('calculate/99_results_flat', { 'commodity': c, 'error': err });
+        });
+});
+
+// Calculator - Confirmatory message panel
+router.get('/calculate/message/:goods_nomenclature_item_id', function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    scopeId = "";
+    root_url = global.get_root_url(req, scopeId);
+    var err = req.session.data["error"];
+    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    axios.get(url)
+        .then((response) => {
+            c = new Commodity();
+            c.pass_request(req);
+            c.phase = "results";
+            c.get_data(response.data);
+            c.get_exchange_rate();
+            c.get_measure_data(req.session.data["origin"]);
+            res.render('calculate/90_message', { 'commodity': c, 'error': err });
         });
 });
 
