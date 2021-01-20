@@ -5,76 +5,79 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukPhaseBanner({
+    {{ govukPhaseBanner({
       tag: {
         text: "beta"
       },
       html: 'This is a Beta service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
     }) }}
-  {{ govukBackLink({
+    {{ govukBackLink({
   text: "Back",
   href: "/commodities/" + commodity.data.attributes.goods_nomenclature_item_id + "/" + scopeId
 }) }}
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
-      <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}">
-        <span class="govuk-caption-xl">Calculate import duties</span>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters">
+            <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}">
+                <span class="govuk-caption-xl">Calculate import duties</span>
 
-        {# Get error message #}
-        {% if (error == "date") %}
-          {% set error_message = { text: "Enter a valid future date" } %}
-          {% set error_class = "govuk-input--error" %}
-        {% else %}
-          {% set error_message = null %}
-          {% set error_class = "" %}
-        {% endif %}
+                {# Get error message #}
+                {% if (error == "date") %}
+                    {% set error_message = {
+                        text: "Enter a valid future date"
+                    } %}
+                    {% set error_class = "govuk-input--error" %}
+                {% else %}
+                    {% set error_message = null %}
+                    {% set error_class = "" %}
+                {% endif %}
 
-        {# Display the date of import control #}
-        {{ govukDateInput({
-          fieldset: {
-            legend: {
-              text: "When will the goods be imported?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--xl"
-            }
-          },
-          hint: {
-            html: "As duties and quotas change over time, it can be important to enter the proposed import date.
-                For example, 27&nbsp;&nbsp;3&nbsp;&nbsp;2021"
-          },
-          errorMessage: error_message,
-          id: "import_date",
-          namePrefix: "import_date",
-          items: [
-            {
-              classes: "govuk-input--width-2 " + error_class,
-              name: "day",
-              value: import_date_day
-            },
-            {
-              classes: "govuk-input--width-2 " + error_class,
-              name: "month",
-              value: import_date_month
-            },
-            {
-              classes: "govuk-input--width-4 " + error_class,
-              name: "year",
-              value: import_date_year
-            }
-          ]
-        }) }}
+                {# Display the date of import control #}
+                {{ govukDateInput({
+                fieldset: {
+                    legend: {
+                    text: "When will the goods be imported?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                    }
+                },
+                hint: {
+                    html: "As duties and quotas change over time, it may be important to enter the proposed import date.
+                        For example, 27&nbsp;&nbsp;3&nbsp;&nbsp;2021"
+                },
+                errorMessage: error_message,
+                id: "import_date",
+                namePrefix: "import_date",
+                items: [
+                    {
+                    classes: "govuk-input--width-2 " + error_class,
+                    name: "day",
+                    value: import_date_day
+                    },
+                    {
+                    classes: "govuk-input--width-2 " + error_class,
+                    name: "month",
+                    value: import_date_month
+                    },
+                    {
+                    classes: "govuk-input--width-4 " + error_class,
+                    name: "year",
+                    value: import_date_year
+                    }
+                ]
+                }) }}
 
-        {# Display the Continue button #}
-        {{ govukButton({
-            text: "Continue"
-            }) }}
-        {# <p>Click on 'Continue' to enter the destination of the product you are looking to import.</p> #}
-      </form>
+                {# Display the Continue button #}
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+                {# <p>Click on 'Continue' to enter the destination of the product you are looking to import.</p> #}
+            </form>
+            {% include "../includes/commodity_panel.html" %}
+        </div>
     </div>
-  </div>
 
 {% endblock %}
 </html>

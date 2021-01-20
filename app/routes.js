@@ -418,7 +418,10 @@ router.get('/calculate/destination/:goods_nomenclature_item_id', function (req, 
     var destination = req.session.data["destination"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
-            res.render('calculate/02_destination', { 'commodity': response.data, 'error': err, 'destination': destination });
+            c = new Commodity();
+            c.pass_request(req);
+            c.get_data(response.data);
+            res.render('calculate/02_destination', { 'commodity': c, 'error': err, 'destination': destination });
         });
 });
 
@@ -431,7 +434,10 @@ router.get('/calculate/origin/:goods_nomenclature_item_id', function (req, res) 
     var origin = req.session.data["origin"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
-            res.render('calculate/03_origin', { 'commodity': response.data, 'error': err, 'origin': origin });
+            c = new Commodity();
+            c.pass_request(req);
+            c.get_data(response.data);
+            res.render('calculate/03_origin', { 'commodity': c, 'error': err, 'origin': origin });
         });
 });
 
@@ -444,7 +450,10 @@ router.get('/calculate/uk_trader/:goods_nomenclature_item_id', function (req, re
     var origin = req.session.data["origin"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
-            res.render('calculate/03b_uktrader', { 'commodity': response.data, 'error': err, 'origin': origin });
+            c = new Commodity();
+            c.pass_request(req);
+            c.get_data(response.data);
+            res.render('calculate/03b_uktrader', { 'commodity': c, 'error': err, 'origin': origin });
         });
 });
 
@@ -457,7 +466,10 @@ router.get('/calculate/processing/:goods_nomenclature_item_id', function (req, r
     var origin = req.session.data["origin"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
-            res.render('calculate/03c_processing', { 'commodity': response.data, 'error': err, 'origin': origin });
+            c = new Commodity();
+            c.pass_request(req);
+            c.get_data(response.data);
+            res.render('calculate/03c_processing', { 'commodity': c, 'error': err, 'origin': origin });
         });
 });
 
@@ -470,7 +482,10 @@ router.get('/calculate/certificate_of_origin/:goods_nomenclature_item_id', funct
     var origin = req.session.data["origin"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
-            res.render('calculate/03d_certificate_of_origin', { 'commodity': response.data, 'error': err, 'origin': origin });
+            c = new Commodity();
+            c.pass_request(req);
+            c.get_data(response.data);
+            res.render('calculate/03d_certificate_of_origin', { 'commodity': c, 'error': err, 'origin': origin });
         });
 });
 
@@ -483,7 +498,10 @@ router.get('/calculate/monetary_value/:goods_nomenclature_item_id', function (re
     var monetary_value = req.session.data["monetary_value"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
-            res.render('calculate/04_monetary_value', { 'commodity': response.data, 'error': err, 'monetary_value': monetary_value });
+            c = new Commodity();
+            c.pass_request(req);
+            c.get_data(response.data);
+            res.render('calculate/04_monetary_value', { 'commodity': c, 'error': err, 'monetary_value': monetary_value });
         });
 });
 
@@ -513,7 +531,10 @@ router.get('/calculate/meursing/:goods_nomenclature_item_id', function (req, res
     var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
     axios.get(url)
         .then((response) => {
-            res.render('calculate/06_meursing', { 'commodity': response.data, 'error': err });
+            c = new Commodity();
+            c.pass_request(req);
+            c.get_data(response.data);
+            res.render('calculate/06_meursing', { 'commodity': c, 'error': err });
         });
 });
 

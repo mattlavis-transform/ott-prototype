@@ -51,7 +51,7 @@
                         name: "uktrader_scheme",
                         fieldset: {
                             legend: {
-                            text: "Are you registered with the UK Trader scheme?",
+                            text: "Are you registered with the UK Trader Scheme?",
                             isPageHeading: true,
                             classes: "govuk-fieldset__legend--xl"
                             }
@@ -67,7 +67,7 @@
                         items: [
                             {
                                 value: "yes",
-                                text: "Yes, I am registered under the UK Trader scheme",
+                                text: "Yes, I am registered with the UK Trader Scheme",
                                 xhint: {
                                     text: "Your goods will not be liable for the EU import duties"
                                 }
@@ -90,6 +90,20 @@
 
                 </fieldset>
             </form>
+            {% include "../includes/commodity_panel.html" %}
+            <div class="gem-c-contextual-footer">
+                <div class="gem-c-related-navigation">
+                    <nav role="navigation" class="gem-c-related-navigation__nav-section">
+                        <h2 id="related-nav-topics-c7e51674" class="gem-c-related-navigation__sub-heading gem-c-related-navigation__sub-heading--footer">Explore the topic</h2>
+                        <ul class="gem-c-related-navigation__link-list">
+                            <li class="gem-c-related-navigation__link">
+                                <a class="gem-c-related-navigation__section-link gem-c-related-navigation__section-link--footer" href="https://www.gov.uk/guidance/apply-for-authorisation-for-the-uk-trader-scheme-if-you-bring-goods-into-northern-ireland-from-1-january-2021">Apply for authorisation for the UK trader scheme</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
         </div>
     </div>
 

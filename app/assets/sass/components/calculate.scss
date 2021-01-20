@@ -184,4 +184,21 @@
     }
 }
 
+.comm_code_panel {
+    font-family            : "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing : antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display       : flex;
+    flex-direction: row;
+    flex-wrap     : nowrap;
+
+    div {
+        flex-direction: column;
+        display       : flex;
+        flex-direction: row;
+        margin-right: 1em;
+    }
+
+}
+
 /* End - duty calculation */

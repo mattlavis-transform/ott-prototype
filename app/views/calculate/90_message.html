@@ -20,19 +20,29 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
-      <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}">
-        <span class="govuk-caption-xl">Calculate import duties</span>
-        <h1 class="govuk-heading-xl">{{ data['message'].title }}</h1>
-        <p class="govuk-body">{{ data['message'].message | safe }}</p>
+      <span class="govuk-caption-xl">Calculate import duties</span>
+      <h1 class="govuk-heading-xl">{{ data['message'].title }}</h1>
+      <p class="govuk-body">{{ data['message'].message | safe }}</p>
 
-        {# Display the Continue button #}
-        {{ govukButton({
-            text: "Start again",
-            xhref: "/calculate/date/" + params['goods_nomenclature_item_id'],
-            href: "/calculate/date/0602109010"
+      {# Display the Continue button #}
+      {{ govukButton({
+            text: data['message'].button_face, 
+            href: data['message'].message
             }) }}
-        {# <p>Click on 'Continue' to enter the destination of the product you are looking to import.</p> #}
-      </form>
+      {# <p>Click on 'Continue' to enter the destination of the product you are looking to import.</p> #}
+      {% include "../includes/commodity_panel.html" %}
+      <div class="gem-c-contextual-footer">
+        <div class="gem-c-related-navigation">
+          <nav role="navigation" class="gem-c-related-navigation__nav-section">
+            <h2 id="related-nav-topics-c7e51674" class="gem-c-related-navigation__sub-heading gem-c-related-navigation__sub-heading--footer">Explore the topic</h2>
+            <ul class="gem-c-related-navigation__link-list">
+              <li class="gem-c-related-navigation__link">
+                <a class="gem-c-related-navigation__section-link gem-c-related-navigation__section-link--footer" href="https://www.gov.uk/guidance/check-if-you-can-declare-goods-you-bring-into-northern-ireland-not-at-risk-of-moving-to-the-eu-from-1-january-2021#when-a-good-is-at-risk">When a good is ‘at risk’</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </div>
   </div>
 

@@ -98,14 +98,66 @@ global.validate_origin = function (req, res) {
         req.session.data["error"] = "origin";
         res.redirect("/calculate/origin/" + req.params["goods_nomenclature_item_id"]);
     } else {
+        /*
+        GB to NI
+        
+        If the EU MFN duty is 0% then there is no point in going any further:
+        - The trade is not at risk, therefore there are no duties - check this first
+        */
+
+
         req.session.data["error"] = "";
         if (destination == "Northern Ireland") {
             if (origin == "GB") {
-                req.session.data["message"] = {
-                    "title": "System checks",
-                    "message": "The system will check first if there are any EU trade defence measures.</p><ul class='govuk-list govuk-list--bullet'><li>If there are trade defence measures, then the trade is definitely at risk, and this screen will not be shown.</li><li>Question - my feeling is that we should be as open and upfront as possible with the user and be explicit that Trade Remedies are in place, therefore the trade is 'at risk'</li><li>What constitutes a Trade Defence measure? Does this include provisionally applied measures and safeguards?</li><li>If there are no Trade Defence measures, then check if the EU MFN duty is 0%.</li><li>If the MFN duty is 0%, then there is no import duty.</li></ul>"
-                };
-                url = "/calculate/uk_trader/" + req.params["goods_nomenclature_item_id"];
+                var suffix = global.check_heading_commodity(req.params["goods_nomenclature_item_id"]);
+                var axios_url = "https://www.trade-tariff.service.gov.uk/xi/api/v2/" + suffix;
+
+                axios.get(axios_url)
+                    .then((response) => {
+                        c = new Commodity();
+                        c.pass_request(req);
+                        c.get_data(response.data);
+                        c.get_measure_data("basic");
+                        var basic_duty_rate = c.basic_duty_rate;
+                        basic_duty_rate = basic_duty_rate.replace(/%/g, "");
+                        basic_duty_rate = basic_duty_rate.replace(/<span>/g, "");
+                        basic_duty_rate = basic_duty_rate.trim();
+                        basic_duty_rate = parseInt(basic_duty_rate);
+                        console.log(basic_duty_rate);
+
+                        if (c.has_remedies == true) {
+                            req.session.data["message"] = {
+                                "title": "EU duties apply to this import",
+                                "message": "Because trade defence measures are applied to this commodity code on the European Union's tariff, imports of this commodity are treated as 'at risk' under all circumstances. The EU's import duties will be payable on this import to Northern Ireland.</p><p>Click on the 'Continue' button to enter the monetary value of your import, to help to calculate the applicable import duties.",
+                                "next_url": "/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"],
+                                "button_face": "Continue"
+                            };
+                            url = "/calculate/message/" + req.params["goods_nomenclature_item_id"];
+                            res.redirect(url);
+
+                            // Go direct to asking the monetary value
+                            // url = "/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"];
+                            // res.redirect(url);
+                        } else {
+                            if (basic_duty_rate == 0) {
+                                req.session.data["message"] = {
+                                    "title": "There is no import duty to pay",
+                                    "message": "There is no import duty to pay when importing goods into Northern Ireland from GB when the EU's Third country duty is 0.00%"
+                                };
+                                url = "/calculate/message/" + req.params["goods_nomenclature_item_id"];
+                                res.redirect(url);
+                            } else {
+                                req.session.data["message"] = {
+                                    "title": "System checks",
+                                    "message": "</p><ul class='govuk-list govuk-list--bullet'><li>The system will check first if there are any EU trade defence measures.</li><li>If there are trade defence measures (anti-dumping, anti-subsidy, safeguards, including provisionally applied), then the trade is definitely at risk, and this screen will not be shown.</li><li>If there are no Trade Defence measures, then check if the EU MFN duty is 0%.</li><li>If the MFN duty is 0%, then there is no import duty.</li></ul>"
+                                };
+                                req.session.data["message"] = null;
+                                url = "/calculate/uk_trader/" + req.params["goods_nomenclature_item_id"];
+                                res.redirect(url);
+                            }
+                        }
+                    });
+
             } else if (eu.includes(origin)) {
                 // To NI from an EU member state
                 req.session.data["message"] = {
@@ -113,14 +165,17 @@ global.validate_origin = function (req, res) {
                     "message": "There is no import duty to pay when importing goods into Northern Ireland from a European Union member state."
                 };
                 url = "/calculate/message/" + req.params["goods_nomenclature_item_id"];
+                res.redirect(url);
             } else {
                 // To NI from Rest of World
-                url = "/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"];
+                url = "/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"]
+                res.redirect(url);
             }
         } else {
-            url = "/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"];
+            url = "/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"]
+            res.redirect(url);
         }
-        res.redirect(url);
+
     }
 }
 
@@ -150,11 +205,11 @@ global.validate_uk_trader = function (req, res) {
     if (destination == "Northern Ireland") {
         if (origin == "GB") {
             if (uk_trader_scheme == "yes") {
-                req.session.data["message"] = null;
                 req.session.data["message"] = {
                     "title": "Questions on this page",
-                    "message": "<ul class='govuk-list govuk-list--bullet'><li>In the intro blurb, is it sufficient to refer to the status 'at risk'? Will people know what it means?</li><li>What verifications and validations are likely to be required, where and by whom?</li><li>Is the list of permitted processing activitites below exhaustive?</li><li>In your sentence: <b>End-use products can only be de-risked if the goods will stay in NI</b>, how does that fit into the process?</li><li>Should we work out that the product is an end use product? If so, is it the case that, if a good as a 103 measure, then it is not end-use, if it has a 105 meeasure, then it is end use?</li></ul>"
+                    "message": "<ul class='govuk-list govuk-list--bullet'><li>In the intro blurb, is it sufficient to refer to the status 'at risk'? Will people know what it means?</li><li>What verifications and validations are likely to be required, where and by whom?</li><li>Is the list of permitted processing activitites below exhaustive?</li><li>In your sentence: <b>End-use products can only be de-risked if the goods will stay in NI</b>, how does that fit into the process?</li><li>Should we work out that the product is an end use product? If so, is it the case that, if a good as a 103 measure, then it is not end-use, if it has a 105 measure, then it is end use?</li></ul>"
                 };
+                req.session.data["message"] = null;
                 url = "/calculate/processing/" + req.params["goods_nomenclature_item_id"];
             } else {
                 url = "/calculate/certificate_of_origin/" + req.params["goods_nomenclature_item_id"];
@@ -262,7 +317,7 @@ global.certificate_of_origin = function (req, res) {
             if (origin_certificate == "yes") {
                 req.session.data["message"] = {
                     "title": "There is no import duty to pay",
-                    "message": "There is <strong>no import duty to pay</strong> because:</p><ul class='govuk-list govuk-list--bullet'><li>You are transporting goods from England, Scotland or Wales to Northern Ireland</li><li>You are able to take advantage of the preferential tariffs provided by the UK / EU Trade and Co-operation Agreement (TCA)</li></ul><p class='govuk-body'>You may be called upon to provide a copy of your Certificate or Origin to oavoid paying duties.</p>"
+                    "message": "There is <strong>no import duty to pay</strong> because:</p><ul class='govuk-list govuk-list--bullet'><li>You are transporting goods from England, Scotland or Wales to Northern Ireland.</li><li>You are able to take advantage of the preferential tariffs provided by the UK / EU Trade and Co-operation Agreement (TCA) and have a valid Certificate of Origin.</li></ul><p class='govuk-body'>You may be called upon to provide a copy of your Certificate or Origin to avoid paying duties.</p>"
                 };
                 url = "/calculate/message/" + req.params["goods_nomenclature_item_id"];
             } else {

@@ -64,23 +64,27 @@
                         items: [
                             {
                                 value: "no_processing",
-                                text: "The goods will be sold to an end-user without any processing",
+                                html: "The goods will be sold to an end-user <strong>without any processing</strong>",
                                 hint: {
                                     html: "If requested, you will need to verify this."
                                 }
                             },
                             {
                                 value: "permitted_processing",
-                                text: "The goods will undergo permitted processing",
+                                html: "The goods will undergo <strong>non-commercial processing</strong>",
                                 hint: {
-                                    html: "Goods that are imported and then processed for the purposes of
-                                    making food consumed in NI, the construction of properties in NI and for
-                                    the benefit of non-profit organisations in NI will be exempt from EU import duties."
+                                    html: "Non-commercial processing means the following areas:</p>
+                                    <ul class='govuk-list govuk-list--bullet grey'>
+                                        <li>the sale of <strong>food</strong> to end consumers in the UK</li>
+                                        <li><strong>construction</strong>, where the processed goods form a permanent part of a structure that is constructed and located in NI by the importer</li>
+                                        <li>direct provision of <strong>health or care services</strong> by the importer in NI</li>
+                                        <li><strong>not for profit</strong> activities in NI, where there is no subsequent sale of the processed good by the importer</li>
+                                        <li>the final use of <strong>animal feed</strong> on premises located in NI by the importer.</li></ul>"
                                 }
                             },
                             {
                                 value: "prohibited_processing",
-                                text: "The goods will be further processed for purposes other that those listed above",
+                                html: "The goods will be processed for <strong>purposes other than those listed above</strong>",
                                 hint: {
                                     text: "Such goods cannot be declared as not at risk, and EU duties may apply"
                                 }
@@ -96,6 +100,22 @@
 
                 </fieldset>
             </form>
+            {% include "../includes/commodity_panel.html" %}
+            <div class="gem-c-contextual-footer">
+                <div class="gem-c-related-navigation">
+                    <nav role="navigation" class="gem-c-related-navigation__nav-section">
+                        <h2 id="related-nav-topics-c7e51674" class="gem-c-related-navigation__sub-heading gem-c-related-navigation__sub-heading--footer">Explore the topic</h2>
+                        <ul class="gem-c-related-navigation__link-list">
+                            <li class="gem-c-related-navigation__link">
+                                <a class="gem-c-related-navigation__section-link gem-c-related-navigation__section-link--footer" href="https://www.gov.uk/guidance/check-if-you-can-declare-goods-you-bring-into-northern-ireland-not-at-risk-of-moving-to-the-eu-from-1-january-2021#processing">Additional requirements for when you bring goods into Northern Ireland for processing</a>
+                            </li>
+                            <li class="gem-c-related-navigation__link">
+                                <a class="gem-c-related-navigation__section-link gem-c-related-navigation__section-link--footer" href="https://www.gov.uk/guidance/apply-to-pay-less-duty-on-goods-you-import-for-specific-uses">Apply to pay less duty on goods you import for specific uses</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </div>
     </div>
 

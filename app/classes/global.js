@@ -84,3 +84,14 @@ global.get_title = function (scopeId) {
     }
     return (title);
 }
+
+global.check_heading_commodity = function (goods_nomenclature_item_id) {
+    var last_six = goods_nomenclature_item_id.substring(goods_nomenclature_item_id.length - 6, goods_nomenclature_item_id.length);
+    var url;
+    if (last_six == "000000") {
+        url = "headings/" + goods_nomenclature_item_id.substring(0, 4);
+    } else {
+        url = "commodities/" + goods_nomenclature_item_id;
+    }
+    return (url);
+}

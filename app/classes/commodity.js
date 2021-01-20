@@ -26,6 +26,8 @@ class Commodity {
         this.measure_type_series_id = null;
         this.measures = [];
         this.has_meursing = false;
+        this.has_remedies = false;
+        this.is_end_use = false;
         this.country_name = "";
         this.phase = "";
         this.units = [];
@@ -61,6 +63,13 @@ class Commodity {
         this.sid = this.data["id"];
         this.goods_nomenclature_item_id = this.data["attributes"]["goods_nomenclature_item_id"];
         this.description = this.data["attributes"]["formatted_description"];
+
+        this.description = this.description.replace(/<br>  /g, "<br>");
+        this.description = this.description.replace(/<br> /g, "<br>");
+        this.description = this.description.replace(/<br><br><br><br>/g, "<br>");
+        this.description = this.description.replace(/<br><br><br>/g, "<br>");
+        this.description = this.description.replace(/<br><br>/g, "<br>");
+
         this.number_indents = this.data["attributes"]["number_indents"];
         this.basic_duty_rate_string = this.data["attributes"]["basic_duty_rate"];
         if (this.basic_duty_rate_string == null) {
@@ -688,6 +697,10 @@ class Commodity {
         this.display_blocks = [];
         var block = "";
         this.measures.forEach(m => {
+            // Check for end use
+            if (m.measure_type_id == "105") {
+                this.is_end_use = true;
+            }
             if (this.mfn_array.includes(m.measure_type_id)) {
                 block = "mfns"
                 m.sort_block = display_sort_options[block]
@@ -720,6 +733,7 @@ class Commodity {
                 this.preferences.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (this.remedy_array.includes(m.measure_type_id)) {
+                this.has_remedies = true;
                 block = "remedies"
                 m.sort_block = display_sort_options[block]
                 m.display_block = display_block_options[m.sort_block.block]
