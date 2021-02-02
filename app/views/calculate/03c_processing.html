@@ -66,14 +66,21 @@
                                 value: "no_processing",
                                 html: "The goods will be sold to an end-user <strong>without any processing</strong>",
                                 hint: {
-                                    html: "If requested, you will need to verify this."
+                                    html: "Need to talk about the proof / verification needed ...Explanatory text goes here"
                                 }
                             },
                             {
-                                value: "permitted_processing",
+                                value: "non_commercial_processing",
                                 html: "The goods will undergo <strong>non-commercial processing</strong>",
                                 hint: {
-                                    html: "Non-commercial processing means the following areas:</p>
+                                    html: "Non-commercial processing is defined as ... Explanatory text goes here"
+                                }
+                            },
+                            {
+                                value: "permitted_commercial_processing",
+                                html: "The goods will undergo <strong>commercial processing</strong> for one of these purposes:",
+                                hint: {
+                                    html: "</p>
                                     <ul class='govuk-list govuk-list--bullet grey'>
                                         <li>the sale of <strong>food</strong> to end consumers in the UK</li>
                                         <li><strong>construction</strong>, where the processed goods form a permanent part of a structure that is constructed and located in NI by the importer</li>
@@ -83,9 +90,9 @@
                                 }
                             },
                             {
-                                value: "prohibited_processing",
-                                html: "The goods will be processed for <strong>purposes other than those listed above</strong>",
-                                hint: {
+                                value: "prohibited_commercial_processing",
+                                html: "The goods will be processed for <strong>commercial purposes other than those listed above</strong>",
+                                xhint: {
                                     text: "Such goods cannot be declared as not at risk, and EU duties may apply"
                                 }
                             }
