@@ -161,8 +161,8 @@ module.exports = function (env) {
     }
 
     filters.new_scope = function (s, scope) {
-        console.log("str = " + s);
-        console.log("scope = " + scope);
+        // console.log("str = " + s);
+        // console.log("scope = " + scope);
         s = String(s)
         var lastChar = s[s.length - 1];
 

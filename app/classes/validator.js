@@ -17,7 +17,7 @@ global.validate_date = function (req, res) {
 
 global.validate_destination = function (req, res) {
     // Validate the destination form
-    console.log("Validator: Validating destination");
+    //console.log("Validator: Validating destination");
     e = new Error_handler();
     contains_errors = e.validate_destination(req); // Gets data from destination form and validates it
 
@@ -70,7 +70,7 @@ global.validate_destination = function (req, res) {
 
 global.validate_origin = function (req, res) {
     // Validate the origin form
-    console.log("Validator: Validating origin");
+    //console.log("Validator: Validating origin");
     e = new Error_handler();
     if (req.session.data["origin_gb"] == "GB") {
         req.session.data["origin"] = "GB";
@@ -123,7 +123,7 @@ global.validate_origin = function (req, res) {
                         basic_duty_rate = basic_duty_rate.replace(/<span>/g, "");
                         basic_duty_rate = basic_duty_rate.trim();
                         basic_duty_rate = parseInt(basic_duty_rate);
-                        console.log(basic_duty_rate);
+                        // console.log(basic_duty_rate);
 
                         if (c.has_remedies == true) {
                             req.session.data["message"] = {
@@ -331,7 +331,7 @@ global.certificate_of_origin = function (req, res) {
 
 global.validate_monetary_value = function (req, res) {
     // Validate the monetary value form
-    console.log("Validator: Validating monetary value");
+    //console.log("Validator: Validating monetary value");
     e = new Error_handler();
     contains_errors = e.validate_monetary_value(req); // Gets data from monetary value form and validates it
     if (contains_errors) {
@@ -347,7 +347,7 @@ global.validate_monetary_value = function (req, res) {
                 c.get_data(response.data);
                 c.get_measure_data(req.session.data["origin"]);
                 req.session.data["country_name"] = c.country_name;
-                console.log("Units = " + c.units.length);
+                //console.log("Units = " + c.units.length);
 
                 /* RULES
                 If there are units relevant to import duties

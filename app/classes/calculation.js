@@ -36,7 +36,7 @@ class Calculation {
                 chunk = new Chunk(this.monetary_value, this.unit_value, this.multiplier);
             }
             if ((mc.duty_expression_description == "Maximum") || (mc.duty_expression_description == "Minimum")) {
-                console.log("Found a new chunk");
+                //console.log("Found a new chunk");
                 this.chunks.push(chunk);
                 chunk = new Chunk(this.monetary_value, this.unit_value, this.multiplier);
                 chunk.measure_components.push(mc);
@@ -49,15 +49,15 @@ class Calculation {
             i += 1;
         });
         this.chunks.push(chunk);
-        console.log("Clause count = " + clause_count);
-        console.log("Chunk length = " + this.chunks.length);
-        console.log("clause_starts = " + clause_starts);
+        //console.log("Clause count = " + clause_count);
+       // console.log("Chunk length = " + this.chunks.length);
+        //console.log("clause_starts = " + clause_starts);
 
         var i = 0;
         this.chunks.forEach(chunk => {
-            console.log("\nChunk " + i + "\n=========");
+            //("\nChunk " + i + "\n=========");
             chunk.measure_components.forEach(mc => {
-                console.log(mc.duty_amount);
+                // console.log(mc.duty_amount);
             });
             i++;
         });
@@ -75,7 +75,7 @@ class Calculation {
             total = 999999999999999;
             this.chunks.forEach(chunk => {
                 result = chunk.calculate();
-                console.log("Result is " + result);
+                //console.log("Result is " + result);
                 if (result < total) {
                     total = result;
                 }
@@ -84,7 +84,7 @@ class Calculation {
         this.result = total;
 
 
-        console.log("Calculating");
+        //console.log("Calculating");
         var phrase_result;
         this.measure.measure_components.forEach(mc => {
             if (mc.specific == false) {
@@ -125,7 +125,7 @@ class Chunk {
     }
 
     calculate() {
-        console.log("Calculating");
+        //("Calculating");
         var phrase_result;
         this.measure_components.forEach(mc => {
             if (mc.specific == false) {

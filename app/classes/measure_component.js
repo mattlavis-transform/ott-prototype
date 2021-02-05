@@ -1,3 +1,6 @@
+const Unit = require('./unit');
+
+
 class MeasureComponent {
     constructor(item) {
         this.id = item["id"];
@@ -5,10 +8,24 @@ class MeasureComponent {
         this.monetary_unit_code = item["attributes"]["monetary_unit_code"];
         this.monetary_unit_abbreviation = null;
         this.measurement_unit_code = item["attributes"]["measurement_unit_code"];
+        this.measurement_unit_qualifier_code = null;
+        this.unit = null;
+
+        if (item["id"] == "20000889-01") {
+            this.measurement_unit_qualifier_code = "P";
+        }
+        if (this.measurement_unit_code != null) {
+            this.measurement_unit_combined = this.measurement_unit_code;
+            if (this.measurement_unit_qualifier_code != null) {
+                this.measurement_unit_combined += " " + this.measurement_unit_qualifier_code;
+            }
+            // this.unit = new Unit(this.measurement_unit_combined);
+            this.unit = new Unit(this.measurement_unit_code, this.measurement_unit_qualifier_code);
+        }
+
         this.duty_expression_description = item["attributes"]["duty_expression_description"];
         this.duty_expression_abbreviation = item["attributes"]["duty_expression_abbreviation"];
         this.meursing_duty_expressions = ["12", "14", "21", "25", "27", "29"];
-        this.measurement_unit_qualifier_code = null;
         this.is_meursing = false;
 
         this.parse_id();
@@ -42,7 +59,7 @@ class MeasureComponent {
     parse_id() {
         this.measure_id = this.id.substring(0, this.id.length - 3);
         this.duty_expression_id = this.id.substring(this.id.length - 2, this.id.length);
-        console.log(this.measure_id + ' : ' + this.duty_expression_id);
+        //console.log(this.measure_id + ' : ' + this.duty_expression_id);
         if (this.meursing_duty_expressions.includes(this.duty_expression_id)) {
             this.is_meursing = true;
         } else {

@@ -98,6 +98,11 @@
 		"description" : "kilograms"
 	},
 	{
+		"measurement_unit_code" : "KGM P",
+		"abbreviation" : "kg/lactic matter",
+		"description" : "kilogrammes of lactic matter"
+	},
+	{
 		"measurement_unit_code" : "KLT",
 		"abbreviation" : "1000 litres",
 		"description" : "1000 litres"
@@ -199,13 +204,13 @@
 	},
 	{
 		"measurement_unit_code" : "NAR",
-		"abbreviation" : "numbers of items",
-		"description" : "numbers of items"
+		"abbreviation" : "items",
+		"description" : "number of items"
 	},
 	{
 		"measurement_unit_code" : "NCL",
-		"abbreviation" : "mumbers of cells",
-		"description" : "mumbers of cells"
+		"abbreviation" : "number of cells",
+		"description" : "number of cells"
 	},
 	{
 		"measurement_unit_code" : "NPR",

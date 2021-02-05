@@ -56,11 +56,11 @@ global.set_tariff = function (req) {
     } else {
         req.session.data["tariff"] = "";
     }
-    console.log(req.session.data["tariff"]);
+    //console.log(req.session.data["tariff"]);
 }
 
 global.get_domain = function (req) {
-    console.log("Getting domain");
+    //console.log("Getting domain");
     var tariff = req.session.data["tariff"];
     if (typeof tariff === 'undefined') {
         tariff = "";

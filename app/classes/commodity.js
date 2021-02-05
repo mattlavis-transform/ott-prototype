@@ -431,48 +431,38 @@ class Commodity {
             if (!this.supplementary_unit_array.includes(m.measure_type_id)) {
                 m.measure_components.forEach(mc => {
                     if (m.measure_type_id != '490') {
-                        if (mc.measurement_unit_code != null) {
-                            this.units.push(mc.measurement_unit_code);
-                            console.log(m);
+                        if (mc.unit != null) {
+                            var found = false;
+                            for(let unit of this.units){
+                                if ((unit.measurement_unit_code == mc.measurement_unit_code) && (unit.measurement_unit_qualifier_code == mc.measurement_unit_qualifier_code)) {
+                                    var found = true;
+                                    break;
+                                }
+                            }
+                            if (!found) {
+                                this.units.push(mc.unit);
+                            }
                         }
                     }
                 });
             }
         });
-        // Compress the units using set functionality (Python)
-        this.units = this.set(this.units);
+        var a = 1;
+        this.units.sort((a, b) => (a.measurement_unit_code > b.measurement_unit_code) ? 1 : -1)
+        var a = 1;
+
         this.multiplier = 1;
 
         // If the goods use Meursing, then the unit must be kilogrammes, as that is how the Meursing
         // duties are assigned
-        if (this.has_meursing) {
-            this.units = ["KGM"];
-            this.measurement_unit = "kilograms";
-        } else {
-            // Otherwise, look up the unit in the measurement units file
-            // Bring back the unit to use (e.g. if it is DTN, use tonnes)
-            this.measurement_unit = "";
-            if (this.units.length == 1) {
-                var measurement_units = require('./measurement_units.json');
-                measurement_units.forEach(item => {
-                    if (item["measurement_unit_code"] == this.units[0]) {
-                        if (item.hasOwnProperty("unit_to_use")) {
-                            this.measurement_unit = item["unit_to_use"];
-                            this.multiplier = item["multiplier"];
-                        } else {
-                            this.measurement_unit = item["description"];
-                        }
-                        if (item.hasOwnProperty("warning")) {
-                            this.warning = item["warning"] + " [" + this.measurement_unit + "]";
-                        } else {
-                            this.warning = "";
-                        }
-                        this.warning = "";
-                    }
-                });
-            }
-        }
-        console.log(this.measurement_unit);
+        // this.measurement_unit = "";
+        // this.measurement_units = [];
+        // if (this.has_meursing) {
+        //     this.units = ["KGM"];
+        //     this.measurement_unit = "kilograms";
+        //     this.measurement_units = ["kilograms"];
+        // }
+        // console.log(this.measurement_units);
     }
 
     pass_request(req) {
@@ -519,14 +509,13 @@ class Commodity {
     };
 
     sort_measures() {
-        console.log("Sorting measures");
+        //console.log("Sorting measures");
         this.measures.sort(compare_blocks);
         this.measures.sort(compare_measure_types);
         this.measures.sort(compare_geo);
         this.measures.forEach(m => {
             if (m.order_number_id == "098633") {
-                console.log("xx" + m.order_number_id);
-                console.log(m);
+                // console.log(m);
             }
 
         });
@@ -565,7 +554,7 @@ class Commodity {
 
     // Categorise the measures
     categorise_measures() {
-        console.log("Categorising measures");
+        //console.log("Categorising measures");
 
         var display_block_options = {
             "vat_excise": {

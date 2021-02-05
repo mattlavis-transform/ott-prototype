@@ -2,7 +2,7 @@ const axios = require('axios');
 
 class Error_handler {
     validate_date(req) {
-        console.log("Error handler: Validating date");
+        //console.log("Error handler: Validating date");
         var err = false;
         var import_date_day = req.session.data["import_date-day"];
         var import_date_month = req.session.data["import_date-month"];
@@ -24,7 +24,7 @@ class Error_handler {
     }
 
     validate_destination(req) {
-        console.log("Error handler: Validating destination");
+        //console.log("Error handler: Validating destination");
         var err = false;
         var destination = req.session.data["destination"] + "";
 
@@ -36,7 +36,7 @@ class Error_handler {
     }
 
     validate_origin(req) {
-        console.log("Error handler: Validating origin");
+        //console.log("Error handler: Validating origin");
         var err = false;
         var origin = req.session.data["origin"] + "";
 
@@ -48,7 +48,7 @@ class Error_handler {
     }
 
     validate_monetary_value(req) {
-        console.log("Error handler: Validating monetary value");
+        //console.log("Error handler: Validating monetary value");
         var err = false;
         var monetary_value = req.session.data["monetary_value"] + "";
         var currency = req.session.data["currency"] + "";
@@ -76,7 +76,7 @@ class Error_handler {
     }
 
     validate_meursing(req) {
-        console.log("Error handler: Validating Meursing additional code");
+        //console.log("Error handler: Validating Meursing additional code");
         var err = false;
         var meursing_code = req.session.data["meursing_code"] + "";
 
@@ -104,10 +104,10 @@ class Error_handler {
             .then((response) => {
                 var data = response.data;
                 if (data.includes(meursing_code)) {
-                    console.log("Valid " + meursing_code);
+                    //console.log("Valid " + meursing_code);
                     ret = true;
                 } else {
-                    console.log("Invalid " + meursing_code);
+                    //console.log("Invalid " + meursing_code);
                     ret = false;
                 }
             }).catch(({response}) => {

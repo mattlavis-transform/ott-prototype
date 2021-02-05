@@ -7,13 +7,13 @@ class Story {
         const directoryPath = path.join(__dirname, 'news');
         const { DateTime } = require("luxon");
         var dt = DateTime.local(2017, 5, 15, 8, 30);
-        console.log(dt);
+        //console.log(dt);
 
         this.file = file;
         this.date = file.replace(".md", "");
         this.date_formatted = DateTime.fromISO(this.date).toFormat("d MMM yyyy");
         var filename = path.join(directoryPath, this.file);
-        console.log(filename);
+        //console.log(filename);
 
         fs = require('fs')
         // var data = "";

@@ -52,7 +52,7 @@ router.get(['/sections/'], function (req, res) {
     scopeId = "";
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
-    console.log("Title = " + title);
+    // console.log("Title = " + title);
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections')
         .then((response) => {
             res.render('sections', { 'sections': response.data, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
@@ -63,8 +63,8 @@ router.get(['/sections/ni'], function (req, res) {
     scopeId = "ni";
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
-    console.log(title)
-    console.log("Title = " + title);
+    // console.log(title)
+    // console.log("Title = " + title);
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/sections')
         .then((response) => {
             res.render('sections', { 'sections': response.data, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
@@ -346,7 +346,7 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
         } else {
             req.session.data["error"] = "";
             var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
-            console.log(url);
+            // console.log(url);
             axios.get(url)
                 .then((response) => {
                     c = new Commodity();
@@ -364,7 +364,7 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
         }
     } else if (referer.indexOf("meursing") !== -1) {
         // Validate the unit value form
-        console.log("Checking Meursing code");
+        //console.log("Checking Meursing code");
         e = new Error_handler();
         contains_errors = e.validate_meursing(req); // Gets data from meursing code form and validates it
         if (contains_errors) {
@@ -374,7 +374,7 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
             req.session.data["error"] = "";
 
             var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
-            console.log(url);
+            // console.log(url);
             axios.get(url)
                 .then((response) => {
                     c = new Commodity();
@@ -518,6 +518,9 @@ router.get('/calculate/unit_value/:goods_nomenclature_item_id', function (req, r
             c.pass_request(req);
             c.get_data(response.data);
             c.get_measure_data(req.session.data["origin"]);
+            console.log("Above measurement units");
+            console.log(c.units);
+            console.log("Below measurement units");
             res.render('calculate/05_unit_value', { 'commodity': c, 'error': err });
         });
 });
