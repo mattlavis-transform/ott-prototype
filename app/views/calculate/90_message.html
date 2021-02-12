@@ -25,13 +25,14 @@
       <p class="govuk-body">{{ data['message'].message | safe }}</p>
 
       {# Display the Continue button #}
+      {% if data['message'].button_face %}
       {{ govukButton({
             text: data['message'].button_face, 
-            href: data['message'].message
+            href: data['message'].next_url
             }) }}
-      {# <p>Click on 'Continue' to enter the destination of the product you are looking to import.</p> #}
-      {% include "../includes/commodity_panel.html" %}
-      <div class="gem-c-contextual-footer">
+      {% endif %}
+      {# {% include "../includes/commodity_panel.html" %} #}
+      {# <div class="gem-c-contextual-footer">
         <div class="gem-c-related-navigation">
           <nav role="navigation" class="gem-c-related-navigation__nav-section">
             <h2 id="related-nav-topics-c7e51674" class="gem-c-related-navigation__sub-heading gem-c-related-navigation__sub-heading--footer">Explore the topic</h2>
@@ -42,7 +43,7 @@
             </ul>
           </nav>
         </div>
-      </div>
+      </div> #}
     </div>
   </div>
 

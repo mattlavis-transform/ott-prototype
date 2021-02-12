@@ -1,4 +1,6 @@
 const axios = require('axios');
+const { xor } = require('lodash');
+const UnitValue = require('./unit_value');
 
 class Error_handler {
     validate_date(req) {
@@ -20,6 +22,12 @@ class Error_handler {
             err = true;
             return err;
         }
+
+        const dayjs = require('dayjs');
+        var date_string = import_date_year + "-" + import_date_month + "-" + import_date_day;
+        let date_object = dayjs(date_string);
+        req.session.data["date_string"] = date_object.format("D MMM YYYY");
+    
         return (err);
     }
 
@@ -66,6 +74,22 @@ class Error_handler {
     validate_unit_value(req) {
         //console.log("Error handler: Validating unit value");
         var err = false;
+        var unit_values = [];
+        req.session.data["unit_string"] = "";
+        for (const key in req.session.data) {
+            var key_value = req.session.data[key];
+            var a = 1;
+            if (key.indexOf("unit_value_") !== -1) {
+                var v = new UnitValue(key, key_value)
+                req.session.data["unit_string"] += v.unit_string;
+                unit_values.push(v);
+                console.log(`${key}: ${req.session.data[key]}`);
+            }
+        }
+        req.session.data["unit_values"] = unit_values;
+        var a = 1;
+
+
         var unit_value = req.session.data["unit_value"] + "";
 
         if (unit_value == "") {

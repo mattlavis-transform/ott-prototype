@@ -36,14 +36,14 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Date of import</dt>
-          <dd class="govuk-summary-list__value">1 January 2021 (<em>incomplete</em>)</dd>
+          <dd class="govuk-summary-list__value">{{ data["date_string"] }}</dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/calculate/date/{{ commodity.goods_nomenclature_item_id }}">
               Change<span class="govuk-visually-hidden"> date of import</span>
             </a>
           </dd>
         </div>
-        
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Destination</dt>
           <dd class="govuk-summary-list__value">{{ data["destination"] }}</dd>
@@ -55,14 +55,62 @@
         </div>
 
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Origin</dt>
+          <dt class="govuk-summary-list__key">Country of dispatch</dt>
           <dd class="govuk-summary-list__value">{{ data["country_name"] }}</dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/calculate/origin/{{ commodity.goods_nomenclature_item_id }}">
-              Change<span class="govuk-visually-hidden"> origin</span>
+              Change<span class="govuk-visually-hidden"> country of dispatch</span>
             </a>
           </dd>
         </div>
+
+        {% if data["uk_trader_string"] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">UK Trader Scheme authorisation</dt>
+          <dd class="govuk-summary-list__value">{{ data["uk_trader_string"] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/calculate/uk_trader/{{ commodity.goods_nomenclature_item_id }}">
+              Change<span class="govuk-visually-hidden"> UK Trader Scheme option</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data["final_use_string"] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Final use</dt>
+          <dd class="govuk-summary-list__value">{{ data["final_use_string"] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/calculate/final_use/{{ commodity.goods_nomenclature_item_id }}">
+              Change<span class="govuk-visually-hidden"> final use option</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data["processing_string"] %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Processing</dt>
+            <dd class="govuk-summary-list__value">{{ data["processing_string"] }}</dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/calculate/processing/{{ commodity.goods_nomenclature_item_id }}">
+              Change<span class="govuk-visually-hidden"> processing option</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+
+        {% if data["certificate_string"] %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Certificate of origin</dt>
+            <dd class="govuk-summary-list__value">{{ data["certificate_string"] }}</dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/calculate/certificate_of_origin/{{ commodity.goods_nomenclature_item_id }}">
+              Change<span class="govuk-visually-hidden"> certificate of origin option</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Monetary value</dt>
@@ -74,10 +122,10 @@
           </dd>
         </div>
 
-        {% if data["unit_value"] %}
+        {% if data["unit_string"] %}
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">Unit value</dt>
-            <dd class="govuk-summary-list__value">{{ data["unit_value"] }} {{ commodity.measurement_unit }}</dd>
+            <dt class="govuk-summary-list__key">Import quantity</dt>
+            <dd class="govuk-summary-list__value">{{ data["unit_string"] }}</dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="/calculate/unit_value/{{ commodity.goods_nomenclature_item_id }}">
               Change<span class="govuk-visually-hidden"> unit value</span>

@@ -202,9 +202,76 @@ global.validate_uk_trader = function (req, res) {
                 - Go to the results page
 
     END RULES */
+
+    delete req.session.data['final_use_string'];
+    delete req.session.data['processing_string'];
+    delete req.session.data['certificate_string'];
+
     if (destination == "Northern Ireland") {
         if (origin == "GB") {
             if (uk_trader_scheme == "yes") {
+                req.session.data["uk_trader_string"] = "Authorised";
+
+                req.session.data["message"] = {
+                    "title": "Questions on this page",
+                    "message": "<ul class='govuk-list govuk-list--bullet'><li>In the intro blurb, is it sufficient to refer to the status 'at risk'? Will people know what it means?</li><li>What verifications and validations are likely to be required, where and by whom?</li><li>Is the list of permitted processing activitites below exhaustive?</li><li>In your sentence: <b>End-use products can only be de-risked if the goods will stay in NI</b>, how does that fit into the process?</li><li>Should we work out that the product is an end use product? If so, is it the case that, if a good as a 103 measure, then it is not end-use, if it has a 105 measure, then it is end use?</li></ul>"
+                };
+                req.session.data["message"] = null;
+                url = "/calculate/final_use/" + req.params["goods_nomenclature_item_id"];
+            } else {
+                req.session.data["uk_trader_string"] = "Not authorised";
+                url = "/calculate/certificate_of_origin/" + req.params["goods_nomenclature_item_id"];
+            }
+        } else if (origin_gb == "other") {
+            if (uk_trader_scheme == "yes") {
+                req.session.data["uk_trader_string"] = "Authorised";
+                req.session.data["message"] = {
+                    "title": "System checks",
+                    "message": "Rules around end use</p><ul class='govuk-list govuk-list--bullet'><li></li></ul>"
+                };
+                url = "/calculate/final_use/" + req.params["goods_nomenclature_item_id"];
+            } else {
+                req.session.data["uk_trader_string"] = "Not authorised";
+                url = "/calculate/confirm/" + req.params["goods_nomenclature_item_id"];
+            }
+        }
+    }
+    res.redirect(url);
+
+}
+
+
+global.validate_final_use = function (req, res) {
+    var a = 1;
+    // var uk_trader_scheme = req.session.data["uktrader_scheme"];
+    var final_use = req.session.data["final_use"];
+    var origin = req.session.data["origin"];
+    var origin_gb = req.session.data["origin_gb"];
+    var destination = req.session.data["destination"];
+    var url;
+    /* RULES
+
+    - If the destination is Northern Ireland (which it will always be)
+        - If the origin is GB
+            - If the user intends final use
+                - Go to the processing page
+            - else
+                - Go to the UK origin page
+
+        - Else, if the origin is Rest of World
+            - If the user intends final use
+                - Go to the processing page
+            - else
+                - Go to the results page
+
+    END RULES */
+    delete req.session.data['processing_string'];
+    delete req.session.data['certificate_string'];
+
+    if (destination == "Northern Ireland") {
+        if (origin == "GB") {
+            if (final_use == "yes") {
+                req.session.data["final_use_string"] = "For sale to, or final use by, end-consumers located in the Northern Ireland";
                 req.session.data["message"] = {
                     "title": "Questions on this page",
                     "message": "<ul class='govuk-list govuk-list--bullet'><li>In the intro blurb, is it sufficient to refer to the status 'at risk'? Will people know what it means?</li><li>What verifications and validations are likely to be required, where and by whom?</li><li>Is the list of permitted processing activitites below exhaustive?</li><li>In your sentence: <b>End-use products can only be de-risked if the goods will stay in NI</b>, how does that fit into the process?</li><li>Should we work out that the product is an end use product? If so, is it the case that, if a good as a 103 measure, then it is not end-use, if it has a 105 measure, then it is end use?</li></ul>"
@@ -212,16 +279,19 @@ global.validate_uk_trader = function (req, res) {
                 req.session.data["message"] = null;
                 url = "/calculate/processing/" + req.params["goods_nomenclature_item_id"];
             } else {
+                req.session.data["final_use_string"] = "Not for sale to, or final use by, end-consumers located in the Northern Ireland";
                 url = "/calculate/certificate_of_origin/" + req.params["goods_nomenclature_item_id"];
             }
         } else if (origin_gb == "other") {
-            if (uk_trader_scheme == "yes") {
+            if (final_use == "yes") {
+                req.session.data["final_use_string"] = "For sale to, or final use by, end-consumers located in the Northern Ireland";
                 req.session.data["message"] = {
                     "title": "System checks",
                     "message": "Rules around end use</p><ul class='govuk-list govuk-list--bullet'><li></li></ul>"
                 };
                 url = "/calculate/processing/" + req.params["goods_nomenclature_item_id"];
             } else {
+                req.session.data["final_use_string"] = "Not for sale to, or final use by, end-consumers located in the Northern Ireland";
                 url = "/calculate/confirm/" + req.params["goods_nomenclature_item_id"];
             }
         }
@@ -256,46 +326,79 @@ global.validate_processing = function (req, res) {
                 - Show results page (eu duties)
 
     END RULES */
+
+    var wrapper = "There is <strong>no import duty to pay</strong> because:</p><ul class='govuk-list govuk-list--bullet'>{{ placeholder }}</ul><p class='govuk-body'>You may be called upon to provide proof of your membership of the UK Trader Scheme and that your goods are not going to be subject to further processing.</p>";
+
+    var txt_origin_gb = "<li>You are transporting goods from <b>England, Scotland or Wales</b> to Northern Ireland</li>";
+    var txt_ukts = "<li>You are a member of the UK Trader Scheme</li>";
+    var txt_final_use = "<li>Your import is <b>for sale to, or final use by</b>, end-consumers located in Northern Ireland</li>";
+    var txt_no_processing = "<li>You <b>do not intend to further process</b> the goods on arrival in Northern Ireland</li>";
+    var txt_non_commercial_processing = "<li>You will be undertaking <b>non-commercial processing</b> on the goods on arrival in Northern Ireland</li>";
+    var txt_permitted_commercial_processing = "<li>You will be undertaking <b>permitted commercial processing</b> on the goods on arrival in Northern Ireland</li>";
+
+    var content = "";
+
+    delete req.session.data['certificate_string'];
+
+    req.session.data["processing_string"] = "";
+
     if (destination == "Northern Ireland") {
         if (origin == "GB") {
-            if (processing == "no_processing") {
-                req.session.data["message"] = {
-                    "title": "There is no import duty to pay",
-                    "message": "There is <strong>no import duty to pay</strong> because:</p><ul class='govuk-list govuk-list--bullet'><li>You are transporting goods from England, Scotland or Wales to Northern Ireland</li><li>You are a member of the UK Trade Scheme</li><li>You do not intend to further process the goods on arrival in Northern Ireland</li></ul><p class='govuk-body'>You may be called upon to provide proof of your membership of the UK Trade Scheme and that your goods are not going to be subject to further processing.</p>"
-                };
-                url = "/calculate/message/" + req.params["goods_nomenclature_item_id"];
-            } else if (processing == "permitted_processing") {
-                req.session.data["message"] = {
-                    "title": "There is no import duty to pay",
-                    "message": "There is <strong>no import duty to pay</strong> because:</p><ul class='govuk-list govuk-list--bullet'><li>You are transporting goods from England, Scotland or Wales to Northern Ireland</li><li>You are a member of the UK Trade Scheme</li><li>You will be undertaking permitted processing on the goods on arrival in Northern Ireland</li></ul><p class='govuk-body'>You may be called upon to provide proof of your membership of the UK Trade Scheme and the specific processing that you will be undertaking."
-                };
-                url = "/calculate/message/" + req.params["goods_nomenclature_item_id"];
+            if (processing == "prohibited_commercial_processing") {
+                req.session.data["processing_string"] = "Commercial processing, other than those exempted";
+                url = "/calculate/certificate_of_origin/" + req.params["goods_nomenclature_item_id"];
+                //url = "https://www.google.com";
             } else {
-                url = "/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"];
+                content = txt_origin_gb;
+                content += txt_ukts;
+                content += txt_final_use;
+                if (processing == "no_processing") {
+                    req.session.data["processing_string"] = "No processing";
+                    content += txt_no_processing;
+
+                } else if (processing == "non_commercial_processing") {
+                    req.session.data["processing_string"] = "Non-commercial processing";
+                    content += txt_non_commercial_processing;
+
+                } else if (processing == "permitted_commercial_processing") {
+                    req.session.data["processing_string"] = "Permitted commercial processing";
+                    content += txt_permitted_commercial_processing;
+                }
+
+                content = wrapper.replace("{{ placeholder }}", content)
+                req.session.data["message"] = {
+                    "title": "There is no import duty to pay",
+                    "message": content,
+                    "next_url": "/calculate/date/" + req.params["goods_nomenclature_item_id"],
+                    "button_face": "Start again"
+                };
+                url = "/calculate/message/" + req.params["goods_nomenclature_item_id"];
+
             }
+
+
         } else {
             if (processing == "no_processing") {
-                req.session.data["message"] = {
-                    "title": "There is no import duty to pay",
-                    "message": "There is <strong>no import duty to pay</strong> because:</p><ul class='govuk-list govuk-list--bullet'><li>You are transporting goods from a country outside of the European Union and the United Kingdom</li><li>You are a member of the UK Trade Scheme</li><li>You do not intend to further process the goods on arrival in Northern Ireland</li></ul><p class='govuk-body'>You may be called upon to provide proof of your membership of the UK Trade Scheme and that your goods are not going to be subject to further processing.</p>"
-                };
-                url = "/calculate/message/" + req.params["goods_nomenclature_item_id"];
-            } else if (processing == "permitted_processing") {
-                req.session.data["message"] = {
-                    "title": "There is no import duty to pay",
-                    "message": "There is <strong>no import duty to pay</strong> because:</p><ul class='govuk-list govuk-list--bullet'><li>You are transporting goods from a country outside of the European Union and the United Kingdom</li><li>You are a member of the UK Trade Scheme</li><li>You will be undertaking permitted processing on the goods on arrival in Northern Ireland</li></ul><p class='govuk-body'>You may be called upon to provide proof of your membership of the UK Trade Scheme and the specific processing that you will be undertaking."
-                };
-                url = "/calculate/message/" + req.params["goods_nomenclature_item_id"];
-            } else {
-                url = "/calculate/confirm/" + req.params["goods_nomenclature_item_id"];
+                req.session.data["processing_string"] = "No processing";
+
+            } else if (processing == "non_commercial_processing") {
+                req.session.data["processing_string"] = "Non-commercial processing";
+
+            } else if (processing == "permitted_commercial_processing") {
+                req.session.data["processing_string"] = "Permitted commercial processing";
+
+            } else if (processing == "prohibited_commercial_processing") {
+                req.session.data["processing_string"] = "Commercial processing, other than those exempted";
             }
+
+            url = "/calculate/confirm/" + req.params["goods_nomenclature_item_id"];
         }
     }
     res.redirect(url);
 
 }
 
-global.certificate_of_origin = function (req, res) {
+global.validate_certificate_of_origin = function (req, res) {
     var a = 1;
     var origin_certificate = req.session.data["origin_certificate"];
     var origin = req.session.data["origin"];
@@ -315,12 +418,14 @@ global.certificate_of_origin = function (req, res) {
     if (destination == "Northern Ireland") {
         if (origin == "GB") {
             if (origin_certificate == "yes") {
+                req.session.data["certificate_string"] = "Valid certificate of origin";
                 req.session.data["message"] = {
                     "title": "There is no import duty to pay",
                     "message": "There is <strong>no import duty to pay</strong> because:</p><ul class='govuk-list govuk-list--bullet'><li>You are transporting goods from England, Scotland or Wales to Northern Ireland.</li><li>You are able to take advantage of the preferential tariffs provided by the UK / EU Trade and Co-operation Agreement (TCA) and have a valid Certificate of Origin.</li></ul><p class='govuk-body'>You may be called upon to provide a copy of your Certificate or Origin to avoid paying duties.</p>"
                 };
                 url = "/calculate/message/" + req.params["goods_nomenclature_item_id"];
             } else {
+                req.session.data["certificate_string"] = "No valid certificate of origin";
                 url = "/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"];
             }
         }
@@ -384,6 +489,47 @@ global.validate_monetary_value = function (req, res) {
                     }
                 }
                 res.redirect(url);
+            });
+    }
+}
+
+global.validate_unit_value = function (req, res) {
+    // Validate the unit value form
+    //console.log("Checking unit value");
+    e = new Error_handler();
+    contains_errors = e.validate_unit_value(req); // Gets data from unit value form and validates it
+    if (contains_errors) {
+        req.session.data["error"] = "unit_value";
+        res.redirect("/calculate/unit_value/" + req.params["goods_nomenclature_item_id"]);
+    } else {
+        req.session.data["error"] = "";
+        var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+        // console.log(url);
+        axios.get(url)
+            .then((response) => {
+                c = new Commodity();
+                c.get_data(response.data);
+                c.get_measure_data(req.session.data["origin"]);
+                req.session.data["country_name"] = c.country_name;
+                if (req.session.data["destination"] == "Northern Ireland") {
+                    if (req.session.data["origin_gb"] == "GB") {
+                        // GB to Northern Ireland
+                        res.redirect("/calculate/confirm/" + req.params["goods_nomenclature_item_id"]);
+                    } else {
+                        // ROW to Northern Ireland (for now) -- this is where the complex calcs would get done
+                        res.redirect("/calculate/uk_trader/" + req.params["goods_nomenclature_item_id"]);
+                    }
+
+                } else {
+                    res.redirect("/calculate/confirm/" + req.params["goods_nomenclature_item_id"]);
+                }
+                // if (c.has_meursing) {
+                //     res.redirect("/calculate/meursing/" + req.params["goods_nomenclature_item_id"]);
+                // } else if (c.remedies.length > 0) {
+                //     res.redirect("/calculate/company/" + req.params["goods_nomenclature_item_id"]);
+                // } else {
+                //     res.redirect("/calculate/confirm/" + req.params["goods_nomenclature_item_id"]);
+                // }
             });
     }
 }

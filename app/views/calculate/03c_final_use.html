@@ -47,34 +47,24 @@
                 <fieldset class="govuk-fieldset">
 
                     {{ govukRadios({
-                        idPrefix: "uktrader_scheme",
-                        name: "uktrader_scheme",
+                        idPrefix: "final_use",
+                        name: "final_use",
                         fieldset: {
                             legend: {
-                            text: "Are you registered with the UK Trader Scheme?",
+                            text: "Is your import for sale to, or final use by, end-consumers located in Northern Ireland?",
                             isPageHeading: true,
-                            classes: "govuk-fieldset__legend--xl"
+                            classes: "govuk-fieldset__legend--l"
                             }
-                        },
-                        hint: {
-                            html: "If you are importing goods or sale to, or final use by, end consumers located in the UK
-                            and you are a trader authorised under the UK Trader Scheme, then your goods may be treated as
-                            being not 'at risk' of further movement into the EU and are not subject to EU import duties.
-                            <br><br>If you are not yet registered with the Scheme, then
-                            <a href='https://www.gov.uk/guidance/apply-for-authorisation-for-the-uk-trader-scheme-if-you-bring-goods-into-northern-ireland-from-1-january-2021'>
-                            apply for authorisation for the UK Trader Scheme</a> here."
                         },
                         items: [
                             {
                                 value: "yes",
-                                text: "Yes, I am registered with the UK Trader Scheme",
-                                xhint: {
-                                    text: "I am registered with the UK Trader Scheme"
-                                }
+                                text: "Yes, I am importing this good into Northern Ireland for its sale to, or final use by,
+                                    end-consumers located in the Northern Ireland"
                             },
                             {
                                 value: "no",
-                                text: "No, I am not registered with the UK Trader Scheme",
+                                text: "No, this import will not be for final use in Northern Ireland",
                                 xhint: {
                                     text: "Your goods will be liable for the EU import duties"
                                 }

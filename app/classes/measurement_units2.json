@@ -4,7 +4,7 @@
         "measurement_unit_qualifier_code": "",
         "abbreviation": "% vol",
         "unit_question": "What is the alcohol percentage (%) of the goods you are importing?",
-        "unit_hint": "Enter the alcohol by volume percentage",
+        "unit_hint": "Enter the alcohol by volume (ABV) percentage",
         "unit": "percent"
     },
     {
@@ -12,7 +12,7 @@
         "measurement_unit_qualifier_code": "X",
         "abbreviation": "% vol/hl",
         "unit_question": "What is the volume of alcohol of the goods that you are importing?",
-        "unit_hint": "This can be calculated by multiplying the %age alcohol by volume by the volume. Enter the value in hectolitres (100 litres)",
+        "unit_hint": "This can be calculated by multiplying the %age alcohol by volume (ABV) by the volume. Enter the value in hectolitres (100 litres)",
         "unit": "litres"
     },
     {
@@ -250,9 +250,9 @@
     {
         "measurement_unit_code": "KLT",
         "measurement_unit_qualifier_code": "",
-        "abbreviation": "1000 l",
+        "abbreviation": "1,000 l",
         "unit_question": "What is the volume of the goods that you will be importing?",
-        "unit_hint": "Enter the value in kilolitres (1000 litres)",
+        "unit_hint": "Enter the value in kilolitres (1,000 litres)",
         "unit": "x 1,000 litres"
     },
     {
@@ -362,7 +362,7 @@
     {
         "measurement_unit_code": "MIL",
         "measurement_unit_qualifier_code": "",
-        "abbreviation": "1000 p/st",
+        "abbreviation": "1,000 p/st",
         "unit_question": "How many items will you be importing?",
         "unit_hint": "Enter the value in thousands of items",
         "unit": "x 1,000 items"
@@ -370,7 +370,7 @@
     {
         "measurement_unit_code": "MPR",
         "measurement_unit_qualifier_code": "",
-        "abbreviation": "1000 pa",
+        "abbreviation": "1,000 pa",
         "unit_question": "How many pairs will you be importing?",
         "unit_hint": "Enter the value in thousands of pairs",
         "unit": "x 1,000 pairs"
@@ -394,7 +394,7 @@
     {
         "measurement_unit_code": "MTQ",
         "measurement_unit_qualifier_code": "C",
-        "abbreviation": "1000 m³",
+        "abbreviation": "1,000 m³",
         "unit_question": "What is the volume of the goods you will be importing?",
         "unit_hint": "Enter the value in 1,000 metres<sup>3</sup>",
         "unit": "1,000 metres<sup>3</sup>"
@@ -410,10 +410,10 @@
     {
         "measurement_unit_code": "MWH",
         "measurement_unit_qualifier_code": "",
-        "abbreviation": "1000 kWh",
+        "abbreviation": "1,000 kWh",
         "unit_question": "What is the unit of energy of the items you will be importing?",
-        "unit_hint": "Enter the value in 1000 kilowatt hours (kWh)",
-        "unit": "1000 kilowatt hours (kWh)"
+        "unit_hint": "Enter the value in 1,000 kilowatt hours (kWh)",
+        "unit": "1,000 kilowatt hours (kWh)"
     },
     {
         "measurement_unit_code": "NAR",
@@ -458,65 +458,65 @@
     {
         "measurement_unit_code": "TNE",
         "measurement_unit_qualifier_code": "",
-        "abbreviation": "1000 kg",
+        "abbreviation": "1,000 kg",
         "unit_question": "What is the weight of the goods you will be importing?",
-        "unit_hint": "Enter the value in tonnes (1000 kg)",
+        "unit_hint": "Enter the value in tonnes (1,000 kg)",
         "unit": "tonnes"
     },
     {
         "measurement_unit_code": "TNE",
         "measurement_unit_qualifier_code": "E",
-        "abbreviation": "1000 kg/net eda",
+        "abbreviation": "1,000 kg/net eda",
         "unit_question": "What is the net drained weight of the goods you will be importing?",
-        "unit_hint": "Enter the value in tonnes (1000 kg)",
+        "unit_hint": "Enter the value in tonnes (1,000 kg)",
         "unit": "tonnes"
     },
     {
         "measurement_unit_code": "TNE",
         "measurement_unit_qualifier_code": "I",
-        "abbreviation": "1000 kg/biodiesel",
+        "abbreviation": "1,000 kg/biodiesel",
         "unit_question": "What is the weight of biodiesel in the goods you will be importing?",
-        "unit_hint": "Enter the value in tonnes (1000 kg)",
+        "unit_hint": "Enter the value in tonnes (1,000 kg)",
         "unit": "tonnes"
     },
     {
         "measurement_unit_code": "TNE",
         "measurement_unit_qualifier_code": "J",
-        "abbreviation": "1000 kg/fuel content",
+        "abbreviation": "1,000 kg/fuel content",
         "unit_question": "What is the weight of the fuel content in the goods you will be importing?",
-        "unit_hint": "Enter the value in tonnes (1000 kg)",
+        "unit_hint": "Enter the value in tonnes (1,000 kg)",
         "unit": "tonnes"
     },
     {
         "measurement_unit_code": "TNE",
         "measurement_unit_qualifier_code": "K",
-        "abbreviation": "1000 kg/bioethanol",
+        "abbreviation": "1,000 kg/bioethanol",
         "unit_question": "What is the weight of bioethanol in the goods you will be importing?",
-        "unit_hint": "Enter the value in tonnes (1000 kg)",
+        "unit_hint": "Enter the value in tonnes (1,000 kg)",
         "unit": "tonnes"
     },
     {
         "measurement_unit_code": "TNE",
         "measurement_unit_qualifier_code": "M",
-        "abbreviation": "1000 kg/net mas",
+        "abbreviation": "1,000 kg/net mas",
         "unit_question": "What is the weight net of dry matter of the goods you will be importing ?",
-        "unit_hint": "Enter the value in tonnes (1000 kg)",
+        "unit_hint": "Enter the value in tonnes (1,000 kg)",
         "unit": "tonnes"
     },
     {
         "measurement_unit_code": "TNE",
         "measurement_unit_qualifier_code": "R",
-        "abbreviation": "1000 kg std qual",
+        "abbreviation": "1,000 kg std qual",
         "unit_question": "What is the weight net of the standard quality of the goods you will be importing?",
-        "unit_hint": "Enter the value in tonnes (1000 kg)",
+        "unit_hint": "Enter the value in tonnes (1,000 kg)",
         "unit": "tonnes"
     },
     {
         "measurement_unit_code": "TNE",
         "measurement_unit_qualifier_code": "Z",
-        "abbreviation": "1000 kg/net/%saccha.",
+        "abbreviation": "1,000 kg/net/%saccha.",
         "unit_question": "What is the weight per 1% by weight of sucrose in the goods you will be importing?",
-        "unit_hint": "Enter the value in tonnes (1000 kg)",
+        "unit_hint": "Enter the value in tonnes (1,000 kg)",
         "unit": "tonnes"
     },
     {

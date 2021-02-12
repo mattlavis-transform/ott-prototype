@@ -24,7 +24,7 @@
       <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}">
         <span class="govuk-caption-xl">Calculate import duties</span>
         <h1 class="govuk-heading-xl">Enter import quantity</h1>
-        <p>The duties on this commodity are dependent on the quantity, weight or volume
+        <p>The duties payable on this commodity are dependent on the quantity, weight or volume
           of goods that you are importing.
           Enter the units of the goods that you are importing in the boxes below.
         </p>
@@ -32,8 +32,8 @@
 {% for measurement_unit in commodity.units %}
 
         {{ govukInput({
-                id: "unit_value",
-                name: "unit_value",
+                id: "unit_value_" + measurement_unit.unit_field,
+                name: "unit_value_" + measurement_unit.unit_field,
                 label: {
                     text: measurement_unit.unit_question,
                     classes: "govuk-label--s",

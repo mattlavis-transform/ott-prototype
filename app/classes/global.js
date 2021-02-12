@@ -39,6 +39,14 @@ global.todays_date = function (s, fmt) {
     return (s);
 }
 
+global.kill_session_vars = function (req, vars) {
+    var i;
+    for (i = 0; i < vars.length; i++) {
+        delete req.session.data[vars[i]];
+    }
+    var a = 1;
+}
+
 global.get_scope = function (s) {
     if ((s == "ni") || (s == "eu")) {
         var scopeId = "ni";

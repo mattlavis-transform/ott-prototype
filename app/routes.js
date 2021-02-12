@@ -330,38 +330,19 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
         global.validate_processing(req, res);
 
     } else if (referer.indexOf("certificate_of_origin") !== -1) {
-        global.certificate_of_origin(req, res);
+        global.validate_certificate_of_origin(req, res);
 
     } else if (referer.indexOf("monetary_value") !== -1) {
         global.validate_monetary_value(req, res);
 
     } else if (referer.indexOf("unit_value") !== -1) {
-        // Validate the unit value form
-        //console.log("Checking unit value");
-        e = new Error_handler();
-        contains_errors = e.validate_unit_value(req); // Gets data from unit value form and validates it
-        if (contains_errors) {
-            req.session.data["error"] = "unit_value";
-            res.redirect("/calculate/unit_value/" + req.params["goods_nomenclature_item_id"]);
-        } else {
-            req.session.data["error"] = "";
-            var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
-            // console.log(url);
-            axios.get(url)
-                .then((response) => {
-                    c = new Commodity();
-                    c.get_data(response.data);
-                    c.get_measure_data(req.session.data["origin"]);
-                    req.session.data["country_name"] = c.country_name;
-                    if (c.has_meursing) {
-                        res.redirect("/calculate/meursing/" + req.params["goods_nomenclature_item_id"]);
-                    } else if (c.remedies.length > 0) {
-                        res.redirect("/calculate/company/" + req.params["goods_nomenclature_item_id"]);
-                    } else {
-                        res.redirect("/calculate/confirm/" + req.params["goods_nomenclature_item_id"]);
-                    }
-                });
-        }
+        var a = 1;
+        global.validate_unit_value(req, res);
+
+    } else if (referer.indexOf("final_use") !== -1) {
+        var a = 1;
+        global.validate_final_use(req, res);
+
     } else if (referer.indexOf("meursing") !== -1) {
         // Validate the unit value form
         //console.log("Checking Meursing code");
@@ -395,6 +376,12 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
 router.get('/calculate/date/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
+
+    global.kill_session_vars(req, [
+        'uk_trader_string', 'final_use_string', 
+        'processing_string', 'certificate_string', 'unit_string'
+    ]);
+
     //console.log("Date");
     var err = req.session.data["error"];
     var import_date_day = req.session.data["import_date-day"];
@@ -457,6 +444,22 @@ router.get('/calculate/uk_trader/:goods_nomenclature_item_id', function (req, re
         });
 });
 
+// Calculator - Final use (XI only)
+router.get('/calculate/final_use/:goods_nomenclature_item_id', function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    //console.log("Origin");
+    var err = req.session.data["error"];
+    var origin = req.session.data["origin"];
+    axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
+        .then((response) => {
+            c = new Commodity();
+            c.pass_request(req);
+            c.get_data(response.data);
+            res.render('calculate/03c_final_use', { 'commodity': c, 'error': err, 'origin': origin });
+        });
+});
+
 // Calculator - UK trader scheme (XI only)
 router.get('/calculate/processing/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
@@ -469,7 +472,7 @@ router.get('/calculate/processing/:goods_nomenclature_item_id', function (req, r
             c = new Commodity();
             c.pass_request(req);
             c.get_data(response.data);
-            res.render('calculate/03c_processing', { 'commodity': c, 'error': err, 'origin': origin });
+            res.render('calculate/03d_processing', { 'commodity': c, 'error': err, 'origin': origin });
         });
 });
 
@@ -485,7 +488,7 @@ router.get('/calculate/certificate_of_origin/:goods_nomenclature_item_id', funct
             c = new Commodity();
             c.pass_request(req);
             c.get_data(response.data);
-            res.render('calculate/03d_certificate_of_origin', { 'commodity': c, 'error': err, 'origin': origin });
+            res.render('calculate/03e_certificate_of_origin', { 'commodity': c, 'error': err, 'origin': origin });
         });
 });
 
@@ -518,9 +521,6 @@ router.get('/calculate/unit_value/:goods_nomenclature_item_id', function (req, r
             c.pass_request(req);
             c.get_data(response.data);
             c.get_measure_data(req.session.data["origin"]);
-            console.log("Above measurement units");
-            console.log(c.units);
-            console.log("Below measurement units");
             res.render('calculate/05_unit_value', { 'commodity': c, 'error': err });
         });
 });
@@ -599,6 +599,12 @@ router.get('/calculate/excise/:goods_nomenclature_item_id', function (req, res) 
 router.get('/calculate/confirm/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
+
+    // const dayjs = require('dayjs');
+    // date_string = req.session.data["import_date-year"] + "-" + req.session.data["import_date-month"] + "-" + req.session.data["import_date-day"];
+    // let date_object = dayjs(date_string);
+    // req.session.data["date_string"] = date_object.format("d MMM YYYY");
+
     //console.log("Confirm");
     var err = req.session.data["error"];
     var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];

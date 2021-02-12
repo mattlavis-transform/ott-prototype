@@ -1,13 +1,20 @@
 class Unit {
-    constructor(measurement_unit_code, measurement_unit_qualifier_code, ) {
+    constructor(measurement_unit_code, measurement_unit_qualifier_code) {
         this.measurement_unit_code = measurement_unit_code;
         this.measurement_unit_qualifier_code = measurement_unit_qualifier_code;
+        this.unit_value = "";
         if (this.measurement_unit_code == null) {
             this.measurement_unit_code = "";
         }
+        this.unit_field = this.measurement_unit_code;
         if (this.measurement_unit_qualifier_code == null) {
             this.measurement_unit_qualifier_code = "";
+        } else {
+            this.unit_field += "-" + this.measurement_unit_qualifier_code;
         }
+
+
+
         this.unit_question = "";
         this.unit_hint = ""
         this.get_question();
