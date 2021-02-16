@@ -142,7 +142,7 @@ global.validate_origin = function (req, res) {
                             if (basic_duty_rate == 0) {
                                 req.session.data["message"] = {
                                     "title": "There is no import duty to pay",
-                                    "message": "There is no import duty to pay when importing goods into Northern Ireland from GB when the EU's Third country duty is 0.00%"
+                                    "message": "There is no import duty to pay when importing goods into Northern Ireland from GB when the EU's Third country duty is 0.00%."
                                 };
                                 url = "/calculate/message/" + req.params["goods_nomenclature_item_id"];
                                 res.redirect(url);
@@ -172,7 +172,11 @@ global.validate_origin = function (req, res) {
                 res.redirect(url);
             }
         } else {
-            url = "/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"]
+            if (req.session.data["origin"] == "XI") {
+                url = "/calculate/ni_to_gb/" + req.params["goods_nomenclature_item_id"]
+            } else {
+                url = "/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"]
+            }
             res.redirect(url);
         }
 

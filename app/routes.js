@@ -675,6 +675,48 @@ router.get('/calculate/message/:goods_nomenclature_item_id', function (req, res)
         });
 });
 
+
+
+// Calculator - Results (flat - dummy HTML)
+router.get('/calculate/trade_defence/:goods_nomenclature_item_id', function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    scopeId = "";
+    root_url = global.get_root_url(req, scopeId);
+    var err = req.session.data["error"];
+    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    axios.get(url)
+        .then((response) => {
+            c = new Commodity();
+            c.pass_request(req);
+            c.phase = "results";
+            c.get_data(response.data);
+            c.get_exchange_rate();
+            c.get_measure_data(req.session.data["origin"]);
+            res.render('calculate/interstitial_trade_defence', { 'commodity': c, 'error': err });
+        });
+});
+
+
+// Calculator - Results (flat - dummy HTML)
+router.get('/calculate/ni_to_gb/:goods_nomenclature_item_id', function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    scopeId = "";
+    root_url = global.get_root_url(req, scopeId);
+    var err = req.session.data["error"];
+    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    axios.get(url)
+        .then((response) => {
+            c = new Commodity();
+            c.pass_request(req);
+            c.phase = "results";
+            c.get_data(response.data);
+            c.get_exchange_rate();
+            c.get_measure_data(req.session.data["origin"]);
+            res.render('calculate/final_ni_to_gb', { 'commodity': c, 'error': err });
+        });
+});
+
+
 /* ############################################################################ */
 /* ###################             END CALCULATOR             ################# */
 /* ############################################################################ */
