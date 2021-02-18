@@ -335,8 +335,8 @@ global.validate_processing = function (req, res) {
 
     var txt_origin_gb = "<li>You are transporting goods from <b>England, Scotland or Wales</b> to Northern Ireland</li>";
     var txt_ukts = "<li>You are a member of the UK Trader Scheme</li>";
-    var txt_final_use = "<li>Your import is <b>for sale to, or final use by</b>, end-consumers located in Northern Ireland</li>";
-    var txt_no_processing = "<li>You <b>do not intend to further process</b> the goods on arrival in Northern Ireland</li>";
+    var txt_final_use = "<li>Your import is <b>for sale to, or final use by</b>, end-consumers located in the United Kingdom</li>";
+    var txt_no_processing = "<li>You <b>do not intend to further process</b> the goods on arrival in the United Kingdom</li>";
     var txt_non_commercial_processing = "<li>You will be undertaking <b>non-commercial processing</b> on the goods on arrival in Northern Ireland</li>";
     var txt_permitted_commercial_processing = "<li>You will be undertaking <b>permitted commercial processing</b> on the goods on arrival in Northern Ireland</li>";
 

@@ -188,17 +188,44 @@
     font-family            : "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing : antialiased;
     -moz-osx-font-smoothing: grayscale;
-    display       : flex;
-    flex-direction: row;
-    flex-wrap     : nowrap;
+    display                : flex;
+    flex-direction         : row;
+    flex-wrap              : nowrap;
 
     div {
         flex-direction: column;
         display       : flex;
         flex-direction: row;
-        margin-right: 1em;
+        margin-right  : 1em;
     }
 
+}
+
+p.teal, div.teal {
+    color: #066;
+}
+
+span.normal {
+    font-weight: 400;
+}
+
+p.hide {
+    text-align: right;
+    margin    : 0px 0px !important;
+    padding   : 0px 0px !important;
+    color     : #066;
+    font-size : 12px;
+}
+p.hide:hover {
+    cursor:pointer
+}
+
+hr.teal_band {
+    height          : 20px;
+    color           : #066;
+    background-color: #066;
+    border          : 0px;
+    margin          : 0.5em 0px 2em 0px;
 }
 
 /* End - duty calculation */

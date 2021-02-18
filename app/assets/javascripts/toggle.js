@@ -10,9 +10,16 @@ $(document).ready(function () {
         }
     }
 
+    $(".teal").show();
+
+    $(".hide").click(function (event) {
+        $(this).parent().hide();
+    });
+
     $("body").keydown(function (event) {
         if (event.target.tagName == "BODY") {
             if ((event.which == 84) || (event.which == 116)) {
+                console.log("T key pressed. Toggle count is " + toggle_state);
                 //console.log("toggle pressed. toggle_count = " + toggle_count);
                 event.preventDefault();
 
@@ -27,6 +34,11 @@ $(document).ready(function () {
                 toggle_state = toggle_state % toggle_count;
                 if (toggle_state == 0) {
                     toggle_state = toggle_count;
+                }
+                if (toggle_state == 2) {
+                    $(".teal").hide();
+                } else {
+                    $(".teal").show();
                 }
             }
         }

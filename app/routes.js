@@ -656,6 +656,32 @@ router.get('/calculate/results_flat/:goods_nomenclature_item_id', function (req,
         });
 });
 
+// Calculator - Results (all - dummy HTML)
+router.get('/calculate/results/:goods_nomenclature_item_id/:file', function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    file = req.params["file"];
+    console.log(file)
+    scopeId = "";
+    root_url = global.get_root_url(req, scopeId);
+    var err = req.session.data["error"];
+    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    axios.get(url)
+        .then((response) => {
+            c = new Commodity();
+            c.pass_request(req);
+            c.phase = "results";
+            c.get_data(response.data);
+            c.get_exchange_rate();
+            c.get_measure_data(req.session.data["origin"]);
+            res.render('calculate/99_' + file, { 'commodity': c, 'error': err });
+        });
+});
+
+// Calculator - Results index
+router.get('/calculate/results', function (req, res) {
+    res.render('calculate/98_results_pages');
+});
+
 // Calculator - Confirmatory message panel
 router.get('/calculate/message/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
