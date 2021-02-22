@@ -3,6 +3,14 @@ const Error_handler = require('./error_handler.js');
 const Commodity = require('./commodity.js');
 
 global.validate_date = function (req, res) {
+    axios.get('https://api.exchangeratesapi.io/latest')
+        .then((response) => {
+            var data = response.data;
+            var exchange_rate = parseFloat(data["rates"]["GBP"]);
+            req.session.data["exchange_rate"] = exchange_rate;
+            console.log("Getting exchange rate " + req.session.data["exchange_rate"]);
+        });
+
     // Validate the date form
     e = new Error_handler();
     contains_errors = e.validate_date(req); // Gets data from Date form and validates it
@@ -117,7 +125,7 @@ global.validate_origin = function (req, res) {
                         c = new Commodity();
                         c.pass_request(req);
                         c.get_data(response.data);
-                        c.get_measure_data("basic");
+                        c.get_measure_data(req, "basic");
                         var basic_duty_rate = c.basic_duty_rate;
                         basic_duty_rate = basic_duty_rate.replace(/%/g, "");
                         basic_duty_rate = basic_duty_rate.replace(/<span>/g, "");
@@ -428,9 +436,11 @@ global.validate_certificate_of_origin = function (req, res) {
                     "message": "There is <strong>no import duty to pay</strong> because:</p><ul class='govuk-list govuk-list--bullet'><li>You are transporting goods from England, Scotland or Wales to Northern Ireland.</li><li>You are able to take advantage of the preferential tariffs provided by the UK / EU Trade and Co-operation Agreement (TCA) and have a valid Certificate of Origin.</li></ul><p class='govuk-body'>You may be called upon to provide a copy of your Certificate or Origin to avoid paying duties.</p>"
                 };
                 url = "/calculate/message/" + req.params["goods_nomenclature_item_id"];
+                req.session.data["at_risk"] = false;
             } else {
                 req.session.data["certificate_string"] = "No valid certificate of origin";
                 url = "/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"];
+                req.session.data["at_risk"] = true;
             }
         }
     }
@@ -440,13 +450,26 @@ global.validate_certificate_of_origin = function (req, res) {
 
 global.validate_monetary_value = function (req, res) {
     // Validate the monetary value form
-    //console.log("Validator: Validating monetary value");
+    console.log("Validator: Validating monetary value");
     e = new Error_handler();
     contains_errors = e.validate_monetary_value(req); // Gets data from monetary value form and validates it
     if (contains_errors) {
         req.session.data["error"] = "monetary_value";
         res.redirect("/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"]);
     } else {
+        var total_cost = parseFloat(req.session.data["monetary_value"]);
+        if (req.session.data["insurance_cost"] != "") {
+            total_cost += parseFloat(req.session.data["insurance_cost"]);
+        } else {
+            req.session.data["insurance_cost"] = 0;
+        }
+
+        if (req.session.data["shipping_cost"] != "") {
+            total_cost += parseFloat(req.session.data["shipping_cost"]);
+        } else {
+            req.session.data["shipping_cost"] = 0;
+        }
+        req.session.data["total_cost"] = total_cost;
         req.session.data["error"] = "";
 
         var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
@@ -454,8 +477,9 @@ global.validate_monetary_value = function (req, res) {
             .then((response) => {
                 c = new Commodity();
                 c.get_data(response.data);
-                c.get_measure_data(req.session.data["origin"]);
+                c.get_measure_data(req, req.session.data["origin"]);
                 req.session.data["country_name"] = c.country_name;
+                var a = 1
                 //console.log("Units = " + c.units.length);
 
                 /* RULES
@@ -513,7 +537,7 @@ global.validate_unit_value = function (req, res) {
             .then((response) => {
                 c = new Commodity();
                 c.get_data(response.data);
-                c.get_measure_data(req.session.data["origin"]);
+                c.get_measure_data(req, req.session.data["origin"]);
                 req.session.data["country_name"] = c.country_name;
                 if (req.session.data["destination"] == "Northern Ireland") {
                     if (req.session.data["origin_gb"] == "GB") {

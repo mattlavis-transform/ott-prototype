@@ -317,7 +317,10 @@ govuk-colour("turquoise") 	#28a197
 }
 
 .govuk-green {
-    color: #00703c;
+    color         : #00703c;
+    font-size     : 14px;
+    // color: #333;
+    // font-weight:bold;
 }
 
 /* End commodity code bars (generic) */
@@ -772,12 +775,12 @@ tr:last-of-type .govuk-table__cell {
     display: none;
 }
 
-.vat_row {
+.xvat_row {
     display: none;
 }
 
 .question {
-    color:red;
+    color: red;
 }
 
 // @import "components/app-flexible-table";

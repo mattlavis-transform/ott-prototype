@@ -33,6 +33,8 @@ class Commodity {
         this.units = [];
         this.multiplier = 1;
         this.duty_expressions = [];
+        this.vat = null;
+        this.unit_values = null;
 
         this.quotas = [];
         this.mfns = [];
@@ -50,6 +52,7 @@ class Commodity {
         this.quota_array = ["143", "146", "122", "123"];
         this.supplementary_unit_array = ["109", "110"];
         this.meursing_blob = null;
+        this.exchange_rate = "";
 
         if (this.goods_nomenclature_item_id != null) {
             this.formatted_commodity_code = this.goods_nomenclature_item_id
@@ -81,7 +84,7 @@ class Commodity {
         this.format_commodity_code();
     }
 
-    get_measure_data(origin) {
+    get_measure_data(req, origin) {
         var m, mc, mt, g, ac, la, id, item2;
 
         this.origin = origin;
@@ -143,7 +146,7 @@ class Commodity {
                 }
 
             } else if (item["type"] == "measure_component") {
-                mc = new MeasureComponent(item);
+                mc = new MeasureComponent(req, item);
                 this.measure_components.push(mc);
 
             } else if (item["type"] == "measure_type") {
@@ -211,8 +214,8 @@ class Commodity {
 
         var valid_phases = ["results"];
         if (valid_phases.includes(this.phase)) {
-            this.calculate_vat();
             this.calculate_excise();
+            this.calculate_vat();
             this.calculate_mfn();
             this.calculate_quotas();
             this.calculate_preferences();
@@ -226,8 +229,8 @@ class Commodity {
                 var looper = 0;
                 measure.geographical_area.members.forEach(ga => {
                     if (exclusions.includes(ga.id)) {
-                        measure.geographical_area.members.splice(looper,  1);
-                        measure.geographical_area.member_strings.splice(looper,  1);
+                        measure.geographical_area.members.splice(looper, 1);
+                        measure.geographical_area.member_strings.splice(looper, 1);
                     }
                     looper += 1;
                 });
@@ -323,9 +326,81 @@ class Commodity {
     }
 
     calculate_mfn() {
+        var result;
+        this.value_for_vat = this.total_cost;
         this.mfns.forEach(calc => {
             calc.calculate();
+            result = calc.result;
+            this.value_for_vat = this.total_cost + result;
+            var a = 1;
         });
+
+        // Recalculate the VAT in the light of the MFN
+        this.vats.forEach(calc => {
+            calc.monetary_value = this.value_for_vat
+            calc.calculate();
+        });
+
+        var vat_count = this.vats.length;
+        if (vat_count == 1) {
+            this.mfns[0].addVatRate(this.vats[0]);
+        } else {
+            var a = 1;
+            var vat_exempt = false;
+            var vat_zero = false;
+            var vat_reduced = false;
+            var vat_appendage_string = "";
+            this.vats.forEach(calc => {
+                if (calc.measure.measure_type_id == "VTS" || (calc.measure.additional_code_code == null && calc.measure.measure_type_id == '305')) {
+                    // Standard VAT
+                    this.mfns[0].addVatRate(this.vats[0]);
+
+                } else if (calc.measure.measure_type_id == "VTE" || (calc.measure.additional_code_code == null && calc.measure.measure_type_id == 'VATE')) {
+                    // Exempt from VAT
+                    vat_exempt = true;
+
+                } else if (calc.measure.measure_type_id == "VTZ" || (calc.measure.additional_code_code == null && calc.measure.measure_type_id == 'VATZ')) {
+                    // Zero-rated VAT
+                    vat_zero = true;
+
+                } else if (calc.measure.measure_type_id == "VTA" || (calc.measure.additional_code_code == null && calc.measure.measure_type_id == 'VATR')) {
+                    // Reduced-rated VAT
+                    vat_reduced = true;
+                    var a = 1;
+                    console.log("reduced rate");
+                }
+            });
+            var sentence_started = false;
+            if (vat_reduced == true) {
+                var calc_string = this.mfns[0].vat.calculation_string.replace(/ \)/g, ")");
+                vat_appendage_string = '<br><br>Your import may also be eligible for <b>reduced rate VAT</b> (' + calc_string + ')';
+                this.mfns[0].vat.vat_appendage_string += vat_appendage_string;
+                sentence_started = true;
+            }
+            if (vat_exempt == true) {
+                if (sentence_started) {
+                    vat_appendage_string = 'or <b>VAT-exemption</b>';
+                } else {
+                    vat_appendage_string = '<br><br>Your import may be also <b>VAT-exempt</b>';
+                }
+                this.mfns[0].vat.vat_appendage_string += vat_appendage_string;
+                sentence_started = true;
+            }
+            if (vat_zero == true) {
+                if (sentence_started) {
+                    vat_appendage_string = ' or <b>zero-rate VAT</b>';
+                } else {
+                    vat_appendage_string = '<br><br>Your import may also be eligible for <b>zero-rate VAT</b>';
+                }
+                this.mfns[0].vat.vat_appendage_string += vat_appendage_string;
+            }
+            if (this.mfns[0].vat.vat_appendage_string != "") {
+                this.mfns[0].vat.vat_appendage_string += '.<br><br>Read more about <a target="_blank" href="https://www.gov.uk/guidance/rates-of-vat-on-different-goods-and-services">rates of VAT on different goods and services (opens in new tab)</a>'
+            }
+            
+
+        }
+
     }
 
     calculate_quotas() {
@@ -370,6 +445,7 @@ class Commodity {
             this.additional_codes.forEach(ac => {
                 if (m.additional_code_id == ac.id) {
                     m.additional_code = ac;
+                    m.additional_code_code = ac.code
                 }
             });
         });
@@ -404,20 +480,37 @@ class Commodity {
     remove_irrelevant_measures() {
         var i;
         this.measures.forEach(m => {
+            m.irrelevant_additional_code = false;
+            // Check that we are just looking at financial measures
             this.measure_types.forEach(mt => {
                 if (mt.id == m.measure_type_id) {
                     m.financial = mt.financial;
                     m.measure_type_series_id = mt.measure_type_series_id;
                 }
             });
-            var a = 1;
+
+            // Check that we are ignoring measures with a additional code of 2551 or 2552
+            var barred_codes = ['2551', '2552'];
+            var additional_code_id;
+            if (m.additional_code != null) {
+                additional_code_id = m.additional_code.code
+            } else {
+                additional_code_id = "";
+            }
+            if (barred_codes.includes(additional_code_id)) {
+                m.irrelevant_additional_code = true;
+                console.log("Splicing " + additional_code_id);
+            }
+
+            // Check that we are just looking at measures aligned to the chosen country
             if ((m.geographical_area_id == this.origin) || (m.geographical_area.member_strings.includes(this.origin))) {
                 m.relevant = true;
             }
         });
 
         for (i = this.measures.length - 1; i >= 0; --i) {
-            if ((this.measures[i].financial == false) || (this.measures[i].relevant == false)) {
+            var m = this.measures[i];
+            if ((m.irrelevant_additional_code == true) || (m.financial == false) || (m.relevant == false)) {
                 this.measures.splice(i, 1);
             }
         }
@@ -433,7 +526,7 @@ class Commodity {
                     if (m.measure_type_id != '490') {
                         if (mc.unit != null) {
                             var found = false;
-                            for(let unit of this.units){
+                            for (let unit of this.units) {
                                 if ((unit.measurement_unit_code == mc.measurement_unit_code) && (unit.measurement_unit_qualifier_code == mc.measurement_unit_qualifier_code)) {
                                     var found = true;
                                     break;
@@ -469,6 +562,14 @@ class Commodity {
         this.req_data = req.session.data;
         this.currency = this.get_req_data("currency")
         this.monetary_value = this.get_req_data("monetary_value")
+        this.total_cost = parseFloat(req.session.data["monetary_value"]);
+        if (req.session.data["insurance_cost"] != "") {
+            this.total_cost += parseFloat(req.session.data["insurance_cost"]);
+        }
+        if (req.session.data["shipping_cost"] != "") {
+            this.total_cost += parseFloat(req.session.data["shipping_cost"]);
+        }
+
         this.unit_value = this.get_req_data("unit_value")
         this.meursing_code = this.get_req_data("meursing_code")
         this.company = this.get_req_data("company")
@@ -480,20 +581,6 @@ class Commodity {
         } else {
             return null;
         }
-    }
-
-    xxx_get_meursing_blob() {
-        //var url = "http://127.0.0.1:5000/meursing/" + this.meursing_code + "/JP";
-        // var url = "http://127.0.0.1:5000/meursing/859/JP";
-        // var response = await axios.get(url);
-        // console.log(response.data);
-        // this.meursing_blob = response.data;
-        // axios.get(url)
-        //     .then((response) => {
-        //         this.meursing_blob = response.data;
-        //         console.log("Getting response.data");
-        //         console.log(response.data);
-        //     });
     }
 
     get_meursing_blob = async () => {
@@ -698,7 +785,9 @@ class Commodity {
                 if (!this.display_blocks.includes(m.display_block)) {
                     this.display_blocks.push(m.display_block);
                 }
-                this.mfns.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
+                var calc = new Calculation(m, this.currency, this.total_cost, this.unit_values, this.multiplier, this.meursing_code, this.company, this.meursing_blob);
+                this.mfns.push(calc);
+                var a = 1;
 
             } else if (this.agri_array.includes(m.measure_type_id)) {
                 block = "agri"
@@ -708,7 +797,7 @@ class Commodity {
                 if (!this.display_blocks.includes(m.display_block)) {
                     this.display_blocks.push(m.display_block);
                 }
-                //this.mfns.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
+                //this.mfns.push(new Calculation(m, this.currency, this.total_cost, this.unit_values, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (this.preference_array.includes(m.measure_type_id)) {
                 block = "preferences"
@@ -719,7 +808,7 @@ class Commodity {
                     this.display_blocks.push(m.display_block);
                 }
 
-                this.preferences.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
+                this.preferences.push(new Calculation(m, this.currency, this.total_cost, this.unit_values, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (this.remedy_array.includes(m.measure_type_id)) {
                 this.has_remedies = true;
@@ -731,7 +820,7 @@ class Commodity {
                     this.display_blocks.push(m.display_block);
                 }
 
-                this.remedies.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
+                this.remedies.push(new Calculation(m, this.currency, this.total_cost, this.unit_values, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (this.suspension_array.includes(m.measure_type_id)) {
                 block = "suspensions"
@@ -742,7 +831,7 @@ class Commodity {
                     this.display_blocks.push(m.display_block);
                 }
 
-                this.suspensions.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
+                this.suspensions.push(new Calculation(m, this.currency, this.total_cost, this.unit_values, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (this.quota_array.includes(m.measure_type_id)) {
                 block = "quotas"
@@ -753,7 +842,7 @@ class Commodity {
                     this.display_blocks.push(m.display_block);
                 }
 
-                var obj = new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.multiplier, this.meursing_code, this.company, this.meursing_blob);
+                var obj = new Calculation(m, this.currency, this.total_cost, this.unit_values, this.multiplier, this.meursing_code, this.company, this.meursing_blob);
                 this.quotas.push(obj);
 
             } else if (m.measure_type_series_id == "P") {
@@ -765,7 +854,7 @@ class Commodity {
                     this.display_blocks.push(m.display_block);
                 }
 
-                this.vats.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
+                this.vats.push(new Calculation(m, this.currency, this.total_cost, this.unit_values, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
 
             } else if (m.measure_type_series_id == "Q") {
                 block = "excise"
@@ -776,7 +865,7 @@ class Commodity {
                     this.display_blocks.push(m.display_block);
                 }
 
-                this.excises.push(new Calculation(m, this.currency, this.monetary_value, this.unit_value, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
+                this.excises.push(new Calculation(m, this.currency, this.total_cost, this.unit_values, this.multiplier, this.meursing_code, this.company, this.meursing_blob));
 
             } else {
                 block = "other"
@@ -823,7 +912,9 @@ class Commodity {
     get_exchange_rate() {
         axios.get('https://api.exchangeratesapi.io/latest')
             .then((response) => {
-                //console.log(response.data);
+                console.log("Getting exchange rate");
+                var data = response.data;
+                this.exchange_rate = parseFloat(data["rates"]["GBP"]);
             });
     }
 

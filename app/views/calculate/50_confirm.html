@@ -65,27 +65,27 @@
         </div>
 
         {% if data["uk_trader_string"] %}
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">UK Trader Scheme authorisation</dt>
-          <dd class="govuk-summary-list__value">{{ data["uk_trader_string"] }}</dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/calculate/uk_trader/{{ commodity.goods_nomenclature_item_id }}">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">UK Trader Scheme authorisation</dt>
+            <dd class="govuk-summary-list__value">{{ data["uk_trader_string"] }}</dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/calculate/uk_trader/{{ commodity.goods_nomenclature_item_id }}">
               Change<span class="govuk-visually-hidden"> UK Trader Scheme option</span>
-            </a>
-          </dd>
-        </div>
+              </a>
+            </dd>
+          </div>
         {% endif %}
 
         {% if data["final_use_string"] %}
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Final use</dt>
-          <dd class="govuk-summary-list__value">{{ data["final_use_string"] }}</dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/calculate/final_use/{{ commodity.goods_nomenclature_item_id }}">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Final use</dt>
+            <dd class="govuk-summary-list__value">{{ data["final_use_string"] }}</dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/calculate/final_use/{{ commodity.goods_nomenclature_item_id }}">
               Change<span class="govuk-visually-hidden"> final use option</span>
-            </a>
-          </dd>
-        </div>
+              </a>
+            </dd>
+          </div>
         {% endif %}
 
         {% if data["processing_string"] %}
@@ -114,7 +114,7 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Monetary value</dt>
-          <dd class="govuk-summary-list__value">{{ data["currency"] | display_currency }}{{ data["monetary_value"] | decimals(2) }}</dd>
+          <dd class="govuk-summary-list__value">{{ data["currency"] | display_currency }}{{ data["total_cost"] | decimals(2) }}</dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/calculate/monetary_value/{{ commodity.goods_nomenclature_item_id }}">
               Change<span class="govuk-visually-hidden"> monetary value</span>
@@ -160,11 +160,27 @@
 
       </dl>
 
-      {{ govukButton({
-            text: "Calculate import duties",
-            href: "/calculate/results/" + commodity.data.attributes.goods_nomenclature_item_id
-            }) }}
+      {% if data["destination"] == "Northern Ireland" %}
+        {{ govukButton({
+          text: "Calculate import duties",
+          href: "/calculate/results_gb_ni/" + commodity.data.attributes.goods_nomenclature_item_id
+        }) }}
+      {% else %}
+        {{ govukButton({
+          text: "Calculate import duties",
+          href: "/calculate/results/" + commodity.data.attributes.goods_nomenclature_item_id
+        }) }}
+      {% endif %}
+
+      <p>Please note  - the following results page uses an exchange rate of <strong>{{ data["exchange_rate"] }} GBP to EUR</strong>.</p>
+      {{ govukDetails({
+        summaryText: "More about this exchange rate",
+        text: "The exchange rate used is derived from the European Central Bank.
+        The reference rates are usually updated around 15:00 on every working day."
+      }) }}
+
     </div>
+
   </div>
 
 {% endblock %}

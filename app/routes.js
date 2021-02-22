@@ -119,7 +119,7 @@ router.get(['/commodities/:goods_nomenclature_item_id/', '/commodities/:goods_no
             c = new Commodity();
             c.pass_request(req);
             c.get_data(response.data);
-            c.get_measure_data("basic");
+            c.get_measure_data(req, "basic");
             res.render('commodities', { 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
         });
 });
@@ -137,7 +137,7 @@ router.get(['/commodities2/:goods_nomenclature_item_id/', '/commodities2/:goods_
             c = new Commodity();
             c.pass_request(req);
             c.get_data(response.data);
-            c.get_measure_data("basic");
+            c.get_measure_data(req, "basic");
             c.sort_measures();
             //country_picker = new CountryPicker()
             res.render('commodities2', { 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
@@ -360,7 +360,7 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
                 .then((response) => {
                     c = new Commodity();
                     c.get_data(response.data);
-                    c.get_measure_data(req.session.data["origin"]);
+                    c.get_measure_data(req, req.session.data["origin"]);
                     req.session.data["country_name"] = c.country_name;
                     if (c.remedies.length > 0) {
                         res.redirect("/calculate/company/" + req.params["goods_nomenclature_item_id"]);
@@ -378,9 +378,10 @@ router.get('/calculate/date/:goods_nomenclature_item_id', function (req, res) {
     root_url = global.get_root_url(req, scopeId);
 
     global.kill_session_vars(req, [
-        'uk_trader_string', 'final_use_string', 
+        'uk_trader_string', 'final_use_string',
         'processing_string', 'certificate_string', 'unit_string'
     ]);
+    req.session.data["at_risk"] = false;
 
     //console.log("Date");
     var err = req.session.data["error"];
@@ -520,12 +521,27 @@ router.get('/calculate/unit_value/:goods_nomenclature_item_id', function (req, r
             c = new Commodity();
             c.pass_request(req);
             c.get_data(response.data);
-            c.get_measure_data(req.session.data["origin"]);
+            c.get_measure_data(req, req.session.data["origin"]);
             res.render('calculate/05_unit_value', { 'commodity': c, 'error': err });
         });
 });
 
-// Calculator - Meursing
+// Calculator - Meursing - this will be used when Meursing is implemented
+// router.get('/calculate/meursing/:goods_nomenclature_item_id', function (req, res) {
+//     scopeId = global.get_scope(req.params["scopeId"]);
+//     root_url = global.get_root_url(req, scopeId);
+//     var err = req.session.data["error"];
+//     var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+//     axios.get(url)
+//         .then((response) => {
+//             c = new Commodity();
+//             c.pass_request(req);
+//             c.get_data(response.data);
+//             res.render('calculate/06_meursing', { 'commodity': c, 'error': err });
+//         });
+// });
+
+// Calculator - Meursing - this is the temporary information-only page for Meursing-related content
 router.get('/calculate/meursing/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
@@ -537,7 +553,8 @@ router.get('/calculate/meursing/:goods_nomenclature_item_id', function (req, res
             c = new Commodity();
             c.pass_request(req);
             c.get_data(response.data);
-            res.render('calculate/06_meursing', { 'commodity': c, 'error': err });
+            //console.log(c);
+            res.render('calculate/90_meursing', { 'commodity': c, 'error': err });
         });
 });
 
@@ -554,7 +571,7 @@ router.get('/calculate/company/:goods_nomenclature_item_id', function (req, res)
             c.pass_request(req);
             c.phase = "company";
             c.get_data(response.data);
-            c.get_measure_data(req.session.data["origin"]);
+            c.get_measure_data(req, req.session.data["origin"]);
             res.render('calculate/07_company', { 'commodity': c, 'error': err });
         });
 });
@@ -572,7 +589,7 @@ router.get('/calculate/vat/:goods_nomenclature_item_id', function (req, res) {
             c.pass_request(req);
             c.phase = "company";
             c.get_data(response.data);
-            c.get_measure_data(req.session.data["origin"]);
+            c.get_measure_data(req, req.session.data["origin"]);
             res.render('calculate/08_vat', { 'commodity': c, 'error': err });
         });
 });
@@ -590,7 +607,7 @@ router.get('/calculate/excise/:goods_nomenclature_item_id', function (req, res) 
             c.pass_request(req);
             c.phase = "company";
             c.get_data(response.data);
-            c.get_measure_data(req.session.data["origin"]);
+            c.get_measure_data(req, req.session.data["origin"]);
             res.render('calculate/09_excise', { 'commodity': c, 'error': err });
         });
 });
@@ -608,13 +625,14 @@ router.get('/calculate/confirm/:goods_nomenclature_item_id', function (req, res)
     //console.log("Confirm");
     var err = req.session.data["error"];
     var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+
     axios.get(url)
         .then((response) => {
             c = new Commodity();
             c.pass_request(req);
             c.phase = "confirm";
             c.get_data(response.data);
-            c.get_measure_data(req.session.data["origin"]);
+            c.get_measure_data(req, req.session.data["origin"]);
             res.render('calculate/50_confirm', { 'commodity': c, 'error': err });
         });
 });
@@ -631,9 +649,26 @@ router.get('/calculate/results/:goods_nomenclature_item_id', function (req, res)
             c.pass_request(req);
             c.phase = "results";
             c.get_data(response.data);
-            c.get_exchange_rate();
-            c.get_measure_data(req.session.data["origin"]);
+            c.get_measure_data(req, req.session.data["origin"]);
             res.render('calculate/99_results', { 'commodity': c, 'error': err });
+        });
+});
+
+// Calculator - Results explicitly for GB to NI
+router.get('/calculate/results_gb_ni/:goods_nomenclature_item_id', function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    var err = req.session.data["error"];
+    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    axios.get(url)
+        .then((response) => {
+            c = new Commodity();
+            c.pass_request(req);
+            c.phase = "results";
+            c.unit_values = req.session.data["unit_values"];
+            c.get_data(response.data);
+            c.get_measure_data(req, req.session.data["origin"]);
+            res.render('calculate/99_results_gb_ni', { 'commodity': c, 'error': err });
         });
 });
 
@@ -650,8 +685,7 @@ router.get('/calculate/results_flat/:goods_nomenclature_item_id', function (req,
             c.pass_request(req);
             c.phase = "results";
             c.get_data(response.data);
-            c.get_exchange_rate();
-            c.get_measure_data(req.session.data["origin"]);
+            c.get_measure_data(req, req.session.data["origin"]);
             res.render('calculate/99_results_flat', { 'commodity': c, 'error': err });
         });
 });
@@ -660,7 +694,6 @@ router.get('/calculate/results_flat/:goods_nomenclature_item_id', function (req,
 router.get('/calculate/results/:goods_nomenclature_item_id/:file', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     file = req.params["file"];
-    console.log(file)
     scopeId = "";
     root_url = global.get_root_url(req, scopeId);
     var err = req.session.data["error"];
@@ -671,8 +704,7 @@ router.get('/calculate/results/:goods_nomenclature_item_id/:file', function (req
             c.pass_request(req);
             c.phase = "results";
             c.get_data(response.data);
-            c.get_exchange_rate();
-            c.get_measure_data(req.session.data["origin"]);
+            c.get_measure_data(req, req.session.data["origin"]);
             res.render('calculate/99_' + file, { 'commodity': c, 'error': err });
         });
 });
@@ -695,15 +727,14 @@ router.get('/calculate/message/:goods_nomenclature_item_id', function (req, res)
             c.pass_request(req);
             c.phase = "results";
             c.get_data(response.data);
-            c.get_exchange_rate();
-            c.get_measure_data(req.session.data["origin"]);
+            c.get_measure_data(req, req.session.data["origin"]);
             res.render('calculate/90_message', { 'commodity': c, 'error': err });
         });
 });
 
 
 
-// Calculator - Results (flat - dummy HTML)
+// Calculator - Interstitial trade defence
 router.get('/calculate/trade_defence/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     scopeId = "";
@@ -716,8 +747,7 @@ router.get('/calculate/trade_defence/:goods_nomenclature_item_id', function (req
             c.pass_request(req);
             c.phase = "results";
             c.get_data(response.data);
-            c.get_exchange_rate();
-            c.get_measure_data(req.session.data["origin"]);
+            c.get_measure_data(req, req.session.data["origin"]);
             res.render('calculate/interstitial_trade_defence', { 'commodity': c, 'error': err });
         });
 });
@@ -736,12 +766,22 @@ router.get('/calculate/ni_to_gb/:goods_nomenclature_item_id', function (req, res
             c.pass_request(req);
             c.phase = "results";
             c.get_data(response.data);
-            c.get_exchange_rate();
-            c.get_measure_data(req.session.data["origin"]);
+            c.get_measure_data(req, req.session.data["origin"]);
             res.render('calculate/final_ni_to_gb', { 'commodity': c, 'error': err });
         });
 });
 
+
+// Calculator - Results (flat - dummy HTML)
+router.get('/test_endpoint/:goods_nomenclatures', function (req, res) {
+    var url = "https://www.trade-tariff.service.gov.uk/api/v2/goods_nomenclatures/section/1";
+    axios.get(url)
+        .then((response) => {
+            var ret = response.data;
+            console.log(ret)
+            // res.render('calculate/99_results_flat', { 'commodity': c, 'error': err });
+        });
+});
 
 /* ############################################################################ */
 /* ###################             END CALCULATOR             ################# */

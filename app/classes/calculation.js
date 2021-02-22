@@ -1,13 +1,14 @@
 const { chunk } = require("underscore");
+const VatRate = require("./vat_rate");
 
 require("./global");
 
 class Calculation {
-    constructor(m, currency, monetary_value, unit_value, multiplier, meursing_code, company, meursing_blob) {
+    constructor(m, currency, monetary_value, unit_values, multiplier, meursing_code, company, meursing_blob) {
         this.measure = m;
         this.currency = currency;
         this.monetary_value = monetary_value;
-        this.unit_value = unit_value;
+        this.unit_values = unit_values;
         this.multiplier = multiplier;
         this.meursing_code = meursing_code;
         this.company = company;
@@ -18,9 +19,12 @@ class Calculation {
         this.has_meursing = false;
 
         this.calculation_string = "";
+        this.vat_appendage_string = "";
+        this.calculation_string_expanded = "";
         this.calculation_string_after_meursing = "";
         this.result = 0.00;
         this.result_string = "";
+        this.vat = null;
     }
 
     calculate() {
@@ -33,12 +37,12 @@ class Calculation {
         var i = 0;
         this.measure.measure_components.forEach(mc => {
             if (i == 0) {
-                chunk = new Chunk(this.monetary_value, this.unit_value, this.multiplier);
+                chunk = new Chunk(this.monetary_value, this.unit_values, this.multiplier);
             }
             if ((mc.duty_expression_description == "Maximum") || (mc.duty_expression_description == "Minimum")) {
                 //console.log("Found a new chunk");
                 this.chunks.push(chunk);
-                chunk = new Chunk(this.monetary_value, this.unit_value, this.multiplier);
+                chunk = new Chunk(this.monetary_value, this.unit_values, this.multiplier);
                 chunk.measure_components.push(mc);
                 clause_count += 1;
                 clause_starts.push(i);
@@ -49,20 +53,10 @@ class Calculation {
             i += 1;
         });
         this.chunks.push(chunk);
-        //console.log("Clause count = " + clause_count);
-       // console.log("Chunk length = " + this.chunks.length);
-        //console.log("clause_starts = " + clause_starts);
-
-        var i = 0;
-        this.chunks.forEach(chunk => {
-            //("\nChunk " + i + "\n=========");
-            chunk.measure_components.forEach(mc => {
-                // console.log(mc.duty_amount);
-            });
-            i++;
-        });
 
         var total, result;
+        // This is going through the clauses within the 
+        // duty, e.g. where separated by minimums and maximums
         if (this.conjunction == "Minimum") {
             total = 0;
             this.chunks.forEach(chunk => {
@@ -82,7 +76,7 @@ class Calculation {
             });
         }
         this.result = total;
-
+        console.log(this.result);
 
         //console.log("Calculating");
         var phrase_result;
@@ -90,22 +84,35 @@ class Calculation {
             if (mc.specific == false) {
                 phrase_result = mc.duty_amount * this.monetary_value / 100;
                 //console.log(mc.duty_amount + " : " + this.monetary_value + " : " + phrase_result + " : " + mc.duty_expression_description);
-                this.result += phrase_result;
+                //this.result += phrase_result;
             } else {
                 this.has_specifics = true;
+                this.value_multiplier = 0;
                 this.unit = mc.measurement_unit_code;
-                phrase_result = mc.duty_amount * this.unit_value * this.multiplier;
-                this.result += phrase_result;
+                this.unit_values.forEach(unit_value => {
+                    if (unit_value.unit_key == mc.measurement_unit_code) {
+                        this.value_multiplier = unit_value.unit_value;
+                    }
+                });
+                phrase_result = mc.duty_amount * this.value_multiplier;
+                //this.result += phrase_result;
                 //console.log(mc.duty_amount + " : " + this.unit_value + " : " + this.multiplier + " : " + phrase_result + " : " + mc.duty_expression_description);
             }
         });
         this.calculation_string = this.measure.combined_duty;
-        if (this.has_specifics) {
-            this.calculation_string += "(<em>on " + decimals(this.unit_value, 2) + " " + this.unit + "</em>)";
-        }
-        //this.calculation_string += this.meursing_code;
-        //this.calculation_string = "Calc string";
+        // if (this.has_specifics) {
+        //     this.calculation_string += "(<em>on " + decimals(this.unit_value, 2) + " " + this.unit + "</em>)";
+        // }
+        this.calculation_string_expanded = this.calculation_string.replace(/customs value/g, "£" + decimals(this.monetary_value, 2));
     }
+
+    addVatRate = function(calc) {
+        var a = 1;
+        var b = 2;
+        calc.calculation_string = calc.calculation_string.replace(/customs value/g, "customs value inc. import duty");
+        this.vat = calc;
+    }
+
 
     decimals = function (str, cnt) {
         var i = parseFloat(str)
@@ -115,11 +122,11 @@ class Calculation {
 }
 
 class Chunk {
-    constructor(monetary_value, unit_value, multiplier) {
+    constructor(monetary_value, unit_values, multiplier) {
         this.measure_components = [];
         this.value = "";
         this.monetary_value = monetary_value;
-        this.unit_value = unit_value;
+        this.unit_values = unit_values;
         this.multiplier = multiplier;
         this.result = 0;
     }
@@ -130,14 +137,21 @@ class Chunk {
         this.measure_components.forEach(mc => {
             if (mc.specific == false) {
                 phrase_result = mc.duty_amount * this.monetary_value / 100;
-                //console.log(mc.duty_amount + " : " + this.monetary_value + " : " + phrase_result + " : " + mc.duty_expression_description);
                 this.result += phrase_result;
             } else {
                 this.has_specifics = true;
+                var my_unit = mc.measurement_unit_code;
+                this.value_multiplier = 0;
                 this.unit = mc.measurement_unit_code;
-                phrase_result = mc.duty_amount * this.unit_value * this.multiplier;
+                this.unit_values.forEach(unit_value => {
+                    if (unit_value.unit_key == mc.measurement_unit_code) {
+                        this.value_multiplier = unit_value.unit_value;
+                    }
+                });
+
+                this.unit = mc.measurement_unit_code;
+                phrase_result = mc.duty_amount * this.value_multiplier;
                 this.result += phrase_result;
-                //console.log(mc.duty_amount + " : " + this.unit_value + " : " + this.multiplier + " : " + phrase_result + " : " + mc.duty_expression_description);
             }
         });
         return (this.result);

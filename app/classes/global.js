@@ -73,7 +73,16 @@ global.get_domain = function (req) {
     if (typeof tariff === 'undefined') {
         tariff = "";
     }
+    var at_risk = req.session.data["at_risk"];
+    if (typeof at_risk !== 'undefined') {
+        if (at_risk == false) {
+            tariff = "";
+        } else {
+            tariff = "xi/";
+        }
+    }
     var domain = 'https://www.trade-tariff.service.gov.uk/' + tariff + 'api/v2/commodities/';
+    console.log(domain);
     return (domain);
 }
 

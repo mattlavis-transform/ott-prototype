@@ -48,6 +48,9 @@
 
                 {% if (data["origin_options"].show_gb) %}
 
+                    {% set xgbHtml %}
+                    <p>This functionality is currently under construction and will be delivered shortly.</p>
+                    {% endset -%}
                     {% set gbHtml %}
 
                     <label class="govuk-label" for="origin">Select a country of origin</label>
@@ -329,36 +332,66 @@
                     {% endset -%}
 
                     {{ govukRadios({
-  idPrefix: "origin_gb",
-  name: "origin_gb",
-  fieldset: {
-    legend: {
-      text: "Which country are the goods dispatched from?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--xl"
-    }
-  },
-  hint: {
-    text: "The duty you are charged may be dependent on the country of dispatch of the goods being imported."
-  },
-  items: [
-    {
-      value: "GB",
-      text: "England, Scotland or Wales (GB)"
-    },
-    {
-      value: "EU",
-      text: "Ireland or other EU member states"
-    },
-    {
-      value: "other",
-      text: "Countries outside of GB or the European Union",
-      conditional: {
-        html: gbHtml
-      }
-    }
-  ]
-}) }}
+                      idPrefix: "origin_gb",
+                      name: "origin_gb",
+                      fieldset: {
+                        legend: {
+                          text: "Which country are the goods dispatched from?",
+                          isPageHeading: true,
+                          classes: "govuk-fieldset__legend--xl"
+                        }
+                      },
+                      hint: {
+                        text: "The duty you are charged may be dependent on the country of dispatch of the goods being imported."
+                      },
+                      items: [
+                        {
+                          value: "GB",
+                          text: "England, Scotland or Wales (GB)"
+                        },
+                        {
+                          value: "EU",
+                          text: "Ireland or other EU member states"
+                        }
+                      ]
+                    }) }}
+
+                    <p>The functionality to display duties applicable to imports from countries outside of GB and the European Union
+                    is currently under construction and will be delivered shortly.</p>
+
+                    <!-- THIS IS THE SCREEN FOR ROW TO NI - 2nd iteration
+                    {{ govukRadios({
+                      idPrefix: "origin_gb",
+                      name: "origin_gb",
+                      fieldset: {
+                        legend: {
+                          text: "Which country are the goods dispatched from?",
+                          isPageHeading: true,
+                          classes: "govuk-fieldset__legend--xl"
+                        }
+                      },
+                      hint: {
+                        text: "The duty you are charged may be dependent on the country of dispatch of the goods being imported."
+                      },
+                      items: [
+                        {
+                          value: "GB",
+                          text: "England, Scotland or Wales (GB)"
+                        },
+                        {
+                          value: "EU",
+                          text: "Ireland or other EU member states"
+                        },
+                        {
+                          value: "other",
+                          text: "Countries outside of GB and the European Union",
+                          conditional: {
+                            html: gbHtml
+                          }
+                        }
+                      ]
+                    }) }}
+                    //-->
 
                 {% else %}
 

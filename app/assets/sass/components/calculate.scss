@@ -201,7 +201,8 @@
 
 }
 
-p.teal, div.teal {
+p.teal,
+div.teal {
     color: #066;
 }
 
@@ -216,8 +217,9 @@ p.hide {
     color     : #066;
     font-size : 12px;
 }
+
 p.hide:hover {
-    cursor:pointer
+    cursor: pointer
 }
 
 hr.teal_band {
@@ -226,6 +228,12 @@ hr.teal_band {
     background-color: #066;
     border          : 0px;
     margin          : 0.5em 0px 2em 0px;
+}
+
+.conditional {
+    margin     : 8px 0px;
+    font-weight: bold;
+    color      : #066;
 }
 
 /* End - duty calculation */

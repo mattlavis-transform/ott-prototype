@@ -15,6 +15,7 @@ class Measure {
         this.geographical_area_description = null;
         this.additional_code_id = null;
         this.additional_code = null;
+        this.additional_code_code = null;
         this.combined_duty = "";
         this.combined_duty_after_meursing = "";
         this.order_number = null;
@@ -41,13 +42,42 @@ class Measure {
     }
 
     combine_duties() {
+        this.has_minimum = false;
+        this.has_maximum = false;
         this.combined_duty = "";
+        // Count the number of clauses in the duty
+        // If there are MAX or MIX types, then there are multiple clauses
+        this.multi_clause = false;
         this.measure_components.forEach(mc => {
+            if ((mc.has_maximum) || (mc.has_minimum)) {
+                this.multi_clause = true;
+            }
+        });
+        if (this.multi_clause) {
+            this.combined_duty = "(";
+        }
+        this.measure_components.forEach(mc => {
+            if (mc.has_maximum) {
+                this.has_maximum = true;
+            }
+            if (mc.has_minimum) {
+                this.has_minimum = true;
+            }
             this.combined_duty += mc.duty_string + " ";
             if (mc.is_meursing) {
                 this.has_meursing = true;
             }
         });
+        if (this.multi_clause) {
+            this.combined_duty += ")";
+        }
+        if (this.has_maximum) {
+            this.combined_duty = "The lower of " + this.combined_duty;
+        }
+        if (this.has_minimum) {
+            this.combined_duty = "The higher of " + this.combined_duty;
+        }
+        this.combined_duty = this.combined_duty.replace(/ \)/g, ")")
     }
 
 

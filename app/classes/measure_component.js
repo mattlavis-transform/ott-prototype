@@ -2,14 +2,20 @@ const Unit = require('./unit');
 
 
 class MeasureComponent {
-    constructor(item) {
+    constructor(req, item) {
         this.id = item["id"];
         this.duty_amount = item["attributes"]["duty_amount"];
         this.monetary_unit_code = item["attributes"]["monetary_unit_code"];
+        if (this.monetary_unit_code == "EUR") {
+            this.monetary_unit_code = "GBP";
+            this.duty_amount = this.duty_amount * req.session.data["exchange_rate"];
+        }
         this.monetary_unit_abbreviation = null;
         this.measurement_unit_code = item["attributes"]["measurement_unit_code"];
         this.measurement_unit_qualifier_code = null;
         this.unit = null;
+        this.has_minimum = false;
+        this.has_maximum = false;
 
         if (item["id"] == "20000889-01") {
             this.measurement_unit_qualifier_code = "P";
@@ -36,8 +42,14 @@ class MeasureComponent {
 
     get_short_monetary_unit_code() {
         var currencies = [
-            { "long": "GBP", "short": "£" },
-            { "long": "EUR", "short": "€" }
+            {
+                "long": "GBP",
+                "short": "£"
+            },
+            {
+                "long": "EUR",
+                "short": "€"
+            }
         ]
         //console.log(currencies);
         currencies.forEach(currency => {
@@ -84,9 +96,17 @@ class MeasureComponent {
     }
 
     get_duty_string(decimal_places = 3) {
-        //var MAX_STRING = " MAX ";
-        var MAX_STRING = " up to a maximum of ";
-        var MIN_STRING = " down to a maximum of ";
+        // var MAX_STRING = " up to a maximum of ";
+        // var MIN_STRING = " down to a maximum of ";
+
+        // var MAX_STRING = ")<br><i>or</i><br>(";
+        // var MIN_STRING = ")<br><i>or</i><br>(";
+
+        var MAX_STRING = ") <i>or </i> (";
+        var MIN_STRING = ") <i>or </i> (";
+
+        var MAX_STRING = ") or<br>(";
+        var MIN_STRING = ") or<br>(";
 
         if (this.monetary_unit_code == null) {
             decimal_places = 2;
@@ -101,7 +121,7 @@ class MeasureComponent {
         switch (this.duty_expression_id) {
             case "01":
                 if (this.monetary_unit_code == null) {
-                    this.duty_string += duty_amount + "%";
+                    this.duty_string += duty_amount + "% * customs value";
                 } else {
                     this.duty_string += " " + this.monetary_unit_abbreviation + duty_amount + " ";
                     if (this.measurement_unit_code != null) {
@@ -117,7 +137,7 @@ class MeasureComponent {
             case "20":
                 // Do stuff
                 if (this.monetary_unit_code == null) {
-                    this.duty_string += " + " + duty_amount + "%";
+                    this.duty_string += " + " + duty_amount + "% * customs value";
                 } else {
                     this.duty_string += " + " + this.monetary_unit_abbreviation + duty_amount + " ";
                     if (this.measurement_unit_code != null) {
@@ -132,8 +152,9 @@ class MeasureComponent {
                 this.duty_string += " + <abbr title='Agricultural component'>AC</abbr>";
                 break;
             case "15":
+                this.has_minimum = true;
                 if (this.monetary_unit_code == null) {
-                    this.duty_string += MIN_STRING + duty_amount + "%";
+                    this.duty_string += MIN_STRING + duty_amount + "% * customs value";
                 } else {
                     this.duty_string += MIN_STRING + this.monetary_unit_abbreviation + duty_amount + " ";
                     if (this.measurement_unit_code != null) {
@@ -147,8 +168,9 @@ class MeasureComponent {
 
             case "17":
             case "35":
+                this.has_maximum = true;
                 if (this.monetary_unit_code == null) {
-                    this.duty_string += MAX_STRING + duty_amount + "%";
+                    this.duty_string += MAX_STRING + duty_amount + "% * customs value";
                 } else {
                     this.duty_string += MAX_STRING + this.monetary_unit_abbreviation + duty_amount + " ";
                     if (this.measurement_unit_code != null) {
@@ -175,6 +197,7 @@ class MeasureComponent {
                 this.duty_string += " + <abbr title='Agricultural component'>AC</abbr> (reduced)";
                 break;
         }
+        //this.duty_string = "(" + this.duty_string + ")";
     }
 
 }
