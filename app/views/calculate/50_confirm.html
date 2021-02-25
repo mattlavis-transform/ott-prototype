@@ -46,7 +46,13 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Destination</dt>
-          <dd class="govuk-summary-list__value">{{ data["destination"] }}</dd>
+          <dd class="govuk-summary-list__value">
+          {% if data["destination"] == "GB" %}
+          England, Scotland or Wales
+          {% else %}
+          Northern Ireland
+          {% endif %}
+          </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/calculate/destination/{{ commodity.goods_nomenclature_item_id }}">
               Change<span class="govuk-visually-hidden"> destination</span>
@@ -113,7 +119,7 @@
         {% endif %}
 
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Monetary value</dt>
+          <dt class="govuk-summary-list__key">Customs value</dt>
           <dd class="govuk-summary-list__value">{{ data["currency"] | display_currency }}{{ data["total_cost"] | decimals(2) }}</dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/calculate/monetary_value/{{ commodity.goods_nomenclature_item_id }}">
@@ -172,12 +178,15 @@
         }) }}
       {% endif %}
 
+      {% if data["destination"] == "Northern Ireland" %}
+
       <p>Please note  - the following results page uses an exchange rate of <strong>{{ data["exchange_rate"] }} GBP to EUR</strong>.</p>
       {{ govukDetails({
         summaryText: "More about this exchange rate",
         text: "The exchange rate used is derived from the European Central Bank.
         The reference rates are usually updated around 15:00 on every working day."
       }) }}
+       {% endif %}
 
     </div>
 

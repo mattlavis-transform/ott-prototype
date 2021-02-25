@@ -22,16 +22,15 @@
       <span class="govuk-caption-xl">Calculate import duties</span>
       <h1 class="govuk-heading-xl">European Union Trade Defence measures apply</h1>
       {{ govukWarningText({
-  text: "European Union import duties will apply to your trade.",
-  iconFallbackText: "Warning"
-}) }}
+        text: "European Union import duties will apply to your trade.",
+        iconFallbackText: "Warning"
+      }) }}
       <p>Because there are European Union Trade Defence measures in place for
       <a href="/commodities/{{ commodity.goods_nomenclature_item_id }}">commodity code {{ commodity.goods_nomenclature_item_id | format_commodity_code }}</a>
       on the date you selected, this trade will be treated as being 'at risk' of being further transported to the European Union.</p>
 
-
       <p>Click on the 'Continue' button to work out the applicable import duties.</p>
-            {{ govukButton({
+      {{ govukButton({
               text: "Continue",
               href: "/calculate/monetary_value/" + commodity.goods_nomenclature_item_id
             }) }}

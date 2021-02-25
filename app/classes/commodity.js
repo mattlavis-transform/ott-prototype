@@ -218,7 +218,7 @@ class Commodity {
             this.calculate_vat();
             this.calculate_mfn();
             this.calculate_quotas();
-            this.calculate_preferences();
+            //this.calculate_preferences();
         }
     }
 

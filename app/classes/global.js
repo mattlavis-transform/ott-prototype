@@ -97,7 +97,7 @@ global.get_title = function (scopeId) {
     if (scopeId == "ni") {
         var title = "The Northern Ireland (EU) Tariff";
     } else {
-        var title = "The Online Trade Tariff";
+        var title = "UK Global Online Tariff";
     }
     return (title);
 }

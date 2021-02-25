@@ -320,6 +320,9 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
     } else if (referer.indexOf("destination") !== -1) {
         global.validate_destination(req, res);
 
+    } else if (referer.indexOf("certificate_of_origin") !== -1) {
+        global.validate_certificate_of_origin(req, res);
+
     } else if ((referer.indexOf("origin") !== -1) && (referer.indexOf("certificate") === -1)) {
         global.validate_origin(req, res);
 
@@ -328,9 +331,6 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
 
     } else if (referer.indexOf("processing") !== -1) {
         global.validate_processing(req, res);
-
-    } else if (referer.indexOf("certificate_of_origin") !== -1) {
-        global.validate_certificate_of_origin(req, res);
 
     } else if (referer.indexOf("monetary_value") !== -1) {
         global.validate_monetary_value(req, res);

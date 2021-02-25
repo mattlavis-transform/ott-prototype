@@ -21,23 +21,19 @@
     <div class="govuk-grid-column-three-quarters">
       <span class="govuk-caption-xl">Calculate import duties</span>
       <h1 class="govuk-heading-xl">EU import duties are payable</h1>
-      {{ govukWarningText({
-        text: "European Union import duties will apply to your trade.",
-        iconFallbackText: "Warning"
-      }) }}
 
-      {# <p class="teal b">[If you answered negatively to the question re: UKTS and certificate of origin]</p>
+      <p class="teal b">[If you answered negatively to the question re: UKTS and certificate of origin]</p>
       <p class="">This import cannot be de-risked because you are not authorised with the UK Trader Scheme,
         nor do you have a valid Certificate of Origin to prove that the goods originate in the UK according to the
         applicable <a href="https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin">Rules of Origin</a>,
-        therefore EU import duties will apply.</p> #}
+        therefore EU import duties will apply.</p>
 
 
-      {# <p class="teal b">[If you answered negatively to the question re: final processing and certificate of origin]</p>
-      <p class="">This import cannot be de-risked because your goods are not for sale to, or final use by, end-consumers located in Northern Ireland,
+      <p class="teal b">[If you answered negatively to the question re: final processing and certificate of origin]</p>
+      <p class="">This import cannot be de-risked because your goods are not for sale to, or final use by, end-consumers located in the United Kingdom,
         nor do you have a valid Certificate of Origin to prove that the goods originate in the UK according to the
         applicable <a href="https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin">Rules of Origin</a>,
-        therefore EU import duties will apply.</p> #}
+        therefore EU import duties will apply.</p>
 
       <p class="teal b">[If you answered negatively to the question re: processing and certificate of origin]</p>
       <p class="">This import cannot be de-risked because your goods will be processed for commercial purposes other than those permitted,
@@ -49,13 +45,6 @@
         <a href="https://www.trade-tariff.service.gov.uk/xi/commodities/{{ commodity.goods_nomenclature_item_id }}?country=GB#import">import duties for commodity {{ commodity.goods_nomenclature_item_id | format_commodity_code }} from
         England, Scotland or Wales on the Northern Ireland Online Tariff</a>.
       </p>
-
-       {# {{ govukButton({
-      text: "Continue"
-      }) }} #}
-      {{ govukButton({
-      text: "Start again"
-      }) }}
 
       {# {% include "../includes/commodity_panel.html" %} #}
     </div>

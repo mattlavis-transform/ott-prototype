@@ -20,14 +20,14 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-three-quarters">
-        <!-- Show rules messages // -->
-         {# {% if (data['message']) %}
+            <!-- Show rules messages // -->
+            {# {% if (data['message']) %}
         <div class="panel panel_grey">
             <h2 class="govuk-heading-s">{{ data['message'].title }}</h1>
             <p class="govuk-body">{{ data['message'].message | safe }}</p>
         </div>
         {% endif %} #}
-        <!-- End show rules messages // -->
+            <!-- End show rules messages // -->
 
             <span class="govuk-caption-xl">Calculate import duties</span>
             <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}" method="get">
@@ -43,8 +43,35 @@
                     {% set error_class = "" %}
                 {% endif %}
 
-                {# Display the type-ahead select control #}
-                <fieldset class="govuk-fieldset">
+                {% if (data["origin"] == "GB") %}
+
+                    {{ govukRadios({
+                        idPrefix: "final_use",
+                        name: "final_use",
+                        fieldset: {
+                            legend: {
+                            text: "Is your import for sale to, or final use by, end-consumers located in Northern Ireland?",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--l"
+                            }
+                        },
+                        items: [
+                            {
+                                value: "yes",
+                                text: "Yes, I am importing this good into Northern Ireland for its sale to, or final use by,
+                                    end-consumers located in Northern Ireland"
+                            },
+                            {
+                                value: "no",
+                                text: "No, this import will not be for final use in Northern Ireland",
+                                xhint: {
+                                    text: "Your goods will be liable for the EU import duties"
+                                }
+                            }
+                        ]
+                        }) }}
+
+                {% else %}
 
                     {{ govukRadios({
                         idPrefix: "final_use",
@@ -72,13 +99,11 @@
                         ]
                         }) }}
 
-
-
-                    {{ govukButton({
+                {% endif %}
+                {{ govukButton({
                       text: "Continue"
                     }) }}
 
-                </fieldset>
             </form>
             {% include "../includes/commodity_panel.html" %}
             <div class="gem-c-contextual-footer">
@@ -87,7 +112,7 @@
                         <h2 id="related-nav-topics-c7e51674" class="gem-c-related-navigation__sub-heading gem-c-related-navigation__sub-heading--footer">Explore the topic</h2>
                         <ul class="gem-c-related-navigation__link-list">
                             <li class="gem-c-related-navigation__link">
-                                <a class="gem-c-related-navigation__section-link gem-c-related-navigation__section-link--footer" href="https://www.gov.uk/guidance/apply-for-authorisation-for-the-uk-trader-scheme-if-you-bring-goods-into-northern-ireland-from-1-january-2021">Apply for authorisation for the UK trader scheme</a>
+                                <a class="gem-c-related-navigation__section-link gem-c-related-navigation__section-link--footer" href="https://www.gov.uk/guidance/check-if-you-can-declare-goods-you-bring-into-northern-ireland-not-at-risk-of-moving-to-the-eu">Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU</a>
                             </li>
                         </ul>
                     </nav>
