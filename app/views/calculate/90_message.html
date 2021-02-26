@@ -21,29 +21,31 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
       <span class="govuk-caption-xl">Calculate import duties</span>
-      <h1 class="govuk-heading-xl">{{ data['message'].title }}</h1>
-      <p class="govuk-body">{{ data['message'].message | safe }}</p>
 
-      {# Display the Continue button #}
-      {% if data['message'].button_face %}
-      {{ govukButton({
+      {% if message %}
+        <h1 class="govuk-heading-xl">{{ message.title }}</h1>
+        <p class="govuk-body">{{ message.message | safe }}</p>
+
+        {% if message.button_face %}
+          {{ govukButton({
+            text: message.button_face, 
+            href: message.next_url
+            }) }}
+        {% endif %}
+
+      {% else %}
+        <h1 class="govuk-heading-xl">{{ data['message'].title }}</h1>
+        <p class="govuk-body">{{ data['message'].message | safe }}</p>
+
+        {% if data['message'].button_face %}
+          {{ govukButton({
             text: data['message'].button_face, 
             href: data['message'].next_url
             }) }}
+
+        {% endif %}
       {% endif %}
-      {# {% include "../includes/commodity_panel.html" %} #}
-      {# <div class="gem-c-contextual-footer">
-        <div class="gem-c-related-navigation">
-          <nav role="navigation" class="gem-c-related-navigation__nav-section">
-            <h2 id="related-nav-topics-c7e51674" class="gem-c-related-navigation__sub-heading gem-c-related-navigation__sub-heading--footer">Explore the topic</h2>
-            <ul class="gem-c-related-navigation__link-list">
-              <li class="gem-c-related-navigation__link">
-                <a class="gem-c-related-navigation__section-link gem-c-related-navigation__section-link--footer" href="https://www.gov.uk/guidance/check-if-you-can-declare-goods-you-bring-into-northern-ireland-not-at-risk-of-moving-to-the-eu-from-1-january-2021#when-a-good-is-at-risk">When a good is ‘at risk’</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div> #}
+
     </div>
   </div>
 

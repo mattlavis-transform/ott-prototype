@@ -734,6 +734,16 @@ router.get('/calculate/message/:goods_nomenclature_item_id', function (req, res)
 
 
 
+// Calculator - Confirmatory message panel
+router.get('/calculate/message2/:scenario', function (req, res) {
+    var scenario = req.params["scenario"];
+    var content = require('./classes/message_content.json');
+    var retrieved_content = content["data"][scenario];
+
+    req.session.data["message"] = retrieved_content;
+    res.render('calculate/90_message', { 'message': retrieved_content });
+});
+
 // Calculator - Interstitial trade defence
 router.get('/calculate/trade_defence/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);

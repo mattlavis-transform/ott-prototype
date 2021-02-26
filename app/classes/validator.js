@@ -315,7 +315,6 @@ global.validate_processing = function (req, res) {
     var txt_ukts = "<li>You are a member of the UK Trader Scheme</li>";
     var txt_final_use = "<li>Your import is <b>for sale to, or final use by</b>, end-consumers located in Northern Ireland</li>";
     var txt_no_processing = "<li>You <b>do not intend to further process</b> the goods on arrival in Northern Ireland</li>";
-    // var txt_non_commercial_processing = "<li>You will be undertaking <b>non-commercial processing</b> on the goods on arrival in Northern Ireland</li>";
     var txt_non_commercial_processing = "<li>The importer had a total <b>annual turnover</b> of less than <b>£500,000</b> in its most recent complete financial year</li>";
     var txt_permitted_commercial_processing = "<li>You will be undertaking <b>permitted commercial processing</b> on the goods on arrival in Northern Ireland</li>";
 
@@ -402,10 +401,9 @@ global.validate_certificate_of_origin = function (req, res) {
         if (origin == "GB") {
             if (origin_certificate == "yes") {
                 req.session.data["certificate_string"] = "Valid certificate of origin";
-                req.session.data["message"] = {
-                    "title": "There is no import duty to pay",
-                    "message": "There is <strong>no import duty to pay</strong> because:</p><ul class='govuk-list govuk-list--bullet'><li>You are transporting goods from England, Scotland or Wales to Northern Ireland.</li><li>You are able to take advantage of the preferential tariffs provided by the UK / EU Trade and Co-operation Agreement (TCA) and have a valid Certificate of Origin.</li></ul><p class='govuk-body'>You may be called upon to provide a copy of your Certificate of Origin to avoid paying duties.</p>"
-                };
+                var content = require('./message_content.json');
+                var retrieved_content = content["data"]["certificate_of_origin"];
+                req.session.data["message"] = retrieved_content;
                 url = "/calculate/message/" + req.params["goods_nomenclature_item_id"];
                 req.session.data["at_risk"] = false;
             } else {
