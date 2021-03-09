@@ -326,6 +326,7 @@ class Commodity {
     }
 
     calculate_mfn() {
+        return;
         var result;
         this.value_for_vat = this.total_cost;
         this.mfns.forEach(calc => {
