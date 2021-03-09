@@ -25,7 +25,7 @@
       <p class="govuk-body-s teal">
         <b>Scenario</b><br>There is a preference on both UK tariff but not on the EU tariff.</p>
 
-      <p>The following duties are applicable to the import of commodity <a href="/commodities/{{ commodity.goods_nomenclature_item_id }}">
+      <p>You are importing commodity <a href="/commodities/{{ commodity.goods_nomenclature_item_id }}">
           <strong>{{ commodity.goods_nomenclature_item_id | format_commodity_code }}</a>
         </strong> from <strong>Mulvania</strong> on <strong>03 Jun 2021</strong>.</p>
 
@@ -45,7 +45,7 @@
             <dt>Import date:</dt>
             <dd>1 Jan 2021&nbsp;</dd>
 
-            <dt>Monetary value:</dt>
+            <dt>Valuation for import:</dt>
             <dd>£2000.00&nbsp;</dd>
           </dl>
         </div>
@@ -53,7 +53,7 @@
 
       <!-- Start navigation //-->
       <nav>
-        <p class="govuk-body govuk-!-margin-bottom-3">See below for the potential options for paying duties on this import:</p>
+        <p class="govuk-body govuk-!-margin-bottom-3">See below for the options for paying duties on this import:</p>
 
         <ul class="app-contents govuk-!-margin-bottom-9">
 
@@ -91,7 +91,7 @@
             text: "Calculation"
           },
           {
-            text: "Amount payable",
+            text: "Value",
             classes: "r"
           }
         ],
@@ -183,7 +183,7 @@
               text: "Calculation"
             },
             {
-              text: "Amount payable",
+              text: "Value",
               classes: "r"
             }
           ],

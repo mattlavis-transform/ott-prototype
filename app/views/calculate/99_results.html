@@ -21,7 +21,7 @@
     <div class="govuk-grid-column-full">
       <span class="govuk-caption-xl">Calculate import duties</span>
       <h1 class="govuk-heading-xl">Import duty calculation</h1>
-      <p>The following duties are applicable to the import of commodity <a href="/commodities/{{ commodity.goods_nomenclature_item_id }}">
+      <p>You are importing commodity <a href="/commodities/{{ commodity.goods_nomenclature_item_id }}">
           <strong>{{ commodity.goods_nomenclature_item_id | format_commodity_code }}</a>
         </strong> from <strong>{{ commodity.country_name }}</strong> on <strong>03 Jun 2021</strong>.</p>
 
@@ -41,7 +41,7 @@
             <dt>Import date:</dt>
             <dd>1 Jan 2021&nbsp;</dd>
 
-            <dt>Monetary value:</dt>
+            <dt>Valuation for import:</dt>
             <dd>£2000.00&nbsp;</dd>
           </dl>
         </div>
