@@ -16,8 +16,8 @@
                     {{ govukButton({
                         text: "Reject additional cookies",
                         href: "",
-                        id: "cookie_accept_all",
-                        classes: "cookie_accept_all"
+                        id: "cookie_reject_all",
+                        classes: "cookie_reject_all"
                     }) }}
                     {# {{ govukButton({
                         text: "View cookies",
@@ -27,13 +27,14 @@
                 </div>
             </div>
         </div>
-        <div class="app-cookie-banner__message" id="cookies_hide_message">
-            <div style="display: flex;flex-direction: row;flex-wrap: nowrap;justify-content:space-between;align-content:stretch">
-                <p>You’ve accepted all cookies. You can change your cookie settings at any time.</p>
-                <p>
-                    <a id="hide_cookie_panel" href="#">Hide</a>
-                </p>
-            </div>
+        <div class="app-cookie-banner__message cookies_hide_message" id="cookies_accepted">
+            <p>You have accepted additional cookies. You can <a href="/cookies">change your cookie settings</a> at any time.</p>
+            <button class="govuk-button hide_cookie_panel" data-module="govuk-button">Hide this message</button>
+        </div>
+        <div class="app-cookie-banner__message cookies_hide_message" id="cookies_rejected">
+            <p>You have rejected additional cookies. You can <a href="/cookies">change your cookie settings</a> at any time.</p>
+            <button class="govuk-button hide_cookie_panel" data-module="govuk-button">Hide this message</button>
         </div>
     </div>
+</div>
 {% endif %}
