@@ -25,7 +25,7 @@
 
       <p>You are importing commodity <a href="/commodities/{{ commodity.goods_nomenclature_item_id }}">
           <strong>{{ commodity.goods_nomenclature_item_id | format_commodity_code }}</a>
-        </strong> from <strong>Mulvania</strong> on <strong>03 Jun 2021</strong>.</p>
+        </strong> from <strong>Honduras</strong> on <strong>03 Jun 2021</strong>.</p>
 
       <details class="govuk-details import_summary" data-module="govuk-details">
         <summary class="govuk-details__summary">
@@ -62,14 +62,11 @@
             <a class="govuk-body" href="#measure_type_103">Option 1: Third-country duty</a>
           </li>
           <li class="govuk-!-margin-bottom-2">
-            <a class="govuk-body" href="#measure_type_142">Option 2: Tariff preference with Mulvania</a>
+            <a class="govuk-body" href="#measure_type_122_054003">Option 2: Non-preferential quota 054003</a>
           </li>
-          {# <li class="govuk-!-margin-bottom-2">
-            <a class="govuk-body" href="#measure_type_143">3: Use quota 05.1234</a>
+          <li class="govuk-!-margin-bottom-3">
+            <a class="govuk-body" href="#measure_type_142_057300">Option 3: Preferential tariff quota 057300</a>
           </li>
-          <li class="govuk-!-margin-bottom-2">
-            <a class="govuk-body" href="#measure_type_112">4: Use autonomous tariff suspension</a>
-          </li> #}
         </ul>
       </nav>
       <!-- End navigation //-->
@@ -137,7 +134,7 @@
 
 
       <div class="hideable">
-        <h2 id="measure_type_142" class="govuk-heading-m govuk-!-margin-top-9">Option 2: Tariff preference with Mulvania</h2>
+        <h2 id="measure_type_122_054003" class="govuk-heading-m govuk-!-margin-top-9">Option 2: Non-preferential quota 054003</h2>
         {{ govukTable({
           firstCellIsHeader: false,
           classes: "govuk-table--m",
@@ -168,7 +165,7 @@
             ],
             [
               {
-                html: "Import duty <br><span class='govuk-green'>Tariff preference (UK)</span>"
+                html: "Import duty <br><span class='govuk-green'>Non-preferential quota (UK)</span>"
               },
               {
                 text: "6% * £1,500.00"
@@ -194,7 +191,68 @@
           ]
         }) }}
 
-        <p class="govuk-body">To use the tariff preference with Mulvania, do the following ... or read this information.</p>
+        <p class="govuk-body">To use a non-preferential quota, do the following ... or read this information.</p>
+      </div>
+
+      <div class="hideable">
+        <h2 id="measure_type_142_057300" class="govuk-heading-m govuk-!-margin-top-9"> Option 3: Preferential tariff quota 057300</h2>
+        {{ govukTable({
+          firstCellIsHeader: false,
+          classes: "govuk-table--m",
+          head: [
+            {
+              text: "Data"
+            },
+            {
+              text: "Calculation"
+            },
+            {
+              text: "Value",
+              classes: "r"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Valuation for import"
+              },
+              {
+                text: "Value of goods + freight + insurance costs"
+              },
+              {
+                text: "£1,500.00",
+                classes: "r"
+              }
+            ],
+            [
+              {
+                html: "Import duty <br><span class='govuk-green'>Preferential tariff quota (UK)</span>"
+              },
+              {
+                text: "0% * £1,500.00"
+              },
+              {
+                text: "£0.00",
+                classes: "r"
+              }
+            ],
+            [
+              {
+                html: "Duty total",
+                classes: "b"
+              },
+              {
+                text: ""
+              },
+              {
+                text: "£0.00",
+                classes: "r b"
+              }
+            ]
+          ]
+        }) }}
+
+        <p class="govuk-body">To use a preferential tariff quota, do the following ... or read this information.</p>
       </div>
 
 

@@ -651,6 +651,7 @@ router.get('/calculate/results/:goods_nomenclature_item_id', function (req, res)
             c.get_data(response.data);
             c.get_measure_data(req, req.session.data["origin"]);
             res.render('calculate/99_results', { 'commodity': c, 'error': err });
+            //res.render('calculate/99_results_flat', { 'commodity': c, 'error': err });
         });
 });
 

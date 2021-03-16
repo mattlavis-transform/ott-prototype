@@ -1,24 +1,38 @@
 {% if shouldShowCookieMessage %}
     <div class="app-cookie-banner" style="background-color: #f3f2f1;">
         <div class="app-cookie-banner__message" id="cookies_consent_mechanism">
-            <h1 class="govuk-heading-m">Tell us whether you accept cookies</h1>
-            <p>We use cookies to <a href="/cookies">collect information about how you use GOV.UK</a>. We use this information to make the website work as well as possible and improve government services.</p>
-            {# {{cookieText | safe }} #}
-            {{ govukButton({
-        text: "Accept all cookies",
-        href: "",
-        id: "cookie_accept_all",
-        classes: "cookie_accept_all"
-      }) }}
-            {{ govukButton({
-        text: "Set cookie preferences",
-        href: "/cookies"
-      }) }}
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <h1 class="govuk-heading-m">Cookies on HMRC services</h1>
+                    <p>We use some essential cookies to make our services work.</p>
+                    <p>We would like to set additional cookies so we can remember your settings,
+                    understand how people use our services and make improvements.</p>
+                    {{ govukButton({
+                        text: "Accept additional cookies",
+                        href: "",
+                        id: "cookie_accept_all",
+                        classes: "cookie_accept_all"
+                    }) }}
+                    {{ govukButton({
+                        text: "Reject additional cookies",
+                        href: "",
+                        id: "cookie_accept_all",
+                        classes: "cookie_accept_all"
+                    }) }}
+                    {# {{ govukButton({
+                        text: "View cookies",
+                        href: "/cookies"
+                    }) }} #}
+                    <a class="cbanner-govuk-link" href="/cookies">View cookies</a>
+                </div>
+            </div>
         </div>
         <div class="app-cookie-banner__message" id="cookies_hide_message">
             <div style="display: flex;flex-direction: row;flex-wrap: nowrap;justify-content:space-between;align-content:stretch">
                 <p>You’ve accepted all cookies. You can change your cookie settings at any time.</p>
-                <p><a id="hide_cookie_panel" href="#">Hide</a></p>
+                <p>
+                    <a id="hide_cookie_panel" href="#">Hide</a>
+                </p>
             </div>
         </div>
     </div>

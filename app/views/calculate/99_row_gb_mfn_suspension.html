@@ -22,12 +22,6 @@
       <span class="govuk-caption-xl">Calculate import duties</span>
       <h1 class="govuk-heading-xl">Import duty calculation</h1>
 
-      <p class="govuk-body-s teal">
-        <b>Scenario</b><br>There is a preference on both the UK and the EU tariff.</p>
-      <p class="govuk-body-s teal">
-        <b>Question</b><br>If there is a tariff preference on both the UK and the EU tariffs, 
-      but the EU tariff preference is lower than the UK tariff, is there a way that the trader can claim access to that?</p>
-
       <p>You are importing commodity <a href="/commodities/{{ commodity.goods_nomenclature_item_id }}">
           <strong>{{ commodity.goods_nomenclature_item_id | format_commodity_code }}</a>
         </strong> from <strong>Mulvania</strong> on <strong>03 Jun 2021</strong>.</p>
@@ -50,6 +44,9 @@
 
             <dt>Valuation for import:</dt>
             <dd>£2000.00&nbsp;</dd>
+
+            <dt>Import quantity:</dt>
+            <dd>200.00 kilograms</dd>
           </dl>
         </div>
       </details>
@@ -64,25 +61,23 @@
             <a class="govuk-body" href="#measure_type_103">Option 1: Third-country duty</a>
           </li>
           <li class="govuk-!-margin-bottom-2">
-            <a class="govuk-body" href="#measure_type_142">Option 2: Tariff preference with Mulvania</a>
-          </li>
-          {# <li class="govuk-!-margin-bottom-2">
-            <a class="govuk-body" href="#measure_type_143">3: Use quota 05.1234</a>
+            <a class="govuk-body" href="#measure_type_112">Option 2: Autonomous tariff suspension</a>
           </li>
           <li class="govuk-!-margin-bottom-2">
-            <a class="govuk-body" href="#measure_type_112">4: Use autonomous tariff suspension</a>
-          </li> #}
+            <a class="govuk-body" href="#measure_type_115">Option 3: Autonomous suspension under end-use</a>
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-body" href="#measure_type_117">Option 4: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms</a>
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-body" href="#measure_type_119">Option 5: Airworthiness tariff suspension</a>
+          </li>
         </ul>
       </nav>
       <!-- End navigation //-->
 
       <h2 id="measure_type_103" class="govuk-heading-m">Option 1: Third-country duty</h2>
-      <p class="govuk-body-s teal">Options as per MFN page.</p>
-      {{ govukWarningText({
-        html: "Your trade may be treated as 'not at risk' of being subsequently moved into the European Union.",
-        iconFallbackText: "Warning"
-      }) }}
-      {# <p class="govuk-body">Enter the value '<b>100</b>' in Box 36 of your import declaration to use the basic third-country duty.</p> #}
+
       {{ govukTable({
         firstCellIsHeader: false,
         classes: "govuk-table--m",
@@ -140,18 +135,8 @@
       }) }}
       <p class="govuk-body">To use the third-country duty, do the following ... or read this information.</p>
 
-
-
       <div class="hideable">
-        <h2 id="measure_type_142" class="govuk-heading-m govuk-!-margin-top-9">Option 2<span class="teal">a</span>: Tariff preference with Mulvania</h2>
-        <p class="govuk-body-s teal">There are preferences in both the UK and the EU tariff. The UK tariff is the same or lower than the EU tariff,
-        but not so much lower that the 3% differential is exceeded. The trader has 'derisked' the trade via the UKTS, final use and processing plans.</p>
-        {{ govukWarningText({
-                html: "Your trade may be treated as 'not at risk' of being subsequently moved into the European Union.
-                You may take advantage of the UK tariff preference with Mulvania.",
-                iconFallbackText: "Warning"
-            }) }}
-
+        <h2 id="measure_type_112" class="govuk-heading-m govuk-!-margin-top-9">Option 2: Autonomous tariff suspension</h2>
         {{ govukTable({
           firstCellIsHeader: false,
           classes: "govuk-table--m",
@@ -182,153 +167,7 @@
             ],
             [
               {
-                html: "Import duty <br><span class='govuk-green'>Tariff preference (UK)</span>"
-              },
-              {
-                text: "6% * £1,500.00"
-              },
-              {
-                text: "£90.00",
-                classes: "r"
-              }
-            ],
-            [
-              {
-                html: "Duty total",
-                classes: "b"
-              },
-              {
-                text: ""
-              },
-              {
-                text: "£225.00",
-                classes: "r b"
-              }
-            ]
-          ]
-        }) }}
-
-        <p class="govuk-body">To use the tariff preference with Mulvania, do the following ... or read this information.</p>
-        <p class="hide teal">Hide</p>
-        <hr class="teal_band teal"/>
-      </div>
-
-
-      <div class="hideable">
-        <h2 id="measure_type_142" class="govuk-heading-m govuk-!-margin-top-9">Option 2<span class="teal">b</span>: Tariff preference with Mulvania</h2>
-        <p class="govuk-body-s teal">There are preferences in both the UK and the EU tariff. The UK tariff is the lower than the EU tariff
-        by more than permitted, so the 3% differential is triggered. The trader can still take advantage of the EU tariff preference.</p>
-        <p class="govuk-body-s teal">This would also be shown if the user had answered negatively to any of the questions re:
-        UKTS, final use, processing.</p>
-        {{ govukWarningText({
-                html: "The UK tariff preference for commodity code " + commodity.goods_nomenclature_item_id | format_commodity_code + 
-                " with Mulvania is not available. However you can still take advantage of the EU's tariff preference with Mulvania.",
-                iconFallbackText: "Warning"
-            }) }}
-
-        {{ govukTable({
-          firstCellIsHeader: false,
-          classes: "govuk-table--m",
-          head: [
-            {
-              text: "Data"
-            },
-            {
-              text: "Calculation"
-            },
-            {
-              text: "Value",
-              classes: "r"
-            }
-          ],
-          rows: [
-            [
-              {
-                text: "Valuation for import"
-              },
-              {
-                text: "Value of goods + freight + insurance costs"
-              },
-              {
-                text: "£1,500.00",
-                classes: "r"
-              }
-            ],
-            [
-              {
-                html: "Import duty <br><span class='govuk-green'>Tariff preference (EU)</span>"
-              },
-              {
-                text: "10% * £1,500.00"
-              },
-              {
-                text: "£150.00",
-                classes: "r"
-              }
-            ],
-            [
-              {
-                html: "Duty total",
-                classes: "b"
-              },
-              {
-                text: ""
-              },
-              {
-                text: "£150.00",
-                classes: "r b"
-              }
-            ]
-          ]
-        }) }}
-
-        <p class="govuk-body">To use the tariff preference with Mulvania, do the following ... or read this information.</p>
-        <p class="hide teal">Hide</p>
-        <hr class="teal_band teal"/>
-      </div>
-
-
-      <div class="hideable">
-        <h2 id="measure_type_142" class="govuk-heading-m govuk-!-margin-top-9">Option 2<span class="teal">c</span>: Tariff preference with Mulvania</h2>
-        <p class="govuk-body-s teal">There are preferences in both the UK and the EU tariffs. The UK tariff and the EU tariff
-        are identical (both 0% in this instance). The goods are therefore derisked.</p>
-        {{ govukWarningText({
-                html: "Your trade may be treated as 'not at risk' of being subsequently moved into the European Union.
-                You may take advantage of the UK tariff preference with Mulvania.",
-                iconFallbackText: "Warning"
-            }) }}
-
-        {{ govukTable({
-          firstCellIsHeader: false,
-          classes: "govuk-table--m",
-          head: [
-            {
-              text: "Data"
-            },
-            {
-              text: "Calculation"
-            },
-            {
-              text: "Value",
-              classes: "r"
-            }
-          ],
-          rows: [
-            [
-              {
-                text: "Valuation for import"
-              },
-              {
-                text: "Value of goods + freight + insurance costs"
-              },
-              {
-                text: "£1,500.00",
-                classes: "r"
-              }
-            ],
-            [
-              {
-                html: "Import duty <br><span class='govuk-green'>Tariff preference (UK)</span>"
+                html: "Import duty <br><span class='govuk-green'>Autonomous tariff suspension (UK)</span>"
               },
               {
                 text: "0% * £1,500.00"
@@ -354,13 +193,218 @@
           ]
         }) }}
 
-        <p class="govuk-body">To use the tariff preference with Mulvania, do the following ... or read this information.</p>
-        <p class="hide teal">Hide</p>
-        <hr class="teal_band teal"/>
+        <p class="govuk-body">This suspension does not apply to any mixtures, preparations or products made up of different components containing these products.</p>
+      </div>
+
+      <div class="hideable">
+        <h2 id="measure_type_115" class="govuk-heading-m govuk-!-margin-top-9">Option 3: Autonomous suspension under end-use</h2>
+        {{ govukTable({
+          firstCellIsHeader: false,
+          classes: "govuk-table--m",
+          head: [
+            {
+              text: "Data"
+            },
+            {
+              text: "Calculation"
+            },
+            {
+              text: "Value",
+              classes: "r"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Valuation for import"
+              },
+              {
+                text: "Value of goods + freight + insurance costs"
+              },
+              {
+                text: "£1,500.00",
+                classes: "r"
+              }
+            ],
+            [
+              {
+                html: "Import duty <br><span class='govuk-green'>Autonomous suspension under end-use (UK)</span>"
+              },
+              {
+                text: "0% * £1,500.00"
+              },
+              {
+                text: "£0.00",
+                classes: "r"
+              }
+            ],
+            [
+              {
+                html: "Duty total",
+                classes: "b"
+              },
+              {
+                text: ""
+              },
+              {
+                text: "£0.00",
+                classes: "r b"
+              }
+            ]
+          ]
+        }) }}
+
+        <p class="govuk-body">Suspension of duties is subject to Authorised-Use customs supervision
+        in accordance with Chapter 4 of The Customs (Special Procedures and Outward Processing)
+        (EU Exit) Regulations 2018 (UK Statutory Instruments 2018 No. 1249)<br><br>
+        This suspension may only be used in goods imported for the construction, maintenance and repair
+        of aircraft of an unladen weight exceeding 2 000 kilograms and of ground flying trainers for civil use.</p>
+      </div>
+      <div class="hideable">
+        <h2 id="measure_type_117" class="govuk-heading-m govuk-!-margin-top-9">Option 4: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms</h2>
+        {{ govukTable({
+          firstCellIsHeader: false,
+          classes: "govuk-table--m",
+          head: [
+            {
+              text: "Data"
+            },
+            {
+              text: "Calculation"
+            },
+            {
+              text: "Value",
+              classes: "r"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Valuation for import"
+              },
+              {
+                text: "Value of goods + freight + insurance costs"
+              },
+              {
+                text: "£1,500.00",
+                classes: "r"
+              }
+            ],
+            [
+              {
+                html: "Import duty <br><span class='govuk-green'>Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms (UK)</span>"
+              },
+              {
+                text: "0% * £1,500.00"
+              },
+              {
+                text: "£0.00",
+                classes: "r"
+              }
+            ],
+            [
+              {
+                html: "Duty total",
+                classes: "b"
+              },
+              {
+                text: ""
+              },
+              {
+                text: "£0.00",
+                classes: "r b"
+              }
+            ]
+          ]
+        }) }}
+
+        <p class="govuk-body">
+        1. Customs duties may be suspended in respect of goods intended for incorporation in ships, boats or other
+        vessels classified at the following CN codes 8901 10 10; 8901 20 10; 8901 30 10; 8901 90 10; 8902 00 10;
+        8903 91 10; 8903 92 10; 8904 00 10; 8904 00 91; 8905 10 10; 8905 90 10; 8906 10 00; 8906 90 10 for the purposes
+        of their construction, repair, maintenance or conversion, and in respect of goods intended for fitting to
+        or equipping such ships, boats or other vessels.<br><br>
+        2. Customs duties shall be suspended in respect of:<br>
+        (a) goods intended for incorporation in drilling or production platforms:<br>
+        (1) fixed, of subheading ex 8430 49, operating in or outside the territorial sea of Member States, or<br>
+        (2) floating or submersible, of subheading 8905 20, for the purposes of their construction, repair, maintenance or conversion, and in respect of goods intended for equipping the said platforms.<br>
+        (b) tubes, pipes, cables and their connection pieces, linking these drilling or production platforms to the mainland.<br>
+        Goods intended for incorporation in drilling or production platforms:<br>
+        Those goods such as motor fuel, lubricants and gas, which are necessary for the operation of machines and apparatus which do not affect permanently, and are not integral parts of the platforms and which are used on board for the construction, repair, maintenance, conversion or equipping of these platforms are regarded also as being used for incorporation in drilling or production platforms.
+        </p>
+      </div>
+
+      <div class="hideable">
+        <h2 id="measure_type_119" class="govuk-heading-m govuk-!-margin-top-9">Option 5: Airworthiness tariff suspension</h2>
+        {{ govukTable({
+          firstCellIsHeader: false,
+          classes: "govuk-table--m",
+          head: [
+            {
+              text: "Data"
+            },
+            {
+              text: "Calculation"
+            },
+            {
+              text: "Value",
+              classes: "r"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Valuation for import"
+              },
+              {
+                text: "Value of goods + freight + insurance costs"
+              },
+              {
+                text: "£1,500.00",
+                classes: "r"
+              }
+            ],
+            [
+              {
+                html: "Import duty <br><span class='govuk-green'>Airworthiness tariff suspension (UK)</span>"
+              },
+              {
+                text: "0% * £1,500.00"
+              },
+              {
+                text: "£0.00",
+                classes: "r"
+              }
+            ],
+            [
+              {
+                html: "Duty total",
+                classes: "b"
+              },
+              {
+                text: ""
+              },
+              {
+                text: "£0.00",
+                classes: "r b"
+              }
+            ]
+          ]
+        }) }}
+
+        <p class="govuk-body">The autonomous Common Customs Tariff duties laid down in Regulation (EEC) No 2658/87 for parts,
+        components and other goods of a kind to be incorporated in or used for aircraft and parts thereof in the course
+        of their manufacture, repair, maintenance, rebuilding, modification or conversion is suspended.<br><br>
+        In order to benefit from the suspension, the declarant shall present to the customs authorities an Authorised
+        Release Certificate — EASA Form 1, as set out in Appendix I to Annex I to Regulation (EU) No 748/2012,
+        or an equivalent certificate.<br><br>
+        The certificates which are deemed to be equivalent to Authorised Release Certificates are listed in Annex II to the Regulation (EU) 2018/1517.</p>
       </div>
 
     </div>
+
   </div>
+</div>
 
 {% endblock %}
 </html>

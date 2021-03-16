@@ -763,7 +763,8 @@ tr:last-of-type .govuk-table__cell {
 .app-contents {
     list-style-type: none;
     padding        : 0;
-    margin         : 0;
+    margin         : 0 0 0 2.2em;
+    text-indent:-2.2em
 }
 
 .app-contents li:before {
