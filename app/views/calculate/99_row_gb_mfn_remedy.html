@@ -24,7 +24,7 @@
       
       <p>You are importing commodity <a href="/commodities/{{ commodity.goods_nomenclature_item_id }}">
           <strong>{{ commodity.goods_nomenclature_item_id | format_commodity_code }}</a>
-        </strong> from <strong>{{ commodity.country_name }}</strong> on <strong>03 Jun 2021</strong>.</p>
+        </strong> from <strong>Australia</strong> on <strong>03 Jun 2021</strong>.</p>
 
       <details class="govuk-details import_summary" data-module="govuk-details">
         <summary class="govuk-details__summary">
@@ -33,7 +33,7 @@
         <div class="govuk-details__text">
           <dl>
             <dt>Origin:</dt>
-            <dd>{{ commodity.country_name }}&nbsp;</dd>
+            <dd>Australia&nbsp;</dd>
 
             <dt>Commodity:</dt>
             <dd>{{ commodity.goods_nomenclature_item_id | format_commodity_code }}<br>
@@ -43,10 +43,10 @@
             <dd>1 Jan 2021&nbsp;</dd>
 
             <dt>Valuation for import:</dt>
-            <dd>£2,000.00&nbsp;</dd>
+            <dd>£2,000.00</dd>
 
             <dt>Import quantity:</dt>
-            <dd>200.00 kilograms</dd>
+            <dd>10,000 kilogrammes of biodiesel</dd>
           </dl>
         </div>
       </details>
@@ -87,25 +87,25 @@
           ],
           [
             {
-              text: "Import quantity"
+              html: "Import duty <br><span class='govuk-green'> Third country duty (UK)</span>"
             },
             {
-              text: ""
+              text: "15% * £1,500.00"
             },
             {
-              text: "200 kilograms",
+              text: "£225.00",
               classes: "r"
             }
           ],
           [
             {
-              html: "Import duty <br><span class='govuk-green'> Third country duty (UK)</span>"
+              html: "Additional duty <br><span class='govuk-green'> Definitive anti-dumping duty (UK)</span>"
             },
             {
-              text: "£5.00 / kg/net eda * 200 kilograms"
+              text: "15% * £1,500.00"
             },
             {
-              text: "£1,000.00",
+              text: "£225.00",
               classes: "r"
             }
           ],
@@ -118,7 +118,7 @@
               text: ""
             },
             {
-              text: "£1,000.00",
+              text: "£225.00",
               classes: "r b"
             }
           ]
