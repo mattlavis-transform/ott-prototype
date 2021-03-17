@@ -409,23 +409,29 @@ global.validate_certificate_of_origin = function (req, res) {
             } else {
                 req.session.data["certificate_string"] = "No valid certificate of origin";
                 req.session.data["at_risk"] = true;
+                var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+
+                // var url2 = "/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"];
+                // res.redirect(url2);
+
                 axios.get(url)
                     .then((response) => {
+                        var url2;
                         c = new Commodity();
                         c.get_data(response.data);
                         c.get_measure_data(req, req.session.data["origin"]);
 
                         if (c.has_meursing) {
-                            url = "/calculate/meursing/" + req.params["goods_nomenclature_item_id"];
+                            url2 = "/calculate/meursing/" + req.params["goods_nomenclature_item_id"];
                         } else {
-                            url = "/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"];
+                            url2 = "/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"];
                         }
-                        res.redirect(url);
+                        res.redirect(url2);
                     });
             }
         }
     }
-    res.redirect(url);
+    //res.redirect(url);
 
 }
 
