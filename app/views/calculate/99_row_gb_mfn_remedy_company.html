@@ -24,7 +24,7 @@
       
       <p>You are importing commodity <a href="/commodities/{{ commodity.goods_nomenclature_item_id }}">
           <strong>{{ commodity.goods_nomenclature_item_id | format_commodity_code }}</a>
-        </strong> from <strong>Australia</strong> on <strong>03 Jun 2021</strong>.</p>
+        </strong> from <strong>Canada</strong> on <strong>03 Jun 2021</strong>.</p>
 
       <details class="govuk-details import_summary" data-module="govuk-details">
         <summary class="govuk-details__summary">
@@ -33,7 +33,7 @@
         <div class="govuk-details__text">
           <dl>
             <dt>Origin:</dt>
-            <dd>Australia&nbsp;</dd>
+            <dd>Canada&nbsp;</dd>
 
             <dt>Commodity:</dt>
             <dd>{{ commodity.goods_nomenclature_item_id | format_commodity_code }}<br>
@@ -111,30 +111,6 @@
           ],
           [
             {
-              html: "Additional duty <br><span class='govuk-green'> Definitive anti-dumping duty (UK)</span>"
-            },
-            {
-              text: "144.10 GBP / 1000 kg/biodiesel"
-            },
-            {
-              text: "£1,441.00",
-              classes: "r"
-            }
-          ],
-          [
-            {
-              html: "Additional duty <br><span class='govuk-green'> Definitive countervailing duty (UK)</span>"
-            },
-            {
-              text: "198.33 GBP / 1000 kg/biodiesel"
-            },
-            {
-              text: "£1,983.33",
-              classes: "r"
-            }
-          ],
-          [
-            {
               html: "Duty total",
               classes: "b"
             },
@@ -142,15 +118,19 @@
               text: ""
             },
             {
-              text: "£3,649.33.00",
+              text: "£1,441.00",
               classes: "r b"
             }
           ]
         ]
       }) }}
+      
       <p class="govuk-body">To use the third-country duty, do the following ... or read this information.</p>
-      <p class="govuk-body">Information about the definitive anti-dumping duty.</p>
-      <p class="govuk-body">Information about the definitive countervailing duty.</p>
+      {{ govukWarningText({
+        html: "There are trade defence measures applicable for the import of this
+        commodity from certain companies. Please view the <a href='https://www.trade-tariff.service.gov.uk/commodities/1516209821?country=US#import'>commodity page</a> for more information.",
+        iconFallbackText: "Warning"
+      }) }}
 
 
     </div>

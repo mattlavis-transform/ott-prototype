@@ -100,7 +100,7 @@
 	{
 		"measurement_unit_code" : "KGM P",
 		"abbreviation" : "kg/lactic matter",
-		"description" : "kilogrammes of lactic matter"
+		"description" : "kilograms of lactic matter"
 	},
 	{
 		"measurement_unit_code" : "KLT",

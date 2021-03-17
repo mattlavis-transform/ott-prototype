@@ -547,7 +547,7 @@ class Commodity {
 
         this.multiplier = 1;
 
-        // If the goods use Meursing, then the unit must be kilogrammes, as that is how the Meursing
+        // If the goods use Meursing, then the unit must be kilograms, as that is how the Meursing
         // duties are assigned
         // this.measurement_unit = "";
         // this.measurement_units = [];
