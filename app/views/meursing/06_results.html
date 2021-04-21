@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Look up Meursing code - Check your answers
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a Beta service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">Look up Meursing code</span>
+      {# <h1 class="govuk-heading-l">Matching Meursing code</h1> #}
+      <p>&nbsp;</p>
+
+
+      {{ govukPanel({
+        classes: "govuk-panel--semi-confirmation",
+        titleText: "Your Meursing code",
+        html: "The Meursing code for a product with this composition is <strong>7" + results[0] + "</strong>."
+      }) }}
+
+      {# {% for result in results %}
+        <p class="govuk-body">The Meursing code for a product with this composition is <strong>7{{ result }}</strong>.</p>
+        <p>Use these four digits together with the ten-digit commodity code from Trade Tariff.</p>
+      {% endfor %} #}
+
+      <p>Use these four digits together with the ten-digit commodity code from Trade Tariff.</p>
+      <p><a href="/restart">Start again</a></p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

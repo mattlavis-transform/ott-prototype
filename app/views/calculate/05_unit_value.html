@@ -29,9 +29,9 @@
           Enter the units of the goods that you are importing in the boxes below.
         </p>
 
-{% for measurement_unit in commodity.units %}
+        {% for measurement_unit in commodity.units %}
 
-        {{ govukInput({
+          {{ govukInput({
                 id: "unit_value_" + measurement_unit.unit_field,
                 name: "unit_value_" + measurement_unit.unit_field,
                 label: {
@@ -49,18 +49,18 @@
                 classes: "govuk-input--width-5",
                 spellcheck: false
                 }) }}
-        <p>{{ commodity.warning }}</p>
-{% endfor %}
+          <p>{{ commodity.warning }}</p>
+        {% endfor %}
         {{ govukButton({
             text: "Continue"
-            }) }}
+        }) }}
         {# <p>You are calculating the duties to import commodity
             <a title="Select a different commodity code" href="/sections">0102030405</a>
             into <a title="Select an alternative destination" href="/calculate/destination/0101210000">Wales</a>
             from <a href="">Albania</a>. Click on '<strong>Continue</strong>' or on one of the links above
             to change your previous selections.</p> #}
       </form>
-            {% include "../includes/commodity_panel.html" %}
+      {% include "../includes/commodity_panel.html" %}
     </div>
   </div>
 

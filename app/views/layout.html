@@ -42,8 +42,8 @@
   {% include "includes/cookie-banner.html" %}
   {# Set serviceName in config.js. #}
 
-{% if scopeId == "ni" %}
-  {{ govukHeader({
+  {% if scopeId == "ni" %}
+    {{ govukHeader({
   homepageUrl: "https://www.gov.uk",
   serviceName: title,
   serviceUrl: "/sections",
@@ -67,8 +67,7 @@
   ]
 }) }}
 
-
-{# {{ govukHeader({
+    {# {{ govukHeader({
   homepageUrl: "https://www.gov.uk",
   serviceName: "UK Global Online Tariff",
   serviceUrl: "/sections",
@@ -91,8 +90,28 @@
     }
   ]
 }) }} #}
-{% else %}
-  {{ govukHeader({
+  {% else %}
+    {{ govukHeader({
+  homepageUrl: "https://www.gov.uk",
+  serviceName: "UK Global Online Tariff",
+  serviceUrl: "/sections",
+  navigation: [
+    {
+      href: "/sections/" + scopeId,
+      text: "Search or browse the Tariff"
+    },
+    {
+      href: "/a-z-index/a/" + scopeId,
+      text: "A to Z"
+    },
+    {
+      href: "/tools/" + scopeId,
+      text: "Tools"
+    }
+  ]
+}) }}
+
+    {# {{ govukHeader({
   homepageUrl: "https://www.gov.uk",
   serviceName: "UK Global Online Tariff",
   serviceUrl: "/sections",
@@ -118,45 +137,18 @@
       text: "Latest news"
     }
   ]
-}) }}
-
-{# {{ govukHeader({
-  homepageUrl: "https://www.gov.uk",
-  serviceName: "UK Global Online Tariff",
-  serviceUrl: "/sections",
-  navigation: [
-    {
-      href: "/sections/" + scopeId,
-      text: "Search the Tariff"
-    },
-    {
-      href: "/browse/" + scopeId,
-      text: browse_breadcrumb
-    },
-    {
-      href: "/a-z-index/a/" + scopeId,
-      text: "A to Z"
-    },
-    {
-      href: "/downloads/" + scopeId,
-      text: "Downloads"
-    },
-    {
-      href: "/tools/" + scopeId,
-      text: "Tools"
-    }
-  ]
 }) }} #}
-{% endif %}
 
-{% include "includes/nav_highlighter.html" %}
+  {% endif %}
+
+  {% include "includes/nav_highlighter.html" %}
 
 {% endblock %}
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
 
 {% if useAutoStoreData %}
   {% block footer %}
-  {# {% include "includes/feedback_component.html" %} #}
+    {# {% include "includes/feedback_component.html" %} #}
 
     {{ govukFooter({
   navigation: [
@@ -238,6 +230,7 @@
   {% block scripts %}
     {% include "includes/scripts.html" %}
     {% block pageScripts %}{% endblock %}
+
   {% endblock %}
   <!-- GOV.UK Prototype Kit {{releaseVersion}} -->
 {% endblock %}

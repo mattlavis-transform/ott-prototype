@@ -51,33 +51,25 @@
                         name: "uktrader_scheme",
                         fieldset: {
                             legend: {
-                            text: "Are you registered with the UK Trader Scheme?",
+                            text: "Are you authorised under the UK Trader Scheme?",
                             isPageHeading: true,
                             classes: "govuk-fieldset__legend--xl"
                             }
                         },
                         hint: {
-                            html: "If you are importing goods or sale to, or final use by, end consumers located in the UK
-                            and you are a trader authorised under the UK Trader Scheme, then your goods may be treated as
-                            being 'not at risk' of further movement into the EU and are not subject to EU import duties.
-                            <!--<br><br>If you are not yet registered with the Scheme, then
-                            <a href='https://www.gov.uk/guidance/apply-for-authorisation-for-the-uk-trader-scheme-if-you-bring-goods-into-northern-ireland-from-1-january-2021'>
-                            apply for authorisation for the UK Trader Scheme</a> here.//-->"
+                            html: "If you are moving goods into Northern Ireland which are for sale to, or final use by,
+                            end consumers located in the UK and you are authorised under the UK Trader Scheme,
+                            then you may declare your goods as being 'not at risk' where the requirements are met.
+                            A not ‘at risk’ good entering Northern Ireland from Great Britain will not be subject to duty. "
                         },
                         items: [
                             {
                                 value: "yes",
-                                text: "Yes, I am registered with the UK Trader Scheme",
-                                xhint: {
-                                    text: "I am registered with the UK Trader Scheme"
-                                }
+                                text: "Yes, I am authorised under the UK Trader Scheme"
                             },
                             {
                                 value: "no",
-                                text: "No, I am not registered with the UK Trader Scheme",
-                                xhint: {
-                                    text: "Your goods will be liable for the EU import duties"
-                                }
+                                text: "No, I am not authorised under the UK Trader Scheme"
                             }
                         ]
                         }) }}
@@ -85,9 +77,9 @@
                     {{ govukButton({
                       text: "Continue"
                     }) }}
-                    <p>If you are not yet registered with the Scheme, then
+                    <p>If you are not yet authorised, then you can
                             <a href='https://www.gov.uk/guidance/apply-for-authorisation-for-the-uk-trader-scheme-if-you-bring-goods-into-northern-ireland-from-1-january-2021'>
-                            apply for authorisation for the UK Trader Scheme</a> here.</p>
+                            find out more about applying for authorisation for the UK Trader Scheme</a> here.</p>
 
                 </fieldset>
             </form>

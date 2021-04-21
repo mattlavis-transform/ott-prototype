@@ -42,8 +42,8 @@
                     {% set group_error_class = "" %}
                     {% set error_class = "" %}
                 {% endif %}
-
-                {% if (data["origin"] == "GB") %}
+                {# {{ data["origin"] }} #}
+                {% if (data["origin"] != "GB") %}
 
                     {{ govukRadios({
                         idPrefix: "final_use",
@@ -58,7 +58,7 @@
                         items: [
                             {
                                 value: "yes",
-                                text: "Yes, I am importing this good into Northern Ireland for its sale to, or final use by,
+                                text: "Yes, I am importing these goods into Northern Ireland for its sale to, or final use by,
                                     end-consumers located in Northern Ireland"
                             },
                             {
@@ -78,7 +78,7 @@
                         name: "final_use",
                         fieldset: {
                             legend: {
-                            text: "Is your import for sale to, or final use by, end-consumers located in the United Kingdom?",
+                            text: "Are your goods for sale to, or final use by, end-consumers located in the United Kingdom?",
                             isPageHeading: true,
                             classes: "govuk-fieldset__legend--l"
                             }
@@ -86,15 +86,11 @@
                         items: [
                             {
                                 value: "yes",
-                                text: "Yes, I am importing this good into Northern Ireland for its sale to, or final use by,
-                                    end-consumers located in the United Kingdom"
+                                text: "Yes, I am moving these goods into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom"
                             },
                             {
                                 value: "no",
-                                text: "No, this import will not be for final use in the United Kingdom",
-                                xhint: {
-                                    text: "Your goods will be liable for the EU import duties"
-                                }
+                                text: "No, these goods will not be for sale to, or final use in the United Kingdom"
                             }
                         ]
                         }) }}

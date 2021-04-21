@@ -14,7 +14,7 @@
         },
         "eu_to_ni": {
             "title": "There is no import duty to pay",
-            "message": "There is no import duty to pay when importing goods into Northern Ireland from a European Union member state.",
+            "message": "There is no import duty to pay when importing goods into Northern Ireland from a European Union member state.<br><br>An import declaration is not required.",
             "next_url": "/calculate/date/{{ commodity }}",
             "button_face": "Start again"
         },

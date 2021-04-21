@@ -10,6 +10,13 @@ class Measure {
         this.financial = null;
         this.relevant = false;
         this.measure_components = [];
+        
+        // Conditions
+        this.measure_condition_ids = [];
+        this.measure_conditions = [];
+        this.has_conditions = false;
+        
+        // Geography
         this.geographical_area = null;
         this.geographical_area_id = null;
         this.geographical_area_description = null;
@@ -29,6 +36,7 @@ class Measure {
         this.excluded_country_ids = [];
         this.has_meursing = false;
         this.display_block = "";
+        this.duty_bearing = null;
     }
 
     get_excluded_country_string() {

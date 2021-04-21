@@ -461,6 +461,13 @@ div.panel_blue {
     }
 }
 
+.measures2 {
+
+    td.country {
+        padding-left: 5px
+    }
+}
+
 /*
 .measures {
     th {
@@ -764,7 +771,11 @@ tr:last-of-type .govuk-table__cell {
     list-style-type: none;
     padding        : 0;
     margin         : 0 0 0 2.2em;
-    text-indent:-2.2em
+    text-indent    : -2.2em
+}
+
+.app-contents--s .govuk-body {
+    font-size: 16px !important
 }
 
 .app-contents li:before {
@@ -784,7 +795,21 @@ tr:last-of-type .govuk-table__cell {
     color: red;
 }
 
+// @media (min-width: 71.3125em) {
+
+//     /* this is 1141 pixels, was 60.0625 */
+//     .govuk-width-container {
+//         min-width: 1140px !important;
+//     }
+// }
+
+.govuk-panel--semi-confirmation {
+    color     : #000000;
+    background: #f0f0f0;
+}
+
 // @import "components/app-flexible-table";
+@import "components/modal";
 @import "components/flexible-tables";
 @import "components/attachments";
 @import "components/az";
@@ -798,4 +823,5 @@ tr:last-of-type .govuk-table__cell {
 @import "components/search_results";
 @import "components/feedback";
 @import "components/news";
+@import "components/commodity";
 @import "bz";

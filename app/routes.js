@@ -6,6 +6,7 @@ const { response } = require('express');
 
 const Heading = require('./classes/heading.js');
 const Commodity = require('./classes/commodity.js');
+const ImportedContext = require('./classes/imported_context.js');
 const Error_handler = require('./classes/error_handler.js');
 
 require('./classes/global.js');
@@ -120,6 +121,7 @@ router.get(['/commodities/:goods_nomenclature_item_id/', '/commodities/:goods_no
             c.pass_request(req);
             c.get_data(response.data);
             c.get_measure_data(req, "basic");
+            c.sort_measures();
             res.render('commodities', { 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
         });
 });
@@ -308,7 +310,7 @@ router.get(['/exchange_rates/', '/exchange_rates/:scopeId'], function (req, res)
 /* ############################################################################ */
 
 // Calculator - Data handler
-router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req, res) {
+router.get(['/calculate/data_handler/:goods_nomenclature_item_id', '/calculate/data_handler/'], function (req, res) {
     var err, referer, c;
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
@@ -344,33 +346,41 @@ router.get('/calculate/data_handler/:goods_nomenclature_item_id', function (req,
         global.validate_final_use(req, res);
 
     } else if (referer.indexOf("meursing") !== -1) {
-        // Validate the unit value form
-        //console.log("Checking Meursing code");
-        e = new Error_handler();
-        contains_errors = e.validate_meursing(req); // Gets data from meursing code form and validates it
-        if (contains_errors) {
-            req.session.data["error"] = "meursing";
-            res.redirect("/calculate/meursing/" + req.params["goods_nomenclature_item_id"]);
-        } else {
-            req.session.data["error"] = "";
+        // Validate the Meursing start page
 
-            var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
-            // console.log(url);
-            axios.get(url)
-                .then((response) => {
-                    c = new Commodity();
-                    c.get_data(response.data);
-                    c.get_measure_data(req, req.session.data["origin"]);
-                    req.session.data["country_name"] = c.country_name;
-                    if (c.remedies.length > 0) {
-                        res.redirect("/calculate/company/" + req.params["goods_nomenclature_item_id"]);
-                    } else {
-                        res.redirect("/calculate/confirm/" + req.params["goods_nomenclature_item_id"]);
-                    }
-                });
+        var meursing_known = req.session.data["meursing-known"];
+        if (meursing_known == "no") {
+            res.redirect("/meursing/starch-glucose");
+        } else {
+            var url = "/calculate/confirm/" + req.params["goods_nomenclature_item_id"];
+            res.redirect(url);
         }
+
+        //console.log("Checking Meursing code");
+        // e = new Error_handler();
+        // contains_errors = e.validate_meursing(req); // Gets data from meursing code form and validates it
+        // if (contains_errors) {
+        //     req.session.data["error"] = "meursing";
+        //     res.redirect("/calculate/meursing/" + req.params["goods_nomenclature_item_id"]);
+        // } else {
+        //     req.session.data["error"] = "";
+
+        //     var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+        //     axios.get(url)
+        //         .then((response) => {
+        //             c = new Commodity();
+        //             c.get_data(response.data);
+        //             c.get_measure_data(req, req.session.data["origin"]);
+        //             req.session.data["country_name"] = c.country_name;
+        //             if (c.remedies.length > 0) {
+        //                 res.redirect("/calculate/company/" + req.params["goods_nomenclature_item_id"]);
+        //             } else {
+        //                 res.redirect("/calculate/confirm/" + req.params["goods_nomenclature_item_id"]);
+        //             }
+        //         });
+        // }
     }
-});
+    });
 
 // Calculator - Date
 router.get('/calculate/date/:goods_nomenclature_item_id', function (req, res) {
@@ -417,7 +427,7 @@ router.get('/calculate/destination/:goods_nomenclature_item_id', function (req, 
 router.get('/calculate/origin/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
-    //console.log("Origin");
+    console.log("Origin " + req.params["goods_nomenclature_item_id"]);
     var err = req.session.data["error"];
     var origin = req.session.data["origin"];
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
@@ -526,10 +536,41 @@ router.get('/calculate/unit_value/:goods_nomenclature_item_id', function (req, r
         });
 });
 
-// Calculator - Meursing - this will be used when Meursing is implemented
+// Calculator - additional code
+router.get(['/calculate/additional-code/:goods_nomenclature_item_id', '/calculate/additional-code'], function (req, res) {
+    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    axios.get(url)
+        .then((response) => {
+            var err = null;
+            c = new Commodity();
+            c.pass_request(req);
+            c.get_data(response.data);
+            c.get_measure_data(req, req.session.data["origin"]);
+            var a = 1;
+            res.render('calculate/10_additional_code', { 'commodity': c, 'error': err });
+        });
+    var a = 1;
+    //res.render('calculate/10_additional_code');
+    // scopeId = global.get_scope(req.params["scopeId"]);
+    // root_url = global.get_root_url(req, scopeId);
+    // //console.log("Unit value");
+    // var err = req.session.data["error"];
+    // var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    // axios.get(url)
+    //     .then((response) => {
+    //         c = new Commodity();
+    //         c.pass_request(req);
+    //         c.get_data(response.data);
+    //         c.get_measure_data(req, req.session.data["origin"]);
+    //         res.render('calculate/10_additional_code', { 'commodity': c, 'error': err });
+    //     });
+});
+
+// // Calculator - Meursing - this is the temporary information-only page for Meursing-related content
 // router.get('/calculate/meursing/:goods_nomenclature_item_id', function (req, res) {
 //     scopeId = global.get_scope(req.params["scopeId"]);
 //     root_url = global.get_root_url(req, scopeId);
+//     //console.log("Meursing");
 //     var err = req.session.data["error"];
 //     var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
 //     axios.get(url)
@@ -537,26 +578,10 @@ router.get('/calculate/unit_value/:goods_nomenclature_item_id', function (req, r
 //             c = new Commodity();
 //             c.pass_request(req);
 //             c.get_data(response.data);
-//             res.render('calculate/06_meursing', { 'commodity': c, 'error': err });
+//             //console.log(c);
+//             res.render('calculate/90_meursing', { 'commodity': c, 'error': err });
 //         });
 // });
-
-// Calculator - Meursing - this is the temporary information-only page for Meursing-related content
-router.get('/calculate/meursing/:goods_nomenclature_item_id', function (req, res) {
-    scopeId = global.get_scope(req.params["scopeId"]);
-    root_url = global.get_root_url(req, scopeId);
-    //console.log("Meursing");
-    var err = req.session.data["error"];
-    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
-    axios.get(url)
-        .then((response) => {
-            c = new Commodity();
-            c.pass_request(req);
-            c.get_data(response.data);
-            //console.log(c);
-            res.render('calculate/90_meursing', { 'commodity': c, 'error': err });
-        });
-});
 
 // Calculator - Company
 router.get('/calculate/company/:goods_nomenclature_item_id', function (req, res) {
@@ -797,5 +822,167 @@ router.get('/test_endpoint/:goods_nomenclatures', function (req, res) {
 /* ############################################################################ */
 /* ###################             END CALCULATOR             ################# */
 /* ############################################################################ */
+
+// STW integration
+router.get('/calculate/landing/:goods_nomenclature_item_id/:destination/:origin/:date', function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+
+    var imported_context = new ImportedContext();
+    imported_context.goods_nomenclature_item_id = req.params["goods_nomenclature_item_id"];
+    imported_context.destination = req.params["destination"];
+    imported_context.origin = req.params["origin"];
+    imported_context.date = req.params["date"];
+    imported_context.get_origin_description();
+
+    req.session.data["goods_nomenclature_item_id"] = req.params["goods_nomenclature_item_id"];
+    var a = 1;
+
+    global.kill_session_vars(req, [
+        'uk_trader_string', 'final_use_string',
+        'processing_string', 'certificate_string', 'unit_string'
+    ]);
+
+    //res.render('calculate/00_landing', {  'imported_context': imported_context});
+
+    axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
+        .then((response) => {
+            c = new Commodity();
+            c.pass_request(req);
+            c.get_data(response.data);
+            res.render('calculate/00_landing', { 'commodity': c, 'imported_context': imported_context});
+        });
+});
+
+/* Meursing starts here */
+
+// Meursing start
+router.get(['/meursing/start', '/meursing/start/:goods_nomenclature_item_id'], function (req, res) {
+    var error = req.query["error"];
+    starch_glucose_options = global.get_starch_glucose_options();
+    res.render('meursing/start');
+});
+// Starch and glucode content
+router.get(['/meursing/starch-glucose'], function (req, res) {
+    var error = req.query["error"];
+    starch_glucose_options = global.get_starch_glucose_options();
+    res.render('meursing/01_starch_glucose', { "starch_glucose_options": starch_glucose_options, "error": error });
+});
+
+// Sucrose, invert sugar or isoglucose
+router.get(['/meursing/sucrose-sugar-isoglucose'], function (req, res) {
+    var error = req.query["error"];
+    var starch_option = req.session.data["starch"];
+    sucrose_options = global.get_sucrose_options(starch_option);
+    res.render('meursing/02_sucrose', { "sucrose_options": sucrose_options, "error": error });
+});
+
+// Milk fat
+router.get(['/meursing/milk-fat'], function (req, res) {
+    var error = req.query["error"];
+    var starch_option = req.session.data["starch"];
+    var sucrose_option = req.session.data["sucrose"];
+    milk_fat_options = global.get_milk_fat_options(starch_option, sucrose_option);
+    console.log(milk_fat_options);
+    res.render('meursing/03_milk_fat', { "milk_fat_options": milk_fat_options, "error": error });
+});
+
+// Milk protein
+router.get(['/meursing/milk-protein'], function (req, res) {
+    var error = req.query["error"];
+    var starch_option = req.session.data["starch"];
+    var sucrose_option = req.session.data["sucrose"];
+    var milk_fat_option = req.session.data["milk_fat"];
+
+    milk_protein_options = global.get_milk_protein_options(starch_option, sucrose_option, milk_fat_option);
+    console.log(milk_protein_options);
+    res.render('meursing/04_milk_protein', { "milk_protein_options": milk_protein_options, "error": error });
+});
+
+// Data handler
+router.get(['/meursing/data'], function (req, res) {
+    var a = 1;
+    var page = req.query["page"];
+    switch (page) {
+        case "starch-glucose":
+            var starch_option = req.query["starch"];
+            if ((starch_option == "") || (starch_option == null)) {
+                res.redirect("/meursing/starch-glucose?error=true");
+            }
+            else {
+                res.redirect("/meursing/sucrose-sugar-isoglucose");
+            }
+            break;
+        case "sucrose":
+            var sucrose_option = req.query["sucrose"];
+            if ((sucrose_option == "") || (sucrose_option == null)) {
+                res.redirect("/meursing/sucrose-sugar-isoglucose?error=true");
+            }
+            else {
+                res.redirect("/meursing/milk-fat");
+            }
+
+            break;
+        case "milk_fat":
+            var milk_fat_option = req.query["milk_fat"];
+            if ((milk_fat_option == "") || (milk_fat_option == null)) {
+                res.redirect("/meursing/milk-fat?error=true");
+            }
+            else {
+                var no_protein = [
+                    '40 - 54.99',
+                    '55 - 69.99',
+                    '70 - 84.99',
+                    '85 or more'
+                ]
+                if (no_protein.includes(milk_fat_option)) {
+                    res.redirect("/meursing/check-answers");
+                } else {
+                    res.redirect("/meursing/milk-protein");
+                }
+            }
+
+            break;
+        case "milk_protein":
+            var milk_protein_option = req.query["milk_protein"];
+            if ((milk_protein_option == "") || (milk_protein_option == null)) {
+                res.redirect("/meursing/milk-protein?error=true");
+            }
+            else {
+                res.redirect("/meursing/check-answers");
+            }
+
+            break;
+    }
+
+});
+
+// Check answers
+router.get(['/meursing/check-answers'], function (req, res) {
+    res.render('meursing/05_check_answers');
+});
+
+// Results
+router.get(['/meursing/results'], function (req, res) {
+    var starch_option = req.session.data["starch"];
+    var sucrose_option = req.session.data["sucrose"];
+    var milk_fat_option = req.session.data["milk_fat"];
+    var milk_protein_option = req.session.data["milk_protein"];
+
+    results = global.get_result(starch_option, sucrose_option, milk_fat_option, milk_protein_option);
+    res.render('meursing/06_results', { "results": results });
+});
+
+// Restart
+router.get(['/restart'], function (req, res) {
+    req.session.data["starch"] = null;
+    req.session.data["sucrose"] = null;
+    req.session.data["milk_fat"] = null;
+    req.session.data["milk_protein"] = null;
+    res.redirect('/meursing/starch-glucose');
+});
+
+/* Meursing ends here */
+
 
 module.exports = router

@@ -6,7 +6,8 @@ global.validate_date = function (req, res) {
     axios.get('https://api.exchangeratesapi.io/latest')
         .then((response) => {
             var data = response.data;
-            var exchange_rate = parseFloat(data["rates"]["GBP"]);
+            //var exchange_rate = parseFloat(data["rates"]["GBP"]);
+            var exchange_rate = 0.8541;
             req.session.data["exchange_rate"] = exchange_rate;
             console.log("Getting exchange rate " + req.session.data["exchange_rate"]);
         });
@@ -157,7 +158,7 @@ global.validate_origin = function (req, res) {
             } else if (eu.includes(origin)) {
                 // To NI from an EU member state
                 var content = require('./message_content.json');
-                var retrieved_content = content["data"]["trade_remedies"];
+                var retrieved_content = content["data"]["eu_to_ni"];
                 req.session.data["message"] = retrieved_content;
                 url = "/calculate/message/" + req.params["goods_nomenclature_item_id"];
                 res.redirect(url);
@@ -422,7 +423,8 @@ global.validate_certificate_of_origin = function (req, res) {
                         c.get_measure_data(req, req.session.data["origin"]);
 
                         if (c.has_meursing) {
-                            url2 = "/calculate/meursing/" + req.params["goods_nomenclature_item_id"];
+                            url2 = "/meursing/start/" + req.params["goods_nomenclature_item_id"];
+                            // url2 = "/calculate/meursing/" + req.params["goods_nomenclature_item_id"];
                         } else {
                             url2 = "/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"];
                         }
@@ -525,7 +527,16 @@ global.validate_unit_value = function (req, res) {
                 if (req.session.data["destination"] == "Northern Ireland") {
                     if (req.session.data["origin_gb"] == "GB") {
                         // GB to Northern Ireland
-                        res.redirect("/calculate/confirm/" + req.params["goods_nomenclature_item_id"]);
+
+                        if (c.has_meursing) {
+                            res.redirect("/meursing/start/" + req.params["goods_nomenclature_item_id"]);
+                        // } else if (c.remedies.length > 0) {
+                        //     res.redirect("/calculate/company/" + req.params["goods_nomenclature_item_id"]);
+                        } else {
+                            res.redirect("/calculate/confirm/" + req.params["goods_nomenclature_item_id"]);
+                        }
+
+                        // res.redirect("/calculate/confirm/" + req.params["goods_nomenclature_item_id"]);
                     } else {
                         // ROW to Northern Ireland (for now) -- this is where the complex calcs would get done
                         res.redirect("/calculate/uk_trader/" + req.params["goods_nomenclature_item_id"]);

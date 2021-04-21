@@ -51,33 +51,30 @@
                         name: "processing",
                         fieldset: {
                             legend: {
-                            text: "How will these goods be processed after import?",
+                            text: "How will these goods be processed after they are moved into Northern Ireland?",
                             isPageHeading: true,
                             classes: "govuk-fieldset__legend--xl"
                             }
                         },
                         hint: {
-                            html: "Your import will be treated as not at risk, and will therefore not be subject to EU
-                            import duties, if you can verify that your goods will not be subject to further processing
-                            after import, or will be processed according to strict guidelines.<br><br>
-                            Please select an option"
+                            html: "If your goods are for sale to, or final use by, end consumers in the United Kingdom,
+                            you may be able to declare goods as not ‘at risk’, and pay no duty on those goods.
+                            You will not be able to declare your goods not ‘at risk’, if your goods are for commercial
+                            processing in Northern Ireland, unless they meet one of the exemptions.<br><br>
+                            Please select an option."
                         },
                         items: [
                             {
-                                value: "no_processing",
-                                html: "The goods will be sold to an end-user <strong>without any processing</strong>",
-                                xhint: {
-                                    html: "Need to talk about the proof / verification needed ...Explanatory text goes here"
-                                }
+                                value: "non_commercial_processing",
+                                html: "The importer had a total <strong>annual turnover</strong> of
+                                less than <strong>&pound;500,000</strong> in its most recent complete financial year"
                             },
                             {
-                                value: "non_commercial_processing",
-                                xhtml: "The goods will undergo <strong>non-commercial processing</strong>",
-                                html: "The importer had a total <strong>annual turnover</strong> of
-                                less than <strong>&pound;500,000</strong> in its most recent complete financial year",
-                                xhint: {
-                                    html: "Non-commercial processing is defined as ... Explanatory text goes here"
-                                }
+                            divider: "or"
+                            },
+                            {
+                                value: "no_processing",
+                                html: "The goods <strong>will not be subject to processing in Northern Ireland</strong>"
                             },
                             {
                                 value: "permitted_commercial_processing",
@@ -94,15 +91,10 @@
                             },
                             {
                                 value: "prohibited_commercial_processing",
-                                html: "The goods will be processed for <strong>commercial purposes other than those listed above</strong>",
-                                xhint: {
-                                    text: "Such goods cannot be declared as not at risk, and EU duties may apply"
-                                }
+                                html: "The goods will be processed for <strong>commercial purposes other than those listed above</strong>"
                             }
                         ]
                         }) }}
-
-
 
                     {{ govukButton({
                       text: "Continue"
