@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Look up Meursing code - How much milk protein does the product contain?
+  Look up a Meursing code - How much milk protein does the product contain?
 {% endblock %}
 
 
@@ -34,7 +34,7 @@
           ]
         }) }}
       {% endif %}
-      <span class="govuk-caption-xl">Look up Meursing code</span>
+      <span class="govuk-caption-xl">Look up a Meursing code</span>
       <form action="/meursing/data" method="get">
         <input type="hidden" name="page" value="milk_protein"/>
         <div class="govuk-form-group {{ error_class }}">

@@ -26,7 +26,7 @@
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Commodity code</dt>
-          <dd class="govuk-summary-list__value">{{ commodity.goods_nomenclature_item_id | format_commodity_code(" ") }}</dd>
+          <dd class="govuk-summary-list__value">{{ commodity.goods_nomenclature_item_id | format_commodity_code(" ") }} 2500</dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/search/">
               Change<span class="govuk-visually-hidden"> name</span>
@@ -135,6 +135,18 @@
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="/calculate/unit_value/{{ commodity.goods_nomenclature_item_id }}">
               Change<span class="govuk-visually-hidden"> unit value</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+
+        {% if data["vat_string"] != "test" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Applicable VAT rate</dt>
+            <dd class="govuk-summary-list__value">Standard VAT (20%)</dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/calculate/vat/{{ commodity.goods_nomenclature_item_id }}">
+              Change<span class="govuk-visually-hidden"> VAT rate</span>
               </a>
             </dd>
           </div>

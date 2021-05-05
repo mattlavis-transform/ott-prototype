@@ -152,6 +152,9 @@
             <li class="govuk-tabs__list-item">
                 <a class="govuk-tabs__tab" href="#export">Export</a>
             </li>
+            <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#rules_of_origin">Rules of origin</a>
+            </li>
         </ul>
         <div class="govuk-tabs__panel" id="overview">
             <h2 class="govuk-heading-m">Overview</h2>
@@ -179,7 +182,7 @@
             <h2 class="govuk-heading-m">Import measures and restrictions</h2>
             <p>This information is for <strong>{{ date_string }}</strong>.</p>
 
-            {% include "includes/country_selector.html" %}
+            {% include "includes/country_selector_import.html" %}
 
             <nav>
                 <p class="govuk-body govuk-!-margin-top-3">Contents</p>
@@ -330,6 +333,29 @@
         <div class="govuk-tabs__panel" id="export">
             <h2 class="govuk-heading-m">Export measures and restrictions</h2>
             <p>This information is for <strong>{{ date_string }}</strong>.</p>
+            {% include "includes/country_selector_export.html" %}
+            {# {% include "includes/types_of_measure.html" %} #}
+        </div>
+        <div class="govuk-tabs__panel" id="rules_of_origin">
+            <h2 class="govuk-heading-m">Rules of origin</h2>
+            {# <p>This information is for <strong>{{ date_string }}</strong>.</p> #}
+            <p>If you are importing goods into the UK, you may be able to claim a preferential customs duty rate
+            if the country from which the goods are coming has a Trade Agreement with the UK.</p>
+            <p>Select the country from which the goods are coming to identify if there are any applicable rules of 
+            origin that will impact your import.</p>
+            
+            {% include "includes/country_selector_roo.html" %}
+
+
+
+            {# <h3 class="govuk-heading-s">The UK has a trade agreement with Japan.</h3>
+
+            <p>Where applicable, tariff preferences are available. If the conditions for preferential access are not met, the UK’s Most Favoured Nation (MFN) rate (or third country duty) applies.
+
+            <p>This agreement largely maintains the previous EU trade agreement, including in most instances on duties. In some cases, the non-preferential applied rates may be lower because of changes in the UK’s MFN tariff schedule.
+
+            <p>Read guidance on the UK-Japan CEPA business guidance.</p> #}
+
             {# {% include "includes/types_of_measure.html" %} #}
         </div>
 

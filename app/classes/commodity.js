@@ -54,6 +54,9 @@ class Commodity {
         this.supplementary_unit_array = ["109", "110"];
         this.meursing_blob = null;
         this.exchange_rate = "";
+        this.filter = null;
+        this.additional_codes = [];
+        this.additional_code_class = "";
 
         if (this.goods_nomenclature_item_id != null) {
             this.formatted_commodity_code = this.goods_nomenclature_item_id
@@ -171,7 +174,10 @@ class Commodity {
 
             } else if (item["type"] == "additional_code") {
                 ac = new AdditionalCode(item);
-                this.additional_codes.push(ac);
+                var ar_wanted = ["2", "8", "A", "B", "C"];
+                if (ar_wanted.includes(ac.additional_code_type)) {
+                    this.additional_codes.push(ac);
+                }
 
             } else if (item["type"] == "order_number") {
                 ac = new OrderNumber(item);
@@ -212,6 +218,11 @@ class Commodity {
         this.assign_geographical_area_descriptions_to_exclusions();
         this.strip_exclusions_from_geographical_area()
 
+        this.sort_additional_codes();
+        this.get_additional_code_class();
+
+
+
 
         // console.log("Units: " + this.units);
         // console.log("VATs: " + this.vats);
@@ -232,6 +243,44 @@ class Commodity {
             this.calculate_mfn();
             this.calculate_quotas();
             //this.calculate_preferences();
+        }
+    }
+
+    get_additional_code_class() {
+        if (this.additional_codes.length > 0) {
+            this.additional_code_class = this.additional_codes[0].code[0];
+            var a = 1;
+            var data = require('../data/additional_codes.json');
+            var jp = require('jsonpath');
+
+            // Get the type
+            var query_string = '$.types[?(@.type == "' + this.additional_code_class + '")]';
+            var result = jp.query(data, query_string);
+            if (result.length > 0) {
+                var additional_code_heading = result[0].heading;
+                var query_string = '$.headings[?(@.heading == "' + additional_code_heading + '")]';
+                var result = jp.query(data, query_string);
+                if (result.length > 0) {
+                    this.additional_code_overlay = result[0].overlay;
+                    this.additional_code_hint = result[0].hint;
+                }
+            }
+        }
+    }
+
+    sort_additional_codes() {
+        this.additional_codes.sort(compare_additional_codes);
+
+
+
+        function compare_additional_codes(a, b) {
+            if (a.code < b.code) {
+                return -1;
+            }
+            if (a.code > b.code) {
+                return 1;
+            }
+            return 0;
         }
     }
 
@@ -610,29 +659,12 @@ class Commodity {
         }
     }
 
-    get_meursing_blob = async () => {
-        try {
-            var url = "http://127.0.0.1:5000/meursing/859/JP";
-            var response = await axios.get(url);
-            this.meursing_blob = response.data;
-            //console.log(response.data);
-        } catch (err) {
-            // Handle Error Here
-            console.error(err);
-        }
-    };
-
     sort_measures() {
         //console.log("Sorting measures");
         this.measures.sort(compare_blocks);
         this.measures.sort(compare_measure_types);
         this.measures.sort(compare_geo);
-        this.measures.forEach(m => {
-            if (m.order_number_id == "098633") {
-                // console.log(m);
-            }
 
-        });
         this.display_blocks.sort(compare_display_blocks);
 
 

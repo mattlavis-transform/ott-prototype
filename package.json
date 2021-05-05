@@ -52,6 +52,7 @@
     "notifications-node-client": "^4.7.2",
     "numeral": "^2.0.6",
     "nunjucks": "^3.2.1",
+    "nunjucks-inspect": "^0.1.6",
     "pluralize": "^8.0.0",
     "portscanner": "^2.1.1",
     "request": "^2.88.2",

@@ -82,8 +82,19 @@ global.get_domain = function (req) {
         }
     }
     var domain = 'https://www.trade-tariff.service.gov.uk/' + tariff + 'api/v2/commodities/';
-    console.log(domain);
+
     return (domain);
+}
+
+
+global.get_commodity_api = function (req) {
+    var url = global.get_domain(req);
+    url += req.params["goods_nomenclature_item_id"];;
+    var geo = req.session.data["origin"];
+    if (geo != "") {
+        url += "?filter[geographical_area_id]=" + geo;
+    }
+    return (url);
 }
 
 global.get_root_url = function (req, scopeId) {

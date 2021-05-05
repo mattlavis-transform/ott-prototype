@@ -1,12 +1,13 @@
-<form action="" method="get" class="country_selector">
+<form action="/roo/country" method="get">
+    <input type="hidden" name="commodity" value="{{ commodity.data.attributes.goods_nomenclature_item_id }}" />
     <fieldset class="govuk-fieldset">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s b">
             <h1 class="govuk-fieldset__heading">
-                Trade between the UK and:
+                Where are your goods coming from:
             </h1>
         </legend>
-        <div class="govuk-form-group">
-            <select id="location-autocomplete" class="autocomplete__input autocomplete__input--default" name="country">
+        <div class="govuk-form-group picker-box">
+            <select id="location-picker-roo" class="autocomplete__input autocomplete__input--default" name="roo_country">
                 <option value="" disabled="" selected="">All countries</option>
                 <option value="AF">Afghanistan</option>
                 <option value="AL">Albania</option>
@@ -277,9 +278,27 @@
                 <option value="AX">Åland Islands</option>
             </select>
         </div>
+        <button class="govuk-button floating-button">Continue</button>
 
-        <button class="govuk-button">Continue</button>
-        <a id="reset" href="javascript:return (false);" class="textual_button govuk-link">Reset to all countries</a>
+        {# <a id="reset" href="javascript:return (false);" class="textual_button govuk-link">Reset to all countries</a> #}
 
     </fieldset>
 </form>
+<script type="text/javascript" src="../../public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+    var selectEl = document.querySelector('#location-picker-roo')
+    accessibleAutocomplete.enhanceSelectElement({autoselect: true, confirmOnBlur: true, defaultValue: "", minLength: 2, selectElement: selectEl})
+
+    var queryStringParameters = window.location.search
+    var previouslySubmitted = queryStringParameters.length > 0
+    if (previouslySubmitted) {
+        var submittedEl = document.querySelector('.submitted')
+        submittedEl
+            .classList
+            .remove('submitted--hidden')
+        var params = new URLSearchParams(document.location.search.split('?')[1])
+        document
+            .querySelector('.submitted__location-picker-roo')
+            .innerHTML = params.get('location-picker-roo')
+    }
+</script>

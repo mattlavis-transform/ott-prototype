@@ -32,7 +32,7 @@
                 }) }}
             {% endif %}
             <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}">
-                <span class="govuk-caption-xl">Calculate import duties</span>
+                <span class="govuk-caption-xl">Rules of origin</span>
 
                 {# Get error message #}
                 {% if (error == "date") %}
@@ -55,7 +55,7 @@
                     }
                 },
                 hint: {
-                    html: "As duties and quotas change over time, it may be important to enter the proposed import date. Enter a date from 1st January 2021 or later in the format 27&nbsp;&nbsp;3&nbsp;&nbsp;2021"
+                    html: "The rules of origin in the UK / EU TCA change over time ..."
                 },
                 errorMessage: error_message,
                 id: "import_date",
@@ -81,14 +81,15 @@
 
                 {# Display the Continue button #}
                 {{ govukButton({
-                    text: "Continue"
+                    text: "Continue",
+                    href: "https://www.google.com"
                 }) }}
                 {# <p>Click on 'Continue' to enter the destination of the product you are looking to import.</p> #}
             </form>
-            <p>The duties that are shown in this service are dependent on the data that you enter and the tariff information
+            {# <p>The duties that are shown in this service are dependent on the data that you enter and the tariff information
             that has been supplied to date.</p>
-            <p>It is possible that this data will change over time.</p>
-            {% include "../includes/commodity_panel.html" %}
+            <p>It is possible that this data will change over time.</p> #}
+            {# {% include "../includes/commodity_panel.html" %} #}
         </div>
     </div>
 

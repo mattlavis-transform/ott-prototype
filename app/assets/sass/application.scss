@@ -808,6 +808,38 @@ tr:last-of-type .govuk-table__cell {
     background: #f0f0f0;
 }
 
+.govuk-radios__divider {
+    width     : 100% !important;
+    text-align: left !important;
+    margin    : 2em 0px;
+}
+
+.govuk-fieldset__legend--s {
+    font-weight: normal !important;
+}
+
+.autocomplete__option {
+    font-family: "GDS Transport", arial, sans-serif;
+}
+
+// .floating-button {
+//     float: left;
+//     margin-left:1em;
+// }
+
+.picker-box>div {
+    // float: left;
+    width: 75%;
+}
+
+.b {
+    font-weight: bold !important;
+}
+
+.govuk-list-s {
+    font-size: 16px
+}
+
 // @import "components/app-flexible-table";
 @import "components/modal";
 @import "components/flexible-tables";

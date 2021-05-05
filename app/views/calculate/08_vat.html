@@ -24,7 +24,7 @@
             <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}" method="get">
 
                 {# Get error message #}
-                {% if (error == "origin") %}
+                {% if (error == "vat") %}
                     {% set error_message = "Enter a valid future date" %}
                     {% set error_class = "govuk-select--error" %}
                     {% set group_error_class = "govuk-form-group--error" %}
@@ -38,31 +38,41 @@
                 <fieldset class="govuk-fieldset">
 
                     {{ govukRadios({
-                        idPrefix: "uktrader_scheme",
-                        name: "uktrader_scheme",
+                        idPrefix: "vat",
+                        name: "vat",
                         fieldset: {
                             legend: {
-                            text: "Does your import qualify for zero rate VAT?",
+                            text: "Which VAT rate is applicable to your trade?",
                             isPageHeading: true,
                             classes: "govuk-fieldset__legend--xl"
                             }
                         },
                         hint: {
-                            html: "There are two VAT rates applicable to the trade in this commodity code. Please check if your import qualifies for zero-rate VAT. For guidance on applicable VAT rates, please see the document <a target='_blank' href='https://www.gov.uk/guidance/rates-of-vat-on-different-goods-and-services#food-and-drink-animals-animal-feed-plants-and-seeds'>VAT rates on different goods and services</a>."
+                            html: "There are two | three VAT rates applicable to the trade in this commodity code. Select which rate applies to your trade. For guidance on applicable VAT rates, please see the document <a target='_blank' href='https://www.gov.uk/guidance/rates-of-vat-on-different-goods-and-services'>VAT rates on different goods and services (opens in new browser window)</a>."
                         },
                         items: [
                             {
-                            value: "yes",
-                            text: "Yes, my import qualifies for zero-rate VAT"
+                            value: "standard",
+                            text: "Standard VAT (20%)"
                             },
                             {
-                            value: "no",
-                            text: "No, I will pay the standard VAT applicable on this commodity"
+                            value: "VATR",
+                            text: "Reduced rate VAT (5%)"
+                            },
+                            {
+                            value: "VATE",
+                            text: "VAT exempt (0%)"
+                            },
+                            {
+                            value: "VATZ",
+                            text: "Zero-rate VAT (0%)"
                             }
-                        ]
+                        ],
+                            errorMessage: {
+                                text: "Select one option"
+                            }
+
                         }) }}
-
-
 
                     {{ govukButton({
                       text: "Continue"

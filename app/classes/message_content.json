@@ -20,7 +20,7 @@
         },
         "certificate_of_origin": {
             "title": "There is no import duty to pay",
-            "message": "There is <strong>no import duty to pay</strong> because:</p><ul class='govuk-list govuk-list--bullet'><li>You are transporting goods from England, Scotland or Wales to Northern Ireland.</li><li>You are able to take advantage of the preferential tariffs provided by the UK / EU Trade and Co-operation Agreement (TCA) and have a valid Certificate of Origin.</li></ul><p class='govuk-body'>You may be called upon to provide a copy of your Certificate of Origin to avoid paying duties.</p>",
+            "message": "There is <strong>no import duty to pay</strong> because:</p><ul class='govuk-list govuk-list--bullet'><li>You are transporting goods from England, Scotland or Wales to Northern Ireland, <i>and</i></li><li>You are able to take advantage of the preferential tariffs provided by the UK / EU Trade and Co-operation Agreement (TCA) and have a valid Certificate of Origin.</li></ul><p class='govuk-body'>You may be called upon to provide a copy of your Certificate of Origin to avoid paying duties.</p>",
             "next_url": "/calculate/date/{{ commodity }}",
             "button_face": "Start again"
         }

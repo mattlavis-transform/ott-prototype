@@ -20,41 +20,66 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
       <span class="govuk-caption-xl">Calculate import duties</span>
+      <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}">
 
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading">
-        Describe your goods in more detail
-      </h1>
-          </legend>
-          <div id="contact-hint" class="govuk-hint">
-            To trade this commodity, you need to specify an additional 4 digits, known as an additional code
-          </div>
-          <div class="govuk-radios govuk-radios--small">
-            {% for additional_code in commodity.additional_codes %}
-              {% if additional_code.code[0] != "V" %}
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">{{ commodity.additional_code_overlay }}</h1>
+            </legend>
+            <div id="contact-hint" class="govuk-hint">
+              {{ commodity.additional_code_hint }}
+            </div>
 
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="additional-code-{{ additional_code.code }}" name="additional-code" type="radio" value="{{ additional_code.code }}">
-                  <label class="govuk-label govuk-radios__label" for="additional-code-{{ additional_code.code }}">
-                    {{ additional_code.code }} - {{ additional_code.description | safe }}
-                  </label>
-                </div>
+            {% if commodity.additional_codes.length > 7 %}
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="sort">Sort by</label>
+                <select class="govuk-select" id="sort" name="sort">
+                  {% for additional_code in commodity.additional_codes %}
+                    <option value="{{ additional_code.code }}">
+                      <b>{{ additional_code.code }}</b> - {{ additional_code.overlay | safe }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+            {% else %}
+              {% if commodity.additional_codes.length > 2 %}
+                {% set class = "govuk-radios--small" %}
+              {% else %}
+                {% set class = "" %}
               {% endif %}
-            {% endfor %}
+              {% set class = "" %}
 
-          </div>
+              <div class="govuk-radios {{ class }}">
+                {% for additional_code in commodity.additional_codes %}
+                  {% if additional_code.code[0] != "V" %}
 
-        </fieldset>
-      </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="additional-code-{{ additional_code.code }}" name="additional-code" type="radio" value="{{ additional_code.code }}">
+                      <label class="govuk-label govuk-radios__label" for="additional-code-{{ additional_code.code }}">
+                        <b>{{ additional_code.code }}</b> - {{ additional_code.overlay | safe }}
+                      </label>
+                      {% if additional_code.hint != "" %}
+                        <div id="additional-code-{{ additional_code.code }}-hint" class="govuk-hint govuk-radios__hint">
+                          {{ additional_code.hint | safe }}
+                        </div>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                {% endfor %}
 
-      {{ govukButton({
+              </div>
+
+            {% endif %}
+          </fieldset>
+        </div>
+
+        {{ govukButton({
         text: "Continue"
       }) }}
 
-    </div>
-
+      </div>
+    </form>
   </div>
 </div>
 

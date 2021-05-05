@@ -3,11 +3,12 @@ const axios = require('axios')
 const router = express.Router()
 const api_helper = require('./API_helper');
 const { response } = require('express');
-
 const Heading = require('./classes/heading.js');
 const Commodity = require('./classes/commodity.js');
+const Roo = require('./classes/roo.js');
 const ImportedContext = require('./classes/imported_context.js');
 const Error_handler = require('./classes/error_handler.js');
+
 
 require('./classes/global.js');
 require('./classes/news.js');
@@ -365,7 +366,7 @@ router.get(['/calculate/data_handler/:goods_nomenclature_item_id', '/calculate/d
         // } else {
         //     req.session.data["error"] = "";
 
-        //     var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+        //     var url = global.get_commodity_api(req);
         //     axios.get(url)
         //         .then((response) => {
         //             c = new Commodity();
@@ -525,7 +526,7 @@ router.get('/calculate/unit_value/:goods_nomenclature_item_id', function (req, r
     root_url = global.get_root_url(req, scopeId);
     //console.log("Unit value");
     var err = req.session.data["error"];
-    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    var url = global.get_commodity_api(req);
     axios.get(url)
         .then((response) => {
             c = new Commodity();
@@ -538,7 +539,10 @@ router.get('/calculate/unit_value/:goods_nomenclature_item_id', function (req, r
 
 // Calculator - additional code
 router.get(['/calculate/additional-code/:goods_nomenclature_item_id', '/calculate/additional-code'], function (req, res) {
-    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    var url = global.get_commodity_api(req);
+    // if (req.session.data["origin"] != "") {
+    //     url += "?filter[geographical_area_id]=" + req.session.data["origin"];
+    // }
     axios.get(url)
         .then((response) => {
             var err = null;
@@ -555,7 +559,7 @@ router.get(['/calculate/additional-code/:goods_nomenclature_item_id', '/calculat
     // root_url = global.get_root_url(req, scopeId);
     // //console.log("Unit value");
     // var err = req.session.data["error"];
-    // var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    // var url = global.get_commodity_api(req);
     // axios.get(url)
     //     .then((response) => {
     //         c = new Commodity();
@@ -572,7 +576,7 @@ router.get(['/calculate/additional-code/:goods_nomenclature_item_id', '/calculat
 //     root_url = global.get_root_url(req, scopeId);
 //     //console.log("Meursing");
 //     var err = req.session.data["error"];
-//     var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+//     var url = global.get_commodity_api(req);
 //     axios.get(url)
 //         .then((response) => {
 //             c = new Commodity();
@@ -589,7 +593,7 @@ router.get('/calculate/company/:goods_nomenclature_item_id', function (req, res)
     root_url = global.get_root_url(req, scopeId);
     //console.log("Company");
     var err = req.session.data["error"];
-    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    var url = global.get_commodity_api(req);
     axios.get(url)
         .then((response) => {
             c = new Commodity();
@@ -607,7 +611,7 @@ router.get('/calculate/vat/:goods_nomenclature_item_id', function (req, res) {
     root_url = global.get_root_url(req, scopeId);
     //console.log("Company");
     var err = req.session.data["error"];
-    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    var url = global.get_commodity_api(req);
     axios.get(url)
         .then((response) => {
             c = new Commodity();
@@ -625,7 +629,7 @@ router.get('/calculate/excise/:goods_nomenclature_item_id', function (req, res) 
     root_url = global.get_root_url(req, scopeId);
     //console.log("Company");
     var err = req.session.data["error"];
-    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    var url = global.get_commodity_api(req);
     axios.get(url)
         .then((response) => {
             c = new Commodity();
@@ -642,14 +646,9 @@ router.get('/calculate/confirm/:goods_nomenclature_item_id', function (req, res)
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
 
-    // const dayjs = require('dayjs');
-    // date_string = req.session.data["import_date-year"] + "-" + req.session.data["import_date-month"] + "-" + req.session.data["import_date-day"];
-    // let date_object = dayjs(date_string);
-    // req.session.data["date_string"] = date_object.format("d MMM YYYY");
-
     //console.log("Confirm");
     var err = req.session.data["error"];
-    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    var url = global.get_commodity_api(req);
 
     axios.get(url)
         .then((response) => {
@@ -667,7 +666,7 @@ router.get('/calculate/results/:goods_nomenclature_item_id', function (req, res)
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     var err = req.session.data["error"];
-    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    var url = global.get_commodity_api(req);
     axios.get(url)
         .then((response) => {
             c = new Commodity();
@@ -685,7 +684,7 @@ router.get('/calculate/results_gb_ni/:goods_nomenclature_item_id', function (req
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     var err = req.session.data["error"];
-    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    var url = global.get_commodity_api(req);
     axios.get(url)
         .then((response) => {
             c = new Commodity();
@@ -704,7 +703,7 @@ router.get('/calculate/results_flat/:goods_nomenclature_item_id', function (req,
     scopeId = "";
     root_url = global.get_root_url(req, scopeId);
     var err = req.session.data["error"];
-    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    var url = global.get_commodity_api(req);
     axios.get(url)
         .then((response) => {
             c = new Commodity();
@@ -723,7 +722,7 @@ router.get('/calculate/results/:goods_nomenclature_item_id/:file', function (req
     scopeId = "";
     root_url = global.get_root_url(req, scopeId);
     var err = req.session.data["error"];
-    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    var url = global.get_commodity_api(req);
     axios.get(url)
         .then((response) => {
             c = new Commodity();
@@ -746,7 +745,7 @@ router.get('/calculate/message/:goods_nomenclature_item_id', function (req, res)
     scopeId = "";
     root_url = global.get_root_url(req, scopeId);
     var err = req.session.data["error"];
-    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    var url = global.get_commodity_api(req);
     axios.get(url)
         .then((response) => {
             c = new Commodity();
@@ -776,7 +775,7 @@ router.get('/calculate/trade_defence/:goods_nomenclature_item_id', function (req
     scopeId = "";
     root_url = global.get_root_url(req, scopeId);
     var err = req.session.data["error"];
-    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    var url = global.get_commodity_api(req);
     axios.get(url)
         .then((response) => {
             c = new Commodity();
@@ -795,7 +794,7 @@ router.get('/calculate/ni_to_gb/:goods_nomenclature_item_id', function (req, res
     scopeId = "";
     root_url = global.get_root_url(req, scopeId);
     var err = req.session.data["error"];
-    var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+    var url = global.get_commodity_api(req);
     axios.get(url)
         .then((response) => {
             c = new Commodity();
@@ -853,6 +852,57 @@ router.get('/calculate/landing/:goods_nomenclature_item_id/:destination/:origin/
             res.render('calculate/00_landing', { 'commodity': c, 'imported_context': imported_context});
         });
 });
+
+
+/* Rules of origin starts here */
+
+// Index
+router.get(['/roo', '/roo/xi', '/roo/undefined'], function (req, res) {
+    req.session.data["commodity"] = "";
+    res.render('roo/index', {});
+});
+
+// Country page
+router.get(['/roo/country', '/roo/country/:country'], function (req, res) {
+    var a = 1;
+    var key = req.session.data["roo_country"] + "";
+    if (key == "undefined") {
+        key = req.params["country"] + "";
+    }
+    var roo = new Roo(req, key);
+    if (req.session.data["commodity"] == "") {
+        res.render('roo/country', { 'country': roo });
+    } else {
+        var url = 'https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.session.data["commodity"];
+
+        axios.get(url)
+            .then((response) => {
+                c = new Commodity();
+                c.pass_request(req);
+                c.get_data(response.data);
+                res.render('roo/country', { 'country': roo, 'commodity': c });
+            });
+    
+    }
+});
+
+// 01 fully originate
+router.get(['/roo/originate/:commodity/:country'], function (req, res) {
+    res.render('roo/01_originate', { });
+});
+
+// 02 fully originate
+router.get(['/roo/obtained/:commodity/:country'], function (req, res) {
+    res.render('roo/02_obtained', { });
+});
+
+// 03 fully originate
+router.get(['/roo/date/:commodity/:country'], function (req, res) {
+    res.render('roo/03_date', { });
+});
+
+/* Rules of origin ends here */
+
 
 /* Meursing starts here */
 
@@ -983,6 +1033,5 @@ router.get(['/restart'], function (req, res) {
 });
 
 /* Meursing ends here */
-
 
 module.exports = router

@@ -10,6 +10,7 @@ const nunjucks = require('nunjucks')
 const sessionInCookie = require('client-sessions')
 const sessionInMemory = require('express-session')
 const cookieParser = require('cookie-parser')
+// const NunjucksInspect = require('nunjucks-inspect');
 
 // Run before other code to make sure variables from .env are available
 dotenv.config()
@@ -326,6 +327,9 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500)
   res.send(err.message)
 })
+
+// var env = new nunjucks.Environment();
+// env.addExtension('inspect', new NunjucksInspect());
 
 console.log('\nGOV.UK Prototype Kit v' + releaseVersion)
 console.log('\nNOTICE: the kit is for building prototypes, do not use it for production services.')

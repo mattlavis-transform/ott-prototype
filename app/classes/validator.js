@@ -312,9 +312,9 @@ global.validate_processing = function (req, res) {
 
     var wrapper = "There is <strong>no import duty to pay</strong> because:</p><ul class='govuk-list govuk-list--bullet'>{{ placeholder }}</ul><p class='govuk-body'>You may be called upon to provide proof of your membership of the UK Trader Scheme and that your goods are not going to be subject to further processing.</p>";
 
-    var txt_origin_gb = "<li>You are transporting goods from <b>England, Scotland or Wales</b> to Northern Ireland</li>";
-    var txt_ukts = "<li>You are a member of the UK Trader Scheme</li>";
-    var txt_final_use = "<li>Your import is <b>for sale to, or final use by</b>, end-consumers located in Northern Ireland</li>";
+    var txt_origin_gb = "<li>You are transporting goods from <b>England, Scotland or Wales</b> to Northern Ireland, <i>and</i></li>";
+    var txt_ukts = "<li>You are a member of the UK Trader Scheme, <i>and</i></li>";
+    var txt_final_use = "<li>Your import is <b>for sale to, or final use by</b>, end-consumers located in Northern Ireland, <i>and</i></li>";
     var txt_no_processing = "<li>You <b>do not intend to further process</b> the goods on arrival in Northern Ireland</li>";
     var txt_non_commercial_processing = "<li>The importer had a total <b>annual turnover</b> of less than <b>£500,000</b> in its most recent complete financial year</li>";
     var txt_permitted_commercial_processing = "<li>You will be undertaking <b>permitted commercial processing</b> on the goods on arrival in Northern Ireland</li>";
@@ -410,7 +410,7 @@ global.validate_certificate_of_origin = function (req, res) {
             } else {
                 req.session.data["certificate_string"] = "No valid certificate of origin";
                 req.session.data["at_risk"] = true;
-                var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+                var url = global.get_commodity_api(req);
 
                 // var url2 = "/calculate/monetary_value/" + req.params["goods_nomenclature_item_id"];
                 // res.redirect(url2);
@@ -439,6 +439,7 @@ global.validate_certificate_of_origin = function (req, res) {
 
 global.validate_monetary_value = function (req, res) {
     // Validate the monetary value form
+    var url, c;
     console.log("Validator: Validating monetary value");
     e = new Error_handler();
     contains_errors = e.validate_monetary_value(req); // Gets data from monetary value form and validates it
@@ -461,7 +462,7 @@ global.validate_monetary_value = function (req, res) {
         req.session.data["total_cost"] = total_cost;
         req.session.data["error"] = "";
 
-        var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+        var url = global.get_commodity_api(req);
         axios.get(url)
             .then((response) => {
                 c = new Commodity();
@@ -495,11 +496,21 @@ global.validate_monetary_value = function (req, res) {
                             req.session.data["message"] = null;
                             url = "/calculate/uk_trader/" + req.params["goods_nomenclature_item_id"];
                         } else {
-                            url = "/calculate/confirm/" + req.params["goods_nomenclature_item_id"];
+                            var ac_count = c.additional_codes.length();
+                            if (ac_count > 0) {
+                                url = "/calculate/additional-code/" + req.params["goods_nomenclature_item_id"];
+                            } else {
+                                url = "/calculate/confirm/" + req.params["goods_nomenclature_item_id"];
+                            }
                         }
                     } else {
-                        url = "/calculate/confirm/" + req.params["goods_nomenclature_item_id"];
-                    }
+                        var ac_count = c.additional_codes.length;
+                        if (ac_count > 0) {
+                            url = "/calculate/additional-code/" + req.params["goods_nomenclature_item_id"];
+                        } else {
+                            url = "/calculate/confirm/" + req.params["goods_nomenclature_item_id"];
+                        }
+                }
                 }
                 res.redirect(url);
             });
@@ -516,7 +527,7 @@ global.validate_unit_value = function (req, res) {
         res.redirect("/calculate/unit_value/" + req.params["goods_nomenclature_item_id"]);
     } else {
         req.session.data["error"] = "";
-        var url = global.get_domain(req) + req.params["goods_nomenclature_item_id"];
+        var url = global.get_commodity_api(req);
         // console.log(url);
         axios.get(url)
             .then((response) => {
@@ -530,8 +541,8 @@ global.validate_unit_value = function (req, res) {
 
                         if (c.has_meursing) {
                             res.redirect("/meursing/start/" + req.params["goods_nomenclature_item_id"]);
-                        // } else if (c.remedies.length > 0) {
-                        //     res.redirect("/calculate/company/" + req.params["goods_nomenclature_item_id"]);
+                            // } else if (c.remedies.length > 0) {
+                            //     res.redirect("/calculate/company/" + req.params["goods_nomenclature_item_id"]);
                         } else {
                             res.redirect("/calculate/confirm/" + req.params["goods_nomenclature_item_id"]);
                         }
