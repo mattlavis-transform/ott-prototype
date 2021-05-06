@@ -65,10 +65,15 @@
               },
               classes: "govuk-input--width-20",
               id: "country",
-              name: "country"
+              name: "country",
+              value: "All countries"
             }) }}
+            <p style="margin:-1.5em 0px 2em 0px;font-size:16px;"><a href="#">Reset to all countries</a></p>
 
-            {{ govukRadios({
+
+
+
+            {# {{ govukRadios({
               classes: "govuk-radios--small",
               idPrefix: "critical-state",
               name: "critical-state",
@@ -119,7 +124,7 @@
                   text: "Include exhausted quotas"
                 }
               ]
-            }) }}
+            }) }} #}
 
             {{ govukDateInput({
               id: "date",
@@ -136,7 +141,59 @@
               }
             }) }}
 
+            {{ govukSelect({
+              id: "critical-state",
+              name: "critical-state",
+              label: {
+                text: "Critical state"
+              },
+              items: [
+                {
+                  value: "",
+                  text: "",
+                  selected: true
+                },
+                {
+                  value: "updated",
+                  text: "Recently updated"
+                },
+                {
+                  value: "views",
+                  text: "Most views"
+                },
+                {
+                  value: "comments",
+                  text: "Most comments"
+                }
+              ]
+            }) }}
 
+            {{ govukSelect({
+              id: "status",
+              name: "status",
+              label: {
+                text: "Status"
+              },
+              items: [
+                {
+                  value: "",
+                  text: "",
+                  selected: true
+                },
+                {
+                  value: "updated",
+                  text: "Recently updated"
+                },
+                {
+                  value: "views",
+                  text: "Most views"
+                },
+                {
+                  value: "comments",
+                  text: "Most comments"
+                }
+              ]
+            }) }}
 
 {# 
 {{ govukCheckboxes({
