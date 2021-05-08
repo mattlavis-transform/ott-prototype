@@ -1,3 +1,1 @@
-Andean
-------------------------------
-Lorem ipsum
+Intro to the Andean Agreement ...

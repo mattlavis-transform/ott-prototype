@@ -81,7 +81,7 @@
             "code": "kenya",
             "title": "Comprehensive Economic Partnership Agreement UK Kenya",
             "footnote": "This agreement is open to accession by other members of East African Community.",
-            "data_file": "kr.md",
+            "data_file": "kenya.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
@@ -265,7 +265,7 @@
         {
             "code": "georgia",
             "title": "UK-Georgia strategic partnership and cooperation agreement",
-            "data_file": "faroe-islands.md",
+            "data_file": "georgia.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
@@ -489,7 +489,7 @@
                 }
             ],
             "countries": [
-                "ME"
+                "MK"
             ]
         },
         {
@@ -536,7 +536,7 @@
                 }
             ],
             "countries": [
-                "PL"
+                "PS"
             ]
         },
         {
@@ -628,7 +628,7 @@
                 }
             ],
             "countries": [
-                "TU"
+                "TR"
             ]
         },
         {
@@ -678,10 +678,10 @@
             ]
         },
         {
-            "code": "gsp-ldc",
+            "code": "gsp",
             "title": "Generalised Scheme of Preferences (GSP)",
             "footnote": "Scheme incorporates:</p><ul class='govuk-list govuk-list--bullet govuk-body-s'><li>the GSP Least Developed Countries Framework</li><li>the GSP General Framework</li><li>the GSP Enhanced Framework</li></ul>",
-            "data_file": "gsp-ldc.md",
+            "data_file": "gsp.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"

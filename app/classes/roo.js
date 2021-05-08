@@ -16,7 +16,11 @@ class Roo {
     get_roo_config() {
         var data = require('../data/roo/roo_schemes.json');
         var jp = require('jsonpath');
-        var query_string = "$.schemes[?(@.countries.indexOf('" + this.key + "') != -1)]";
+        if (this.key.length == 2) {
+            var query_string = "$.schemes[?(@.countries.indexOf('" + this.key + "') != -1)]";
+        } else {
+            var query_string = "$.schemes[?(@.code =='" + this.key + "')]";
+        }
         var result = jp.query(data, query_string);
         if (result.length > 0) {
             var my_node = result[0];
