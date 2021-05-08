@@ -1,0 +1,73 @@
+{
+    "schemes": [
+        {
+            "code": "EU",
+            "title": "UK / EU Trade and Co-operation Agreement",
+            "data_file": "eu.md",
+            "texts": {
+                "wholly_originating": "Lorem ipsum originating",
+                "wholly_obtained": "Lorem ipsum obtained"
+            },
+            "links":
+            [
+                {
+                    "text": "UK-EU CEPA: rules of origin explainer",
+                    "url": "https://www.gov.uk/government/publications/uk-japan-cepa-rules-of-origin-explainer"
+                },
+                {
+                    "text": "UK-EU CEPA: benefits for the UK",
+                    "url": "https://www.gov.uk/government/publications/the-uk-japan-comprehensive-economic-partnership-benefits-for-the-uk"
+                }
+            ],
+            "countries": [
+                "EU", "BE", "FR", "DE", "NL", "LU", "ES", "PL", "PT", "IT", "SV", "FI", "SL", "SK", "LT", "LV", "AT", "ML", "CY", "GR", "HN"
+            ]
+        },
+        {
+            "code": "JP",
+            "title": "Comprehensive Economic Partnership Agreement UK Japan",
+            "data_file": "jp.md",
+            "texts": {
+                "wholly_originating": "Lorem ipsum originating",
+                "wholly_obtained": "Lorem ipsum obtained"
+            },
+            "links":
+            [
+                {
+                    "text": "UK-Japan CEPA: rules of origin explainer",
+                    "url": "https://www.gov.uk/government/publications/uk-japan-cepa-rules-of-origin-explainer"
+                },
+                {
+                    "text": "UK-Japan CEPA: benefits for the UK",
+                    "url": "https://www.gov.uk/government/publications/the-uk-japan-comprehensive-economic-partnership-benefits-for-the-uk"
+                }
+            ],
+            "countries": [
+                "JP"
+            ]
+        },
+        {
+            "code": "KR",
+            "title": "Comprehensive Economic Partnership Agreement UK South Korea",
+            "data_file": "kr.md",
+            "texts": {
+                "wholly_originating": "Lorem ipsum originating",
+                "wholly_obtained": "Lorem ipsum obtained"
+            },
+            "links":
+            [
+                {
+                    "text": "Cheese",
+                    "url": "https:www.cheese.com"
+                },
+                {
+                    "text": "Zanussi",
+                    "url": "https:www.zanussi.com"
+                }
+            ],
+            "countries": [
+                "KR"
+            ]
+        }
+    ]
+}

@@ -6,6 +6,7 @@ class Roo {
     constructor(req, key) {
 
         this.key = key;
+        this.get_eu_countries();
         this.content = "";
         this.commodity = null;
 
@@ -13,7 +14,7 @@ class Roo {
     }
 
     get_roo_config() {
-        var data = require('../data/roo_schemes.json');
+        var data = require('../data/roo/roo_schemes.json');
         var jp = require('jsonpath');
         var query_string = "$.schemes[?(@.countries.indexOf('" + this.key + "') != -1)]";
         var result = jp.query(data, query_string);
@@ -22,6 +23,11 @@ class Roo {
             this.code = my_node["code"];
             this.links = my_node["links"];
             this.title = my_node["title"];
+
+            var texts = my_node["texts"];
+            this.wholly_originating = texts["wholly_originating"];
+            this.wholly_obtained = texts["wholly_obtained"];
+
             this.data_file = my_node["data_file"];
             if (this.data_file != "") {
                 var data_filename = 'app/data/roo/' + this.data_file;
@@ -32,6 +38,13 @@ class Roo {
                 this.content = md.render(data);
                 this.govify();
             }
+        }
+    }
+
+    get_eu_countries() {
+        var eu_countries = ["BE", "FR", "DE", "NL", "LU", "ES", "PL", "PT", "IT", "SV", "FI", "SL", "SK", "LT", "LV", "AT", "ML", "CY", "GR", "HN"];
+        if (eu_countries.includes(this.key)) {
+            this.key = "EU";
         }
     }
 
