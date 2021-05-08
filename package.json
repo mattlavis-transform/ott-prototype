@@ -24,6 +24,7 @@
     "client-sessions": "^0.8.0",
     "cookie-parser": "^1.4.5",
     "cross-spawn": "^7.0.2",
+    "date-and-time": "^1.0.0",
     "dayjs": "^1.10.4",
     "del": "^5.1.0",
     "dotenv": "^8.2.0",

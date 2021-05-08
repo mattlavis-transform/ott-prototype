@@ -158,7 +158,7 @@ global.get_sucrose_options = function (starch_option) {
 
 global.get_milk_fat_options = function (starch_option, sucrose_option) {
     var meursing_codes = require('../data/meursing_codes.json');
-    
+
     var milk_fat_options = [];
 
     for (key in meursing_codes) {
@@ -231,4 +231,44 @@ global.get_result = function (starch_option, sucrose_option, milk_fat_option, mi
 // Validate starch
 global.validate_starch = function (req, res) {
     return (true);
+}
+
+global.get_rules_of_origin = function (req, res) {
+    var data = require('../data/roo/roo_schemes.json');
+    var geo_data = require('../assets/data/geographical_areas.json');
+    var schemes = data.schemes;
+    schemes.forEach(scheme => {
+        scheme.country_descriptions = get_geographies(scheme.countries, geo_data);
+    });
+    return (schemes);
+
+    function get_geographies(countries, geo_data) {
+        var conjunction;
+        var jp = require('jsonpath');
+        var ret = "";
+
+        if (countries.length == 2) {
+            conjunction = " and ";
+        } else if (countries.length == 1) {
+            conjunction = "";
+        } else {
+            conjunction = ", ";
+        }
+
+        countries.sort();
+        countries.forEach((country, index, array) => {
+            var query_string = '$.data[?(@.id == "' + country + '")]'
+            var result = jp.query(geo_data, query_string);
+            if (result.length > 0) {
+                var description = result[0].attributes.description;
+                ret += description;
+                if (index !== (array.length - 1)) {
+                    ret += conjunction;
+                }
+            }
+        });
+
+        ret = ret.trim();
+        return (ret);
+    }
 }

@@ -8,6 +8,7 @@ const Commodity = require('./classes/commodity.js');
 const Roo = require('./classes/roo.js');
 const ImportedContext = require('./classes/imported_context.js');
 const Error_handler = require('./classes/error_handler.js');
+const date = require('date-and-time');
 
 
 require('./classes/global.js');
@@ -858,8 +859,9 @@ router.get('/calculate/landing/:goods_nomenclature_item_id/:destination/:origin/
 
 // Index
 router.get(['/roo', '/roo/xi', '/roo/undefined'], function (req, res) {
+    var rules_of_origin_schemes = global.get_rules_of_origin();
     req.session.data["commodity"] = "";
-    res.render('roo/index', {});
+    res.render('roo/index', {'rules_of_origin_schemes': rules_of_origin_schemes});
 });
 
 // Country page
@@ -1031,7 +1033,23 @@ router.get(['/restart'], function (req, res) {
     req.session.data["milk_protein"] = null;
     res.redirect('/meursing/starch-glucose');
 });
-
 /* Meursing ends here */
+
+// Help
+router.get(['/help/undefined'], function (req, res) {
+    res.redirect('/help');
+});
+
+router.get(['/help'], function (req, res) {
+    //const now = new Date('2021/05/06 14:14:05');
+    const now = new Date();
+    var show_webchat = isWorkingHour(now);
+    res.render('help/index', { "show_webchat": show_webchat });
+
+    function isWorkingHour(now) {
+        return now.getDay() <= 4 && now.getHours() >= 9 && now.getHours() < 17;
+    }
+});
+
 
 module.exports = router

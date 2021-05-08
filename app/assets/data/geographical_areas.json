@@ -593,7 +593,7 @@
         "type": "geographical_area",
         "attributes": {
           "id": "CI",
-          "description": "Ivory Coast",
+          "description": "Côte d'Ivoire",
           "geographical_area_id": "CI"
         },
         "relationships": {
@@ -2889,7 +2889,7 @@
         "type": "geographical_area",
         "attributes": {
           "id": "TL",
-          "description": "East Timor",
+          "description": "Timor Leste",
           "geographical_area_id": "TL"
         },
         "relationships": {

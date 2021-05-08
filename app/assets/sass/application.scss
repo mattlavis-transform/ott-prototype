@@ -795,13 +795,18 @@ tr:last-of-type .govuk-table__cell {
     color: red;
 }
 
-// @media (min-width: 71.3125em) {
+@media (min-width: 71.3125em) {
 
-//     /* this is 1141 pixels, was 60.0625 */
-//     .govuk-width-container {
-//         min-width: 1140px !important;
-//     }
-// }
+    /* this is 1141 pixels, was 60.0625 */
+    .govuk-width-container {
+        min-width: 1140px !important;
+    }
+
+}
+
+.govuk-footer__section {
+    width: 30%
+}
 
 .govuk-panel--semi-confirmation {
     color     : #000000;
@@ -857,4 +862,6 @@ tr:last-of-type .govuk-table__cell {
 @import "components/news";
 @import "components/commodity";
 @import "components/copy-code";
+@import "components/roo";
+@import "components/help";
 @import "bz";

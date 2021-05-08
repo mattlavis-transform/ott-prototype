@@ -44,108 +44,58 @@
 
   {% if scopeId == "ni" %}
     {{ govukHeader({
-  homepageUrl: "https://www.gov.uk",
-  serviceName: title,
-  serviceUrl: "/sections",
-  navigation: [
-    {
-      href: "/sections/" + scopeId,
-      text: "Search or browse the Tariff"
-    },
-    {
-      href: "/a-z-index/a/" + scopeId,
-      text: "A to Z"
-    },
-    {
-      href: "/tools/" + scopeId,
-      text: "Tools"
-    },
-    {
-      href: "/news/" + scopeId,
-      text: "Latest news"
-    }
-  ]
-}) }}
+      homepageUrl: "https://www.gov.uk",
+      serviceName: title,
+      serviceUrl: "/sections",
+      navigation: [
+        {
+          href: "/sections/" + scopeId,
+          text: "Search or browse the Tariff"
+        },
+        {
+          href: "/a-z-index/a/" + scopeId,
+          text: "A to Z"
+        },
+        {
+          href: "/tools/" + scopeId,
+          text: "Tools"
+        },
+        {
+          href: "/news/" + scopeId,
+          text: "Latest news"
+        }
+      ]
+    }) }}
 
-    {# {{ govukHeader({
-  homepageUrl: "https://www.gov.uk",
-  serviceName: "UK Global Online Tariff",
-  serviceUrl: "/sections",
-  navigation: [
-    {
-      href: "/sections/" + scopeId,
-      text: "Search the Tariff"
-    },
-    {
-      href: "/browse/" + scopeId,
-      text: browse_breadcrumb
-    },
-    {
-      href: "/a-z-index/a/" + scopeId,
-      text: "A to Z"
-    },
-    {
-      href: "/tools/" + scopeId,
-      text: "Tools"
-    }
-  ]
-}) }} #}
   {% else %}
     {{ govukHeader({
-  homepageUrl: "https://www.gov.uk",
-  serviceName: "UK Global Online Tariff",
-  serviceUrl: "/sections",
-  navigation: [
-    {
-      href: "/sections/" + scopeId,
-      text: "Search or browse the Tariff"
-    },
-    {
-      href: "/a-z-index/a/" + scopeId,
-      text: "A to Z"
-    },
-    {
-      href: "/tools/" + scopeId,
-      text: "Tools"
-    },
-    {
-      href: "/roo/" + scopeId,
-      text: "Rules of origin"
-    },
-    {
-      href: "/help/" + scopeId,
-      text: "Help"
-    }
-  ]
-}) }}
+      homepageUrl: "https://www.gov.uk",
+      serviceName: "UK Global Online Tariff",
+      serviceUrl: "/sections",
+      navigation: [
+        {
+          href: "/sections/" + scopeId,
+          text: "Search or browse the Tariff"
+        },
+        {
+          href: "/a-z-index/a/" + scopeId,
+          text: "A to Z"
+        },
+        {
+          href: "/tools/" + scopeId,
+          text: "Tools"
+        },
+        {
+          href: "/roo/" + scopeId,
+          text: "Rules of origin"
+        },
+        {
+          href: "/help/" + scopeId,
+          text: "Help"
+        }
+      ]
+    }) }}
 
-    {# {{ govukHeader({
-  homepageUrl: "https://www.gov.uk",
-  serviceName: "UK Global Online Tariff",
-  serviceUrl: "/sections",
-  navigation: [
-    {
-      href: "/sections/" + scopeId,
-      text: "Search or browse the Tariff"
-    },
-    {
-      href: "/a-z-index/a/" + scopeId,
-      text: "A to Z"
-    },
-    {
-      href: "/downloads/" + scopeId,
-      text: "Downloads"
-    },
-    {
-      href: "/tools/" + scopeId,
-      text: "Tools"
-    },
-    {
-      href: "/news/" + scopeId,
-      text: "Latest news"
-    }
-  ]
-}) }} #}
 
   {% endif %}
 
@@ -204,10 +154,6 @@
         {
           href: "https://www.gov.uk/government/collections/uk-trade-tariff-volume-3",
           text: "UK Trade Tariff: Volume 3 – procedures, codes and declaration entry details"
-        },
-        {
-          href: "http://ec.europa.eu/taxation_customs/dds2/taric/taric_consultation.jsp?Lang=en&Screen=0&Expand=true",
-          text: "Integrated tariff of the European Community (TARIC) database"
         },
         {
           href: "https://api.trade-tariff.service.gov.uk/#gov-uk-trade-tariff-api",
