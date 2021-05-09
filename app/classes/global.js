@@ -245,6 +245,7 @@ global.get_rules_of_origin = function (req, res) {
     function get_geographies(countries, geo_data) {
         var conjunction;
         var jp = require('jsonpath');
+        const _ = require('lodash'); 
         var ret = "";
 
         if (countries.length == 2) {
@@ -268,7 +269,8 @@ global.get_rules_of_origin = function (req, res) {
             }
         });
 
-        ret = ret.trim();
+        //ret = ret.trim();
+        ret = _.trim(ret, ", ");
         return (ret);
     }
 }

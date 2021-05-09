@@ -27,14 +27,14 @@
         <div class="govuk-grid-column-two-thirds">
 
             {# <p>Agreements with the following countries and trading blocs took effect from 1 January 2021. Where the agreement has not yet been ratified, provisional application or bridging mechanisms have been put in place to ensure continuity of trade.</p> #}
-            <p>The UK has Trade Agreements with the following countries and trading blocs. Rules of origin apply to importing goods
+            <p class="govuk-body-l">If you are importing goods into the UK, you may be able to claim a preferential customs duty rate if the country from which the goods are coming has a Trade Agreement with the UK.</p>
+            <div class="xgovuk-inset-text govuk-!-margin-top-9 govuk-!-margin-bottom-9">
+
+                <p>The UK has Trade Agreements with the following countries and trading blocs. Rules of origin apply to importing goods
             from these countries and blocs.</p>
-            
-            <p>If you are importing goods into the UK, you may be able to claim a preferential customs duty rate if the country from which the goods are coming has a Trade Agreement with the UK.</p>
 
-            <p>Select the country from which the goods are coming to identify if there are any applicable rules of origin that will impact your import.</p>
-
-            <p>The UK has trade agreements with these countries or trading blocs. Click on a country to find out more about the agreement and the associated rules of origin.</p>
+                <p>Select the country or trade bloc from which the goods are coming to identify if there are any applicable rules of origin that will impact your import.</p>
+            </div>
 
             <table class="govuk-table">
                 <thead class="govuk-table__head">
@@ -66,11 +66,11 @@
                             </td>
                             <td class="govuk-table__cell">
                                 <ul class="govuk-list govuk-body--m">
-                                    <li>
+                                    {# <li>
                                         <a href="{{ scheme.links[0].url }}">Overview</a>
-                                    </li>
+                                    </li> #}
                                     <li>
-                                        <a href="/roo/country/{{ scheme.code }}">Rules of origin</a>
+                                        <a href="/roo/country/{{ scheme.code }}">View rules of origin</a>
                                     </li>
                                 </ul>
                             </td>

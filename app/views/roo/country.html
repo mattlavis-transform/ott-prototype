@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block pageTitle %}
-  Trade Tariff: Search by additional code
+  Rules of origin - {{ country.title | safe }}
 {% endblock %}
 {% block beforeContent %}
   {{ govukBreadcrumbs({
@@ -33,6 +33,15 @@
   </div>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+      {% include "./step-by-step.html" %}
+
+
+
+
+      {# <h2 class="govuk-heading-m">About the {{ country.title | safe }}</h2> #}
+      {# {{ country.content | safe }} #}
+
       {% if commodity | length %}
 
       {{ govukTable({
@@ -58,9 +67,6 @@
           ]
         ]
       }) }}
-      {# <p>To find out more how Rules of Origin affect your trade in
-      commodity code {{ commodity.goods_nomenclature_item_id }} ({{ commodity.description }}),
-      click on the 'Find rules of origin' button below.</p> #}
 
       <p>In order to qualify for the lower or zero preferential tariff under the {{ country.title | safe }},
       the product classified as {{ commodity.goods_nomenclature_item_id }} must originate in the UK or Japan.</p>
@@ -74,18 +80,31 @@
       
       
       {% else %}
-      {{ govukInsetText({
+      {# {{ govukInsetText({
         html: "To check the rules of origin applicable to a specific commodity, first
         <a href='/sections'>search or browse for for the commodity</a>."
-      }) }}
-      {% endif %}
+      }) }} #}
 
-      <h2 class="govuk-heading-m">About the {{ country.title | safe }}</h2>
-      {{ country.content | safe }}
+
+      {# {{ govukInput({
+        label: {
+          text: "Search the UK Global Online Tariff",
+          classes: " govuk-label--s"
+        },
+        hint: {
+          html: "To check the rules of origin applicable to a specific commodity, first search for your product. Enter either
+          the commodity code or free text to find your commodity."
+        },
+        classes: "govuk-input--width-20",
+        id: "search",
+        name: "search"
+      }) }} #}
+      {% endif %}
 
     </div>
     <div class="govuk-grid-column-one-third">
-      <aside class="app-related-items" role="complementary">
+    {% include "./related-items.html" %}
+      {# <aside class="app-related-items" role="complementary">
         <h2 class="govuk-heading-m" id="subsection-title">Related content</h2>
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list govuk-list-s">
@@ -97,7 +116,7 @@
 
           </ul>
         </nav>
-      </aside>
+      </aside> #}
     </div>
   </div>
 

@@ -866,11 +866,11 @@ router.get(['/roo', '/roo/xi', '/roo/undefined'], function (req, res) {
 
 // Country page
 router.get(['/roo/country', '/roo/country/:country'], function (req, res) {
-    var a = 1;
-    var key = req.session.data["roo_country"] + "";
-    if (key == "undefined") {
-        key = req.params["country"] + "";
+    var key = req.params["country"] + "";
+    if (key == "") {
+        key = req.session.data["roo_country"] + "";
     }
+
     var roo = new Roo(req, key);
     if (req.session.data["commodity"] == "") {
         res.render('roo/country', { 'country': roo });

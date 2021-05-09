@@ -34,7 +34,7 @@
         {
             "code": "JP",
             "title": "Comprehensive Economic Partnership Agreement UK Japan",
-            "data_file": "jp.md",
+            "data_file": "japan.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
@@ -55,9 +55,9 @@
             ]
         },
         {
-            "code": "KR",
+            "code": "south-korea",
             "title": "UK-South Korea trade agreement",
-            "data_file": "kr.md",
+            "data_file": "south-korea.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
@@ -69,8 +69,12 @@
                     "url": "https://www.gov.uk/government/collections/uk-south-korea-trade-agreement"
                 },
                 {
-                    "text": "",
-                    "url": ""
+                    "text": "Trade with South Korea",
+                    "url": "https://www.gov.uk/guidance/summary-of-uk-south-korea-trade-agreement"
+                },
+                {
+                    "text": "Continuing the UK's trade relationship with South Korea: parliamentary report",
+                    "url": "https://www.gov.uk/government/publications/continuing-the-uks-trade-relationship-with-south-korea-parliamentary-report"
                 }
             ],
             "countries": [
@@ -528,7 +532,7 @@
             [
                 {
                     "text": "UK-Palestinian Authority political, trade and partnership agreement",
-                    "url": "https://www.gov.uk/government/collections/uk-pacific-economic-partnership-agreement"
+                    "url": "https://www.gov.uk/guidance/summary-of-the-uk-palestinian-authority-political-trade-and-partnership-agreement"
                 },
                 {
                     "text": "",

@@ -2399,7 +2399,7 @@
         "type": "geographical_area",
         "attributes": {
           "id": "PS",
-          "description": "Occupied Palestinian Territories",
+          "description": "Palestinian Authority",
           "geographical_area_id": "PS"
         },
         "relationships": {
