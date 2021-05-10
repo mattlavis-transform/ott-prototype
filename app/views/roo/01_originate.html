@@ -19,18 +19,8 @@
 
 {% block content %}
     <div class="govuk-grid-row">
-        <div class="govuk-grid-column-three-quarters">
-            {% if (error == "date") %}
-                {{ govukErrorSummary({
-                titleText: "There is a problem",
-                errorList: [
-                    {
-                    text: "Enter a valid future date",
-                    href: "#import_date"
-                    }
-                ]
-                }) }}
-            {% endif %}
+        <div class="govuk-grid-column-two-thirds">
+            
             <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}">
                 <span class="govuk-caption-xl">Rules of origin</span>
 
@@ -84,6 +74,9 @@
             </form>
             
             {# {% include "../includes/commodity_panel.html" %} #}
+        </div>
+        <div class="govuk-grid-column-one-third">
+        {% include "./step-by-step-aside.html" %}
         </div>
     </div>
 

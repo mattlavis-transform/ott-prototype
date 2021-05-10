@@ -890,12 +890,24 @@ router.get(['/roo/country', '/roo/country/:country'], function (req, res) {
 
 // 01 fully originate
 router.get(['/roo/originate/:commodity/:country'], function (req, res) {
-    res.render('roo/01_originate', { });
+    var key = req.params["country"] + "";
+    if (key == "") {
+        key = req.session.data["roo_country"] + "";
+    }
+
+    var roo = new Roo(req, key);
+    res.render('roo/01_originate', { 'country': roo });
 });
 
 // 02 fully originate
 router.get(['/roo/obtained/:commodity/:country'], function (req, res) {
-    res.render('roo/02_obtained', { });
+    var key = req.params["country"] + "";
+    if (key == "") {
+        key = req.session.data["roo_country"] + "";
+    }
+
+    var roo = new Roo(req, key);
+    res.render('roo/02_obtained', { 'country': roo });
 });
 
 // 03 fully originate

@@ -77,7 +77,7 @@
 
             <div class="app-step-nav__panel js-panel" id="step-panel-get-a-provisional-licence-2">
                 <p class="app-step-nav__paragraph">Rules of origin are dependent on the product that you are importing.</p>
-
+                <form action="/roo/originate/0702000007/MA" method="get">
                 {{ govukInput({
                     label: {
                     text: "Search the Tariff",
@@ -94,6 +94,7 @@
                 {{ govukButton({
                     text: "Search"
                 }) }}
+                </form>
 
                 {# <ol class="app-step-nav__list " data-length="1">
                     <li class="app-step-nav__list-item js-list-item ">
@@ -158,9 +159,9 @@
             </div>
 
             <div class="app-step-nav__panel js-panel" id="step-panel-driving-lessons-and-practice-3">
-                <p class="app-step-nav__paragraph">If you’re using a preference from a preference agreement or the Generalised Scheme of Preferences, you will need to prove the origin of your goods.</p>
+                {# <p class="app-step-nav__paragraph">If you’re using a preference from a preference agreement or the Generalised Scheme of Preferences, you will need to prove the origin of your goods.</p> #}
 
-                <p>Find out how to complete a declaration if you’re using the:</p>
+                <p class="app-step-nav__paragraph">Find out how to complete a declaration if you’re using the:</p>
 
                 <ul>
                     <li>
