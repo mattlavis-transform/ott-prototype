@@ -19,7 +19,7 @@
 
 {% block content %}
     <div class="govuk-grid-row">
-        <div class="govuk-grid-column-three-quarters">
+        <div class="govuk-grid-column-two-thirds">
             {% if (error == "date") %}
                 {{ govukErrorSummary({
                 titleText: "There is a problem",
@@ -68,40 +68,41 @@
                 ]
                 }) }}
 
-                <p>(a)a plant or plant product, grown, cultivated, harvested, picked or gathered there;<br>
-(b) a live animal born and raised there;<br>
-(c) a product obtained from a live animal raised there;<br>
-(d) a product obtained from a slaughtered animal born and raised there;<br>
-(e) an animal obtained by hunting, trapping, fishing, gathering or capturing there;<br>
-(f) a product obtained from aquaculture there;<br>
-(g) a mineral or other naturally occurring substance, not included in subparagraphs (a) to (f),
-extracted or taken there;<br>
-(h)fish, shellfish or other marine life taken by a Party's vessel from the sea, seabed or subsoil
-beyond the territorial sea of each Party and, in accordance with international law, beyond the
-territorial sea of third countries;<br>
-(i) a product produced exclusively from products referred to in subparagraph (h) on board a
-Party's factory ship beyond the territorial sea of each Party and, in accordance with
-international law, beyond the territorial sea of third countries;<br>
-(j) a product other than fish, shellfish and other marine life taken by a Party or a person of a
-Party from the seabed or subsoil beyond the territorial sea of each Party, and beyond areas
-over which third countries exercise jurisdiction provided that that Party or a person of that
-Party has the right to exploit that seabed or subsoil in accordance with international law;<br>
-(k) a product that is:<br>
-(i) waste or scrap derived from production there; or<br>
-(ii) waste or scrap derived from used products collected there, provided that those products
-are fit only for the recovery of raw materials; or<br>
-(l) a product produced there, exclusively from products referred to in subparagraphs (a) to (k) or
-from their derivatives.<br>
-
                 {# Display the Continue button #}
                 {{ govukButton({
                     text: "Continue",
                     href: "/roo/date/2/JP"
                 }) }}
-                {# <p>Click on 'Continue' to enter the destination of the product you are looking to import.</p> #}
+
+                {{ govukDetails({
+                    summaryText: "What is classed as wholly obtained?",
+                    text: country.text | safe
+                }) }}
+                {# <h2 class="govuk-heading-m">What is classed as wholly obtained?</h2>
+                <p>Lorem ipsum</p>
+                <ol class="govuk-list govuk-list--spaced govuk-list--alpha">
+                    <li>a <b>plant or plant product</b>, grown, cultivated, harvested, picked or gathered there;</li>
+                    <li>a <b>live animal</b> born and raised there;</li>
+                    <li>a <b>product obtained from a live animal</b> raised there;</li>
+                    <li>a <b>product obtained from a slaughtered animal</b> born and raised there;</li>
+                    <li>an animal obtained by <b>hunting, trapping, fishing, gathering or capturing</b> there;</li>
+                    <li>a product obtained from <b>aquaculture</b> there;</li>
+                    <li>a <b>mineral or other naturally occurring substance</b>, not included in subparagraphs (a) to (f), extracted or taken there;</li>
+                    <li><b>fish, shellfish or other marine life taken by a Party's vessel</b> from the sea, seabed or subsoil beyond the territorial sea of each Party and, in accordance with international law, beyond the territorial sea of third countries;</li>
+                    <li>a product produced exclusively from products referred to in subparagraph (h) on board a Party's factory ship beyond the territorial sea of each Party and, in accordance with international law, beyond the territorial sea of third countries;</li>
+                    <li>a product other than fish, shellfish and other marine life taken by a Party or a person of a Party from the seabed or subsoil beyond the territorial sea of each Party, and beyond areas over which third countries exercise jurisdiction provided that that Party or a person of that Party has the right to exploit that seabed or subsoil in accordance with international law;</li>
+                    <li>a product that is:
+                        <ol class="govuk-list govuk-list--spaced govuk-list--roman">
+                            <li><b>waste or scrap</b> derived from production there; or</li>
+                            <li><b>waste or scrap</b> derived from used products collected there, provided that those products are fit only for the recovery of raw materials; or</li>
+                        </ol></li>
+                    <li>(l) a product produced there, exclusively from products referred to in subparagraphs (a) to (k) or from their derivatives.</li>
+                </ol> #}
+
             </form>
-            
-            {# {% include "../includes/commodity_panel.html" %} #}
+        </div>
+        <div class="govuk-grid-column-one-third">
+            {% include "./step-by-step-aside.html" %}
         </div>
     </div>
 

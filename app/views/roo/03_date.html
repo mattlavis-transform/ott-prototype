@@ -19,7 +19,7 @@
 
 {% block content %}
     <div class="govuk-grid-row">
-        <div class="govuk-grid-column-three-quarters">
+        <div class="govuk-grid-column-two-thirds">
             {% if (error == "date") %}
                 {{ govukErrorSummary({
                 titleText: "There is a problem",
@@ -82,7 +82,7 @@
                 {# Display the Continue button #}
                 {{ govukButton({
                     text: "Continue",
-                    href: "https://www.google.com"
+                    href: "/roo/results/4501100000/" + country.key
                 }) }}
                 {# <p>Click on 'Continue' to enter the destination of the product you are looking to import.</p> #}
             </form>
@@ -90,6 +90,9 @@
             that has been supplied to date.</p>
             <p>It is possible that this data will change over time.</p> #}
             {# {% include "../includes/commodity_panel.html" %} #}
+        </div>
+        <div class="govuk-grid-column-one-third">
+            {% include "./step-by-step-aside.html" %}
         </div>
     </div>
 

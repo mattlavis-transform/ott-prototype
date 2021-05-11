@@ -24,49 +24,104 @@
     <div class="govuk-grid-column-three-quarters">
       <span class="govuk-caption-xl">Online Trade Tariff</span>
       <h1 class="govuk-heading-l">Help on using the tariff</h1>
-      {# <p>Ut velit veniam ullamco cillum officia proident aute proident ullamco duis quis excepteur. Irure mollit reprehenderit pariatur duis dolor in mollit veniam dolor aliquip esse eiusmod nulla.</p> #}
-      <p>If you would like to leave feedback on this service or request additional help with your trade, 
-            then use the following links.</p>
-      <ul class="govuk-list govuk-list--bulletx">
-
-        <li>
-          <a href="https://www.gov.uk/guidance/using-the-trade-tariff-tool-to-find-a-commodity-code">Using the Online Trade Tariff to find a commodity code</a><br>
-          Guidance on the use of this service.<br><br></li>
-
-        <li>
-          <a href="/feedback">Leave feedback on this service</a><br>
-                Use this link if you would like to leave feedback or suggestions for improvements to this service.<br><br></li>
-
-        <li>
-          <a href="https://www.gov.uk/guidance/finding-commodity-codes-for-imports-or-exports">Finding commodity codes for imports or exports</a><br>
-                Find a commodity code to classify your goods and look up duty rates, reliefs and quotas.<br><br></li>
-
-        <li>
-          <a href="https://www.gov.uk/guidance/ask-hmrc-for-advice-on-classifying-your-goods">Get advice on classifying your goods</a><br>
-                Find out how to contact HMRC to help you get a commodity code and what information you’ll need to send us.<br><br>
-
-        <li>
-          <a href="https://www.gov.uk/guidance/apply-for-an-advance-tariff-ruling">Apply for an Advance Tariff Ruling</a><br>
-                Find out how to get a legally binding decision on the commodity code to use when importing into or exporting from Great Britain.<br><br></li>
-
-        <li>
-          <a href="https://www.gov.uk/government/organisations/hm-revenue-customs/contact/vat-enquiries">Contact HMRC</a><br>
-                For general HMRC enquiries.<br><br></li>
-
-      </ul>
-      {% if show_webchat %}
-        <div class="govuk-inset-text panel-grey">
-                  Alternatively, if you would like to talk to HMRC about classifying your goods using WebChat between 09:00 and 17:00 Monday to Friday, then please click on the icon in the bottom right of the screen.
-      </div>
-      {% endif %}
-
+      <p class="govuk-body-l">If you would like to leave feedback on this service or request additional help with your trade, then use the following links.</p>
     </div>
   </div>
 
-  {% if show_webchat %}
-    <!-- Start of HubSpot Embed Code -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/20005740.js"></script>
-    <!-- End of HubSpot Embed Code -->
-  {% endif %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <div class="govuk-tabs" data-module="govuk-tabs">
+        <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+        <ul class="govuk-tabs__list">
+          <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+            <a class="govuk-tabs__tab" href="#past-day">
+        Getting help
+      </a>
+          </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#past-week">
+        CDS guidance
+      </a>
+          </li>
+          <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#past-month">
+        CHIEF guidance
+      </a>
+          </li>
+        </ul>
+        <div class="govuk-tabs__panel" id="past-day">
+          <h2 class="govuk-heading-m">Using this service and getting help</h2>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              <a href="/feedback">Leave feedback on this service</a><br>
+                Use this link if you would like to leave feedback or suggestions for improvements to this service.<br><br></li>
+
+            <li>
+              <a href="https://www.gov.uk/guidance/using-the-trade-tariff-tool-to-find-a-commodity-code">Using the Online Trade Tariff to find a commodity code</a><br>
+          Guidance on the use of this service.<br><br></li>
+
+            <li>
+              <a href="https://www.gov.uk/guidance/finding-commodity-codes-for-imports-or-exports">Finding commodity codes for imports or exports</a><br>
+                Find a commodity code to classify your goods and look up duty rates, reliefs and quotas.<br><br></li>
+
+            <li>
+              <a href="https://www.gov.uk/guidance/ask-hmrc-for-advice-on-classifying-your-goods">Get advice on classifying your goods</a><br>
+                Find out how to contact HMRC to help you get a commodity code and what information you’ll need to send us.<br><br>
+
+            <li>
+              <a href="https://www.gov.uk/guidance/apply-for-an-advance-tariff-ruling">Apply for an Advance Tariff Ruling</a><br>
+                Find out how to get a legally binding decision on the commodity code to use when importing into or exporting from Great Britain.<br><br></li>
+
+            <li>
+              <a href="https://www.gov.uk/government/organisations/hm-revenue-customs/contact/vat-enquiries">Contact HMRC</a><br>
+                For general HMRC enquiries.<br><br></li>
+
+          </ul>
+          {% if show_webchat %}
+            <div class="govuk-inset-text panel-grey">
+                  Alternatively, if you would like to talk to HMRC about classifying your goods using WebChat between 09:00 and 17:00 Monday to Friday, then please click on the icon in the bottom right of the screen.
+      </div>
+          {% endif %}
+
+        </div>
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+          <h2 class="govuk-heading-m">CDS guidance, code and procedures</h2>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              <a href="https://www.gov.uk/government/collections/uk-trade-tariff-volume-3-for-cds--2#imports:-guidance-on-completing-an-import-declaration-for-the-customs-declaration-service">UK Trade Tariff: volume 3 for CDS</a><br>
+          Find the guidance, codes and procedures to use when importing or exporting goods when using the Customs Declaration Service (CDS).<br><br></li>
+            <li>
+              <a href="https://www.gov.uk/government/publications/customs-declaration-completion-requirements-for-the-northern-ireland-protocol">Customs Declaration Completion Requirements for The Northern Ireland Protocol</a><br><br></li>
+            <li>
+              <a href="https://www.gov.uk/government/publications/customs-declaration-completion-requirements-for-great-britain">Customs Declaration Completion Requirements for Great Britain</a><br><br>
+            </li>
+          </ul>
+        </div>
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month">
+          <h2 class="govuk-heading-m">CHIEF guidance, code and procedures</h2>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              <a href="https://www.gov.uk/government/collections/uk-trade-tariff-volume-3-for-chief">UK Trade Tariff: volume 3 for CHIEF</a><br>
+          Forms, codes and procedures to use when importing or exporting goods. How to input data onto the Customs Handling of Import and Export Freight (CHIEF) system.<br><br></li>
+            <li>
+              <a href="https://www.gov.uk/government/publications/customs-declaration-completion-requirements-for-great-britain">Customs Declaration Completion Requirements for Great Britain</a><br><br></li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% if show_webchat %}
+  <!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/20005740.js"></script>
+  <!-- End of HubSpot Embed Code -->
+{% endif %}
 {% endblock %}
 </html>

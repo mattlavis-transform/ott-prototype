@@ -20,7 +20,7 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            
+
             <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}">
                 <span class="govuk-caption-xl">Rules of origin</span>
 
@@ -69,14 +69,18 @@
                 {# Display the Continue button #}
                 {{ govukButton({
                     text: "Continue",
-                    href: "/roo/obtained/01/JP"
+                    href: "/roo/obtained/4501100000/" + country.key
                 }) }}
             </form>
-            
-            {# {% include "../includes/commodity_panel.html" %} #}
+
+            {{ govukDetails({
+                summaryText: "Requirements for originating products",
+                text: country.text | safe
+            }) }}
+
         </div>
         <div class="govuk-grid-column-one-third">
-        {% include "./step-by-step-aside.html" %}
+            {% include "./step-by-step-aside.html" %}
         </div>
     </div>
 

@@ -26,7 +26,17 @@
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Commodity code</dt>
-          <dd class="govuk-summary-list__value">{{ commodity.goods_nomenclature_item_id | format_commodity_code(" ") }} 2500</dd>
+          <dd class="govuk-summary-list__value">{{ commodity.goods_nomenclature_item_id | format_commodity_code(" ") }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/search/">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Additional code(s)</dt>
+          <dd class="govuk-summary-list__value">2500, 2702</dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/search/">
               Change<span class="govuk-visually-hidden"> name</span>

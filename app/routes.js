@@ -896,10 +896,11 @@ router.get(['/roo/originate/:commodity/:country'], function (req, res) {
     }
 
     var roo = new Roo(req, key);
+    roo.get_content("01-overview");
     res.render('roo/01_originate', { 'country': roo });
 });
 
-// 02 fully originate
+// 02 fully obtained
 router.get(['/roo/obtained/:commodity/:country'], function (req, res) {
     var key = req.params["country"] + "";
     if (key == "") {
@@ -907,12 +908,38 @@ router.get(['/roo/obtained/:commodity/:country'], function (req, res) {
     }
 
     var roo = new Roo(req, key);
+    roo.get_content("02-wholly-obtained");
     res.render('roo/02_obtained', { 'country': roo });
 });
 
-// 03 fully originate
+// 03 fully date
 router.get(['/roo/date/:commodity/:country'], function (req, res) {
     res.render('roo/03_date', { });
+});
+
+
+// 04 RoO results
+router.get(['/roo/results/:commodity/:country'], function (req, res) {
+    var key = req.params["country"] + "";
+    if (key == "") {
+        key = req.session.data["roo_country"] + "";
+    }
+    var commodity = req.params["commodity"] + "";
+
+    var roo = new Roo(req, key);
+    roo.set_commodity(commodity);
+    roo.get_rules();
+    res.render('roo/04_results', { 'country': roo });
+});
+
+
+
+// RoO Glossary
+router.get(['/roo/glossary'], function (req, res) {
+    var key = "";
+    var roo = new Roo(req, key);
+    roo.get_all_abbreviations();
+    res.render('roo/glossary', { 'country': roo });
 });
 
 /* Rules of origin ends here */
@@ -926,7 +953,7 @@ router.get(['/meursing/start', '/meursing/start/:goods_nomenclature_item_id'], f
     starch_glucose_options = global.get_starch_glucose_options();
     res.render('meursing/start');
 });
-// Starch and glucode content
+// Starch and glucose content
 router.get(['/meursing/starch-glucose'], function (req, res) {
     var error = req.query["error"];
     starch_glucose_options = global.get_starch_glucose_options();

@@ -1,9 +1,9 @@
-<style>
+{# <style>
     .js-step-controls-button,
     .js-toggle-link {
         display: none !important;
     }
-</style>
+</style> #}
 <div id="step-by-step-navigation" class="app-step-nav app-step-nav--large app-step-nav--active" data-show-text="Show" data-hide-text="Hide" data-show-all-text="Show all" data-hide-all-text="Hide all">
     <div class="app-step-nav__controls">
         <button aria-expanded="true" class="app-step-nav__button app-step-nav__button--controls js-step-controls-button" aria-controls="step-panel-check-youre-allowed-to-drive-1">Hide all</button>
@@ -77,7 +77,7 @@
 
             <div class="app-step-nav__panel js-panel" id="step-panel-get-a-provisional-licence-2">
                 <p class="app-step-nav__paragraph">Rules of origin are dependent on the product that you are importing.</p>
-                <form action="/roo/originate/0702000007/MA" method="get">
+                <form action="/roo/originate/4501100000/{{ country.key }}" method="get">
                 {{ govukInput({
                     label: {
                     text: "Search the Tariff",
