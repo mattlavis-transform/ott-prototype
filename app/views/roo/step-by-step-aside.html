@@ -14,9 +14,9 @@
 </div>
 
 <div id="step-by-step-navigation" data-module="gemstepnav" class="app-step-nav  app-step-nav--active" data-id="e01e924b-9c7c-4c71-8241-66a575c2f61f" data-show-text="show" data-hide-text="hide" data-show-all-text="Show all" data-hide-all-text="Hide all">
-    <div class="app-step-nav__controls">
+    {# <div class="app-step-nav__controls">
         <button aria-expanded="false" class="app-step-nav__button app-step-nav__button--controls js-step-controls-button" aria-controls="step-panel-check-youre-allowed-to-drive-1">Show all</button>
-    </div>
+    </div> #}
     <ol class="app-step-nav__steps">
         <li class="app-step-nav__step js-step step-is-shown" aria-current="step" data-show="" id="check-youre-allowed-to-drive">
             <div class="app-step-nav__header js-toggle-panel" data-position="1">
@@ -146,10 +146,13 @@
                         <a href="https://www.gov.uk/government/collections/uk-trade-tariff-volume-3-for-cds--2" class="govuk-link">Customs Declaration Service</a>
                     </li>
                 </ol>
-
             </div>
-
         </li>
-        
     </ol>
 </div>
+<script src="/public/javascripts/step-by-step-nav.js"></script>
+<script type="text/javascript">
+    var $element = $('#step-by-step-navigation')
+    var stepByStepNavigation = new GOVUK.Modules.AppStepNav()
+    stepByStepNavigation.start($element)
+</script>

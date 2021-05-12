@@ -19,22 +19,28 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <span class="govuk-caption-xl">{{ title }}</span>
+            <span class="govuk-caption-xl">Online Trade Tariff</span>
             <h1 class="govuk-heading-l">Rules of origin</h1>
         </div>
     </div>
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-
-            {# <p>Agreements with the following countries and trading blocs took effect from 1 January 2021. Where the agreement has not yet been ratified, provisional application or bridging mechanisms have been put in place to ensure continuity of trade.</p> #}
             <p class="govuk-body-l">If you are importing goods into the UK, you may be able to claim a preferential customs duty rate if the country from which the goods are coming has a Trade Agreement with the UK.</p>
-            <div class="xgovuk-inset-text govuk-!-margin-top-9 govuk-!-margin-bottom-9">
+            
+            {# <p class="govuk-body-l">The UK has Trade Agreements with the following countries and trading blocs. Rules of origin apply to importing goods from these countries and blocs.</p> #}
+
+            <p class="govuk-body-l">Select the country or trade bloc from which the goods are coming to identify if there are any applicable rules of origin that will impact your import.</p>
+        </div>
+    </div>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {# <div class="xgovuk-inset-text xgovuk-!-margin-top-9 govuk-!-margin-bottom-9">
 
                 <p>The UK has Trade Agreements with the following countries and trading blocs. Rules of origin apply to importing goods
             from these countries and blocs.</p>
 
                 <p>Select the country or trade bloc from which the goods are coming to identify if there are any applicable rules of origin that will impact your import.</p>
-            </div>
+            </div> #}
 
             <table class="govuk-table">
                 <thead class="govuk-table__head">
@@ -79,14 +85,6 @@
                     <!-- End the loop //-->
                 </tbody>
             </table>
-
-            <!--{% if footnote_array %}
-                <ol class="govuk-list govuk-list--number">
-                    {% for footnote in footnote_array %}
-                        <li>{{ footnote }}</li>
-                    {% endfor %}
-                </ol>
-            {% endif %}//-->
 
         </div>
         <div class="govuk-grid-column-one-third">

@@ -27,6 +27,13 @@
     cursor: pointer;
 }
 
+.copied {
+    display: none;
+    xdisplay: block;
+    text-align: right;
+    margin-top:5px;
+}
+
 .tariff-breadcrumbs nav ul li div.copy_code span {
     padding-right: 0px;
 }

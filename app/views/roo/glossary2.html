@@ -2,6 +2,7 @@
 {% block pageTitle %}
   Trade Tariff: Search by additional code
 {% endblock %}
+
 {% block beforeContent %}
     {{ govukBreadcrumbs({
   items: [
@@ -15,6 +16,10 @@
     },
     {
       text: "Glossary of key terms",
+      href: "/roo/glossary"
+    },
+    {
+      text: country.title,
       href: ""
     }
   ]
@@ -24,14 +29,14 @@
     <div class="govuk-grid-row" id="top">
         <div class="govuk-grid-column-two-thirds">
             <span class="govuk-caption-xl">Rules of origin</span>
-            <h1 class="govuk-heading-l">Glossary of key terms</h1>
-            <p class="govuk-body-l">This is a glossary for terms related to Rules of Origin.</p>
+            <h1 class="govuk-heading-l">Glossary of key terms - {{ country.title }}</h1>
+            {# <p class="govuk-body-l">This is a glossary for terms related to Rules of Origin.</p> #}
         </div>
     </div>
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            <nav class="gem-c-contents-list  gem-c-contents-list--no-underline " aria-label="Contents" role="navigation" data-module="gem-track-click">
+            {# <nav class="gem-c-contents-list  gem-c-contents-list--no-underline " aria-label="Contents" role="navigation" data-module="gem-track-click">
                 <h2 class="gem-c-contents-list__title">Contents</h2>
                 <ol class="gem-c-contents-list__list">
                     {% for gt in country.glossary_terms %}
@@ -40,7 +45,7 @@
                         </li>
                     {% endfor %}
                 </ol>
-            </nav>
+            </nav> #}
 
             {% for gt in country.glossary_terms %}
                 <div id="{{ gt.term }}">

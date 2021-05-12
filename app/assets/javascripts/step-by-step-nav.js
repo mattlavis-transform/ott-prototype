@@ -126,6 +126,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           } else {
             stepView.setIsShown(false)
           }
+          stepView.setIsShown(true)
         })
 
         if (data.length > 0) {

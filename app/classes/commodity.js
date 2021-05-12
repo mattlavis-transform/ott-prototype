@@ -11,6 +11,7 @@ const OrderNumber = require("./order_number");
 const Definition = require("./definition");
 const LegalAct = require("./legal_act");
 const DutyExpression = require("./duty_expression");
+const Certificate = require("./certificate");
 
 class Commodity {
     constructor(sid = null, goods_nomenclature_item_id = null, productline_suffix = null, description = null, number_indents = null, leaf = null, parent_sid = null, indent_class = null) {
@@ -244,6 +245,46 @@ class Commodity {
             this.calculate_quotas();
             //this.calculate_preferences();
         }
+    }
+
+
+    get_certificates() {
+        this.certificates = [];
+        //const valid_series = ["C", "D", "P", "Q"];
+        const valid_series = ["C", "D"];
+        this.measures.forEach(m => {
+            if (valid_series.includes(m.measure_type_series_id)) {
+                if (m.has_conditions) {
+                    if (m.duty_expression.base == '') {
+                        m.measure_conditions.forEach(mc => {
+                            if (mc.document_code != "") {
+                                var cert_count = this.certificates.length;
+                                var i;
+                                var found = false;
+                                if (cert_count > 0) {
+                                    for (i = 0; i < cert_count; i++) {
+                                        if (this.certificates[i].document_code == mc.document_code) {
+                                            found = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                                if (found == false) {
+                                    var certificate = new Certificate();
+                                    certificate.document_code = mc.document_code;
+                                    certificate.requirement = mc.requirement;
+                                    certificate.duty_expression = mc.duty_expression;
+                                    certificate.measure_type_id = m.measure_type_id;
+                                    certificate.measure_type_description = m.measure_type_description;
+                                    this.certificates.push(certificate);
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        });
+        var b = 2;
     }
 
     get_additional_code_class() {

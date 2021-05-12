@@ -571,6 +571,29 @@ router.get(['/calculate/additional-code/:goods_nomenclature_item_id', '/calculat
     //     });
 });
 
+
+
+
+// Calculator - certificate
+router.get(['/calculate/certificate/:goods_nomenclature_item_id', '/calculate/certificate'], function (req, res) {
+    var url = global.get_commodity_api(req);
+    // if (req.session.data["origin"] != "") {
+    //     url += "?filter[geographical_area_id]=" + req.session.data["origin"];
+    // }
+    axios.get(url)
+        .then((response) => {
+            c = new Commodity();
+            c.pass_request(req);
+            c.get_data(response.data);
+            c.get_measure_data(req, req.session.data["origin"]);
+            c.get_certificates();
+            var a = 1;
+            res.render('calculate/11_certificate', { 'commodity': c, 'error': null });
+        });
+    var a = 1;
+});
+
+
 // // Calculator - Meursing - this is the temporary information-only page for Meursing-related content
 // router.get('/calculate/meursing/:goods_nomenclature_item_id', function (req, res) {
 //     scopeId = global.get_scope(req.params["scopeId"]);
@@ -940,6 +963,13 @@ router.get(['/roo/glossary'], function (req, res) {
     var roo = new Roo(req, key);
     roo.get_all_abbreviations();
     res.render('roo/glossary', { 'country': roo });
+});
+
+router.get(['/roo/rvc'], function (req, res) {
+    var key = "";
+    var roo = new Roo(req, key);
+    roo.get_all_abbreviations("RVC-detail", "Calculating Regional Value Content (RVC)");
+    res.render('roo/glossary2', { 'country': roo });
 });
 
 /* Rules of origin ends here */

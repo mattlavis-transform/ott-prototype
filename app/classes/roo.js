@@ -69,9 +69,15 @@ class Roo {
 
     }
 
-    get_all_abbreviations() {
+    get_all_abbreviations(file = "", title = "") {
         this.glossary_terms = [];
-        var terms = ["CC", "CTC", "CTH", "CTSH", "MaxNOM", "EXW", "sub-heading", "heading"];
+        if (file == "") {
+            var terms = ["CC", "CTC", "CTH", "CTSH", "RVC", "MaxNOM", "EXW", "sub-heading", "heading", "Accumulation"];
+            this.title = "";
+        } else {
+            var terms = [file];
+            this.title = title;
+        }
         terms.forEach(term => {
             var path = "app/data/roo/definitions/" + term + ".md";
             var fs = require('fs');
