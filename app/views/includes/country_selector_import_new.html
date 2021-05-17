@@ -1,0 +1,26 @@
+<form class="edit_search" id="import_edit_search" action="/search" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="VbupE0efK/jz0vdP9NfMb8Ccd9RDYBALgKn90O8myWNBz2dwmZ9+XtyTVg1ERRhvEsypw7TQSV01RoONKHiBTw==">
+    <fieldset class="govuk-fieldset country-picker js-country-picker box govuk-!-font-size-16">
+        <div class="country-picker-container">
+            <input value="import" type="hidden" name="search[anchor]" id="import_search_anchor">
+            <label class="govuk-label" for="import_search_country">UK Global Tariff imports from</label>
+            <div>
+                <div class="autocomplete__wrapper">
+                    <div style="border: 0px none; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
+                        <div id="import_search_country__status--A" role="status" aria-atomic="true" aria-live="polite"></div>
+                        <div id="import_search_country__status--B" role="status" aria-atomic="true" aria-live="polite"></div>
+                    </div><input aria-expanded="false" aria-owns="import_search_country__listbox" aria-autocomplete="both" aria-describedby="import_search_country__assistiveHint" autocomplete="off" class="autocomplete__input autocomplete__input--default" id="import_search_country" name="" placeholder="" type="text" role="combobox">
+                    <div class="autocomplete__dropdown-arrow-down-wrapper">
+                        <span class="autocomplete__arrow"></span></div>
+                    <ul class="autocomplete__menu autocomplete__menu--overlay autocomplete__menu--hidden" id="import_search_country__listbox" role="listbox">
+                        <li aria-selected="false" class="autocomplete__option" id="import_search_country__option--0" role="option" tabindex="-1" aria-posinset="1" aria-setsize="1">All countries</li>
+                    </ul>
+                    <span id="import_search_country__assistiveHint" style="display: none;">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span></div>
+            </div>
+            <select class="custom-select js-country-picker-select" aria-label="Filter Import measures by country" name="search[country]" id="import_search_country-select" style="display: none;">
+                <option value="">All countries</option>
+            </select>
+            <a class="reset-country-picker" href="#" title="Reset country picker" role="button">Reset<span class="long-text">&nbsp;to all countries</span></a>
+        </div>
+        <button name="button" type="submit" class="button search-submit" style="display: none;">Set country</button>
+    </fieldset>
+</form>

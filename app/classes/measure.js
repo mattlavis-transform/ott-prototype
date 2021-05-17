@@ -15,6 +15,9 @@ class Measure {
         this.measure_condition_ids = [];
         this.measure_conditions = [];
         this.has_conditions = false;
+
+        // Footnotes
+        this.has_footnotes = false;
         
         // Geography
         this.geographical_area = null;

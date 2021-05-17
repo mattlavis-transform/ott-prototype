@@ -1,3 +1,4 @@
+const e = require('express');
 var numeral = require('numeral');
 
 global.decimals = function (str, cnt) {
@@ -245,7 +246,7 @@ global.get_rules_of_origin = function (req, res) {
     function get_geographies(countries, geo_data) {
         var conjunction;
         var jp = require('jsonpath');
-        const _ = require('lodash'); 
+        const _ = require('lodash');
         var ret = "";
 
         if (countries.length == 2) {
@@ -273,4 +274,37 @@ global.get_rules_of_origin = function (req, res) {
         ret = _.trim(ret, ", ");
         return (ret);
     }
+}
+
+global.get_geography = function (id, res) {
+    var a = 1;
+    var ret = {};
+    var data = res["data"];
+    var included = res["included"];
+    var geographical_areas = [];
+
+    var countries = {};
+    included.forEach(country => {
+        countries[country.id] = country.attributes.description;
+        var a = 1;
+    });
+
+    data.forEach(g => {
+        var a = 1;
+        if (g.id == id) {
+            var a = 1;
+            ret.id = id;
+            if (ret.id == "1011") {
+                ret.description = "All countries";
+            } else {
+                ret.description = g.attributes.description;
+            }
+            ret.members = g.relationships.children_geographical_areas.data;
+            ret.members.forEach(m => {
+                m.description = countries[m.id];
+            });
+            var a = 1;
+        }
+    });
+    return (ret);
 }

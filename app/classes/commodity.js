@@ -49,10 +49,11 @@ class Commodity {
         this.mfn_array = ["103", "105", "109"];
         this.agri_array = ["488", "489", "490"];
         this.preference_array = ["142", "145", "106"];
-        this.remedy_array = ["551", "552", "553", "554", "555", "561", "562", "563", "564", "565", "566", "570", "695", "696"];
         this.suspension_array = ["112", "115", "117", "119"];
         this.quota_array = ["143", "146", "122", "123"];
         this.supplementary_unit_array = ["109", "110"];
+        this.remedy_array = ["551", "552", "553", "554", "555", "561", "562", "563", "564", "565", "566", "570", "695", "696"];
+
         this.meursing_blob = null;
         this.exchange_rate = "";
         this.filter = null;
@@ -89,7 +90,7 @@ class Commodity {
         this.format_commodity_code();
     }
 
-    get_measure_data(req, origin) {
+    get_measure_data(req, origin, override_block = false) {
         var m, mc, mt, g, ac, la, id, item2;
 
         this.origin = origin;
@@ -99,6 +100,7 @@ class Commodity {
         this.measures = [];
         this.measure_components = [];
         this.measure_conditions = [];
+        this.footnotes = [];
         this.measure_types = [];
         this.geographical_areas = [];
         this.additional_codes = [];
@@ -125,7 +127,14 @@ class Commodity {
                     item2 = item["relationships"];
                     if (item2.hasOwnProperty("additional_code")) {
                         m.additional_code_id = item["relationships"]["additional_code"]["data"]["id"];
+                        // console.log(m.additional_code_id);
                     }
+                }
+
+                // Get footnotes
+                var footnotes = item["relationships"]["footnotes"]["data"];
+                if (footnotes.length > 0) {
+                    m.has_footnotes = true;
                 }
 
                 // Get legal base / legal acts
@@ -175,10 +184,11 @@ class Commodity {
 
             } else if (item["type"] == "additional_code") {
                 ac = new AdditionalCode(item);
-                var ar_wanted = ["2", "8", "A", "B", "C"];
-                if (ar_wanted.includes(ac.additional_code_type)) {
-                    this.additional_codes.push(ac);
-                }
+                // var ar_wanted = ["2", "8", "A", "B", "C"];
+                // if (ar_wanted.includes(ac.additional_code_type)) {
+                //     this.additional_codes.push(ac);
+                // }
+                this.additional_codes.push(ac);
 
             } else if (item["type"] == "order_number") {
                 ac = new OrderNumber(item);
@@ -213,7 +223,7 @@ class Commodity {
         this.get_units();
         this.get_measure_type_descriptions();
         this.get_measure_country_descriptions();
-        this.categorise_measures();
+        this.categorise_measures(override_block);
         this.assign_definitions_to_order_numbers();
         this.assign_legal_acts_to_measures();
         this.assign_geographical_area_descriptions_to_exclusions();
@@ -222,20 +232,6 @@ class Commodity {
         this.sort_additional_codes();
         this.get_additional_code_class();
 
-
-
-
-        // console.log("Units: " + this.units);
-        // console.log("VATs: " + this.vats);
-        // console.log("Excises: " + this.excises);
-        // console.log("MFNs: " + this.mfns);
-        // console.log("Preferences: " + this.preferences);
-        // console.log("Quotas: " + this.quotas);
-        // console.log("Remedies: " + this.remedies);
-
-        // this.quotas.forEach(quota => {
-        //     console.log("Quota order number : " + quota.order_number);
-        // });
 
         var valid_phases = ["results"];
         if (valid_phases.includes(this.phase)) {
@@ -760,157 +756,9 @@ class Commodity {
 
 
     // Categorise the measures
-    categorise_measures() {
-        //console.log("Categorising measures");
-
-        var display_block_options = {
-            "vat_excise": {
-                "index": 0,
-                "block": "VAT and excise",
-                "explainers": {
-                    "title": "More information about VAT and excise",
-                    "items": [
-                        {
-                            "measure_type": "VAT",
-                            "description": "VAT is a national tax charged in addition to any other duties that apply. <a href='https://www.gov.uk/guidance/rates-of-vat-on-different-goods-and-services'>Please see guidance for when zero rate VAT applies</a>."
-                        },
-                        {
-                            "measure_type": "Excise",
-                            "description": "Lorem ipsum"
-                        }
-                    ]
-                }
-            },
-            "basic": {
-                "index": 1,
-                "block": "Basic duties",
-                "explainers": {
-                    "title": "More information about basic duties",
-                    "items": [
-                        {
-                            "measure_type": "VAT",
-                            "description": "VAT is a national tax charged in addition to any other duties that apply. <a href='https://www.gov.uk/guidance/rates-of-vat-on-different-goods-and-services'>Please see guidance for when zero rate VAT applies</a>."
-                        },
-                        {
-                            "measure_type": "Excise",
-                            "description": "Lorem ipsum"
-                        }
-                    ]
-                }
-            },
-            "tariffs_charges": {
-                "index": 2,
-                "block": "Tariffs and charges",
-                "explainers": {
-                    "title": "What are the main types of tariffs and charges",
-                    "items": [
-                        {
-                            "measure_type": "Third country duty",
-                            "description": "Lorem ipsum"
-                        },
-                        {
-                            "measure_type": "Tariff preferences",
-                            "description": "Lorem ipsum"
-                        },
-                        {
-                            "measure_type": "Suspensions and reliefs",
-                            "description": "Lorem ipsum"
-                        },
-                        {
-                            "measure_type": "Customs Union duties",
-                            "description": "Lorem ipsum"
-                        }
-                    ]
-                },
-                "link_text": "Click to <a href='/calculate/date/" + this.goods_nomenclature_item_id + "'>calculate import duties and taxes for importing commodity " + global.format_commodity_code(this.goods_nomenclature_item_id) + "</a>."
-            },
-            "quotas": {
-                "index": 3,
-                "block": "Quotas",
-                "explainers": {
-                    "title": "More information about quotas",
-                    "items": [
-                        {
-                            "measure_type": "Quotas",
-                            "description": "Lorem ipsum"
-                        }
-                    ]
-                }
-            },
-            "other": {
-                "index": 4,
-                "block": "UK import controls",
-                "explainers": {
-                    "title": "More information about import controls",
-                    "items": [
-                        {
-                            "measure_type": "Import controls",
-                            "description": "Import controls can be either prohibitions, where goods cannot be imported under any circumstances, or restrictions, where goods can be imported only under certain circumstances. Check the conditions related to this type of measure. "
-                        }
-                    ]
-                }
-            },
-            "remedies": {
-                "index": 5,
-                "block": "Trade Remedies and safeguards",
-                "explainers": {
-                    "title": "More information about Trade Remedies and safeguards",
-                    "items": [
-                        {
-                            "measure_type": "Anti-dumping",
-                            "description": "Lorem ipsum"
-                        },
-                        {
-                            "measure_type": "Anti-subsidy",
-                            "description": "Lorem ipsum"
-                        },
-                        {
-                            "measure_type": "Safeguards",
-                            "description": "Lorem ipsum"
-                        }
-                    ]
-                }
-            }
-        }
-
-        var display_sort_options = {
-            "vat": {
-                "sort": "00_vat",
-                "block": "vat_excise"
-            },
-            "excise": {
-                "sort": "01_excise",
-                "block": "vat_excise"
-            },
-            "mfns": {
-                "sort": "02_mfns",
-                "block": "basic"
-            },
-            "agri": {
-                "sort": "03_agri",
-                "block": "tariffs_charges"
-            },
-            "preferences": {
-                "sort": "03_preferences",
-                "block": "tariffs_charges"
-            },
-            "suspensions": {
-                "sort": "04_suspensions",
-                "block": "tariffs_charges"
-            },
-            "quotas": {
-                "sort": "05_quotas",
-                "block": "quotas"
-            },
-            "other": {
-                "sort": "06_other",
-                "block": "other"
-            },
-            "remedies": {
-                "sort": "99_remedies",
-                "block": "remedies"
-            }
-        }
+    categorise_measures(override_block = false) {
+        var display_block_options = require('./display_block_options.json')
+        var display_sort_options = require('./display_sort_options.json')
 
         this.display_blocks = [];
         this.measures.forEach(m => {
@@ -918,7 +766,7 @@ class Commodity {
             if (m.measure_type_id == "105") {
                 this.is_end_use = true;
             }
-            m.block = "";
+            //m.block = "";
             if (m.measure_type_series_id == "P") {
                 m.block = "vat";
                 m.duty_bearing = true;
@@ -1018,7 +866,13 @@ class Commodity {
                 this.quotas.push(obj);
 
             } else {
-                m.block = "other"
+                if (override_block == true) {
+                    m.block = "other_uk"
+                } else if (override_block == "smart") {
+                    var a = 1;
+                } else {
+                    m.block = "other"
+                }
                 m.duty_bearing = false;
                 m.sort_block = display_sort_options[m.block]
                 m.display_block = display_block_options[m.sort_block.block]

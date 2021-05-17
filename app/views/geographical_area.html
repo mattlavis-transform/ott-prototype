@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+    <!-- {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/sections/" + scopeId
+    },
+    {
+      text: browse_breadcrumb,
+      href: ""
+    }
+  ]
+}) }}//-->
+
+    <script>
+        document.write('<a href="javascript:history.back();" class="govuk-back-link">Back</a>');
+    </script>
+    <noscript>
+        <a href="{{ referer }}" class="govuk-back-link">Back</a>
+    </noscript>
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-xl">{{ title }}</span>
+            <h1 class="govuk-heading-l">Geographical area {{ geographical_area.id }} - {{ geographical_area.description }}</h1>
+            <p>Geographical area {{ geographical_area.id }}, <b>{{ geographical_area.description }}</b>,
+            includes the following {{ geographical_area.members.length }} countries / regions.</p>
+            <table class="govuk-table">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">ID</th>
+                        <th scope="col" class="govuk-table__header">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    {% for member in geographical_area.members %}
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">{{ member.id }}</td>
+                            <td class="govuk-table__cell">{{ member.description }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+</html>

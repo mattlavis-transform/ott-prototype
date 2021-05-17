@@ -18,8 +18,10 @@ $govuk-assets-path: '/govuk/assets/';
 @import "components/cookie-banner";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
-.c {
-    text-align: center !important
+@media (min-width: 800px) {
+    .c {
+        text-align: center !important
+    }
 }
 
 .r {
@@ -94,6 +96,10 @@ article.notes {
 
 @media (min-width: 40.0625em) {
     .govuk-table--s {
+        font-size: 14px;
+    }
+
+    .govuk-inset-text--s {
         font-size: 14px;
     }
 
@@ -461,165 +467,8 @@ div.panel_blue {
     }
 }
 
-.measures2 {
-
-    td.country {
-        padding-left: 5px
-    }
-}
-
-/*
-.measures {
-    th {
-        text-align: left;
-        padding   : 0px;
-    }
-
-    .country {
-        width: 20%
-    }
-
-    .measure {
-        width: 20%
-    }
-
-    .value {
-        width: 10%
-    }
-
-    .conditions {
-        width: 10%
-    }
-
-    .exclusions {
-        width: 10%
-    }
-
-    .legal_base {
-        width: 10%
-    }
-
-    .dates {
-        width: 10%
-    }
-
-    .footnotes {
-        width        : 10%;
-        padding-right: 5px !important;
-    }
-
-    td.country {
-        padding-left: 5px
-    }
-
-    .govuk-details {
-        font-size     : 14px;
-        padding-top   : 0px;
-        margin-top    : 0px;
-        padding-bottom: 0px;
-        margin-bottom : 0px;
-    }
-
-    .govuk-details__summary {
-        font-size     : 14px;
-        padding-top   : 0px;
-        margin-top    : 0px;
-        padding-bottom: 0px;
-        margin-bottom : 0px;
-    }
-
-    tr td {
-        border: 0px !important
-    }
-
-    tr th {
-        background-color: #E1E8E8;
-        font-weight     : normal;
-        padding         : 4px 4px 4px 0px !important;
-    }
-
-    tr th:nth-child(1) {
-        padding-left: 4px !important;
-    }
-
-    tr:nth-child(even) {
-        background: #f8f8f8
-    }
-
-    tr:nth-child(odd) {
-        background: #FFF
-    }
-
-    tr.measure:hover {
-        background-color: #DEE0E2;
-    }
-
-    .govuk-details__text {
-        border: 0px !important
-    }
-
-    .govuk-details__summary::before {
-        margin-top  : 3px;
-        border-width: 6px 0 6px 10.392px;
-    }
-
-    .govuk-details[open]>.govuk-details__summary::before {
-        border-width: 6px 0 6px 10.392px;
-    }
 
 
-
-    @media (max-width: 40.0625em) {
-
-        .govuk-details {
-            margin  : 0px;
-            padding : 0px;
-            top     : -2px;
-            position: relative;
-        }
-
-        .govuk-details__summary-text {
-            font-size: 12px;
-        }
-
-        .govuk-details__summary {
-            padding-left: 0.75em;
-        }
-
-        .govuk-details__summary::before {
-            border-width: 3.5px 0 3.5px 6.62px;
-        }
-
-        .govuk-details[open]>.govuk-details__summary::before {
-            border-width: 6.62px 3.5px 0 3.5px;
-        }
-
-        .legal_base {
-            display: none;
-        }
-
-        td.country {
-            padding-left: 0px !important;
-        }
-
-        .footnotes {
-            display: none;
-        }
-
-        .conditions {
-            display: none;
-        }
-
-        .exclusions {
-            display: none;
-        }
-
-        .govuk-table__caption {
-            font-size: 14px;
-        }
-    }
-}
-*/
 .measures2 {
     .govuk-details {
         font-size     : 14px;
@@ -651,53 +500,7 @@ div.panel_blue {
     .govuk-details[open]>.govuk-details__summary::before {
         border-width: 8.5px 5px 0 5px;
     }
-
-    tr:nth-child(even) {
-        background: #f8f8f8
-    }
-
-    tr:nth-child(odd) {
-        background: #FFF
-    }
-
-    @media (max-width: 40.0625em) {
-        table.measures2 {
-            tr {
-                background: none;
-            }
-        }
-    }
-
-
-
-    @media (min-width: 800px) {
-        .country {
-            width: 30%
-        }
-
-        .exclusions {
-            width: 20%
-        }
-
-        .measure {
-            width: 30%
-        }
-
-        .value {
-            width: 20%
-        }
-
-        .conditions {
-            width: 10%
-        }
-
-        .dates {
-            width     : 10%;
-            text-align: right;
-        }
-    }
 }
-
 
 ul.countries {
     margin         : 0px 0px 0px 5px;
@@ -845,7 +648,7 @@ tr:last-of-type .govuk-table__cell {
     font-size: 16px
 }
 
-// @import "components/app-flexible-table";
+@import "components/dialog";
 @import "components/modal";
 @import "components/flexible-tables";
 @import "components/attachments";
@@ -864,4 +667,4 @@ tr:last-of-type .govuk-table__cell {
 @import "components/copy-code";
 @import "components/roo";
 @import "components/help";
-@import "bz";
+@import "components/picker";
