@@ -839,7 +839,7 @@ class Commodity {
             },
             "other": {
                 "index": 4,
-                "block": "Import controls",
+                "block": "UK import controls",
                 "explainers": {
                     "title": "More information about import controls",
                     "items": [

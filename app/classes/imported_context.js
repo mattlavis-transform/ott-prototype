@@ -15,6 +15,14 @@ class ImportedContext {
         var result = jp.query(data, query_string);
         this.origin_description = result[0].attributes.description;
     }
+
+    get_destination_description() {
+        if (this.destination == "NI") {
+            this.destination_description = "Northern Ireland";
+        } else {
+            this.destination_description = "England, Scotland or Wales";
+        }
+    }
 }
 
 module.exports = ImportedContext

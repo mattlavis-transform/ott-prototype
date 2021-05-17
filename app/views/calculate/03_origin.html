@@ -34,6 +34,7 @@
 
             <span class="govuk-caption-xl">Calculate import duties</span>
             <form action="/calculate/data_handler/{{commodity.data.attributes.goods_nomenclature_item_id}}" method="get">
+            <!--
                 {# Get error message #}
                 {% if (error == "origin") %}
                     {% set error_message = "Enter a valid origin" %}
@@ -356,10 +357,10 @@
                     }) }}
 
                     <p>The functionality to display duties applicable to imports from countries outside of GB and the European Union
-                    is currently under construction and will be delivered shortly.</p>
+                    is currently under construction and will be delivered shortly.</p>//-->
 
                     <!-- THIS IS THE SCREEN FOR ROW TO NI - 2nd iteration //-->
-                    {# {{ govukRadios({
+                    {{ govukRadios({
                       idPrefix: "origin_gb",
                       name: "origin_gb",
                       fieldset: {
@@ -389,7 +390,7 @@
                           }
                         }
                       ]
-                    }) }} #}
+                    }) }}
                     
 
                 {% else %}

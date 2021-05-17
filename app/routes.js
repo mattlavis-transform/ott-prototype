@@ -7,6 +7,7 @@ const Heading = require('./classes/heading.js');
 const Commodity = require('./classes/commodity.js');
 const Roo = require('./classes/roo.js');
 const ImportedContext = require('./classes/imported_context.js');
+const CPCController = require('./classes/cpc/cpc-controller.js');
 const Error_handler = require('./classes/error_handler.js');
 const date = require('date-and-time');
 
@@ -853,10 +854,11 @@ router.get('/calculate/landing/:goods_nomenclature_item_id/:destination/:origin/
 
     var imported_context = new ImportedContext();
     imported_context.goods_nomenclature_item_id = req.params["goods_nomenclature_item_id"];
-    imported_context.destination = req.params["destination"];
-    imported_context.origin = req.params["origin"];
+    imported_context.destination = req.params["destination"].toUpperCase();
+    imported_context.origin = req.params["origin"].toUpperCase();
     imported_context.date = req.params["date"];
     imported_context.get_origin_description();
+    imported_context.get_destination_description();
 
     req.session.data["goods_nomenclature_item_id"] = req.params["goods_nomenclature_item_id"];
     var a = 1;
@@ -1120,5 +1122,57 @@ router.get(['/help'], function (req, res) {
     }
 });
 
+// CPC starts here
+
+router.get(['/cpc'], function (req, res) {
+    res.render('cpc/00-index', { });
+});
+
+router.get(['/cpc/request-code'], function (req, res) {
+    var cpc_controller = new CPCController();
+    cpc_controller.get_request_codes();
+    res.render('cpc/01-request-code', { "controller": cpc_controller });
+});
+
+router.get(['/cpc/request-code-notes'], function (req, res) {
+    var cpc_controller = new CPCController();
+    cpc_controller.request_code = req.session.data["request_code"]
+    cpc_controller.get_request_code_notes();
+    res.render('cpc/02-request-code-notes', { "controller": cpc_controller });
+});
+
+router.get(['/cpc/previous-code'], function (req, res) {
+    var cpc_controller = new CPCController();
+    cpc_controller.request_code = req.session.data["request_code"]
+    cpc_controller.get_previous_codes();
+    cpc_controller.get_request_code_notes();
+    res.render('cpc/03-previous-code', { "controller": cpc_controller });
+});
+
+router.get(['/cpc/previous-code-notes'], function (req, res) {
+    var cpc_controller = new CPCController();
+    cpc_controller.request_code = req.session.data["request_code"]
+    cpc_controller.previous_code = req.session.data["previous_code"]
+    cpc_controller.get_previous_code_notes();
+    res.render('cpc/04-previous-code-notes', { "controller": cpc_controller });
+});
+
+router.get(['/cpc/previous-code-apcs'], function (req, res) {
+    var cpc_controller = new CPCController();
+    cpc_controller.request_code = req.session.data["request_code"]
+    cpc_controller.previous_code = req.session.data["previous_code"]
+    cpc_controller.get_apcs();
+    res.render('cpc/05-previous-code-apcs', { "controller": cpc_controller });
+});
+
+router.get(['/cpc/apc-notes'], function (req, res) {
+    var cpc_controller = new CPCController();
+    cpc_controller.request_code = req.session.data["request_code"]
+    cpc_controller.previous_code = req.session.data["previous_code"]
+    cpc_controller.apc = req.session.data["apc"]
+    cpc_controller.get_additional_code_content();
+    res.render('cpc/06-apc-notes', { "controller": cpc_controller });
+});
+// CPC ends here
 
 module.exports = router

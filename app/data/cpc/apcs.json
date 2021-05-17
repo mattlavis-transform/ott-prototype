@@ -1,0 +1,54 @@
+[
+    {
+        "code": "E01",
+        "description": "Use of the Unit Price for the Determination of the Customs Value for Certain Perishable Goods (Article 74(2)(c) of the Code and Article 142(6) of Commission Implementing Regulation No. (EU) 2015/2447"
+    },
+    {
+        "code": "E02",
+        "description": "Standard Import Values (SIV) as published in the EU Official Journal (OJ)"
+    },
+    {
+        "code": "F06",
+        "description": "A movement of excise goods under an excise duty suspension arrangement from the place of importation in accordance with Article 17(1)(b) of Directive 2008/118/EC"
+    },
+    {
+        "code": "F15",
+        "description": "Goods introduced in the context of trade with Special Fiscal Territories or territories with which the EU has formed a Customs Union (Article 1(3) of the Code)"
+    },
+    {
+        "code": "F21",
+        "description": "Exemption from import duties of products of sea-fishing and other products taken from the territorial sea of a country or territory outside the customs territory of the Union by vessels solely registered or recorded in a Member State and flying the flag of that state"
+    },
+    {
+        "code": "F22",
+        "description": "Exemption from import duties of products obtained from products of sea fishing and other products taken from the territorial sea of a country or territory outside the customs territory of the Union on board factory-ships registered or recorded in a Member State and flying the flag of the state"
+    },
+    {
+        "code": "1BN",
+        "description": "Fresh bananas without a weight certificate"
+    },
+    {
+        "code": "1CD",
+        "description": "Controlled drugs using Simplified Procedures"
+    },
+    {
+        "code": "1CG",
+        "description": "Controlled Goods using Simplified Procedures"
+    },
+    {
+        "code": "1CL",
+        "description": "Taxable commodities for climate change levy, with or without a claim to levy relief"
+    },
+    {
+        "code": "1ES",
+        "description": "Goods imported for or on behalf of the European Space Agency (ESA) or by Astrium Ltd for use in INTELSAT project"
+    },
+    {
+        "code": "1SC",
+        "description": "Consignments entered under the provisions of the split consignment facility"
+    },
+    {
+        "code": "63P",
+        "description": "Free Circulation goods, previously exported, now being re-imported with a simultaneous claim to Returned Goods Relief (RGR) and Onward Supply Relief (OSR)"
+    }
+]

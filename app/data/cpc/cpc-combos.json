@@ -1,0 +1,342 @@
+[
+    {
+        "request_code": "01",
+        "description": "Declaration for release for Free Circulation; Special procedure; Specific use; and End-use",
+        "hint": "Dolor sit",
+        "previous_codes": [
+            {
+                "code": "0100",
+                "description": "Free circulation with onward dispatch",
+                "union_apcs": [
+                    "E01",
+                    "E02",
+                    "F06",
+                    "F15",
+                    "F21",
+                    "F22"
+                ],
+                "national_apcs": [
+                    "1BN",
+                    "1CD",
+                    "1CG",
+                    "1CL",
+                    "1ES",
+                    "1SC",
+                    "63P"
+                ]
+            },
+            {
+                "code": "0121",
+                "description": "Re-import after outward processing (OP) with onward dispatch"
+            },
+            {
+                "code": "0151",
+                "description": "Release to free circulation after inward processing (IP) with onward dispatch"
+            },
+            {
+                "code": "0153",
+                "description": "Release to free circulation after temporary admission (TA) with onward dispatch"
+            },
+            {
+                "code": "0154",
+                "description": "Release to free circulation after IP in another Member State with onward dispatch"
+            },
+            {
+                "code": "0171",
+                "description": "Release to free circulation from a customs warehouse (CW) with onward dispatch"
+            },
+            {
+                "code": "0178",
+                "description": "Release to free circulation from a free zone (FZ) with onward dispatch"
+            }
+        ]
+    },
+    {
+        "request_code": "07",
+        "description": "Series Procedure Codes: excise warehouse",
+        "hint": "Dolor sit",
+        "previous_codes": [
+            {
+                "code": "0700",
+                "description": "Release for free circulation with simultaneous entry to an excise warehouse"
+            },
+            {
+                "code": "0721",
+                "description": "Release for free circulation with simultaneous entry to an excise warehouse for goods re-imported after OP"
+            },
+            {
+                "code": "0751",
+                "description": "Release for free circulation with simultaneous entry to an excise warehouse after IP"
+            },
+            {
+                "code": "0753",
+                "description": "Release for free circulation with simultaneous entry to an excise warehouse after TA"
+            },
+            {
+                "code": "0754",
+                "description": "Release for free circulation with simultaneous entry to an excise warehouse after IP in another Member State"
+            },
+            {
+                "code": "0771",
+                "description": "Release for free circulation from a CW with simultaneous entry to an excise warehouse"
+            },
+            {
+                "code": "0778",
+                "description": "Release for free circulation from a FZ with simultaneous entry to an excise warehouse"
+            }
+        ]
+    },
+    {
+        "request_code": "40",
+        "description": "Series Procedure Codes: release to free circulation",
+        "hint": "Dolor sit",
+        "previous_codes": [
+            {
+                "code": "4000",
+                "description": "Release to free circulation"
+            },
+            {
+                "code": "4051",
+                "description": "Release to free circulation after IP"
+            },
+            {
+                "code": "4053",
+                "description": "Release to free circulation after TA"
+            },
+            {
+                "code": "4054",
+                "description": "Release to free circulation after IP in another Member State"
+            },
+            {
+                "code": "4071",
+                "description": "Release to free circulation from a CW"
+            },
+            {
+                "code": "4078",
+                "description": "Release to free circulation from a FZ"
+            }
+        ]
+    },
+    {
+        "request_code": "42",
+        "description": "Series Procedure Codes: onward supply relief (OSR)",
+        "hint": "Dolor sit",
+        "previous_codes": [
+            {
+                "code": "4200",
+                "description": "Free circulation with onward supply"
+            },
+            {
+                "code": "4221",
+                "description": "Re-import after OP with onward supply"
+            },
+            {
+                "code": "4251",
+                "description": "Release to free circulation after IP with onward supply"
+            },
+            {
+                "code": "4253",
+                "description": "Release to free circulation after TA with onward supply"
+            },
+            {
+                "code": "4254",
+                "description": "Release to free circulation after IP in another Member State with onward supply"
+            },
+            {
+                "code": "4271",
+                "description": "Release to free circulation from a CW with onward supply"
+            },
+            {
+                "code": "4278",
+                "description": "Release to free circulation from a FZ with onward supply"
+            }
+        ]
+    },
+    {
+        "request_code": "44",
+        "description": "Series Procedure Codes: end use",
+        "hint": "Dolor sit",
+        "previous_codes": [
+            {
+                "code": "4400",
+                "description": "End-use relief"
+            },
+            {
+                "code": "4421",
+                "description": "End-use relief after OP"
+            },
+            {
+                "code": "4422",
+                "description": "End-use relief after OP, not covered under 4421"
+            },
+            {
+                "code": "4451",
+                "description": "End-use relief after IP"
+            },
+            {
+                "code": "4453",
+                "description": "End-use relief after TA"
+            },
+            {
+                "code": "4454",
+                "description": "End-use relief after IP in another Member State"
+            },
+            {
+                "code": "4471",
+                "description": "End-use relief on goods released from a CW"
+            },
+            {
+                "code": "4478",
+                "description": "End-use relief on goods released from a FZ"
+            }
+        ]
+    },
+    {
+        "request_code": "51",
+        "description": "Series Procedure Codes: inward processing (IP)",
+        "hint": "Dolor sit",
+        "previous_codes": [
+            {
+                "code": "5100",
+                "description": "Entry to IP"
+            },
+            {
+                "code": "5111",
+                "description": "Import of replacement goods to IP following the prior export of equivalent goods."
+            },
+            {
+                "code": "5121",
+                "description": "Entry to IP after OP"
+            },
+            {
+                "code": "5151",
+                "description": "Transfer of goods between IP authorisation holders"
+            },
+            {
+                "code": "5153",
+                "description": "Entry to IP after TA"
+            },
+            {
+                "code": "5154",
+                "description": "Transfer of goods between IP authorisation holders in different Member States"
+            },
+            {
+                "code": "5171",
+                "description": "Entry to IP on release from a CW"
+            },
+            {
+                "code": "5178",
+                "description": "Entry to IP on release from a FZ"
+            }
+        ]
+    },
+    {
+        "request_code": "53",
+        "description": "Series Procedure Codes: temporary admission (TA)",
+        "hint": "Dolor sit",
+        "previous_codes": [
+            {
+                "code": "5300",
+                "description": "Entry to TA"
+            },
+            {
+                "code": "5351",
+                "description": "Entry to TA after IP"
+            },
+            {
+                "code": "5353",
+                "description": "Transfer of goods between TA authorisation holders"
+            },
+            {
+                "code": "5354",
+                "description": "Entry to TA after IP in another Member State"
+            },
+            {
+                "code": "5371",
+                "description": "Entry to TA on release from a CW"
+            },
+            {
+                "code": "5378",
+                "description": "Entry to TA on release from a FZ"
+            }
+        ]
+    },
+    {
+        "request_code": "61",
+        "description": "Series: Re-importation of goods",
+        "hint": "Dolor sit",
+        "previous_codes": [
+            {
+                "code": "6110",
+                "description": "Release to RGR for goods previously permanently exported"
+            },
+            {
+                "code": "6111",
+                "description": "Release to RGR for IP equivalent goods previously permanently exported"
+            },
+            {
+                "code": "6121",
+                "description": "Re-import after OP"
+            },
+            {
+                "code": "6122",
+                "description": "Re-import after OP for goods not covered by 61 21 (for example, OP textiles)"
+            },
+            {
+                "code": "6123",
+                "description": "Release to RGR"
+            },
+            {
+                "code": "6131",
+                "description": "Re-import of previously exported IP goods"
+            }
+        ]
+    },
+    {
+        "request_code": "71",
+        "description": "Series: Customs Warehousing (CW)",
+        "hint": "Dolor sit",
+        "previous_codes": [
+            {
+                "code": "7100",
+                "description": "Entry to a CW"
+            },
+            {
+                "code": "7110",
+                "description": "Entry to a CW for goods previously permanently exported"
+            },
+            {
+                "code": "7121",
+                "description": "Entry to CW after OP"
+            },
+            {
+                "code": "7122",
+                "description": "Entry to CW after OP, for goods not covered by 7121 (for example OP textiles)"
+            },
+            {
+                "code": "7123",
+                "description": "Entry to CW after RGR"
+            },
+            {
+                "code": "7151",
+                "description": "Entry to CW after IP"
+            },
+            {
+                "code": "7153",
+                "description": "Entry to CW after TA"
+            },
+            {
+                "code": "7154",
+                "description": "Entry to CW after IP in another Member State"
+            },
+            {
+                "code": "7171",
+                "description": "Transfer between different customs warehouses"
+            },
+            {
+                "code": "7178",
+                "description": "Entry to CW on release from a FZ"
+            }
+        ]
+    }
+]
