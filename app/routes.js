@@ -112,16 +112,40 @@ router.get(['/headings/:headingId', '/headings/:headingId/:scopeId'], function (
         });
 });
 
+// Set the country filter for comm codes
+router.get(['/country-filter'], async function (req, res) {
+    var goods_nomenclature_item_id = req.query["goods_nomenclature_item_id"];
+    var scopeId = req.query["scopeId"];
+    var country = req.query["country"];
+    var url = "/commodities/" + goods_nomenclature_item_id + "/" + country + "#import";
+    if (scopeId == "ni") {
+        url = url.replace("/commodities/", "ni/commodities/");
+    }
+    console.log(url);
+    res.redirect(url);
+});
+
 // Browse a single commodity
-router.get(['/commodities/:goods_nomenclature_item_id/', '/commodities/:goods_nomenclature_item_id/:scopeId', '/:scopeId/commodities/:goods_nomenclature_item_id'], async function (req, res) {
+router.get([
+    '/commodities/:goods_nomenclature_item_id/',
+    '/xcommodities/:goods_nomenclature_item_id/:scopeId',
+    '/:scopeId/commodities/:goods_nomenclature_item_id',
+    '/:scopeId/commodities/:goods_nomenclature_item_id/:country',
+    '/commodities/:goods_nomenclature_item_id/:country'
+], async function (req, res) {
+
     var c;
-    scopeId = global.get_scope(req.params["scopeId"]);
-    root_url = global.get_root_url(req, scopeId);
-    title = global.get_title(scopeId);
+    var scopeId = global.get_scope(req.params["scopeId"]);
+    var country = req.params["country"];
+    var root_url = global.get_root_url(req, scopeId);
+    var title = global.get_title(scopeId);
     req.session.data["error"] = "";
     var url_original;
-    var url = 'https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"] + "?filter[geographical_area_id]=US";
-    var url = 'https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"];
+    if (country == null) {
+        var url = 'https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"];
+    } else {
+        var url = 'https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"] + "?filter[geographical_area_id]=" + country;
+    }
     if (scopeId == "ni") {
         url_original = url;
         url = url.replace("/api", "/xi/api");

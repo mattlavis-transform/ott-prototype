@@ -5,12 +5,12 @@
         "block_xi": "VAT and excise",
         "explainers": {
             "title": "More information about VAT and excise",
-            "prose": "<a href='https://www.gov.uk/vat-rates'><abbr title='Value Added Tax'>VAT</abbr></a> is a national tax charged in addition to any other duties that apply. <a href='https://www.gov.uk/government/publications/uk-trade-tariff-excise-duties-reliefs-drawbacks-and-allowances/uk-trade-tariff-excise-duties-reliefs-drawbacks-and-allowances'>Excise</a> is an additional tax levied on certain goods and commodities produced or sold within a country and on licences granted for certain activities.",
-            "prose_ni": "<a href='https://www.gov.uk/vat-rates'><abbr title='Value Added Tax'>VAT</abbr></a> is a national tax charged in addition to any other duties that apply. <a href='https://www.gov.uk/government/publications/uk-trade-tariff-excise-duties-reliefs-drawbacks-and-allowances/uk-trade-tariff-excise-duties-reliefs-drawbacks-and-allowances'>Excise</a> is an additional tax levied on certain goods and commodities produced or sold within a country and on licences granted for certain activities.",
+            "prose": "<ul class='govuk-list govuk-list--bullet'><li><a href='https://www.gov.uk/vat-rates' target='_blank'><abbr title='Value Added Tax'>VAT</abbr></a> is a national tax charged in addition to any other duties that apply.</li><li><a href='https://www.gov.uk/government/publications/uk-trade-tariff-excise-duties-reliefs-drawbacks-and-allowances/uk-trade-tariff-excise-duties-reliefs-drawbacks-and-allowances' target='_blank'>Excise</a> is an additional tax levied on certain goods and commodities produced or sold within a country and on licences granted for certain activities.</li></ul>",
+            "prose_ni": "<ul class='govuk-list govuk-list--bullet'><li><a href='https://www.gov.uk/vat-rates' target='_blank'><abbr title='Value Added Tax'>VAT</abbr></a> is a national tax charged in addition to any other duties that apply.</li><li><a href='https://www.gov.uk/government/publications/uk-trade-tariff-excise-duties-reliefs-drawbacks-and-allowances/uk-trade-tariff-excise-duties-reliefs-drawbacks-and-allowances' target='_blank'>Excise</a> is an additional tax levied on certain goods and commodities produced or sold within a country and on licences granted for certain activities.</li></ul>",
             "items": [
                 {
                     "measure_type": "VAT",
-                    "description": "VAT is a national tax charged in addition to any other duties that apply. <a href='https://www.gov.uk/guidance/rates-of-vat-on-different-goods-and-services'>Please see guidance for when zero rate VAT applies</a>."
+                    "description": "VAT is a national tax charged in addition to any other duties that apply. <a href='https://www.gov.uk/guidance/rates-of-vat-on-different-goods-and-services' target='_blank'>Please see guidance for when zero rate VAT applies</a>."
                 },
                 {
                     "measure_type": "Excise",
@@ -30,7 +30,7 @@
             "items": [
                 {
                     "measure_type": "VAT",
-                    "description": "VAT is a national tax charged in addition to any other duties that apply. <a href='https://www.gov.uk/guidance/rates-of-vat-on-different-goods-and-services'>Please see guidance for when zero rate VAT applies</a>."
+                    "description": "VAT is a national tax charged in addition to any other duties that apply. <a href='https://www.gov.uk/guidance/rates-of-vat-on-different-goods-and-services' target='_blank'>Please see guidance for when zero rate VAT applies</a>."
                 },
                 {
                     "measure_type": "Excise",
@@ -45,8 +45,8 @@
         "block_xi": "Customs duties",
         "explainers": {
             "title": "What are the main types of tariffs and charges",
-            "prose": "A <a href='https://www.gov.uk/guidance/import-and-export-goods-using-preference-agreements'>tariff preference</a> means that you pay a lower or nil rate of import duty on your goods. To qualify, goods must meet the <a href='https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin'>rules of origin</a>.",
-            "prose_ni": "A <a href='https://www.gov.uk/guidance/import-and-export-goods-using-preference-agreements'>tariff preference</a> means that you pay a lower or nil rate of import duty on your goods. To qualify, goods must meet the <a href='https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin'>rules of origin</a>.",
+            "prose": "<ul class='govuk-list govuk-list--bullet'><li>A third country duty is the duty payable in the absence of any other type of tariff measure.</li><li>A supplementary unit is used when an additional measurement unit is needed, for example, the quantity as well as the weight of the products.</li><li>A <a href='https://www.gov.uk/guidance/import-and-export-goods-using-preference-agreements' target='_blank'>tariff preference</a> means that you pay a lower or nil rate of import duty on your goods. To qualify, goods must meet the <a href='https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin' target='_blank'>rules of origin</a>.",
+            "prose_ni": "A <a href='https://www.gov.uk/guidance/import-and-export-goods-using-preference-agreements' target='_blank'>tariff preference</a> means that you pay a lower or nil rate of import duty on your goods. To qualify, goods must meet the <a href='https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin' target='_blank'>rules of origin</a>.</li></ul>",
             "items": [
                 {
                     "measure_type": "Third country duty",
@@ -89,8 +89,8 @@
         "block_xi": "EU import controls",
         "explainers": {
             "title": "More information about import controls",
-            "prose": "Import controls can be either prohibitions, where goods cannot be imported under any circumstances, or restrictions, where goods can be imported only under certain circumstances. Find out more about <a href='https://www.gov.uk/government/publications/uk-trade-tariff-import-prohibitions-and-restrictions/uk-trade-tariff-import-prohibitions-and-restrictions'>UK import prohibitions and restrictions</a>.",
-            "prose_ni": "To bring goods into Northern Ireland ...</a>.",
+            "prose": "Import controls can be either prohibitions, where goods cannot be imported under any circumstances, or restrictions, where goods can be imported only under certain circumstances. Find out more about <a target='_blank' href='https://www.gov.uk/government/publications/uk-trade-tariff-import-prohibitions-and-restrictions/uk-trade-tariff-import-prohibitions-and-restrictions'>UK import prohibitions and restrictions</a>.",
+            "prose_ni": "Check <a target='_blank' href='https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland'>how to move goods into and out of Northern Ireland</a>.",
             "items": [
                 {
                     "measure_type": "Import controls",
@@ -106,7 +106,7 @@
         "explainers": {
             "title": "More information about import controls",
             "prose": "Explicitly UK - Import controls can be either prohibitions, where goods cannot be imported under any circumstances, or restrictions, where goods can be imported only under certain circumstances. Find out more about <a href='https://www.gov.uk/government/publications/uk-trade-tariff-import-prohibitions-and-restrictions/uk-trade-tariff-import-prohibitions-and-restrictions'>UK import prohibitions and restrictions</a>.",
-            "prose_ni": "If UK controls are more stringent than EU controls, then ...</a>.",
+            "prose_ni": "If you are bringing goods into Northern Ireland from outside of the UK and the European Union, you will need to ensure that you adhere to UK import controls.",
             "items": [
                 {
                     "measure_type": "Import controls",
@@ -121,8 +121,8 @@
         "block_xi": "Trade Remedies, safeguards and retaliatory duties",
         "explainers": {
             "title": "More information about Trade Remedies and safeguards",
-            "prose": "World Trade Organization rules prevent artificially cheap imports from damaging markets. This guide explains <a href='https://www.gov.uk/guidance/anti-dumping-duty-to-protect-eu-businesses-against-cheap-imports'>how anti-dumping duties and 'countervailing' (or anti-subsidy) measures work</a>.",
-            "prose_ni": "World Trade Organization rules prevent artificially cheap imports from damaging markets. This guide explains <a href='https://www.gov.uk/guidance/anti-dumping-duty-to-protect-eu-businesses-against-cheap-imports'>how anti-dumping duties and 'countervailing' (or anti-subsidy) measures work</a>.",
+            "prose": "World Trade Organization rules prevent artificially cheap imports from damaging markets. This guide explains <a href='https://www.gov.uk/guidance/anti-dumping-duty-to-protect-eu-businesses-against-cheap-imports' target='_blank'>how anti-dumping duties and 'countervailing' (or anti-subsidy) measures work</a>.",
+            "prose_ni": "World Trade Organization rules prevent artificially cheap imports from damaging markets. This guide explains <a href='https://www.gov.uk/guidance/anti-dumping-duty-to-protect-eu-businesses-against-cheap-imports' target='_blank'>how anti-dumping duties and 'countervailing' (or anti-subsidy) measures work</a>.",
             "items": [
                 {
                     "measure_type": "Anti-dumping",

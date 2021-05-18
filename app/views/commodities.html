@@ -163,9 +163,11 @@
             <li class="govuk-tabs__list-item">
                 <a class="govuk-tabs__tab" href="#export">Export</a>
             </li>
+            <!--
             <li class="govuk-tabs__list-item">
                 <a class="govuk-tabs__tab" href="#rules_of_origin">Rules of origin</a>
             </li>
+            //-->
         </ul>
         <div class="govuk-tabs__panel" id="overview">
             <h2 class="govuk-heading-m">Overview</h2>
@@ -201,48 +203,56 @@
                 <ul class="app-contents app-contents--s govuk-!-margin-bottom-0">
                     {% for display_block in commodity.display_blocks %}
                         <li class="govuk-!-margin-bottom-2">
-                            <a class="govuk-body" href="#block_{{ display_block.index }}">{% if scopeId == "ni" %}
-                    {{ display_block.block_xi }}
-                    {% else %}
-                    {{ display_block.block }}
-                    {% endif %}</a>
+                            <a class="govuk-body" href="#block_{{ display_block.index }}">
+                                {% if scopeId == "ni" %}
+                                    {{ display_block.block_xi }}
+                                {% else %}
+                                    {{ display_block.block }}
+                                {% endif %}
+                            </a>
                         </li>
                     {% endfor %}
 
                 </ul>
             </nav>
-            
 
             {% for display_block in commodity.display_blocks %}
                 <h3 id="block_{{ display_block.index }}" class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-3">
                     {% if scopeId == "ni" %}
-                    {{ display_block.block_xi }}
+                        {{ display_block.block_xi }}
                     {% else %}
-                    {{ display_block.block }}
+                        {{ display_block.block }}
                     {% endif %}
                 </h3>
                 {% if display_block.explainers %}
                     <div class="govuk-inset-text govuk-inset-text--s">
                         {% if scopeId == "ni" %}
-                        {% if display_block.explainers.prose_ni %}
-                            {{ display_block.explainers.prose_ni | safe }}
-                        {% endif %}
+                            {% if display_block.explainers.prose_ni %}
+                                {{ display_block.explainers.prose_ni | safe }}
+                            {% endif %}
                         {% else %}
-                        {% if display_block.explainers.prose %}
-                            {{ display_block.explainers.prose | safe }}
+                            {% if display_block.explainers.prose %}
+                                {{ display_block.explainers.prose | safe }}
+                            {% endif %}
                         {% endif %}
-                        {% endif %}
-                        
+
                     </div>
 
                 {% endif %}
 
+                {% if display_block.block != "Import controls" and display_block.block != "UK import controls" %}
+                {% set class = "standard" %}
+                {% else %}
+                {% set class = "control" %}
+                {% endif %}
                 <table class="govuk-table govuk-table--s  measures2 app-flexible-table">
                     <thead class="govuk-table__head app-flexible-table__head">
-                        <tr class="govuk-table__row app-flexible-table__row">
+                        <tr class="govuk-table__row app-flexible-table__row {{ class }}">
                             <th scope="col" class="govuk-table__header country app-flexible-table__header">Country</th>
                             <th scope="col" class="govuk-table__header measure app-flexible-table__header">Measure type</th>
-                            <th scope="col" class="govuk-table__header value app-flexible-table__header">Value</th>
+                            {% if display_block.block != "Import controls" and display_block.block != "UK import controls" %}
+                                <th scope="col" class="govuk-table__header value app-flexible-table__header">Value</th>
+                            {% endif %}
                             <th scope="col" class="govuk-table__header conditions app-flexible-table__header c">Conditions</th>
                             <th scope="col" class="govuk-table__header dates app-flexible-table__header">Date&nbsp;(s)</th>
                             <th scope="col" class="govuk-table__header footnotes app-flexible-table__header c">Footnotes</th>
@@ -251,7 +261,7 @@
                     <tbody class="govuk-table__body  app-flexible-table__body">
                         {% for measure in commodity.measures %}
                             {% if (measure.import == true) and (measure.display_block.block == display_block.block) %}
-                                <tr class="govuk-table__row measure app-flexible-table__row">
+                                <tr class="govuk-table__row measure app-flexible-table__row {{ class }}">
 
                                     <td class="govuk-table__cell country app-flexible-table__cell" scope="row" data-column-heading="Country">
                                         {% if (measure.geographical_area.geographical_area_code == 1) %}
@@ -279,17 +289,19 @@
                                         </div>
                                     </td>
 
-                                    <td class="govuk-table__cell value app-flexible-table__cell" scope="row" data-column-heading="Value">
-                                        {% if measure.duty_bearing %}
-                                            {% if measure.duty_expression.formatted_base %}
-                                                {{ measure.duty_expression.formatted_base | safe }}
-                                            {% else %}
-                                                Conditional
+                                    {% if display_block.block != "Import controls" and display_block.block != "UK import controls" %}
+                                        <td class="govuk-table__cell value app-flexible-table__cell" scope="row" data-column-heading="Value">
+                                            {% if measure.duty_bearing %}
+                                                {% if measure.duty_expression.formatted_base %}
+                                                    {{ measure.duty_expression.formatted_base | safe }}
+                                                {% else %}
+                                                &nbsp;
                                             {% endif %}
-                                        {% else %}
+                                            {% else %}
                                         n/a
                                         {% endif %}
-                                    </td>
+                                        </td>
+                                    {% endif %}
 
                                     <td class="govuk-table__cell conditions app-flexible-table__cell c" scope="row" data-column-heading="Conditions">
                                         {% if measure.has_conditions == true %}
@@ -333,6 +345,7 @@
             <p>This information is for <strong>{{ date_string }}</strong>.</p>
             {% include "includes/country_selector_export.html" %}
         </div>
+        <!--
         <div class="govuk-tabs__panel" id="rules_of_origin">
             <h2 class="govuk-heading-m">Rules of origin</h2>
             <p>If you are importing goods into the UK, you may be able to claim a preferential customs duty rate
@@ -342,7 +355,7 @@
 
             {% include "includes/country_selector_roo.html" %}
 
-        </div>
+        </div>//-->
 
     </div>
     {% if commodity.footnotes.length %}
@@ -384,6 +397,25 @@
     <br>
 {% endfor %}
 //-->
+
+<script type="text/javascript" src="./public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+    var selectEl = document.querySelector('#location-picker')
+    accessibleAutocomplete.enhanceSelectElement({autoselect: true, confirmOnBlur: true, defaultValue: "", minLength: 2, selectElement: selectEl})
+
+    var queryStringParameters = window.location.search
+    var previouslySubmitted = queryStringParameters.length > 0
+    if (previouslySubmitted) {
+        var submittedEl = document.querySelector('.submitted')
+        submittedEl
+            .classList
+            .remove('submitted--hidden')
+        var params = new URLSearchParams(document.location.search.split('?')[1])
+        document
+            .querySelector('.submitted__location-picker')
+            .innerHTML = params.get('location-picker')
+    }
+</script>
 
 <script type="text/javascript">
     $(function () {
