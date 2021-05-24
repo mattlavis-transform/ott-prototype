@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+    {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/sections/" + scopeId
+    },
+    {
+      text: "Search results",
+      href: ""
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Trade Tariff: look up commodity codes, duty and VAT rates
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-xl">Search results</span>
+            <h1 class="govuk-heading-m">
+                You searched for '{{ term }}'
+            </h1>
+
+            <table class="govuk-table govuk-table--m">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Heading</th>
+                        <th scope="col" class="govuk-table__header">Description</th>
+                        <th scope="col" class="govuk-table__header">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    {% for link in context.links %}
+                        {% if link.type == "heading" or link.type == "commodity" %}
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">{{ link.id }}</td>
+                                {% if link.type == "commodity" %}
+                                    <td class="govuk-table__cell">{{ link.text }}</td>
+                                    <td class="govuk-table__cell">
+                                        <a href="#">Select</a>
+                                    </td>
+                                {% else %}
+                                    <td class="govuk-table__cell">
+                                        <a href="{{ link.link }}">{{ link.text }}</a>
+                                    </td>
+                                {% endif %}
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -31,6 +31,21 @@ class CPCController {
     get_request_codes() {
         var content = require('../../data/cpc/cpc-combos.json');
         this.request_codes = content;
+        this.sort_request_codes();
+    }
+
+    sort_request_codes() {
+        this.request_codes.sort(compare_request_codes_by_sequence);
+
+        function compare_request_codes_by_sequence(a, b) {
+            if (a.sequence > b.sequence) {
+                return 1;
+            }
+            if (a.sequence < b.sequence) {
+                return -1;
+            }
+            return 0;
+        }
     }
 
     get_previous_codes() {
@@ -64,7 +79,7 @@ class CPCController {
         this.request_code_notes = this.govify(this.request_code_notes);
 
         // Get completion notes
-        var data = fs.readFileSync(filepath1, 'utf8');
+        var data = fs.readFileSync(filepath2, 'utf8');
         var md = new MarkdownIt();
         this.request_code_completion_notes = md.render(data);
         this.request_code_completion_notes = this.govify(this.request_code_completion_notes);

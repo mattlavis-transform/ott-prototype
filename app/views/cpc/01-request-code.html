@@ -34,27 +34,34 @@
               <h1 class="govuk-fieldset__heading">Tell us your request code</h1>
             </legend>
             <div id="changed-name-hint" class="govuk-hint">
-            Intro words go here ...
+            This identifies the first two digits of your seven-digit procedure code
+
           </div>
             <div class="govuk-radios">
               {% for rc in controller.request_codes %}
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="request-code-{{ rc.request_code }}" name="request_code" type="radio" value="{{ rc.request_code }}">
-                  <label class="govuk-label govuk-radios__label" for="request-code-{{ rc.request_code }}"><b>{{ rc.request_code }}</b> {{ rc.description }}</label>
-                  <div id="request-code-{{ rc.request_code }}-hint" class="govuk-hint govuk-radios__hint">
-                    {# {{ rc.hint }} #}
+                {% if rc.active %}
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="request-code-{{ rc.request_code }}" name="request_code" type="radio" value="{{ rc.request_code }}">
+                    <label class="govuk-label govuk-radios__label" for="request-code-{{ rc.request_code }}">
+
+                      {{ rc.label }} | <b>{{ rc.request_code }}&nbsp;__&nbsp;___</b>
+                    </label>
+                    <div class="govuk-hint govuk-radios__hint">{{ rc.hint }}</div>
+                    <div id="request-code-{{ rc.request_code }}-hint" class="govuk-hint govuk-radios__hint">
+                      {# {{ rc.hint }} #}
+                    </div>
                   </div>
-                </div>
+                {% endif %}
               {% endfor %}
             </div>
           </fieldset>
         </div>
 
-      {{ govukButton({
+        {{ govukButton({
         text: "Continue"
       }) }}
 
-      {{ govukButton({
+        {{ govukButton({
         text: "Back",
         classes: "govuk-button--secondary govuk-!-margin-left-2",
         href: "/cpc/"

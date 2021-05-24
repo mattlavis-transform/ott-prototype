@@ -19,28 +19,8 @@
             ]
         }
     },
-    "basic": {
-        "index": 1,
-        "block": "Third country duty",
-        "block_xi": "Third country duty",
-        "explainers": {
-            "title": "More information about basic duties",
-            "prose": "A third country duty is the duty payable in the absence of any other type of tariff measure. A supplementary unit is used when an additional measurement unit is needed, for example, the quantity as well as the weight of the products. The importer might need to declare this information. The product might not be allowed into the UK if the supplementary unit is not given.",
-            "prose_ni": "A third country duty is the duty payable in the absence of any other type of tariff measure. A supplementary unit is used when an additional measurement unit is needed, for example, the quantity as well as the weight of the products. The importer might need to declare this information. The product might not be allowed into the UK if the supplementary unit is not given.",
-            "items": [
-                {
-                    "measure_type": "VAT",
-                    "description": "VAT is a national tax charged in addition to any other duties that apply. <a href='https://www.gov.uk/guidance/rates-of-vat-on-different-goods-and-services' target='_blank'>Please see guidance for when zero rate VAT applies</a>."
-                },
-                {
-                    "measure_type": "Excise",
-                    "description": "Lorem ipsum"
-                }
-            ]
-        }
-    },
     "tariffs_charges": {
-        "index": 2,
+        "index": 1,
         "block": "Customs duties",
         "block_xi": "Customs duties",
         "explainers": {
@@ -68,7 +48,7 @@
         }
     },
     "quotas": {
-        "index": 3,
+        "index": 2,
         "block": "Quotas",
         "block_xi": "Quotas",
         "explainers": {
@@ -83,60 +63,34 @@
             ]
         }
     },
-    "other": {
-        "index": 5,
-        "block": "Import controls",
-        "block_xi": "EU import controls",
-        "explainers": {
-            "title": "More information about import controls",
-            "prose": "Import controls can be either prohibitions, where goods cannot be imported under any circumstances, or restrictions, where goods can be imported only under certain circumstances. Find out more about <a target='_blank' href='https://www.gov.uk/government/publications/uk-trade-tariff-import-prohibitions-and-restrictions/uk-trade-tariff-import-prohibitions-and-restrictions'>UK import prohibitions and restrictions</a>.",
-            "prose_ni": "Check <a target='_blank' href='https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland'>how to move goods into and out of Northern Ireland</a>.",
-            "items": [
-                {
-                    "measure_type": "Import controls",
-                    "description": "Import controls can be either prohibitions, where goods cannot be imported under any circumstances, or restrictions, where goods can be imported only under certain circumstances. Check the conditions related to this type of measure. "
-                }
-            ]
-        }
-    },
-    "other_uk": {
-        "index": 6,
-        "block": "UK import controls",
-        "block_xi": "UK import controls",
-        "explainers": {
-            "title": "More information about import controls",
-            "prose": "Explicitly UK - Import controls can be either prohibitions, where goods cannot be imported under any circumstances, or restrictions, where goods can be imported only under certain circumstances. Find out more about <a href='https://www.gov.uk/government/publications/uk-trade-tariff-import-prohibitions-and-restrictions/uk-trade-tariff-import-prohibitions-and-restrictions'>UK import prohibitions and restrictions</a>.",
-            "prose_ni": "If you are bringing goods into Northern Ireland from outside of the UK and the European Union, you will need to ensure that you adhere to UK import controls.",
-            "items": [
-                {
-                    "measure_type": "Import controls",
-                    "description": "Import controls can be either prohibitions, where goods cannot be imported under any circumstances, or restrictions, where goods can be imported only under certain circumstances. Check the conditions related to this type of measure. "
-                }
-            ]
-        }
-    },
     "remedies": {
-        "index": 4,
+        "index": 3,
         "block": "Trade Remedies, safeguards and retaliatory duties",
         "block_xi": "Trade Remedies, safeguards and retaliatory duties",
         "explainers": {
             "title": "More information about Trade Remedies and safeguards",
             "prose": "World Trade Organization rules prevent artificially cheap imports from damaging markets. This guide explains <a href='https://www.gov.uk/guidance/anti-dumping-duty-to-protect-eu-businesses-against-cheap-imports' target='_blank'>how anti-dumping duties and 'countervailing' (or anti-subsidy) measures work</a>.",
-            "prose_ni": "World Trade Organization rules prevent artificially cheap imports from damaging markets. This guide explains <a href='https://www.gov.uk/guidance/anti-dumping-duty-to-protect-eu-businesses-against-cheap-imports' target='_blank'>how anti-dumping duties and 'countervailing' (or anti-subsidy) measures work</a>.",
-            "items": [
-                {
-                    "measure_type": "Anti-dumping",
-                    "description": "Lorem ipsum"
-                },
-                {
-                    "measure_type": "Anti-subsidy",
-                    "description": "Lorem ipsum"
-                },
-                {
-                    "measure_type": "Safeguards",
-                    "description": "Lorem ipsum"
-                }
-            ]
+            "prose_ni": "World Trade Organization rules prevent artificially cheap imports from damaging markets. This guide explains <a href='https://www.gov.uk/guidance/anti-dumping-duty-to-protect-eu-businesses-against-cheap-imports' target='_blank'>how anti-dumping duties and 'countervailing' (or anti-subsidy) measures work</a>."
+        }
+    },
+    "other": {
+        "index": 4,
+        "block": "Import controls",
+        "block_xi": "EU import controls",
+        "explainers": {
+            "title": "More information about import controls",
+            "prose": "Import controls can be either prohibitions, where goods cannot be imported under any circumstances, or restrictions, where goods can be imported only under certain circumstances. Find out more about <a target='_blank' href='https://www.gov.uk/government/publications/uk-trade-tariff-import-prohibitions-and-restrictions/uk-trade-tariff-import-prohibitions-and-restrictions'>UK import prohibitions and restrictions</a>.",
+            "prose_ni": "Check <a target='_blank' href='https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland'>how to move goods into and out of Northern Ireland</a>."
+        }
+    },
+    "other_uk": {
+        "index": 5,
+        "block": "UK import controls",
+        "block_xi": "UK import controls",
+        "explainers": {
+            "title": "More information about import controls",
+            "prose": "Explicitly UK - Import controls can be either prohibitions, where goods cannot be imported under any circumstances, or restrictions, where goods can be imported only under certain circumstances. Find out more about <a href='https://www.gov.uk/government/publications/uk-trade-tariff-import-prohibitions-and-restrictions/uk-trade-tariff-import-prohibitions-and-restrictions'>UK import prohibitions and restrictions</a>.",
+            "prose_ni": "If you are bringing goods into Northern Ireland from outside of the UK and the European Union, you will need to ensure that you adhere to UK import controls."
         }
     }
 }

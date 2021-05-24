@@ -11,7 +11,7 @@ const CPCController = require('./classes/cpc/cpc-controller.js');
 const Error_handler = require('./classes/error_handler.js');
 const date = require('date-and-time');
 const GeographicalArea = require('./classes/geographical_area');
-
+const Link = require('./classes/link');
 
 require('./classes/global.js');
 require('./classes/news.js');
@@ -103,6 +103,7 @@ router.get(['/chapters/:chapterId', '/chapters/:chapterId/:scopeId'], function (
 // Browse within a heading
 router.get(['/headings/:headingId', '/headings/:headingId/:scopeId'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
+    scopeId = "";
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/headings/' + req.params["headingId"])
@@ -124,6 +125,137 @@ router.get(['/country-filter'], async function (req, res) {
     console.log(url);
     res.redirect(url);
 });
+
+// Set the country filter for comm codes
+router.get([
+    '/results',
+    '/results/:term',
+], async function (req, res) {
+
+    scopeId = ""; //global.get_scope(req.params["scopeId"]);
+    root_url = "/"; // global.get_root_url(req, scopeId);
+    title = "Title"; // global.get_title(scopeId);
+    var term = req.params["term"];
+
+    var _ = require('lodash');
+    const rp = require('request-promise');
+    const cheerio = require('cheerio');
+    const url = 'https://www.trade-tariff.service.gov.uk/search?q=' + term;
+
+    var link;
+    var links = [];
+    var context = {}
+
+    context.heading_count = 0;
+    context.chapter_count = 0;
+
+    rp(url)
+        .then(function (html) {
+            const $ = cheerio.load(html);
+            var canonical = $('link[rel="canonical"]', html)[0].attribs["href"];
+            if (canonical.indexOf("headings") !== -1) {
+                context.type = "heading";
+                var li_tags = $('li', html);
+                for (i = 0; i < li_tags.length; i++) {
+                    var li = li_tags[i];
+                    if (typeof li.attribs["class"] !== 'undefined') {
+                        var my_class = li.attribs["class"];
+                        if (my_class.indexOf("level-") !== -1) {
+                            link = new Link();
+                            link.level = my_class.replace("has_children", "");
+                            link.level = link.level.replace("last-child", "");
+                            link.level = link.level.replace("level-", "");
+                            link.level = _.trim(link.level, " ");
+                            link.level = parseInt(link.level);
+
+                            if (link.level == 1) {
+                                // HS Subheadings nn nn nn
+                                for (j = 0; j < li.childNodes.length; j++) {
+                                    var child_node = li.childNodes[j];
+                                    if (child_node.name == "span") {
+                                        var a = 1;
+                                        link.id = child_node.attribs["id"];
+                                        link.text = child_node.childNodes[0].data;
+                                        link.id = link.id.replace("commodity-", "");
+                                        link.type = "commodity";
+                                        break;
+                                    }
+                                    else if (child_node.name == "a") {
+                                        for (k = 0; k < child_node.childNodes.length; k++) {
+                                            var child_node2 = child_node.childNodes[j];
+                                            if (child_node2.name == "div") {
+                                                link.id = child_node2.attribs["id"];
+                                                link.text = child_node2.childNodes[0].data;
+                                                link.id = link.id.replace("commodity-", "");
+                                                link.type = "commodity";
+                                                break;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                }
+                            } else if (link.level == 2) {
+                                // CN codes nn nn nn nn
+                                for (j = 0; j < li.childNodes.length; j++) {
+                                    var child_node = li.childNodes[j];
+                                    if (child_node.name == "a") {
+                                        for (k = 0; k < child_node.childNodes.length; k++) {
+                                            var child_node2 = child_node.childNodes[j];
+                                            if (child_node2.name == "div") {
+                                                link.id = child_node2.attribs["id"];
+                                                link.text = child_node2.childNodes[0].data;
+                                                link.id = link.id.replace("commodity-", "");
+                                                link.type = "commodity";
+                                                break;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                }
+                            }
+
+                            links.push(link);
+                            var b = 2;
+                        }
+
+                    }
+                }
+
+                var a = 1;
+            } else {
+                context.type = "search";
+                var line_texts = $('div.line-text a', html);
+
+                for (i = 0; i < line_texts.length; i++) {
+                    var lt = line_texts[i];
+                    link = new Link();
+                    link.text = lt.childNodes[0].data;
+                    link.link = lt.attribs["href"];
+
+                    if (link.link.indexOf("/chapter") !== -1) {
+                        link.type = "chapter";
+                        link.id = link.link.replace("/chapters/", "");
+                    } else if (link.link.indexOf("/heading") !== -1) {
+                        link.type = "heading";
+                        link.id = link.link.replace("/headings/", "");
+                    }
+
+                    links.push(link);
+                    var a = 1;
+                }
+
+            }
+
+            context.links = links;
+            res.render('scrape_results', { 'context': context, 'term': term, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+
+        })
+        .catch(function (err) {
+            //handle error
+        });
+});
+
+
 
 // Browse a single commodity
 router.get([
@@ -333,12 +465,29 @@ router.get(['/tools/', '/tools/:scopeId'], function (req, res) {
     res.render('tools', { 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
 });
 
-// Quotas
+// Quotas old
 router.get(['/quotas/', '/quotas/:scopeId'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
     res.render('quotas', { 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
+});
+
+// Quotas new
+router.get(['/quotas_new/', '/quotas_new/:scopeId'], function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    title = global.get_title(scopeId);
+    res.render('quotas_new', { 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
+});
+
+// Licenced quotas
+router.get(['/licenced_quotas/', '/licenced_quotas/:scopeId'], function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    title = global.get_title(scopeId);
+    var licenced_quotas = require('./data/licenced_quotas.json')
+    res.render('licenced_quotas', { 'licenced_quotas': licenced_quotas, 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
 });
 
 // Certificates

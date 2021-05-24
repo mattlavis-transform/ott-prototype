@@ -31,7 +31,11 @@
             <ul class="govuk-list mb10">
                 {% if scopeId != "ni" %}
                     <li>
-                        <a href="/quotas/{{ scopeId }}">Quotas</a>
+                        <a href="/quotas_new/{{ scopeId }}">First come, first served quotas</a>
+                        <br>Search for tariff quotas, including daily updated balances.
+                    </li>
+                    <li>
+                        <a href="/licenced_quotas/{{ scopeId }}">Licenced quotas</a>
                         <br>Search for tariff quotas, including daily updated balances.
                     </li>
                 {% endif %}

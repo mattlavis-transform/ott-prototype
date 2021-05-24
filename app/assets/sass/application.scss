@@ -105,6 +105,10 @@ article.notes {
 
     .govuk-table--m {
         font-size: 16px;
+
+        p {
+            font-size: 16px;
+        }
     }
 
     .govuk-table--xs {
@@ -558,6 +562,9 @@ ul.countries {
 tr:last-of-type .govuk-table__cell {
     border-bottom: 0px;
 }
+tr:last-of-type .govuk-table__header {
+    border-bottom: 0px;
+}
 
 .textual_button {
     font-family            : GDS Transport, Arial, sans-serif;
@@ -648,6 +655,10 @@ tr:last-of-type .govuk-table__cell {
     font-size: 16px
 }
 
+.nw {
+    white-space : nowrap;  
+}
+
 @import "components/dialog";
 @import "components/modal";
 @import "components/flexible-tables";
@@ -668,4 +679,5 @@ tr:last-of-type .govuk-table__cell {
 @import "components/roo";
 @import "components/help";
 @import "components/picker";
+@import "components/jquery_modal";
 @import "bz";

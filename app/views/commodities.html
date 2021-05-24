@@ -241,9 +241,9 @@
                 {% endif %}
 
                 {% if display_block.block != "Import controls" and display_block.block != "UK import controls" %}
-                {% set class = "standard" %}
+                    {% set class = "standard" %}
                 {% else %}
-                {% set class = "control" %}
+                    {% set class = "control" %}
                 {% endif %}
                 <table class="govuk-table govuk-table--s  measures2 app-flexible-table">
                     <thead class="govuk-table__head app-flexible-table__head">
@@ -279,7 +279,7 @@
                                         <div>
                                             <span class="table-line">{{ measure.measure_type_description }}</span>
                                             {% if measure.order_number_id %}
-                                                <span class="table-line">Order no: <a href="#">{{ measure.order_number_id }}</a>
+                                                <span class="table-line">Order no: <a href="#quota_{{ measure.order_number_id }}" rel="modal:open">{{ measure.order_number_id }}</a>
                                                 </span>
                                             {% endif %}
                                             {% if measure.additional_code %}
@@ -305,18 +305,11 @@
 
                                     <td class="govuk-table__cell conditions app-flexible-table__cell c" scope="row" data-column-heading="Conditions">
                                         {% if measure.has_conditions == true %}
-                                            <a href="#" aria-label="Open Navigation" class="open-dialog">
-                                                <!--{{ measure.measure_conditions.length }}&nbsp;//-->Conditions</a>
+                                            <a href="#measure_conditions_{{ measure.id }}" rel="modal:open">Conditions</a>
                                         {% else %}
                                             -
                                         {% endif %}
                                     </td>
-
-                                    <!-- <td class="govuk-table__cell dates app-flexible-table__cell" scope="row" data-column-heading="Exclusions">
-                                        {% if measure.excluded_country_string != "" %}
-                                            {{ measure.excluded_country_string }}
-                                        {% endif %}
-                                    </td> //-->
 
                                     <td class="govuk-table__cell dates app-flexible-table__cell nw" scope="row" data-column-heading="Date (s)" nowrap>
                                         {{ measure.effective_start_date | format_date("DD MMM YYYY") }}
@@ -326,7 +319,11 @@
 
                                     <td class="govuk-table__cell dates app-flexible-table__cell c" scope="row" data-column-heading="Footnotes" nowrap>
                                         {% if measure.has_footnotes %}
-                                            <a href="#">Footnotes</a>
+                                            {% if measure.footnotes.length == 1 %}
+                                                <a href="#footnotes_{{ measure.id }}" rel="modal:open">{{ measure.footnotes[0].code }}</a>
+                                            {% else %}
+                                                <a href="#footnotes_{{ measure.id }}" rel="modal:open">Footnotes</a>
+                                            {% endif %}
                                         {% else %}-
                                         {% endif %}
                                     </td>
@@ -380,25 +377,145 @@
     {% endif %}
 
 </div>
-<!--
-{% for g in commodity.geographical_areas %}
-    <div role="dialog" id="dialog_{{ g.id }}"
-     aria-labelledby="dialog_{{ g.id }}_label"
-     aria-modal="true" class="hidden">
-        <h2 id="dialog_{{ g.id }}_label" class="dialog_label">{{ g.description }}</h2>
-        {% for m in g.members %}
-            {{ m.description }}<br>
-        {% endfor %}
+<!-- Start footnotes //-->
+{% for measure in commodity.measures %}
+    {% if measure.has_footnotes == true %}
+        <div id="footnotes_{{ measure.id }}" class="modal modal_commodity">
+            <h2 class="govuk-heading govuk-heading-m govuk-!-margin-top-4">Footnotes for measure {{ measure.measure_type_description }}</h1>
+            <p>The table below shows the conditions associated with the {{ measure.measure_type_description }} measure 
+            on the import of commodity <strong>{{ commodity.data.attributes.goods_nomenclature_item_id }}</strong> from
+            <strong>{{ measure.geographical_area_description }}</strong>.</p>
 
-        <button onclick="closeDialog(this)">
-      Close
-    </button>
-    </div>
-    <br>
+            <table class="govuk-table govuk-table--m">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Code</th>
+                        <th scope="col" class="govuk-table__header">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    {% for f in measure.footnotes %}
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell b">{{ f.code }}</td>
+                            <td class="govuk-table__cell">{{ f.description | safe }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
 {% endfor %}
-//-->
+<!-- End footnotes //-->
 
-<script type="text/javascript" src="./public/javascripts/accessible-autocomplete.min.js"></script>
+<!-- Start conditions //-->
+{% for measure in commodity.measures %}
+    {% if measure.has_conditions == true %}
+        <div id="measure_conditions_{{ measure.id }}" class="modal modal_commodity">
+            <h2 class="govuk-heading govuk-heading-m govuk-!-margin-top-4">Conditions for {{ measure.measure_type_description }}</h1>
+            <p>The table below shows the conditions associated with the {{ measure.measure_type_description }} measure 
+            on the import of commodity <strong>{{ commodity.data.attributes.goods_nomenclature_item_id }}</strong> from
+            <strong>{{ measure.geographical_area_description }}</strong>.</p>
+            <p>{{ measure.popup_message }}</p>
+
+            <table class="govuk-table govuk-table--m">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Code</th>
+                        <th scope="col" class="govuk-table__header">Requirement</th>
+                        <th scope="col" class="govuk-table__header">Details</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    {% for mc in measure.exposed_conditions %}
+                        {% if mc.positive %}
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell b">{{ mc.document_code }}</td>
+                                <td class="govuk-table__cell">
+                                    {{ mc.requirement | safe }}
+                                    {% if mc.article_5a.details != "" %}
+                                        {# <details class="govuk-details govuk-details-m govuk-!-margin-top-2" data-module="govuk-details">
+                                            <summary class="govuk-details__summary">
+                                                <span class="govuk-details__summary-text">Details to be entered on the declaration</span>
+                                            </summary>
+                                            <div class="govuk-details__text">{{ mc.article_5a.details | safe }}</div>
+                                        </details> #}
+                                    {% endif %}
+                                </td>
+                                <td class="govuk-table__cell">{{ mc.article_5a.details | safe }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+            <details class="govuk-details govuk-details-m govuk-!-margin-top-2" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">How to read measure conditions</span>
+                </summary>
+                <div class="govuk-details__text">
+                    Enter document codes on your forms ...
+                </div>
+            </details>
+        </div>
+    {% endif %}
+{% endfor %}
+<!-- End conditions //-->
+
+<!-- Start quotas //-->
+{% for measure in commodity.measures %}
+    {% if measure.order_number_id != null %}
+        <div id="quota_{{ measure.order_number_id }}" class="modal modal_commodity">
+            <h2 class="govuk-heading govuk-heading-m govuk-!-margin-top-4">Quota {{ measure.order_number_id }}</h1>
+            {# <p>The table below shows the current state of quota {{ measure.order_number_id }}.</p> #}
+            <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                    <span class="govuk-warning-text__assistive">Warning</span>
+                    Please be aware - this is a child quota and ....</strong>
+            </div>
+
+            <table class="govuk-table govuk-table--m">
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Quota order number</th>
+                        <td class="govuk-table__cell">{{ measure.order_number_id }}</th>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Current balance</th>
+                        <td class="govuk-table__cell">1234 kilograms</th>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Opening balance</th>
+                        <td class="govuk-table__cell">1234 kilograms</th>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Status</th>
+                        <td class="govuk-table__cell">Open</th>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Start and end dates</th>
+                        <td class="govuk-table__cell">1 Apr 2021 to 30 Jun 2021</th>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Last allocation date</th>
+                        <td class="govuk-table__cell">1 May 2021</th>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Suspension period</th>
+                        <td class="govuk-table__cell">n/a</th>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Blocking period</th>
+                        <td class="govuk-table__cell">n/a</th>
+                    </tr>
+                </tbody>
+            </table>
+            <p>In an effort to facilitate UK importers HMRC endeavours to keep quotas 'OPEN' where possible, therefore the information displayed above may differ slightly from the current UK position. If you require further information contact the Tariff Quota Management Team by email: <a href="mailto:tariff.management@hmrc.gsi.gov.uk">tariff.management@hmrc.gsi.gov.uk</a>.</p>
+        </div>
+    {% endif %}
+{% endfor %}
+<!-- End quotas //-->
+
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
 <script type="text/javascript">
     var selectEl = document.querySelector('#location-picker')
     accessibleAutocomplete.enhanceSelectElement({autoselect: true, confirmOnBlur: true, defaultValue: "", minLength: 2, selectElement: selectEl})

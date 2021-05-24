@@ -10,15 +10,17 @@ class Measure {
         this.financial = null;
         this.relevant = false;
         this.measure_components = [];
-        
+
         // Conditions
         this.measure_condition_ids = [];
         this.measure_conditions = [];
         this.has_conditions = false;
+        this.popup_message = "";
 
         // Footnotes
         this.has_footnotes = false;
-        
+        this.footnotes = [];
+
         // Geography
         this.geographical_area = null;
         this.geographical_area_id = null;
@@ -91,7 +93,37 @@ class Measure {
         this.combined_duty = this.combined_duty.replace(/ \)/g, ")")
     }
 
+    structure_conditions() {
+        var _ = require('lodash');
+        this.condition_codes = [];
+        this.positive_condition_count = 0;
+        // Count the positive conditions and the number of condition codes
+        this.measure_conditions.forEach(mc => {
+            if (typeof mc.condition_code !== 'undefined') {
+                if (mc.positive) {
+                    this.positive_condition_count += 1;
+                }
+                this.condition_codes.push(mc.condition_code);
+                var a = 1;
+            }
+        });
 
+        this.condition_codes = _.uniq(this.condition_codes);
+        this.condition_code_count = this.condition_codes.length;
+
+        // intro message on the popup
+        if (this.condition_code_count == 1) {
+            if (this.positive_condition_count == 1) {
+                this.popup_message = "Ensure that you meet the following condition:"
+            } else {
+                this.popup_message = "Ensure that you meet one of the following conditions:"
+            }
+            this.exposed_conditions = this.measure_conditions;
+        } else {
+            this.exposed_conditions = this.measure_conditions;
+        }
+        var a = 1;
+    }
 
 }
 module.exports = Measure

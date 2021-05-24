@@ -1,5 +1,5 @@
-1BN: Fresh bananas without a weight certificate
------------------------------------------------
+1BN:  Fresh bananas without a weight certificate
+--------------------------------------------------
 
 ### Description of procedure:
 
@@ -41,45 +41,27 @@ Also see [Importing bananas into the EU](https://www.gov.uk/guidance/importing-b
 
 For the Banana weighing certificate. Enter:
 
-Document code
 
-Document identifier
 
-Document status
-
-C046
-
-Where a banana weighing certificate is not held enter “Not held” and produce weighing certificate within 10 calendar days of acceptance of the initial declaration.  
-Note: “Not held” is only applicable when document code C046 is declared with Additional Procedure Code 1BN.
-
-Use status code (see [Appendix 5B: DE 2/3 document status codes](https://www.gov.uk/guidance/data-element-23-document-status-codes-of-the-customs-declaration-service-cds): XU.  
-Note: when document code C046 is declared with Additional Procedure Code 1BN, only status code XU is permitted.
-
+  |  Document code |  Document identifier |  Document status | 
+   |  C046 |  Where a banana weighing certificate is not held enter \xe2\x80\x9cNot held\xe2\x80\x9d and produce weighing certificate within 10 calendar days of acceptance of the initial declaration.  
+Note: \xe2\x80\x9cNot held\xe2\x80\x9d is only applicable when document code C046 is declared with Additional Procedure Code 1BN. |  Use status code (see [Appendix 5B: DE 2/3 document status codes](https://www.gov.uk/guidance/data-element-23-document-status-codes-of-the-customs-declaration-service-cds): XU.  
+Note: when document code C046 is declared with Additional Procedure Code 1BN, only status code XU is permitted. | 
+ 
 For Authorised Banana Weighers:
 
-Document code
 
-Document identifier: country code
 
-Document identifier: authorisation type code
-
-Document identifier: authorisation number
-
-C526
-
-e.g., GB
-
-AWB
-
-Provide the authorisation decision number for the Authorised Banana Weigher
-
+  |  Document code |  Document identifier: country code |  Document identifier: authorisation type code |  Document identifier: authorisation number | 
+   |  C526 |  e.g., GB |  AWB |  Provide the authorisation decision number for the Authorised Banana Weigher | 
+ 
 ### Security required
 
 The duty calculated on the provisional weight given in DE 6/1 must be either paid outright or secured to release the consignment unless prior authorisation for Simplified Declaration Procedure (regular use) is held.
 
 ### VAT:
 
-–
+\xe2\x80\x93
 
 ### Post clearance action:
 
@@ -91,4 +73,5 @@ Additional Procedure Code 1BN can only be used with Requested and Previous Proce
 
 ### Additional documents needed:
 
-–
+\xe2\x80\x93
+

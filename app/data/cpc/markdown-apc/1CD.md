@@ -1,3 +1,6 @@
+1CD:  Controlled drugs using Simplified Procedures
+----------------------------------------------------
+
 ### Description of Procedure:
 
 Importation of controlled drugs released to free circulation (excluding End Use) using Simplified Declaration Procedure (SDP) (regular use).
@@ -44,44 +47,27 @@ This Additional Procedure code must also be declared on the Supplementary Declar
 
 As appropriate to the goods being declared, enter:
 
-Document code
 
-Description and Usage of Code
 
-Details to be entered
-
-9112
-
-Drugs Precursor Chemicals Individual Licence.
-
-Enter GBHOA followed by the licence number. If using more than one licence, then a separate 9112 entry in DE 2/3 is required for each licence.  
-Use one of the following status codes (see [Appendix 5B: DE 2/3 document status codes](https://www.gov.uk/guidance/data-element-23-document-status-codes-of-the-customs-declaration-service-cds) for harmonised declarations for definitions): AC, AE, AF, AT, XX.
-
-9113
-
-Controlled Drugs Individual Licence.
-
-Enter GBHCB followed by the licence number. If using more than one licence, then a separate 9113 entry in DE 2/3 is required for each licence.  
-Use one of the following status codes (see Appendix 5B: DE 2/3 document status codes for harmonised declarations for definitions): AE, AG, XW, XX.
-
-9114
-
-Controlled Drugs Open Individual Licence.
-
-Enter GBHCE followed by the licence number. If using more than one licence, then a separate 9114 entry in DE 2/3 is required for each licence.  
-Use one of the following status codes (see Appendix 5B: DE 2/3 document status codes for harmonised declarations for definitions): FP, XW, XX.
-
+  |  Document code |  Description and Usage of Code |  Details to be entered | 
+   |  9112 |  Drugs Precursor Chemicals Individual Licence. |  Enter GBHOA followed by the licence number. If using more than one licence, then a separate 9112 entry in DE 2/3 is required for each licence.  
+Use one of the following status codes (see [Appendix 5B: DE 2/3 document status codes](https://www.gov.uk/guidance/data-element-23-document-status-codes-of-the-customs-declaration-service-cds) for harmonised declarations for definitions): AC, AE, AF, AT, XX. | 
+ |  9113 |  Controlled Drugs Individual Licence. |  Enter GBHCB followed by the licence number. If using more than one licence, then a separate 9113 entry in DE 2/3 is required for each licence.  
+Use one of the following status codes (see Appendix 5B: DE 2/3 document status codes for harmonised declarations for definitions): AE, AG, XW, XX. | 
+ |  9114 |  Controlled Drugs Open Individual Licence. |  Enter GBHCE followed by the licence number. If using more than one licence, then a separate 9114 entry in DE 2/3 is required for each licence.  
+Use one of the following status codes (see Appendix 5B: DE 2/3 document status codes for harmonised declarations for definitions): FP, XW, XX. | 
+ 
 ### Security required
 
-–
+\xe2\x80\x93
 
 ### VAT:
 
-–
+\xe2\x80\x93
 
 ### Post clearance action:
 
-–
+\xe2\x80\x93
 
 ### Notes:
 
@@ -90,3 +76,4 @@ Additional Procedure Code 1CD can only be used with Requested and Previous Proce
 ### Additional documents needed:
 
 Supporting documentation such as licences and certificates needed to release the goods to free circulation must be presented (as required) before gaining release of the goods.
+

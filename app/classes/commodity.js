@@ -3,6 +3,7 @@ const axios = require('axios')
 const Measure = require("./measure");
 const MeasureComponent = require("./measure_component");
 const MeasureCondition = require("./measure_condition");
+const Footnote = require("./footnote");
 const MeasureType = require("./measure_type");
 const GeographicalArea = require("./geographical_area");
 const AdditionalCode = require("./additional_code");
@@ -45,6 +46,8 @@ class Commodity {
         this.preferences = [];
         this.remedies = [];
         this.suspensions = [];
+
+        this.footnotes = [];
 
         this.mfn_array = ["103", "105", "109"];
         this.agri_array = ["488", "489", "490"];
@@ -135,6 +138,10 @@ class Commodity {
                 var footnotes = item["relationships"]["footnotes"]["data"];
                 if (footnotes.length > 0) {
                     m.has_footnotes = true;
+                    footnotes.forEach(footnote => {
+                        f = new Footnote(footnote.id, "");
+                        m.footnotes.push(f);
+                    });
                 }
 
                 // Get legal base / legal acts
@@ -178,16 +185,16 @@ class Commodity {
                 mt = new MeasureType(item);
                 this.measure_types.push(mt);
 
+            } else if (item["type"] == "footnote") {
+                var f = new Footnote(item.id, item.attributes.formatted_description);
+                this.footnotes.push(f);
+
             } else if (item["type"] == "geographical_area") {
                 g = new GeographicalArea(item);
                 this.geographical_areas.push(g);
 
             } else if (item["type"] == "additional_code") {
                 ac = new AdditionalCode(item);
-                // var ar_wanted = ["2", "8", "A", "B", "C"];
-                // if (ar_wanted.includes(ac.additional_code_type)) {
-                //     this.additional_codes.push(ac);
-                // }
                 this.additional_codes.push(ac);
 
             } else if (item["type"] == "order_number") {
@@ -226,6 +233,7 @@ class Commodity {
         this.categorise_measures(override_block);
         this.assign_definitions_to_order_numbers();
         this.assign_legal_acts_to_measures();
+        this.assign_footnotes_to_measures();
         this.assign_geographical_area_descriptions_to_exclusions();
         this.strip_exclusions_from_geographical_area()
 
@@ -412,6 +420,18 @@ class Commodity {
         });
     }
 
+    assign_footnotes_to_measures() {
+        this.footnotes.forEach(footnote1 => {
+            this.measures.forEach(measure => {
+                measure.footnotes.forEach(footnote2 => {
+                    if (footnote1.code == footnote2.code) {
+                        footnote2.description = footnote1.description;
+                    }
+                });
+            });
+        });
+    }
+
     calculate_vat() {
         this.vats.forEach(calc => {
             calc.calculate();
@@ -573,7 +593,6 @@ class Commodity {
         this.measures.forEach(m => {
             m.combine_duties();
         });
-        var a = 1;
     }
 
     assign_measure_conditions() {
@@ -586,6 +605,7 @@ class Commodity {
                     }
                 });
             });
+            m.structure_conditions();
         });
     }
 

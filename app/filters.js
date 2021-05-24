@@ -64,6 +64,7 @@ module.exports = function (env) {
         str = str.replace("Hmi", "HMI");
         return (str);
     }
+
     filters.title_case_vat_excise = function (str) {
         var _ = require('lodash');
         var tmp = _.toLower(str);
@@ -161,8 +162,6 @@ module.exports = function (env) {
     }
 
     filters.new_scope = function (s, scope) {
-        // console.log("str = " + s);
-        // console.log("scope = " + scope);
         s = String(s)
         var lastChar = s[s.length - 1];
 
@@ -179,6 +178,30 @@ module.exports = function (env) {
         s = s.replace("//", "/");
         return (s);
     }
+
+    filters.filter_erga_omnes = function (s) {
+        if (s == "ERGA OMNES") {
+            return ("All countries");
+        } else {
+            return (s);
+        }
+    }
+
+    filters.add_comm_code_href = function (s) {
+        s = s.replace(/<h1/g, "<h1 class='govuk-heading-l'");
+        
+        var regex = /([0-9]{10})/g;
+        var repl = "<a href='/commodities/$1'>$1</a>";
+        s = s.replace(regex, repl);
+        return (s);
+    }
+
+    filters.url_safe = function (s) {
+        s = s.toLowerCase().replace(/ /g, "_");
+        return (s);
+    }
+
+
     /* ------------------------------------------------------------------
       keep the following line to return your filters to the app
     ------------------------------------------------------------------ */

@@ -1,11 +1,14 @@
+1CG:  Controlled Goods using Simplified Procedures
+----------------------------------------------------
+
 ### Description of procedure:
 
 Importation of controlled goods released to free circulation (excluding End Use) using Simplified Declaration Procedure (SDP regular use).
 
 ### Goods covered:
 
-*   Goods eligible for clearance under the SDP entered by or on behalf of pre-authorised Simplified Declaration Procedure (regular use) traders that are needed to be presented for specific pre-clearance or Border Inspection Post (BIP) controls.
-*   Excise goods released under pre-authorised SDP (regular use).
+ * Goods eligible for clearance under the SDP entered by or on behalf of pre-authorised Simplified Declaration Procedure (regular use) traders that are needed to be presented for specific pre-clearance or Border Inspection Post (BIP) controls.
+ * Excise goods released under pre-authorised SDP (regular use).
 
 ### Conditions for use:
 
@@ -45,15 +48,15 @@ This Additional Procedure Code must also be declared on the Supplementary Declar
 
 ### Security required:
 
-–
+\xe2\x80\x93
 
 ### VAT:
 
-–
+\xe2\x80\x93
 
 ### Post clearance action:
 
-–
+\xe2\x80\x93
 
 ### Notes:
 
@@ -62,3 +65,4 @@ Additional Procedure Code 1CG can only be used with Requested and Previous Proce
 ### Additional documents needed:
 
 Supporting documentation such as licences and certificates needed to release the goods to free circulation must be presented (as required) before gaining release of the goods.
+

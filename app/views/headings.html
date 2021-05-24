@@ -83,7 +83,7 @@
                     {% if (item.leaf == true) %}
                         <div class="description">
                             <div class="indent_{{ item.number_indents }}{{ item.indent_class }}">
-                                <a href="/{{ scopeId }}/commodities/{{ item.goods_nomenclature_item_id }}">{{ item.description | safe }}</a>
+                                <a href="/{{ scopeId }}{% if scopeId != "" %} /{% endif %}commodities/{{ item.goods_nomenclature_item_id }}">{{ item.description | safe }}</a>
                             </div>
                         </div>
                         <div class="vat expendable">{{ item.vat | safe }}</div>
