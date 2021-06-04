@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+{% block beforeContent %}
+    {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/sections/" + scopeId
+    },
+    {
+      text: "Preferences",
+      href: ""
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Preferences
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-xl">{{ title }}</span>
+            <h1 class="govuk-heading-l">Preferences</h1>
+
+            {% if show_confirmation %}
+                <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                    <div class="govuk-notification-banner__header">
+                        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Success</h2>
+                    </div>
+                    <div class="govuk-notification-banner__content">
+                        <p class="govuk-notification-banner__heading">
+                            You’ve updated your preferences.
+                        </p>
+                    </div>
+                </div>
+            {% else %}
+                {# {{ govukInsetText({
+                    text: "Use this screen to ..."
+                }) }} #}
+            {% endif %}
+
+            {% if data["border_system"] == "chief" %}
+                {% set chief_selected = true %}
+                {% set cds_selected = false %}
+            {% endif %}
+            {% if data["border_system"] == "cds" %}
+                {% set chief_selected = false %}
+                {% set cds_selected = true %}
+            {% endif %}
+
+            <form action="/preferences-handler" method="get">
+                {{ govukRadios({
+                idPrefix: "border_system",
+                name: "border_system",
+                fieldset: {
+                    legend: {
+                    text: "Which border system do you use?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
+                    }
+                },
+                hint: {
+                    text: "Select the border system for which you would like guidance"
+                },
+                items: [
+                    {
+                    value: "cds",
+                    text: "CDS",
+                    checked: cds_selected
+                    },
+                    {
+                    value: "chief",
+                    text: "CHIEF",
+                    checked: chief_selected
+                    }
+                ]
+            }) }}
+
+                {{ govukButton({
+                text: "Save preferences"
+            }) }}
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

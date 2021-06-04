@@ -689,6 +689,10 @@ th.min30 {
 
 .tight {
     margin-bottom: 0px;
+
+    p {
+        margin-bottom: 0.5em;
+    }
 }
 
 .govuk-list--bullet li p {
@@ -717,6 +721,7 @@ th.min30 {
 @import "components/help";
 @import "components/picker";
 @import "components/jquery_modal";
+@import "components/print";
 
 
 @import "bz";

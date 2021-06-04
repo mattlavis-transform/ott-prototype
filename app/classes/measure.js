@@ -124,8 +124,19 @@ class Measure {
             this.combine_complex_measures();
             //this.exposed_conditions = this.measure_conditions;
         }
-        if (this.measure_type_id == "350") {
-            var a = 1;
+
+        if (this.positive_condition_count > 0) {
+            this.exposed_conditions.sort(compare_conditions);
+        }
+
+        function compare_conditions(a, b) {
+            if (a.condition_class_index > b.condition_class_index) {
+                return 1;
+            }
+            if (a.condition_class_index < b.condition_class_index) {
+                return -1;
+            }
+            return 0;
         }
     }
 
@@ -146,22 +157,18 @@ class Measure {
             }
         });
 
-        this.exposed_conditions.sort(compare_conditions);
+        // this.exposed_conditions.sort(compare_conditions);
 
 
-        function compare_conditions(a, b) {
-            if (a.condition_class_index > b.condition_class_index) {
-                return 1;
-            }
-            if (a.condition_class_index < b.condition_class_index) {
-                return -1;
-            }
-            return 0;
-        }
-        // for (var i = 0; i < this.exposed_conditions.length; i++) {
-
+        // function compare_conditions(a, b) {
+        //     if (a.condition_class_index > b.condition_class_index) {
+        //         return 1;
+        //     }
+        //     if (a.condition_class_index < b.condition_class_index) {
+        //         return -1;
+        //     }
+        //     return 0;
         // }
-        var a = 1;
     }
 
 }

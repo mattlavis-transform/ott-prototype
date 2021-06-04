@@ -31,24 +31,43 @@ class MeasureCondition {
     }
 
     check_condition_class() {
-        if (this.document_code == "") {
-            this.condition_class = "threshold";
-            this.condition_class_label = "Exemption";
-            this.condition_class_index = 3;
-        } else if (this.document_code.substring(0, 1) == "Y") {
-            this.condition_class = "exception";
-            this.condition_class_index = 2;
-            this.condition_class_label = "Exemption";
-        } else if (this.document_code == "C084") {
-            this.condition_class = "exception";
-            this.condition_class_label = "Exemption";
-            this.condition_class_index = 2;
+        if (this.positive) {
+            if (this.document_code == "") {
+                this.condition_class = "threshold";
+                this.condition_class_label = "Exemption";
+                this.condition_class_index = 3;
+                this.document_code = "n/a"
+    
+                const regex = /<span>(.*)<\/span> <abbr title='(.*)'>/gm;
+                var m = regex.exec(this.requirement);
+                if (m.length > 2) {
+                    if (m[2] == "Litre") {
+                        this.requirement = "The volume of the imported goods does not exceed " + Math.round(m[1]) + " litres"
+                    }
+                    else if (m[2] == "Kilogram") {
+                        this.requirement = "The weight of the imported goods does not exceed " + Math.round(m[1]) + " kilogrammes"
+                    }
+                }
+    
+            } else if (this.document_code.substring(0, 1) == "Y") {
+                this.condition_class = "exception";
+                this.condition_class_index = 2;
+                this.condition_class_label = "Exemption";
+            } else if (this.document_code == "C084") {
+                this.condition_class = "exception";
+                this.condition_class_label = "Exemption";
+                this.condition_class_index = 2;
+            } else {
+                this.condition_class = "certificate";
+                this.condition_class_label = "Rule";
+                this.condition_class_index = 1;
+            }
         } else {
-            this.condition_class = "certificate";
-            this.condition_class_label = "Rule";
-            this.condition_class_index = 1;
+            this.condition_class = "negative";
+            this.condition_class_label = "";
+            this.condition_class_index = 99;
         }
-        var a = 1;
+
     }
 
     trim_requirement() {

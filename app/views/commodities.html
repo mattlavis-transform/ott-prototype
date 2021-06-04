@@ -275,7 +275,7 @@
                                             {{ measure.geographical_area_description }} ({{ measure.geographical_area.id }})
                                         {% endif %}
                                     </td>
-                                    <td class="govuk-table__cell measure app-flexible-table__cell" scope="row" data-column-heading="Measure type">
+                                    <td class="govuk-table__cell measure app-flexible-table__cell measure_type_{{ measure.measure_type_id }}" scope="row" data-column-heading="Measure type">
                                         <div>
                                             <span class="table-line">{{ measure.measure_type_description }}</span>
                                             {% if measure.order_number_id %}
@@ -440,19 +440,12 @@
                                 <td class="govuk-table__cell b">{{ mc.document_code }}</td>
                                 <td class="govuk-table__cell">
                                     {{ mc.requirement | safe }}
-                                    {# {{ mc.article_5a.description | safe }} #}
                                 </td>
                                 <td class="govuk-table__cell">
                                     <div class="instructions_cds {{ toggle_message.cds_class }}">
-                                        {# <noscript>
-                                            <p class="tight b">Declaration instructions for CDS</p>
-                                        </noscript> #}
                                         {{ mc.article_5a.details_cds | safe }}
                                     </div>
                                     <div class="instructions_chief {{ toggle_message.chief_class }}">
-                                        {# <noscript>
-                                            <p class="tight b">Declaration instructions for CHIEF</p>
-                                        </noscript> #}
                                         {{ mc.article_5a.details_chief | safe }}
                                     </div>
                                 </td>
@@ -462,14 +455,7 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <details class="govuk-details govuk-details-m govuk-!-margin-top-2" data-module="govuk-details">
-                <summary class="govuk-details__summary">
-                    <span class="govuk-details__summary-text">How to read measure conditions</span>
-                </summary>
-                <div class="govuk-details__text">
-                    Where there
-                </div>
-            </details>
+            <p>Find out <a href="/import-guidance/date/{{ commodity.data.attributes.goods_nomenclature_item_id }}">how to import commodity {{ commodity.data.attributes.goods_nomenclature_item_id }}</a> into the UK.</p>
         </div>
     {% endif %}
 {% endfor %}

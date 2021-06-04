@@ -1,0 +1,34 @@
+@media print {
+    footer {
+        display: none;
+    }
+
+    #printButton {
+        display: none;
+    }
+
+    aside {
+        display: none;
+    }
+
+    div.govuk-grid-column-three-quarters {
+        width: 100%
+    }
+
+    .noprint {
+        display: none;
+    }
+
+    .gem-c-contextual-footer {
+        display: none;
+    }
+
+    .govuk-phase-banner {
+        display: none;
+    }
+
+    header,
+    .govuk-header__container {
+        display: none !important;
+    }
+}

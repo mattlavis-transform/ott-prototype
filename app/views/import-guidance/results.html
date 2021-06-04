@@ -13,26 +13,17 @@
       html: 'This is a Beta service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
     }) }}
   {{ govukBackLink({
-  text: "Back",
-  href: "/calculate/destination/" + commodity.data.attributes.goods_nomenclature_item_id
-}) }}
+    text: "Back",
+    classes: "noprint",
+    href: "/calculate/destination/" + commodity.data.attributes.goods_nomenclature_item_id
+  }) }}
 {% endblock %}
 
 {% block content %}
   <!-- 03-origin.html //-->
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
-      {% if (error == "origin") %}
-        {{ govukErrorSummary({
-                  titleText: "There is a problem",
-                  errorList: [
-                  {
-                  text: "Enter a valid origin for this import ",
-                  href: "#origin"
-                  }
-                  ]
-                  }) }}
-      {% endif %}
+      
 
       <span class="govuk-caption-xl">Find out how to import commodity {{commodity.data.attributes.goods_nomenclature_item_id}}</span>
       <h1 class="govuk-heading-l">How to import {{commodity.data.attributes.goods_nomenclature_item_id}}</h1>
@@ -76,7 +67,7 @@ The exemptions that are listed after the rules tell you:</p>
         <li>any conditions you need to meet or evidence you need to show to prove the goods are exempt</li>
       </ul>
 
-      <details class="govuk-details" data-module="govuk-details">
+      <details class="govuk-details noprint" data-module="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
             Display preferences
@@ -136,73 +127,114 @@ The exemptions that are listed after the rules tell you:</p>
     </div>
   </div>
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    {# <div class="govuk-grid-column-full"> #}
+    <div class="govuk-grid-column-three-quarters">
 
       {% for m in commodity.measures %}
         {% if m.has_conditions %}
+          {% set condition_class = "" %}
           <h2 class="govuk-heading-l govuk-!-margin-top-9">{{ m.measure_type_description }}</h2>
-          <table class="govuk-table measure-table">
-            <caption class="govuk-table__caption govuk-heading-s">Follow the rules that apply to import your goods.</caption>
+          {# <table class="govuk-table govuk-table--m">
+            <caption class="govuk-table__caption govuk-heading-s">Rules</caption>
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header" style="width:10%">Code</th>
-                <th scope="col" class="govuk-table__header" style="width:30%">Rules</th>
+                <th scope="col" class="govuk-table__header" style="width:30%">{{ mc.condition_class_label }}</th>
                 <th scope="col" class="govuk-table__header" style="width:60%">{{ table_header }}</th>
               </tr>
             </thead>
-            <tbody class="govuk-table__body">
+            <tbody class="govuk-table__body"> #}
               {% for mc in m.exposed_conditions %}
                 {% if mc.positive %}
+                  {% if mc.condition_class != condition_class and condition_class != "" %}
+                  </table>
+                  {% endif %}
+                  {% if mc.condition_class != condition_class %}
+                  <table class="govuk-table govuk-table--m">
+                    <caption class="govuk-table__caption govuk-heading-s">{{ mc.condition_class_label }}s</caption>
+                    <thead class="govuk-table__head">
+                      <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header" style="width:10%">Code</th>
+                        <th scope="col" class="govuk-table__header" style="width:30%">{{ mc.condition_class_label }}</th>
+                        <th scope="col" class="govuk-table__header" style="width:60%">{{ table_header }}</th>
+                      </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
 
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">{{ mc.document_code | safe }}</th>
-                    <td class="govuk-table__cell">
-                      {{ mc.requirement | safe }}
-                      {# {{ mc.article_5a.description | safe }} #}
-                    </td>
-                    <td class="govuk-table__cell">
-                      {% if data["border_system"] == "cds" %}
-                        {{ mc.article_5a.details_cds | safe }}
-                      {% else %}
-                        {{ mc.article_5a.details_chief | safe }}
-                      {% endif %}
-                      {% if mc.status_code_descriptions | length > 0 %}
-                        <details class="govuk-details" data-module="govuk-details">
-                          <summary class="govuk-details__summary">
-                            <span class="govuk-details__summary-text">About these status codes</span>
-                          </summary>
-                          <div class="govuk-details__text">
+                    {% endif %}
 
-                            <table class="govuk-table measure-table">
-                              <thead class="govuk-table__head">
-                                <tr class="govuk-table__row">
-                                  <th scope="col" class="govuk-table__header" style="width:20%">Code</th>
-                                  <th scope="col" class="govuk-table__header" style="width:80%">Usage</th>
-                                </tr>
-                              </thead>
-                              <tbody class="govuk-table__body">
-                                {% for sc in mc.status_code_descriptions %}
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">{{ mc.document_code | safe }}</th>
+                      <td class="govuk-table__cell">
+                        {{ mc.requirement | safe }}
+                      </td>
+                      <td class="govuk-table__cell tight">
+                        {% if data["border_system"] == "cds" %}
+                          {{ mc.article_5a.details_cds | safe }}
+                        {% else %}
+                          {{ mc.article_5a.details_chief | safe }}
+                        {% endif %}
+                        {% if mc.status_code_descriptions | length > 0 %}
+                          <details class="govuk-details govuk-details-m" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                              <span class="govuk-details__summary-text">About these status codes</span>
+                            </summary>
+                            <div class="govuk-details__text">
+                              <table class="govuk-table govuk-table--m">
+                                <thead class="govuk-table__head">
                                   <tr class="govuk-table__row">
-                                    <th scope="row" class="govuk-table__header">{{ sc.status_code }}</th>
-                                    <td class="govuk-table__cell">{{ sc.description }}</td>
+                                    <th scope="col" class="govuk-table__header" style="width:20%">Code</th>
+                                    <th scope="col" class="govuk-table__header" style="width:80%">Usage</th>
                                   </tr>
-                                {% endfor %}
-                              </tody>
-                            </table>
-                          </div>
-                        </details>
-                      {% endif %}
-                    </td>
-                  </tr>
-                {% endif %}
-              {% endfor %}
-            </tbody>
-          </table>
+                                </thead>
+                                <tbody class="govuk-table__body">
+                                  {% for sc in mc.status_code_descriptions %}
+                                    <tr class="govuk-table__row">
+                                      <th scope="row" class="govuk-table__header">{{ sc.status_code }}</th>
+                                      <td class="govuk-table__cell">{{ sc.description }}</td>
+                                    </tr>
+                                  {% endfor %}
+                                </tody>
+                              </table>
+                            </div>
+                          </details>
+                        {% endif %}
+                      </td>
+                    </tr>
+                  {% endif %}
+                  {% set condition_class = mc.condition_class %}
+                {% endfor %}
+              </tbody>
+            </table>
+            {% if m.footnotes.length > 0 %}
+              <details class="govuk-details govuk-details-m" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">Footnotes on {{ m.measure_type_description }}</span>
+                </summary>
+                <div class="govuk-details__text">
+                  <table class="govuk-table govuk-table--m">
+                    <thead class="govuk-table__head">
+                      <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header" style="width:20%">Code</th>
+                        <th scope="col" class="govuk-table__header" style="width:80%">Footnote</th>
+                      </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                      {% for f in m.footnotes %}
+                        <tr class="govuk-table__row">
+                          <th scope="row" class="govuk-table__header">{{ f.code }}</th>
+                          <td class="govuk-table__cell">{{ f.description }}</td>
+                        </tr>
+                      {% endfor %}
+                    </tody>
+                  </table>
+                </div>
+              </details>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
 
-        {% endif %}
-      {% endfor %}
-
-      {# <h2 class="govuk-heading-l govuk-!-margin-top-9">Veterinary controls</h2>
+        {# <h2 class="govuk-heading-l govuk-!-margin-top-9">Veterinary controls</h2>
         <table class="govuk-table measure-table">
           <caption class="govuk-table__caption govuk-heading-s">Follow the rules that apply to import your goods.</caption>
           <thead class="govuk-table__head">
@@ -361,47 +393,47 @@ The exemptions that are listed after the rules tell you:</p>
           </tbody>
         </table> #}
 
-      <br><br><br><br><br>
+        <br><br><br><br><br>
 
-      <a href="#" role="button" onclick="window.print()" class="govuk-link gem-c-print-link__link govuk-link--no-visited-state hideNoJs" data-module="govuk-button" id="printButton">Print results</a>
+        <a href="#" role="button" onclick="window.print()" class="govuk-link gem-c-print-link__link govuk-link--no-visited-state hideNoJs noprint" data-module="govuk-button" id="printButton">Print results</a>
 
-      <div class="govuk-grid-row" style="margin-top: 60px">
-        <div class="govuk-grid-column-full">
-          <aside class="app-related-items" role="complementary" style="border-top: 2px solid #1d70b8;">
-            <h2 class="govuk-heading-m" id="subsection-title">If you need help</h2>
-            <nav role="navigation" aria-labelledby="subsection-title">
-              <ul class="govuk-list govuk-!-font-size-16">
-                <li>
-                  <a href="#">Check the Department for International Trade’s frequently asked questions and message board</a>
-                </li>
-                <li>
-                  <a href="#">Get assistance to complete your search over the phone</a>
-                </li>
-                <li>
-                  <a href="#">Submit a trade support request to the Department for International Trade</a>
+        <div class="govuk-grid-row" style="margin-top: 60px">
+          <div class="govuk-grid-column-full">
+            <aside class="app-related-items" role="complementary" style="border-top: 2px solid #1d70b8;">
+              <h2 class="govuk-heading-m" id="subsection-title">If you need help</h2>
+              <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                  <li>
+                    <a href="#">Check the Department for International Trade’s frequently asked questions and message board</a>
+                  </li>
+                  <li>
+                    <a href="#">Get assistance to complete your search over the phone</a>
+                  </li>
+                  <li>
+                    <a href="#">Submit a trade support request to the Department for International Trade</a>
+                  </li>
+                </ul>
+              </nav>
+            </aside>
+          </div>
+        </div>
+
+        {# {% include "../includes/commodity_panel.html" %} #}
+
+        <div class="gem-c-contextual-footer">
+          <div class="gem-c-related-navigation">
+            <nav role="navigation" class="gem-c-related-navigation__nav-section">
+              <h2 id="related-nav-topics-c7e51674" class="gem-c-related-navigation__sub-heading gem-c-related-navigation__sub-heading--footer">Explore the topic</h2>
+              <ul class="gem-c-related-navigation__link-list">
+                <li class="gem-c-related-navigation__link">
+                  <a class="gem-c-related-navigation__section-link gem-c-related-navigation__section-link--footer" href="https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin">Check your goods meet the rules of origin</a>
                 </li>
               </ul>
             </nav>
-          </aside>
-        </div>
-      </div>
-
-      {# {% include "../includes/commodity_panel.html" %} #}
-
-      <div class="gem-c-contextual-footer">
-        <div class="gem-c-related-navigation">
-          <nav role="navigation" class="gem-c-related-navigation__nav-section">
-            <h2 id="related-nav-topics-c7e51674" class="gem-c-related-navigation__sub-heading gem-c-related-navigation__sub-heading--footer">Explore the topic</h2>
-            <ul class="gem-c-related-navigation__link-list">
-              <li class="gem-c-related-navigation__link">
-                <a class="gem-c-related-navigation__section-link gem-c-related-navigation__section-link--footer" href="https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin">Check your goods meet the rules of origin</a>
-              </li>
-            </ul>
-          </nav>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-{% endblock %}
+  {% endblock %}
 </html>
