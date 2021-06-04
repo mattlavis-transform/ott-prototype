@@ -12,6 +12,7 @@ const Error_handler = require('./classes/error_handler.js');
 const date = require('date-and-time');
 const GeographicalArea = require('./classes/geographical_area');
 const Link = require('./classes/link');
+const { xor } = require('lodash');
 
 require('./classes/global.js');
 require('./classes/news.js');
@@ -255,8 +256,6 @@ router.get([
         });
 });
 
-
-
 // Browse a single commodity
 router.get([
     '/commodities/:goods_nomenclature_item_id/',
@@ -265,6 +264,30 @@ router.get([
     '/:scopeId/commodities/:goods_nomenclature_item_id/:country',
     '/commodities/:goods_nomenclature_item_id/:country'
 ], async function (req, res) {
+    var border_system = "cds";
+    var declaration_th;
+
+    delete req.session.data["where-do-you-live"];
+
+    if (req.session.data["border_system"] == "chief") {
+        border_system = "chief";
+        toggle_message = {
+            "declaration_th": "Declaration instructions for CHIEF",
+            "toggle_text": "Show CDS instructions instead",
+            "border_system": "CHIEF",
+            "cds_class": "hidden",
+            "chief_class": ""
+        }
+    } else {
+        border_system = "cds";
+        toggle_message = {
+            "declaration_th": "Declaration instructions for CDS",
+            "toggle_text": "Show CHIEF instructions instead",
+            "border_system": "CDS",
+            "cds_class": "",
+            "chief_class": "hidden"
+        }
+    }
 
     var c;
     var scopeId = global.get_scope(req.params["scopeId"]);
@@ -306,7 +329,7 @@ router.get([
             c.categorise_measures(override_block = "smart");
             c.sort_measures();
 
-            res.render('commodities', { 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+            res.render('commodities', { 'toggle_message': toggle_message, 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
         }));
 
     } else {
@@ -319,7 +342,7 @@ router.get([
                 console.log(c.measures.length);
 
                 c.sort_measures();
-                res.render('commodities', { 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+                res.render('commodities', { 'toggle_message': toggle_message, 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
             });
 
     }
@@ -456,6 +479,34 @@ router.get(['/news/', '/news/:scopeId'], function (req, res) {
 /* ############################################################################ */
 /* ###################         BEGIN TOOLS SECTION           ################# */
 /* ############################################################################ */
+
+// Preferences
+router.get([
+    '/preferences/',
+    ':scopeId/preferences/',
+    '/preferences/:confirm',
+    ':scopeId/preferences/:confirm'
+], function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    confirm = req.params["confirm"];
+    root_url = global.get_root_url(req, scopeId);
+    title = global.get_title(scopeId);
+    res.render('preferences', { 'show_confirmation': confirm,  'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
+});
+
+// Preferences handler
+router.get(['/preferences-handler/', '/preferences-handler/:scopeId'], function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    var referer = req.headers.referer;
+    if (referer == null) {
+        referer = "/";
+    }
+    // if (req.session.data["border_system"] !== "undefined") {
+    //     req.cookies["border_system"] = req.session.data["border_system"];
+    // }
+    // res.redirect("/preferences/confirm");
+    res.redirect(referer);
+});
 
 // Tools
 router.get(['/tools/', '/tools/:scopeId'], function (req, res) {

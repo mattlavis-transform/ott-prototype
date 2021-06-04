@@ -114,14 +114,53 @@ class Measure {
         // intro message on the popup
         if (this.condition_code_count == 1) {
             if (this.positive_condition_count == 1) {
-                this.popup_message = "Ensure that you meet the following condition:"
+                this.popup_message = "Ensure that you meet the following condition:";
             } else {
-                this.popup_message = "Ensure that you meet one of the following conditions:"
+                this.popup_message = "Ensure that you meet one of the following conditions:";
             }
             this.exposed_conditions = this.measure_conditions;
-        } else {
-            this.exposed_conditions = this.measure_conditions;
+        } else if (this.condition_code_count > 1) {
+            this.popup_message = "Ensure that you meet one of the following conditions:";
+            this.combine_complex_measures();
+            //this.exposed_conditions = this.measure_conditions;
         }
+        if (this.measure_type_id == "350") {
+            var a = 1;
+        }
+    }
+
+    combine_complex_measures() {
+        this.exposed_conditions = [];
+        this.measure_conditions.forEach(mc => {
+            var found = false;
+            for (var i = 0; i < this.exposed_conditions.length; i++) {
+                var e = this.exposed_conditions[i];
+                if (e.document_code == mc.document_code) {
+                    e.instance_count += 1;
+                    found = true;
+                    break;
+                }
+            }
+            if (found == false) {
+                this.exposed_conditions.push(mc);
+            }
+        });
+
+        this.exposed_conditions.sort(compare_conditions);
+
+
+        function compare_conditions(a, b) {
+            if (a.condition_class_index > b.condition_class_index) {
+                return 1;
+            }
+            if (a.condition_class_index < b.condition_class_index) {
+                return -1;
+            }
+            return 0;
+        }
+        // for (var i = 0; i < this.exposed_conditions.length; i++) {
+
+        // }
         var a = 1;
     }
 

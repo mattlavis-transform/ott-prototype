@@ -15,14 +15,40 @@ class MeasureCondition {
         this.document_code = item["attributes"]["document_code"] + "";
         this.duty_expression = item["attributes"]["duty_expression"];
         this.requirement = item["attributes"]["requirement"];
+        this.instance_count = 1;
+        this.condition_class = "";
+        this.condition_class_index = null;
 
         this.article_5a = {};
-        this.article_5a.details = "";
+        this.article_5a.details_cds = "";
+        this.article_5a.details_chief = "";
         this.article_5a.description = "";
 
         this.trim_requirement();
         this.check_positivity();
+        this.check_condition_class();
         this.get_article_5a();
+    }
+
+    check_condition_class() {
+        if (this.document_code == "") {
+            this.condition_class = "threshold";
+            this.condition_class_label = "Exemption";
+            this.condition_class_index = 3;
+        } else if (this.document_code.substring(0, 1) == "Y") {
+            this.condition_class = "exception";
+            this.condition_class_index = 2;
+            this.condition_class_label = "Exemption";
+        } else if (this.document_code == "C084") {
+            this.condition_class = "exception";
+            this.condition_class_label = "Exemption";
+            this.condition_class_index = 2;
+        } else {
+            this.condition_class = "certificate";
+            this.condition_class_label = "Rule";
+            this.condition_class_index = 1;
+        }
+        var a = 1;
     }
 
     trim_requirement() {
@@ -59,17 +85,45 @@ class MeasureCondition {
             var query_string = '$[?(@.document_code == "' + this.document_code + '")]';
             var result = jp.query(data, query_string);
             if (result.length > 0) {
-                var details = result[0].details;
+                var details_cds = result[0].details_cds;
+                var details_chief = result[0].details_chief;
                 var description = result[0].description;
 
                 var md = new MarkdownIt();
-                this.article_5a.details = md.render(details);
+                this.article_5a.details_cds = md.render(details_cds);
+                this.article_5a.details_chief = md.render(details_chief);
                 this.article_5a.description = md.render(description);
-                if (this.document_code == "9120") {
-                    var a = 1;
+                this.article_5a.status_codes = result[0].status_codes;
+
+                if (this.article_5a.status_codes.length > 0) {
+                    this.get_status_code_descriptions();
+                } else {
+                    this.status_code_descriptions = [];
                 }
+
+                this.article_5a.details_cds = this.article_5a.details_cds.replace(/<ul>/g, "<ul class='govuk-list govuk-list--bullet'>")
+                this.article_5a.details_chief = this.article_5a.details_chief.replace(/<ul>/g, "<ul class='govuk-list govuk-list--bullet'>")
+
+                this.article_5a.details_cds = this.article_5a.details_cds.replace(/&lt;/g, "<")
+                this.article_5a.details_chief = this.article_5a.details_chief.replace(/&lt;/g, "<")
+
+                this.article_5a.details_cds = this.article_5a.details_cds.replace(/&gt;/g, ">")
+                this.article_5a.details_chief = this.article_5a.details_chief.replace(/&gt;/g, ">")
+
             }
         }
+    }
+
+    get_status_code_descriptions() {
+        var status_codes = require('../data/appendix-5a/5b.json');
+        this.status_code_descriptions = [];
+        this.article_5a.status_codes.forEach(sc => {
+            var item = {}
+            item["status_code"] = sc;
+            item["description"] = status_codes[sc].description;
+            this.status_code_descriptions.push(item);
+            var a = 1;
+        });
     }
 }
 module.exports = MeasureCondition

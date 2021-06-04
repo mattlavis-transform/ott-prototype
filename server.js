@@ -24,6 +24,7 @@ const config = require('./app/config.js')
 const documentationRoutes = require('./docs/documentation_routes.js')
 const packageJson = require('./package.json')
 const routes = require('./app/routes.js')
+const routes_import_guidance = require('./app/routes/routes_import_guidance.js')
 const utils = require('./lib/utils.js')
 const extensions = require('./lib/extensions/extensions.js')
 
@@ -249,6 +250,7 @@ if (typeof (routes) !== 'function') {
   routes.bind(app)
 } else {
   app.use('/', routes)
+  app.use('/', routes_import_guidance)
 }
 
 if (useDocumentation) {

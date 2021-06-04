@@ -74,17 +74,17 @@
         }
     },
     "other": {
-        "index": 4,
+        "index": -2,
         "block": "Import controls",
         "block_xi": "EU import controls",
         "explainers": {
             "title": "More information about import controls",
-            "prose": "Import controls can be either prohibitions, where goods cannot be imported under any circumstances, or restrictions, where goods can be imported only under certain circumstances. Find out more about <a target='_blank' href='https://www.gov.uk/government/publications/uk-trade-tariff-import-prohibitions-and-restrictions/uk-trade-tariff-import-prohibitions-and-restrictions'>UK import prohibitions and restrictions</a>.",
+            "prose": "Import controls can be either prohibitions, where goods cannot be imported under any circumstances, or restrictions, where goods can be imported only under certain circumstances. Find out more about <a target='_blank' href='https://www.gov.uk/government/publications/uk-trade-tariff-import-prohibitions-and-restrictions/uk-trade-tariff-import-prohibitions-and-restrictions'>UK import prohibitions and restrictions</a>.<br><br>Find out <a href='/import-guidance/date/{{ commodity }}'>how to import commodity {{ commodity }} into the UK</a>.",
             "prose_ni": "Check <a target='_blank' href='https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland'>how to move goods into and out of Northern Ireland</a>."
         }
     },
     "other_uk": {
-        "index": 5,
+        "index": -1,
         "block": "UK import controls",
         "block_xi": "UK import controls",
         "explainers": {

@@ -13,6 +13,7 @@ const Definition = require("./definition");
 const LegalAct = require("./legal_act");
 const DutyExpression = require("./duty_expression");
 const Certificate = require("./certificate");
+const { forEach } = require('lodash');
 
 class Commodity {
     constructor(sid = null, goods_nomenclature_item_id = null, productline_suffix = null, description = null, number_indents = null, leaf = null, parent_sid = null, indent_class = null) {
@@ -93,7 +94,7 @@ class Commodity {
         this.format_commodity_code();
     }
 
-    get_measure_data(req, origin, override_block = false) {
+    get_measure_data(req, origin, override_block = false, measure_types = "financial") {
         var m, mc, mt, g, ac, la, id, item2;
 
         this.origin = origin;
@@ -222,11 +223,11 @@ class Commodity {
         this.assign_geographical_areas();
         this.assign_additional_codes();
 
-        if (origin != "basic") {
-            this.remove_irrelevant_measures();
-        }
         this.assign_measure_components();
         this.assign_measure_conditions();
+        if (origin != "basic") {
+            this.remove_irrelevant_measures(measure_types);
+        }
         this.get_units();
         this.get_measure_type_descriptions();
         this.get_measure_country_descriptions();
@@ -249,8 +250,8 @@ class Commodity {
             this.calculate_quotas();
             //this.calculate_preferences();
         }
-    }
 
+    }
 
     get_certificates() {
         this.certificates = [];
@@ -610,7 +611,7 @@ class Commodity {
     }
 
     // Remove any measures that are not financial or are not relevant to my country
-    remove_irrelevant_measures() {
+    remove_irrelevant_measures(measure_types) {
         var i;
         this.measures.forEach(m => {
             m.irrelevant_additional_code = false;
@@ -641,10 +642,19 @@ class Commodity {
             }
         });
 
-        for (i = this.measures.length - 1; i >= 0; --i) {
-            var m = this.measures[i];
-            if ((m.irrelevant_additional_code == true) || (m.financial == false) || (m.relevant == false)) {
-                this.measures.splice(i, 1);
+        if (measure_types == "financial") {
+            for (i = this.measures.length - 1; i >= 0; --i) {
+                var m = this.measures[i];
+                if ((m.irrelevant_additional_code == true) || (m.financial == false) || (m.relevant == false)) {
+                    this.measures.splice(i, 1);
+                }
+            }
+        } else {
+            for (i = this.measures.length - 1; i >= 0; --i) {
+                var m = this.measures[i];
+                if ((m.irrelevant_additional_code == true) || (m.has_conditions == false) || (m.relevant == false)) {
+                    this.measures.splice(i, 1);
+                }
             }
         }
     }
@@ -777,8 +787,14 @@ class Commodity {
 
     // Categorise the measures
     categorise_measures(override_block = false) {
-        var display_block_options = require('./display_block_options.json')
-        var display_sort_options = require('./display_sort_options.json')
+        var display_block_options = require('./display_block_options.json');
+        var display_sort_options = require('./display_sort_options.json');
+
+        for (var [key, value] of Object.entries(display_block_options)) {
+            var block = display_block_options[key];
+            block.explainers.prose = block.explainers.prose.replace(/{{ commodity }}/g, this.goods_nomenclature_item_id);
+            block.explainers.prose_ni = block.explainers.prose_ni.replace(/{{ commodity }}/g, this.goods_nomenclature_item_id);
+        }
 
         this.display_blocks = [];
         this.measures.forEach(m => {

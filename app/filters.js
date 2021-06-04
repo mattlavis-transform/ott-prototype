@@ -155,6 +155,8 @@ module.exports = function (env) {
             markdown_text = converter.makeHtml(str);
             markdown_text = markdown_text.replace("&lt;", "<");
             markdown_text = markdown_text.replace("&gt;", ">");
+
+            markdown_text = markdown_text.replace(/<ul>/g, "<ul class='govuk-list govuk-list--bullet'>")
             return markdown_text;
         } else {
             return "";

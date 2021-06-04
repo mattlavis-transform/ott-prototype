@@ -559,12 +559,13 @@ ul.countries {
 }
 
 
-tr:last-of-type .govuk-table__cell {
-    border-bottom: 0px;
-}
-tr:last-of-type .govuk-table__header {
-    border-bottom: 0px;
-}
+// tr:last-of-type .govuk-table__cell {
+//     border-bottom: 0px;
+// }
+
+// tr:last-of-type .govuk-table__header {
+//     border-bottom: 0px;
+// }
 
 .textual_button {
     font-family            : GDS Transport, Arial, sans-serif;
@@ -656,9 +657,45 @@ tr:last-of-type .govuk-table__header {
 }
 
 .nw {
-    white-space : nowrap;  
+    white-space: nowrap;
 }
 
+.govuk-table__body--m ul {
+    font-size: 16px;
+}
+
+.sticky {
+    position        : -webkit-sticky;
+    position        : sticky;
+    top             : 20px;
+    background-color: #fff;
+}
+
+th.min10 {
+    min-width: 10%;
+}
+
+th.min25 {
+    min-width: 25%;
+}
+
+th.min65 {
+    min-width: 65%;
+}
+
+th.min30 {
+    min-width: 30%;
+}
+
+.tight {
+    margin-bottom: 0px;
+}
+
+.govuk-list--bullet li p {
+    margin:0px
+}
+@import "components/notification-banner";
+@import "components/status-codes";
 @import "components/dialog";
 @import "components/modal";
 @import "components/flexible-tables";
@@ -680,4 +717,6 @@ tr:last-of-type .govuk-table__header {
 @import "components/help";
 @import "components/picker";
 @import "components/jquery_modal";
+
+
 @import "bz";

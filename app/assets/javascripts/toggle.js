@@ -10,7 +10,38 @@ $(document).ready(function () {
         }
     }
 
-    $(".teal").show();
+    /*
+    if ($.cookie("border_system") == "chief") {
+        show_chief();
+    } else {
+        show_cds();
+    }
+
+    $("#border_system_toggler").click(function (event) {
+        if ($.cookie("border_system") == "chief") {
+            show_cds();            
+            $.cookie('border_system', 'cds', { expires: 28, path: '/' });
+        } else {
+            show_chief();
+            $.cookie('border_system', 'chief', { expires: 28, path: '/' });
+        }
+        event.preventDefault();
+    });
+
+    function show_cds() {
+        $(".instructions_chief").hide();
+        $(".instructions_cds").show();
+        $(".declaration_th").text("Declaration instructions for CDS");
+        $("#border_system_toggler").text("Show CHIEF instructions instead");
+    }
+
+    function show_chief() {
+        $(".instructions_cds").hide();
+        $(".instructions_chief").show();
+        $(".declaration_th").text("Declaration instructions for CHIEF");
+        $("#border_system_toggler").text("Show CDS instructions instead");
+    }
+    */
 
     $(".hide").click(function (event) {
         $(this).parent().hide();

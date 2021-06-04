@@ -154,14 +154,14 @@
     <div class="govuk-tabs" data-module="govuk-tabs">
         <h2 class="govuk-tabs__title">Contents</h2>
         <ul class="govuk-tabs__list">
-            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+            {# <li class="govuk-tabs__list-item">
                 <a class="govuk-tabs__tab" href="#overview">Overview</a>
+            </li> #}
+            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                <a class="govuk-tabs__tab" href="#import">Import measures</a>
             </li>
             <li class="govuk-tabs__list-item">
-                <a class="govuk-tabs__tab" href="#import">Import</a>
-            </li>
-            <li class="govuk-tabs__list-item">
-                <a class="govuk-tabs__tab" href="#export">Export</a>
+                <a class="govuk-tabs__tab" href="#export">Export measures</a>
             </li>
             <!--
             <li class="govuk-tabs__list-item">
@@ -169,7 +169,7 @@
             </li>
             //-->
         </ul>
-        <div class="govuk-tabs__panel" id="overview">
+        {# <div class="govuk-tabs__panel" id="overview">
             <h2 class="govuk-heading-m">Overview</h2>
             <p>This information is for <strong>{{ date_string }}</strong>.</p>
             <div class="panels govuk-grid-row">
@@ -190,7 +190,7 @@
                     <p>Export measures and restrictions for specific countries can be found under the <a href="#export">export</a> tab.</p>
                 </div>
             </div>
-        </div>
+        </div> #}
         <div class="govuk-tabs__panel" id="import">
             <h2 class="govuk-heading-m">Measures and restrictions for importing into the UK under the <abbr title="UK Global Tariff">UKGT</abbr>
             </h2>
@@ -253,8 +253,8 @@
                             {% if display_block.block != "Import controls" and display_block.block != "UK import controls" %}
                                 <th scope="col" class="govuk-table__header value app-flexible-table__header">Value</th>
                             {% endif %}
-                            <th scope="col" class="govuk-table__header conditions app-flexible-table__header c">Conditions</th>
                             <th scope="col" class="govuk-table__header dates app-flexible-table__header">Date&nbsp;(s)</th>
+                            <th scope="col" class="govuk-table__header conditions app-flexible-table__header c">Conditions</th>
                             <th scope="col" class="govuk-table__header footnotes app-flexible-table__header c">Footnotes</th>
                         </tr>
                     </thead>
@@ -303,17 +303,17 @@
                                         </td>
                                     {% endif %}
 
+                                    <td class="govuk-table__cell dates app-flexible-table__cell nw" scope="row" data-column-heading="Date (s)" nowrap>
+                                        {{ measure.effective_start_date | format_date("DD MMM YYYY") }}
+                                        {% if measure.effective_end_date %} - {{ measure.effective_end_date | format_date("DD MMM YYYY") }}
+                                        {% endif %}
+                                    </td>
+
                                     <td class="govuk-table__cell conditions app-flexible-table__cell c" scope="row" data-column-heading="Conditions">
                                         {% if measure.has_conditions == true %}
                                             <a href="#measure_conditions_{{ measure.id }}" rel="modal:open">Conditions</a>
                                         {% else %}
                                             -
-                                        {% endif %}
-                                    </td>
-
-                                    <td class="govuk-table__cell dates app-flexible-table__cell nw" scope="row" data-column-heading="Date (s)" nowrap>
-                                        {{ measure.effective_start_date | format_date("DD MMM YYYY") }}
-                                        {% if measure.effective_end_date %} - {{ measure.effective_end_date | format_date("DD MMM YYYY") }}
                                         {% endif %}
                                     </td>
 
@@ -411,39 +411,54 @@
 {% for measure in commodity.measures %}
     {% if measure.has_conditions == true %}
         <div id="measure_conditions_{{ measure.id }}" class="modal modal_commodity">
-            <h2 class="govuk-heading govuk-heading-m govuk-!-margin-top-4">Conditions for {{ measure.measure_type_description }}</h1>
-            <p>The table below shows the conditions associated with the {{ measure.measure_type_description }} measure 
+            <h2 class="govuk-heading govuk-heading-l govuk-!-margin-top-4">{{ measure.measure_type_description }} - {{ measure.geographical_area_description }}</h1>
+            {# <h2 class="govuk-heading govuk-heading-m govuk-!-margin-top-4">Conditions for {{ measure.measure_type_description }} with {{ measure.geographical_area_description }}</h1> #}
+            <p>The table below shows the conditions associated with the <b>{{ measure.measure_type_description }}</b> measure 
             on the import of commodity <strong>{{ commodity.data.attributes.goods_nomenclature_item_id }}</strong> from
             <strong>{{ measure.geographical_area_description }}</strong>.</p>
+            {# <p>Showing instructions for declarations on {{ toggle_message.border_system }}. <a href="" id="border_system_toggler">{{ toggle_message.toggle_text }}</a>
+            </p> #}
             <p>{{ measure.popup_message }}</p>
 
-            <table class="govuk-table govuk-table--m">
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header">Code</th>
-                        <th scope="col" class="govuk-table__header">Requirement</th>
-                        <th scope="col" class="govuk-table__header">Details</th>
-                    </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                    {% for mc in measure.exposed_conditions %}
-                        {% if mc.positive %}
+            {% set previous_condition_code = "" %}
+            {% set rule_column = "Rule" %}
+            {% set previous_condition_class_label = "" %}
+            {% for mc in measure.exposed_conditions %}
+                {% if mc.positive %}
+                    {% if mc.condition_class_label != previous_condition_class_label %}
+                        <table class="govuk-table govuk-table--m">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th scope="col" class="govuk-table__header min10">Code</th>
+                                    <th scope="col" class="govuk-table__header min25">{{ mc.condition_class_label }}</th>
+                                    <th scope="col" class="govuk-table__header min65 declaration_th">{{ toggle_message.declaration_th }}</th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body--m">
+                            {% endif %}
                             <tr class="govuk-table__row">
                                 <td class="govuk-table__cell b">{{ mc.document_code }}</td>
                                 <td class="govuk-table__cell">
                                     {{ mc.requirement | safe }}
-                                    {% if mc.article_5a.details != "" %}
-                                        {# <details class="govuk-details govuk-details-m govuk-!-margin-top-2" data-module="govuk-details">
-                                            <summary class="govuk-details__summary">
-                                                <span class="govuk-details__summary-text">Details to be entered on the declaration</span>
-                                            </summary>
-                                            <div class="govuk-details__text">{{ mc.article_5a.details | safe }}</div>
-                                        </details> #}
-                                    {% endif %}
+                                    {# {{ mc.article_5a.description | safe }} #}
                                 </td>
-                                <td class="govuk-table__cell">{{ mc.article_5a.details | safe }}</td>
+                                <td class="govuk-table__cell">
+                                    <div class="instructions_cds {{ toggle_message.cds_class }}">
+                                        {# <noscript>
+                                            <p class="tight b">Declaration instructions for CDS</p>
+                                        </noscript> #}
+                                        {{ mc.article_5a.details_cds | safe }}
+                                    </div>
+                                    <div class="instructions_chief {{ toggle_message.chief_class }}">
+                                        {# <noscript>
+                                            <p class="tight b">Declaration instructions for CHIEF</p>
+                                        </noscript> #}
+                                        {{ mc.article_5a.details_chief | safe }}
+                                    </div>
+                                </td>
                             </tr>
                         {% endif %}
+                        {% set previous_condition_class_label = mc.condition_class_label %}
                     {% endfor %}
                 </tbody>
             </table>
@@ -452,7 +467,7 @@
                     <span class="govuk-details__summary-text">How to read measure conditions</span>
                 </summary>
                 <div class="govuk-details__text">
-                    Enter document codes on your forms ...
+                    Where there
                 </div>
             </details>
         </div>
