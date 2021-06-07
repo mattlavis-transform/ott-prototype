@@ -24,10 +24,10 @@
                     {{ item.vat | safe }}
                 </div>
                 <div class="duty" aria-describedby="commodity-duty-title">
-                    {{ item.third_country_duty }}
+                    {{ item.third_country_duty | safe }}
                 </div>
                 <div class="supplementary-units" aria-describedby="commodity-supplementary-title">
-                    {{ item.supplementary_unit }}
+                    {{ item.supplementary_unit | safe }}
                 </div>
                 <div class="identifier" aria-describedby="commodity-{{ item.goods_nomenclature_item_id }}">
                     <span class="mlse">{{ item.goods_nomenclature_item_id | substring(0, 2) }}</span>
