@@ -33,7 +33,6 @@
             {% endif %}
             <form action="/import-guidance/data_handler/{{commodity.goods_nomenclature_item_id}}">
                 <span class="govuk-caption-xl">Import guidance for commodity {{commodity.goods_nomenclature_item_id}}</span>
-                {# <span class="govuk-caption-xl">Import controls for commodity {{commodity.data.attributes.goods_nomenclature_item_id}}</span> #}
 
                 {# Get error message #}
                 {% if (error == "date") %}

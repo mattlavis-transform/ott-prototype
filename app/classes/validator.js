@@ -569,15 +569,6 @@ global.validate_unit_value = function (req, res) {
 
 
 global.validate_date_import_guidance = function (req, res) {
-    axios.get('https://api.exchangeratesapi.io/latest')
-        .then((response) => {
-            var data = response.data;
-            //var exchange_rate = parseFloat(data["rates"]["GBP"]);
-            var exchange_rate = 0.8541;
-            req.session.data["exchange_rate"] = exchange_rate;
-            console.log("Getting exchange rate " + req.session.data["exchange_rate"]);
-        });
-
     // Validate the date form
     e = new Error_handler();
     contains_errors = e.validate_date(req); // Gets data from Date form and validates it
@@ -590,6 +581,6 @@ global.validate_date_import_guidance = function (req, res) {
     }
 }
 
-global.validate_origin = function (req, res) {
+global.validate_origin_import_guidance = function (req, res) {
     res.redirect("/import-guidance/results/" + req.params["goods_nomenclature_item_id"]);
 }

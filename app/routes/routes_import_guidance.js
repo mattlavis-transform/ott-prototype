@@ -89,18 +89,18 @@ router.get(['/import-guidance/data_handler/:goods_nomenclature_item_id', '/impor
     var root_url = global.get_root_url(req, scopeId);
     var referer = req.headers.referer;
 
-    // if (referer.indexOf("date") !== -1) {
-    //     global.validate_date_import_guidance(req, res);
+    if (referer.indexOf("date") !== -1) {
+        global.validate_date_import_guidance(req, res);
 
-    // } else if (referer.indexOf("origin") !== -1) {
-    //     global.validate_origin_import_guidance(req, res);
+    } else if (referer.indexOf("origin") !== -1) {
+        global.validate_origin_import_guidance(req, res);
 
-    // }
-    var url = "/import-guidance/results/" + goods_nomenclature_item_id; //  + "/" + country; // + "#import";
+    }
+    // var url = "/import-guidance/results/" + goods_nomenclature_item_id; //  + "/" + country; // + "#import";
     // if (scopeId == "ni") {
     //     url = url.replace("/commodities/", "ni/commodities/");
     // }
-    res.redirect(url);
+    // res.redirect(url);
 
 });
 
