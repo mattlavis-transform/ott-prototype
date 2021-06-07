@@ -83,10 +83,17 @@
         {
           href: "/tools/" + scopeId,
           text: "Tools"
+        },
+        {
+          href: "/roo/" + scopeId,
+          text: "Rules of Origin"
+        },
+        {
+          href: "/help/",
+          text: "Help"
         }
       ]
     }) }}
-
 
   {% endif %}
 
@@ -173,8 +180,7 @@
 {% block bodyEnd %}
   {% block scripts %}
     {% include "includes/scripts.html" %}
-    {% block pageScripts %}
-    {% endblock %}
+    {% block pageScripts %}{% endblock %}
 
   {% endblock %}
   <!-- GOV.UK Prototype Kit {{releaseVersion}} -->
