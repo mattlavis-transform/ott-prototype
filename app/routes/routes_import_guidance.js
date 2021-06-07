@@ -96,12 +96,6 @@ router.get(['/import-guidance/data_handler/:goods_nomenclature_item_id', '/impor
         global.validate_origin_import_guidance(req, res);
 
     }
-    // var url = "/import-guidance/results/" + goods_nomenclature_item_id; //  + "/" + country; // + "#import";
-    // if (scopeId == "ni") {
-    //     url = url.replace("/commodities/", "ni/commodities/");
-    // }
-    // res.redirect(url);
-
 });
 
 
