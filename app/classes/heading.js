@@ -9,6 +9,7 @@ class Heading {
 
         this.json = json;
         this.commodities = [];
+        this.hierarchy = [];
         this.measures = [];
         this.duty_expressions = [];
         this.footnotes = [];
@@ -109,7 +110,28 @@ class Heading {
             });
         });
 
+        this.get_hierarchy();
+
         return (this);
+    }
+
+    get_hierarchy() {
+        this.hierarchy = [];
+        var commodity_count = this.commodities.length;
+        for (var i = 0; i < commodity_count; i++) {
+            var c = this.commodities[i];
+            if (c.number_indents == 1) {
+                if (i < (commodity_count - 1)) {
+                    if (!c.leaf) {
+                        c.get_descendants(this.commodities, 1, i + 1);
+                    }
+                }
+                this.hierarchy.push(c);
+            }
+            // console.log(c.number_indents);
+        }
+
+        var a = 1;
     }
 
     get_measure_class(measure_type_id) {

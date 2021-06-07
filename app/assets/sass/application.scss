@@ -58,7 +58,7 @@ table.headings {
     line-height            : 1.25;
 }
 
-article.notes {
+article.section_chapter_notes {
     margin-top: 2em;
     clear     : both;
 
@@ -68,8 +68,8 @@ article.notes {
         font-family            : "GDS Transport", arial, sans-serif;
         -webkit-font-smoothing : antialiased;
         -moz-osx-font-smoothing: grayscale;
-        font-size              : 16px !important;
-        font-size              : 1rem !important;
+        // font-size              : 16px !important;
+        // font-size              : 1rem !important;
         line-height            : 1.25;
         margin-top             : 0;
         margin-bottom          : 15px;
@@ -559,13 +559,15 @@ ul.countries {
 }
 
 
-// tr:last-of-type .govuk-table__cell {
-//     border-bottom: 0px;
-// }
+tbody {
+    tr:last-of-type .govuk-table__cell {
+        border-bottom: 0px;
+    }
 
-// tr:last-of-type .govuk-table__header {
-//     border-bottom: 0px;
-// }
+    tr:last-of-type .govuk-table__header {
+        border-bottom: 0px;
+    }
+}
 
 .textual_button {
     font-family            : GDS Transport, Arial, sans-serif;
@@ -696,8 +698,36 @@ th.min30 {
 }
 
 .govuk-list--bullet li p {
-    margin:0px
+    margin: 0px
 }
+
+.govuk-summary-list__row_noborder {
+    border-bottom: 0px;
+
+    dt,
+    dd {
+        border-bottom: 0px;
+    }
+}
+
+.gem-c-contextual-sidebar__brexit-cta {
+    margin-bottom   : 30px;
+    background-color: #f3f2f1;
+    border-top      : 2px solid #ff003b;
+    display         : block;
+    padding         : 0 15px 15px;
+    text-decoration : none;
+}
+
+.gem-c-contextual-sidebar__brexit-cta .gem-c-contextual-sidebar__brexit-heading {
+    color: #0b0c0c;
+}
+
+.gem-c-contextual-sidebar__brexit-heading {
+    margin-top   : 15px;
+    margin-bottom: 10px;
+}
+
 @import "components/notification-banner";
 @import "components/status-codes";
 @import "components/dialog";
@@ -710,7 +740,6 @@ th.min30 {
 @import "components/calculate";
 @import "components/country-picker";
 @import "components/bottom_links";
-@import "location-autocomplete.min.css";
 @import "components/section-chapter-notes";
 @import "components/search_results";
 @import "components/feedback";
@@ -719,9 +748,11 @@ th.min30 {
 @import "components/copy-code";
 @import "components/roo";
 @import "components/help";
-@import "components/picker";
 @import "components/jquery_modal";
 @import "components/print";
+@import "components/datepicker";
+@import "components/search";
+@import "components/heading";
 
 
-@import "bz";
+// @import "bz";

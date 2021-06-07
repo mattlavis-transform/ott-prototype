@@ -1,13 +1,17 @@
-<form action="" method="get" class="country_selector">
-    <fieldset class="govuk-fieldset">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-            <h1 class="govuk-fieldset__heading">
-                Goods imported from:
-            </h1>
-        </legend>
-        <div class="govuk-form-group">
-            <select id="location-autocomplete" class="autocomplete__input autocomplete__input--default" name="country">
-                <option value="" disabled="" selected="">All countries</option>
+<form id="country_selector_import" action="/country-filter" accept-charset="UTF-8" method="get">
+    <fieldset class="govuk-fieldset country-picker js-country-picker box govuk-!-font-size-16">
+        <div class="country-picker-container" style="width:100%">
+            <input type="hidden" name="goods_nomenclature_item_id" id="goods_nomenclature_item_id" value="{{ commodity.data.attributes.goods_nomenclature_item_id }}"/>
+            <input type="hidden" name="scopeId" id="scopeId" value="{{ scopeId }}"/>
+            <input value="import" type="hidden" name="search[anchor]" id="import_search_anchor">
+            <label class="govuk-label" for="country" id="country_label">
+                {% if scopeId == "ni" %}
+                    <abbr title="Northern Ireland">NI</abbr> imports from{% else %}UK Global Tariff imports from
+                {% endif %}
+            </label>
+
+            <select onchange="this.form.submit()" id="location-picker" class="autocomplete__input autocomplete__input--default" name="country">
+                <option value="" disabled="" selected="">Pick an option</option>
                 <option value="AF">Afghanistan</option>
                 <option value="AL">Albania</option>
                 <option value="DZ">Algeria</option>
@@ -181,6 +185,7 @@
                 <option value="NF">Norfolk Island</option>
                 <option value="KP">North Korea</option>
                 <option value="MK">North Macedonia</option>
+                <option value="XI">Northern Ireland</option>
                 <option value="MP">Northern Mariana Islands</option>
                 <option value="NO">Norway</option>
                 <option value="PS">Occupied Palestinian Territories</option>
@@ -217,7 +222,7 @@
                 <option value="SC">Seychelles</option>
                 <option value="AE-SH">Sharjah</option>
                 <option value="SL">Sierra Leone</option>
-                <option value="SG">Singapore</option>
+                <option value="SG" selectedw>Singapore</option>
                 <option value="BQ-SE">Sint Eustatius</option>
                 <option value="SX">Sint Maarten (Dutch part)</option>
                 <option value="SK">Slovakia</option>
@@ -276,10 +281,21 @@
                 <option value="ZW">Zimbabwe</option>
                 <option value="AX">Åland Islands</option>
             </select>
+            <div class="reset-country-picker">
+                <a id="reset-country-picker" href="#" title="Reset country picker" role="button">Reset<span class="long-text">&nbsp;to all countries</span></a>
+            </div>
         </div>
-
-        <button class="govuk-button">Continue</button>
-        <a id="reset" href="javascript:return (false);" class="textual_button govuk-link">Reset to all countries</a>
-
+        <button name="button" type="submit" class="button search-submit" style="display: none;">Set country</button>
     </fieldset>
 </form>
+<script>
+    document
+        .getElementById("reset-country-picker")
+        .addEventListener("click", function (event) {
+            $("#location-picker")
+
+            document.getElementById("location-picker").selectedIndex = "0";
+            this.form.submit();
+            event.preventDefault()
+        });
+</script>

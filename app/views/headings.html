@@ -67,48 +67,10 @@
                 </nav>
             </div>
 
-            {{ govukInsetText({
-                html: "There are important notes for classifying your goods shown further down this page.<br><br>Get guidance on this product area: <a href='https://www.gov.uk/government/collections/classification-of-goods'>Classification of goods</a>"
-            }) }}
-
-            <div class="heading_row heading_row_head">
-                <div class="description">Description</div>
-                <div class="vat expendable">VAT</div>
-                <div class="mfn expendable">Third-country duty</div>
-                <div class="supplementary_unit c expendable">Supplementary unit</div>
-                <div class="commodity r">Commodity code</div>
-            </div>
-            {% for item in heading.commodities %}
-                <div class="heading_row">
-                    {% if (item.leaf == true) %}
-                        <div class="description">
-                            <div class="indent_{{ item.number_indents }}{{ item.indent_class }}">
-                                <a href="/{{ scopeId }}{% if scopeId != "" %} /{% endif %}commodities/{{ item.goods_nomenclature_item_id }}">{{ item.description | safe }}</a>
-                            </div>
-                        </div>
-                        <div class="vat expendable">{{ item.vat | safe }}</div>
-                        <div class="mfn expendable">{{ item.mfn | safe }}</div>
-                        <div class="supplementary_unit c expendable">{{ item.supplementary_unit | safe }}</div>
-                    {% else %}
-                        <div class="description indent_{{ item.number_indents }}{{ item.indent_class }}">
-                            {{ item.description | safe }}
-                        </div>
-                        <div class="vat expendable"></div>
-                        <div class="mfn expendable"></div>
-                        <div class="supplementary_unit c expendable"></div>
-                    {% endif %}
-                    <div class="commodity">
-                        <span class="code mauve">{{ item.formatted_commodity_code | substring(0, 2) }}</span>
-                        <span class="code blue">{{ item.formatted_commodity_code | substring(2, 2) }}</span>
-                        <span class="code green">{{ item.formatted_commodity_code | substring(4, 2) }}</span>
-                        <span class="code green">{{ item.formatted_commodity_code | substring(6, 2) }}</span>
-                        <span class="code green">{{ item.formatted_commodity_code | substring(8, 2) }}</span>
-                    </div>
-                </div>
-            {% endfor %}
+            {% include "includes/heading_include.html" %}
 
             {% if heading.footnotes.length %}
-                <article class="notes">
+                <article class="section_chapter_notes">
                     <table class="govuk-table govuk-table--s">
                         <caption class="govuk-table__caption">Footnotes</caption>
                         <thead class="govuk-table__head">
@@ -129,7 +91,7 @@
                 </article>
             {% endif %}
 
-            <article class="notes">
+            <article class="section-chapter-notes">
                 {% for item in heading.included %}
                     {% if (item.type == "chapter") %}
                         <h2 class="govuk-heading-s">Chapter notes</h2>
@@ -144,5 +106,14 @@
     </div>
 
 </div>
+<script type="text/javascript" src="/public/javascripts/debounce.js"></script>
+<script type="text/javascript" src="/public/javascripts/commodities.js"></script>
+
+<script>
+
+$(function(){
+  GOVUK.tariff.onLoad();
+});
+</script>
 
 {% endblock %}

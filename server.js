@@ -23,8 +23,12 @@ const middleware = [
 const config = require('./app/config.js')
 const documentationRoutes = require('./docs/documentation_routes.js')
 const packageJson = require('./package.json')
+
 const routes = require('./app/routes.js')
 const routes_import_guidance = require('./app/routes/routes_import_guidance.js')
+const routes_meursing = require('./app/routes/routes_meursing.js')
+const routes_cpc = require('./app/routes/routes_cpc.js')
+
 const utils = require('./lib/utils.js')
 const extensions = require('./lib/extensions/extensions.js')
 
@@ -251,6 +255,8 @@ if (typeof (routes) !== 'function') {
 } else {
   app.use('/', routes)
   app.use('/', routes_import_guidance)
+  app.use('/', routes_meursing)
+  app.use('/', routes_cpc)
 }
 
 if (useDocumentation) {

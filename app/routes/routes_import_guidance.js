@@ -58,19 +58,24 @@ router.get('/import-guidance/origin/:goods_nomenclature_item_id', function (req,
 
 // import-guidance - Results
 router.get('/import-guidance/results/:goods_nomenclature_item_id', function (req, res) {
-    var c;
+    var c, border_system;
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     console.log("Origin " + req.params["goods_nomenclature_item_id"]);
     var err = req.session.data["error"];
     var origin = req.session.data["origin"];
+    if (typeof req.session.data["border_system"] === "undefined") {
+        req.session.data["border_system"] = "cds";
+    }
+    var border_system = req.session.data["border_system"].toUpperCase();;
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"])
         .then((response) => {
             c = new Commodity();
+            c.border_system = border_system;
             c.pass_request(req);
             c.get_data(response.data);
             // req.session.data["origin"] = "AU";
-            c.get_measure_data(req, req.session.data["origin"], false, "conditions");
+            c.get_measure_data(req, req.session.data["country"], false, "conditions");
             res.render('import-guidance/results', { 'commodity': c, 'origin': origin });
         });
 });
@@ -78,17 +83,25 @@ router.get('/import-guidance/results/:goods_nomenclature_item_id', function (req
 // import-guidance - Data handler
 router.get(['/import-guidance/data_handler/:goods_nomenclature_item_id', '/import-guidance/data_handler/'], function (req, res) {
     var err, referer, c;
-    scopeId = global.get_scope(req.params["scopeId"]);
-    root_url = global.get_root_url(req, scopeId);
-    referer = req.headers.referer;
+    var scopeId = global.get_scope(req.params["scopeId"]);
+    var goods_nomenclature_item_id = req.params["goods_nomenclature_item_id"];
+    var country = req.session.data["country"];
+    var root_url = global.get_root_url(req, scopeId);
+    var referer = req.headers.referer;
 
-    if (referer.indexOf("date") !== -1) {
-        global.validate_date_import_guidance(req, res);
+    // if (referer.indexOf("date") !== -1) {
+    //     global.validate_date_import_guidance(req, res);
 
-    } else if (referer.indexOf("origin") !== -1) {
-        global.validate_origin_import_guidance(req, res);
+    // } else if (referer.indexOf("origin") !== -1) {
+    //     global.validate_origin_import_guidance(req, res);
 
-    }
+    // }
+    var url = "/import-guidance/results/" + goods_nomenclature_item_id; //  + "/" + country; // + "#import";
+    // if (scopeId == "ni") {
+    //     url = url.replace("/commodities/", "ni/commodities/");
+    // }
+    res.redirect(url);
+
 });
 
 

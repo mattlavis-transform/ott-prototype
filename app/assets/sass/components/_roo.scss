@@ -42,7 +42,7 @@
 }
 .gem-c-contents-list__title {
     color: #0b0c0c;
-    font-family: "nta", arial, sans-serif;
+    font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 400;
@@ -75,7 +75,7 @@
 .gem-c-contents-list__list,
 .gem-c-contents-list__nested-list {
     color: #0b0c0c;
-    font-family: "nta", arial, sans-serif;
+    font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 400;
@@ -112,6 +112,9 @@
     }
 }
 .gem-c-contents-list--no-underline .gem-c-contents-list__link {
+    text-decoration: none;
+}
+.govuk-link--no-underline:not(:hover):not(:active) {
     text-decoration: none;
 }
 .gem-c-contents-list--no-underline .gem-c-contents-list__link:hover,

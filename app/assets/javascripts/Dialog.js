@@ -100,9 +100,9 @@ aria.Utils = aria.Utils || {};
   aria.handleEscape = function (event) {
     var key = event.which || event.keyCode;
 
-    if (key === aria.KeyCode.ESC && aria.closeCurrentDialog()) {
-      event.stopPropagation();
-    }
+    // if (key === aria.KeyCode.ESC && aria.closeCurrentDialog()) {
+    //   event.stopPropagation();
+    // }
   };
 
   document.addEventListener('keyup', aria.handleEscape);

@@ -12,6 +12,7 @@ const Error_handler = require('./classes/error_handler.js');
 const date = require('date-and-time');
 const GeographicalArea = require('./classes/geographical_area');
 const Link = require('./classes/link');
+const Search = require('./classes/search');
 const { xor } = require('lodash');
 
 require('./classes/global.js');
@@ -127,134 +128,6 @@ router.get(['/country-filter'], async function (req, res) {
     res.redirect(url);
 });
 
-// Set the country filter for comm codes
-router.get([
-    '/results',
-    '/results/:term',
-], async function (req, res) {
-
-    scopeId = ""; //global.get_scope(req.params["scopeId"]);
-    root_url = "/"; // global.get_root_url(req, scopeId);
-    title = "Title"; // global.get_title(scopeId);
-    var term = req.params["term"];
-
-    var _ = require('lodash');
-    const rp = require('request-promise');
-    const cheerio = require('cheerio');
-    const url = 'https://www.trade-tariff.service.gov.uk/search?q=' + term;
-
-    var link;
-    var links = [];
-    var context = {}
-
-    context.heading_count = 0;
-    context.chapter_count = 0;
-
-    rp(url)
-        .then(function (html) {
-            const $ = cheerio.load(html);
-            var canonical = $('link[rel="canonical"]', html)[0].attribs["href"];
-            if (canonical.indexOf("headings") !== -1) {
-                context.type = "heading";
-                var li_tags = $('li', html);
-                for (i = 0; i < li_tags.length; i++) {
-                    var li = li_tags[i];
-                    if (typeof li.attribs["class"] !== 'undefined') {
-                        var my_class = li.attribs["class"];
-                        if (my_class.indexOf("level-") !== -1) {
-                            link = new Link();
-                            link.level = my_class.replace("has_children", "");
-                            link.level = link.level.replace("last-child", "");
-                            link.level = link.level.replace("level-", "");
-                            link.level = _.trim(link.level, " ");
-                            link.level = parseInt(link.level);
-
-                            if (link.level == 1) {
-                                // HS Subheadings nn nn nn
-                                for (j = 0; j < li.childNodes.length; j++) {
-                                    var child_node = li.childNodes[j];
-                                    if (child_node.name == "span") {
-                                        var a = 1;
-                                        link.id = child_node.attribs["id"];
-                                        link.text = child_node.childNodes[0].data;
-                                        link.id = link.id.replace("commodity-", "");
-                                        link.type = "commodity";
-                                        break;
-                                    }
-                                    else if (child_node.name == "a") {
-                                        for (k = 0; k < child_node.childNodes.length; k++) {
-                                            var child_node2 = child_node.childNodes[j];
-                                            if (child_node2.name == "div") {
-                                                link.id = child_node2.attribs["id"];
-                                                link.text = child_node2.childNodes[0].data;
-                                                link.id = link.id.replace("commodity-", "");
-                                                link.type = "commodity";
-                                                break;
-                                            }
-                                        }
-                                        break;
-                                    }
-                                }
-                            } else if (link.level == 2) {
-                                // CN codes nn nn nn nn
-                                for (j = 0; j < li.childNodes.length; j++) {
-                                    var child_node = li.childNodes[j];
-                                    if (child_node.name == "a") {
-                                        for (k = 0; k < child_node.childNodes.length; k++) {
-                                            var child_node2 = child_node.childNodes[j];
-                                            if (child_node2.name == "div") {
-                                                link.id = child_node2.attribs["id"];
-                                                link.text = child_node2.childNodes[0].data;
-                                                link.id = link.id.replace("commodity-", "");
-                                                link.type = "commodity";
-                                                break;
-                                            }
-                                        }
-                                        break;
-                                    }
-                                }
-                            }
-
-                            links.push(link);
-                            var b = 2;
-                        }
-
-                    }
-                }
-
-                var a = 1;
-            } else {
-                context.type = "search";
-                var line_texts = $('div.line-text a', html);
-
-                for (i = 0; i < line_texts.length; i++) {
-                    var lt = line_texts[i];
-                    link = new Link();
-                    link.text = lt.childNodes[0].data;
-                    link.link = lt.attribs["href"];
-
-                    if (link.link.indexOf("/chapter") !== -1) {
-                        link.type = "chapter";
-                        link.id = link.link.replace("/chapters/", "");
-                    } else if (link.link.indexOf("/heading") !== -1) {
-                        link.type = "heading";
-                        link.id = link.link.replace("/headings/", "");
-                    }
-
-                    links.push(link);
-                    var a = 1;
-                }
-
-            }
-
-            context.links = links;
-            res.render('scrape_results', { 'context': context, 'term': term, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
-
-        })
-        .catch(function (err) {
-            //handle error
-        });
-});
 
 // Browse a single commodity
 router.get([
@@ -1260,135 +1133,6 @@ router.get(['/roo/rvc'], function (req, res) {
 /* Rules of origin ends here */
 
 
-/* Meursing starts here */
-
-// Meursing start
-router.get(['/meursing/start', '/meursing/start/:goods_nomenclature_item_id'], function (req, res) {
-    var error = req.query["error"];
-    starch_glucose_options = global.get_starch_glucose_options();
-    res.render('meursing/start');
-});
-// Starch and glucose content
-router.get(['/meursing/starch-glucose'], function (req, res) {
-    var error = req.query["error"];
-    starch_glucose_options = global.get_starch_glucose_options();
-    res.render('meursing/01_starch_glucose', { "starch_glucose_options": starch_glucose_options, "error": error });
-});
-
-// Sucrose, invert sugar or isoglucose
-router.get(['/meursing/sucrose-sugar-isoglucose'], function (req, res) {
-    var error = req.query["error"];
-    var starch_option = req.session.data["starch"];
-    sucrose_options = global.get_sucrose_options(starch_option);
-    res.render('meursing/02_sucrose', { "sucrose_options": sucrose_options, "error": error });
-});
-
-// Milk fat
-router.get(['/meursing/milk-fat'], function (req, res) {
-    var error = req.query["error"];
-    var starch_option = req.session.data["starch"];
-    var sucrose_option = req.session.data["sucrose"];
-    milk_fat_options = global.get_milk_fat_options(starch_option, sucrose_option);
-    console.log(milk_fat_options);
-    res.render('meursing/03_milk_fat', { "milk_fat_options": milk_fat_options, "error": error });
-});
-
-// Milk protein
-router.get(['/meursing/milk-protein'], function (req, res) {
-    var error = req.query["error"];
-    var starch_option = req.session.data["starch"];
-    var sucrose_option = req.session.data["sucrose"];
-    var milk_fat_option = req.session.data["milk_fat"];
-
-    milk_protein_options = global.get_milk_protein_options(starch_option, sucrose_option, milk_fat_option);
-    console.log(milk_protein_options);
-    res.render('meursing/04_milk_protein', { "milk_protein_options": milk_protein_options, "error": error });
-});
-
-// Data handler
-router.get(['/meursing/data'], function (req, res) {
-    var a = 1;
-    var page = req.query["page"];
-    switch (page) {
-        case "starch-glucose":
-            var starch_option = req.query["starch"];
-            if ((starch_option == "") || (starch_option == null)) {
-                res.redirect("/meursing/starch-glucose?error=true");
-            }
-            else {
-                res.redirect("/meursing/sucrose-sugar-isoglucose");
-            }
-            break;
-        case "sucrose":
-            var sucrose_option = req.query["sucrose"];
-            if ((sucrose_option == "") || (sucrose_option == null)) {
-                res.redirect("/meursing/sucrose-sugar-isoglucose?error=true");
-            }
-            else {
-                res.redirect("/meursing/milk-fat");
-            }
-
-            break;
-        case "milk_fat":
-            var milk_fat_option = req.query["milk_fat"];
-            if ((milk_fat_option == "") || (milk_fat_option == null)) {
-                res.redirect("/meursing/milk-fat?error=true");
-            }
-            else {
-                var no_protein = [
-                    '40 - 54.99',
-                    '55 - 69.99',
-                    '70 - 84.99',
-                    '85 or more'
-                ]
-                if (no_protein.includes(milk_fat_option)) {
-                    res.redirect("/meursing/check-answers");
-                } else {
-                    res.redirect("/meursing/milk-protein");
-                }
-            }
-
-            break;
-        case "milk_protein":
-            var milk_protein_option = req.query["milk_protein"];
-            if ((milk_protein_option == "") || (milk_protein_option == null)) {
-                res.redirect("/meursing/milk-protein?error=true");
-            }
-            else {
-                res.redirect("/meursing/check-answers");
-            }
-
-            break;
-    }
-
-});
-
-// Check answers
-router.get(['/meursing/check-answers'], function (req, res) {
-    res.render('meursing/05_check_answers');
-});
-
-// Results
-router.get(['/meursing/results'], function (req, res) {
-    var starch_option = req.session.data["starch"];
-    var sucrose_option = req.session.data["sucrose"];
-    var milk_fat_option = req.session.data["milk_fat"];
-    var milk_protein_option = req.session.data["milk_protein"];
-
-    results = global.get_result(starch_option, sucrose_option, milk_fat_option, milk_protein_option);
-    res.render('meursing/06_results', { "results": results });
-});
-
-// Restart
-router.get(['/restart'], function (req, res) {
-    req.session.data["starch"] = null;
-    req.session.data["sucrose"] = null;
-    req.session.data["milk_fat"] = null;
-    req.session.data["milk_protein"] = null;
-    res.redirect('/meursing/starch-glucose');
-});
-/* Meursing ends here */
-
 // Help
 router.get(['/help/undefined'], function (req, res) {
     res.redirect('/help');
@@ -1405,57 +1149,65 @@ router.get(['/help'], function (req, res) {
     }
 });
 
-// CPC starts here
 
-router.get(['/cpc'], function (req, res) {
-    res.render('cpc/00-index', {});
+// Search
+router.get(['/search_handler'], function (req, res) {
+    var url = "";
+    var search_term = req.query["search_term"];
+    res.redirect("/results/" + search_term);
 });
 
-router.get(['/cpc/request-code'], function (req, res) {
-    var cpc_controller = new CPCController();
-    cpc_controller.get_request_codes();
-    res.render('cpc/01-request-code', { "controller": cpc_controller });
+// Search results
+router.get([
+    '/xresults',
+    '/results/:search_term',
+], async function (req, res) {
+    scopeId = ""; //global.get_scope(req.params["scopeId"]);
+    root_url = "/"; // global.get_root_url(req, scopeId);
+    title = "Title"; // global.get_title(scopeId);
+    var search_term = req.params["search_term"];
+
+    // Make first request
+    var axios_response;
+    var call_type = "search";
+    var url = "https://www.trade-tariff.service.gov.uk/search.json?q=" + search_term + "&input-autocomplete=" + search_term ;
+    //https://www.trade-tariff.service.gov.uk/search?q=leggings&input-autocomplete=leggings&date=19%2F05%2F2021
+    [axios_response] = await Promise.all([
+        axios.get(url)
+    ]);
+
+    // Then if necessary the second, which is just a heading
+    var results = axios_response.data.results;
+    if (results.length == 1) {
+        if (results[0].type == "heading") {
+            call_type = "heading";
+            var key = results[0].goods_nomenclature_item_id.substring(0, 4);
+            // url = "https://www.trade-tariff.service.gov.uk/api/v2/headings/" + key;
+            // [axios_response] = await Promise.all([
+            //     axios.get(url)
+            // ]);
+            var url = "/headings/" + key;
+            res.redirect(url);
+            return;
+        } else if (results[0].type == "chapter") {
+            call_type = "chapter";
+            var url = "/chapters/" + results[0].goods_nomenclature_item_id.substring(0, 2) + "/" + term;
+            res.redirect(url);
+            return;
+        }
+    }
+
+    var search = new Search(axios_response.data, call_type);
+    var context = {}
+    context.call_type = call_type;
+    context.links = search.links;
+    context.search = search;
+    context.heading_count = search.heading_count;
+    context.commodity_count = search.commodity_count;
+    res.render('search-results', { 'context': context, 'term': search_term, 'scopeId': scopeId, 'title': title });
+
+
 });
 
-router.get(['/cpc/request-code-notes'], function (req, res) {
-    var cpc_controller = new CPCController();
-    cpc_controller.request_code = req.session.data["request_code"]
-    cpc_controller.get_request_code_notes();
-    res.render('cpc/02-request-code-notes', { "controller": cpc_controller });
-});
-
-router.get(['/cpc/previous-code'], function (req, res) {
-    var cpc_controller = new CPCController();
-    cpc_controller.request_code = req.session.data["request_code"]
-    cpc_controller.get_previous_codes();
-    cpc_controller.get_request_code_notes();
-    res.render('cpc/03-previous-code', { "controller": cpc_controller });
-});
-
-router.get(['/cpc/previous-code-notes'], function (req, res) {
-    var cpc_controller = new CPCController();
-    cpc_controller.request_code = req.session.data["request_code"]
-    cpc_controller.previous_code = req.session.data["previous_code"]
-    cpc_controller.get_previous_code_notes();
-    res.render('cpc/04-previous-code-notes', { "controller": cpc_controller });
-});
-
-router.get(['/cpc/previous-code-apcs'], function (req, res) {
-    var cpc_controller = new CPCController();
-    cpc_controller.request_code = req.session.data["request_code"]
-    cpc_controller.previous_code = req.session.data["previous_code"]
-    cpc_controller.get_apcs();
-    res.render('cpc/05-previous-code-apcs', { "controller": cpc_controller });
-});
-
-router.get(['/cpc/apc-notes'], function (req, res) {
-    var cpc_controller = new CPCController();
-    cpc_controller.request_code = req.session.data["request_code"]
-    cpc_controller.previous_code = req.session.data["previous_code"]
-    cpc_controller.apc = req.session.data["apc"]
-    cpc_controller.get_additional_code_content();
-    res.render('cpc/06-apc-notes', { "controller": cpc_controller });
-});
-// CPC ends here
 
 module.exports = router

@@ -42,10 +42,52 @@ module.exports = function (env) {
       documentation.
   
     ------------------------------------------------------------------ */
+    filters.get_slice = function (str, start, lngth) {
+        if (typeof str !== 'undefined') {
+          s = str.substr(start, lngth);
+          return s;
+        } else {
+          return "";
+        }
+      }
+    
+      filters.sing_plur = function(s, cnt) {
+        var pluralize = require('pluralize')
+        s = pluralize(s, cnt);
+        return (s);
+      }
+    
+      filters.highlight = function (s, term) {
+        var pluralize = require('pluralize')
+        term = term.toLowerCase();
+        var terms = term.split(" ");
+    
+        terms.forEach(term => {
+          // var regex = new RegExp("(" + term + ")", "gi");
+          // s = s.replace(regex, "<span class='hi'>$1</span>");
+          var regex = new RegExp("(" + pluralize(term, 1) + ")", "gi");
+          s = s.replace(regex, "<span class='hi'>$1</span>");
+        });
+    
+        return (s);
+    
+      }
+    
+
+    filters.upper_case = function (str) {
+        str = str.toUpperCase();;
+        return (str);
+    }
 
     filters.lowerFirst = function (str) {
         var _ = require('lodash');
         str = _.lowerFirst(str);
+        return (str);
+    }
+
+    filters.insert_vat_excise = function (str, vat_string, excise_string) {
+        str = str.replace("{{ vat_text }}", vat_string);
+        str = str.replace("{{ excise_text }}", excise_string);
         return (str);
     }
 

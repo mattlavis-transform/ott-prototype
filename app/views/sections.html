@@ -6,11 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<script>
-    $(document).ready(function () {
-        var toggle_count = 2;
-    });
-</script>
+
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
             <span class="govuk-caption-xl">{{ title }}</span>
@@ -18,7 +14,7 @@
                 {{ serviceName }}
             </h1>
             {% include "includes/intro_panel.html" %}
-            {% include "includes/search_include_bz.html" %}
+            {% include "includes/search_include.html" %}
             {% include "includes/browse_component.html" %}
         </div>
     </div>

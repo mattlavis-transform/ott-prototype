@@ -140,35 +140,73 @@ class Measure {
         }
     }
 
+    combine_pairs() {
+        var single_pushed = false;
+        this.temp_conditions = this.exposed_conditions;
+        this.exposed_conditions = [];
+        this.temp_conditions.forEach(measure_condition => {
+            if (measure_condition.instance_count == 2) {
+                this.exposed_conditions.push(measure_condition);
+            } else {
+                if (!single_pushed) {
+                    this.exposed_conditions.push(measure_condition);
+                    single_pushed = true;
+                } else {
+                    var ln = this.exposed_conditions.length;
+                    var mc = this.exposed_conditions[ln - 1];
+                    mc.append_condition(measure_condition);
+                }
+            }
+        });
+    }
+
+    sort_measure_conditions_exposed() {
+        this.exposed_conditions.sort(compare_condition_classes);
+        this.exposed_conditions.sort(compare_condition_counts);
+
+        function compare_condition_counts(a, b) {
+            if (a.count < b.count) {
+                return 1;
+            }
+            if (a.count > b.count) {
+                return -1;
+            }
+            return 0;
+        }
+
+        function compare_condition_classes(a, b) {
+            if (a.condition_class < b.condition_class) {
+                return -1;
+            }
+            if (a.condition_class > b.condition_class) {
+                return 1;
+            }
+            return 0;
+        }
+    }
+
     combine_complex_measures() {
         this.exposed_conditions = [];
         this.measure_conditions.forEach(mc => {
-            var found = false;
-            for (var i = 0; i < this.exposed_conditions.length; i++) {
-                var e = this.exposed_conditions[i];
-                if (e.document_code == mc.document_code) {
-                    e.instance_count += 1;
-                    found = true;
-                    break;
+            if (mc.positive) {
+                var found = false;
+                for (var i = 0; i < this.exposed_conditions.length; i++) {
+                    var e = this.exposed_conditions[i];
+                    if (e.document_code == mc.document_code) {
+                        e.instance_count += 1;
+                        found = true;
+                        break;
+                    }
                 }
-            }
-            if (found == false) {
-                this.exposed_conditions.push(mc);
+                if (found == false) {
+                    this.exposed_conditions.push(mc);
+                }
             }
         });
 
-        // this.exposed_conditions.sort(compare_conditions);
+        this.sort_measure_conditions_exposed();
+        this.combine_pairs();
 
-
-        // function compare_conditions(a, b) {
-        //     if (a.condition_class_index > b.condition_class_index) {
-        //         return 1;
-        //     }
-        //     if (a.condition_class_index < b.condition_class_index) {
-        //         return -1;
-        //     }
-        //     return 0;
-        // }
     }
 
 }

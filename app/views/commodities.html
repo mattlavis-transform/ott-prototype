@@ -33,51 +33,9 @@
     </h1>
     {% include "includes/intro_panel_short.html" %}
 
-    <details class="govuk-details" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-      This tariff is for {{ date_string }}. Click to change
-    </span>
-        </summary>
-        <div class="govuk-details__text">
+    {% include "includes/date-picker.html" %}
 
-            {{ govukDateInput({
-  id: "date",
-  namePrefix: "date",
-  fieldset: {
-    legend: {
-      text: "On which date will your trade take place?",
-      isPageHeading: false,
-      classes: "govuk-fieldset__legend--s"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      classes: "govuk-input--width-2",
-      name: "day",
-      value: "1"
-    },
-    {
-      classes: "govuk-input--width-2",
-      name: "month",
-      value: "1"
-    },
-    {
-      classes: "govuk-input--width-4",
-      name: "year",
-      value: "2021"
-    }
-  ]
-}) }}
-            {{ govukButton({
-  text: "Update date"
-}) }}
-
-        </div>
-    </details>
+    
 
     <div class="panel">
         <nav class="breadcrumb">
@@ -163,6 +121,9 @@
             <li class="govuk-tabs__list-item">
                 <a class="govuk-tabs__tab" href="#export">Export measures</a>
             </li>
+            <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#footnotes">Footnotes</a>
+            </li>
             <!--
             <li class="govuk-tabs__list-item">
                 <a class="govuk-tabs__tab" href="#rules_of_origin">Rules of origin</a>
@@ -192,11 +153,12 @@
             </div>
         </div> #}
         <div class="govuk-tabs__panel" id="import">
-            <h2 class="govuk-heading-m">Measures and restrictions for importing into the UK under the <abbr title="UK Global Tariff">UKGT</abbr>
+            <h2 class="govuk-heading-m">
+                Measures and restrictions for importing into the UK under the <abbr title="UK Global Tariff">UKGT</abbr>
             </h2>
-            <!--<p>This information is for <strong>{{ date_string }}</strong>.</p>//-->
+            <p>This information is for <strong>{{ date_string }}</strong>.</p>
 
-            {% include "includes/country_selector_import_new.html" %}
+            {% include "includes/country_selector_import.html" %}
 
             <nav>
                 <h2 class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-3">Measure groups</h2>
@@ -232,12 +194,10 @@
                             {% endif %}
                         {% else %}
                             {% if display_block.explainers.prose %}
-                                {{ display_block.explainers.prose | safe }}
+                                {{ display_block.explainers.prose | insert_vat_excise(commodity.vat_string, commodity.excise_string) | safe }}
                             {% endif %}
                         {% endif %}
-
                     </div>
-
                 {% endif %}
 
                 {% if display_block.block != "Import controls" and display_block.block != "UK import controls" %}
@@ -283,7 +243,7 @@
                                                 </span>
                                             {% endif %}
                                             {% if measure.additional_code %}
-                                                <span class="table-line">Additional code: <b>{{ measure.additional_code.code | title_case }}</b>
+                                                <span class="table-line">Additional code: <b>{{ measure.additional_code.code }}</b>
                                                 </span><span class="table-line">{{ measure.additional_code.description | safe }}</span>
                                             {% endif %}
                                         </div>
@@ -341,6 +301,33 @@
             <h2 class="govuk-heading-m">Export measures and restrictions</h2>
             <p>This information is for <strong>{{ date_string }}</strong>.</p>
             {% include "includes/country_selector_export.html" %}
+            <p></p>
+            <p>There are no export measures for this commodity on this date.</p>
+
+        </div>
+        <div class="govuk-tabs__panel" id="footnotes">
+            {% if commodity.commodity_footnote_count > 0 %}
+                <table class="govuk-table xgovuk-table--m">
+                    <caption class="govuk-table__caption">Footnotes</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Code</th>
+                            <th scope="col" class="govuk-table__header">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        {% for item in commodity.footnotes %}
+                            {% if item.footnote_class == "commodity" %}
+                                <tr class="govuk-table__row">
+                                    <td class="govuk-table__cell">{{ item.code }}</td>
+                                    <td class="govuk-table__cell">{{ item.description | safe }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            {% endif %}
         </div>
         <!--
         <div class="govuk-tabs__panel" id="rules_of_origin">
@@ -355,26 +342,6 @@
         </div>//-->
 
     </div>
-    {% if commodity.footnotes.length %}
-        <table class="govuk-table govuk-table--s">
-            <caption class="govuk-table__caption">Footnotes</caption>
-            <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header">Code</th>
-                    <th scope="col" class="govuk-table__header">Description</th>
-                </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-                {% for item in heading.footnotes %}
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">{{ item.code }}</td>
-                        <td class="govuk-table__cell">{{ item.description | safe }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
-    {% endif %}
 
 </div>
 <!-- Start footnotes //-->
@@ -455,7 +422,7 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <p>Find out <a href="/import-guidance/date/{{ commodity.data.attributes.goods_nomenclature_item_id }}">how to import commodity {{ commodity.data.attributes.goods_nomenclature_item_id }}</a> into the UK.</p>
+            <div class="govuk-inset-text govuk-inset-text--s">View <a href="/import-guidance/date/{{ commodity.data.attributes.goods_nomenclature_item_id }}">details of all import controls for commodity {{ commodity.data.attributes.goods_nomenclature_item_id }}</a>. You will be asked to specify the date of import and where the goods are coming from.</div>
         </div>
     {% endif %}
 {% endfor %}
@@ -515,6 +482,11 @@
     {% endif %}
 {% endfor %}
 <!-- End quotas //-->
+
+<script type="text/javascript" src="/public/javascripts/calendar-button.js"></script>
+<script type="text/javascript" src="/public/javascripts/datepicker.js"></script>
+<script type="text/javascript" src="/public/javascripts/datepicker-day.js"></script>
+
 
 <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
 <script type="text/javascript">

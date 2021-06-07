@@ -1,5 +1,6 @@
 const Unit = require('./unit');
 var MarkdownIt = require('markdown-it');
+var _ = require('lodash');
 
 
 class MeasureCondition {
@@ -34,6 +35,7 @@ class MeasureCondition {
         if (this.positive) {
             if (this.document_code == "") {
                 this.condition_class = "threshold";
+                this.intro_label = "Threshold condition";
                 this.condition_class_label = "Exemption";
                 this.condition_class_index = 3;
                 this.document_code = "n/a"
@@ -51,23 +53,55 @@ class MeasureCondition {
     
             } else if (this.document_code.substring(0, 1) == "Y") {
                 this.condition_class = "exception";
+                this.intro_label = "Conditional exemption";
                 this.condition_class_index = 2;
                 this.condition_class_label = "Exemption";
             } else if (this.document_code == "C084") {
+                this.intro_label = "Conditional exemption";
                 this.condition_class = "exception";
                 this.condition_class_label = "Exemption";
                 this.condition_class_index = 2;
             } else {
+                this.intro_label = "Documentation requirement";
                 this.condition_class = "certificate";
                 this.condition_class_label = "Rule";
                 this.condition_class_index = 1;
             }
         } else {
+            this.intro_label = "";
             this.condition_class = "negative";
             this.condition_class_label = "";
             this.condition_class_index = 99;
         }
 
+    }
+
+    append_condition(mc) {
+        var conjunction_string = " & ";
+        if (this.condition_class == "certificate") {
+            if (mc.condition_class == "certificate") {
+                this.requirement = "Provide both of these documents:\n\n" + this.requirement;
+                this.requirement += " **and** " + _.lowerFirst(mc.requirement);
+                this.document_code += conjunction_string + mc.document_code;
+            } else if (mc.condition_class == "exception") {
+                this.requirement += " <br><br>and<br><br> " + _.lowerFirst(mc.requirement);
+                this.document_code += conjunction_string + mc.document_code;
+            } else if (mc.condition_class == "threshold") {
+                this.requirement += " <br><br>and<br><br> " + mc.requirement;
+            }
+        }
+        else if (this.condition_class == "exception") {
+            if (mc.condition_class == "exception") {
+                this.requirement += " <br><br>and<br><br> " + mc.requirement;
+                this.document_code += conjunction_string + mc.document_code;
+            } else if (mc.condition_class == "threshold") {
+                if (this.requirement.toLowerCase().includes("your shipment")) {
+                    mc.requirement = mc.requirement.replace(/your shipment/gsmi, "");
+                }
+                this.requirement += " <br><br>and<br><br> " + _.lowerFirst(mc.requirement);
+                var a = 1;
+            }
+        }
     }
 
     trim_requirement() {

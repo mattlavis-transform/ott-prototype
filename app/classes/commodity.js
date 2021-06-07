@@ -68,6 +68,18 @@ class Commodity {
             this.formatted_commodity_code = this.goods_nomenclature_item_id
             this.format_commodity_code();
         }
+
+        this.children = [];
+        if (this.leaf) {
+            this.vat = "20%";
+            this.third_country_duty = "0.00%";
+            this.supplementary_unit = "";
+        } else {
+            this.vat = "";
+            this.third_country_duty = "";
+            this.supplementary_unit = "";
+        }
+
     }
 
     get_data(json, country = null, date = null) {
@@ -111,10 +123,21 @@ class Commodity {
         this.order_numbers = [];
         this.definitions = [];
         this.legal_acts = [];
+        this.crumb = "";
+        this.ancestry = [];
 
         // Get all the measures + measure components
         this.included.forEach(item => {
-            if (item["type"] == "measure") {
+            if (item["type"] == "section") {
+                var description = item["attributes"]["title"];
+                this.ancestry.push(description);
+            } else if (item["type"] == "chapter") {
+                var description = item["attributes"]["formatted_description"];
+                this.ancestry.push(description);
+            } else if (item["type"] == "commodity") {
+                var description = item["attributes"]["formatted_description"];
+                this.ancestry.push(description);
+            } else if (item["type"] == "measure") {
                 id = item["id"];
                 m = new Measure(id);
                 m.origin = item["attributes"]["origin"];
@@ -124,6 +147,7 @@ class Commodity {
                 m.excise = item["attributes"]["excise"];
                 m.vat = item["attributes"]["vat"];
                 m.measure_type_id = item["relationships"]["measure_type"]["data"]["id"];
+                m.measure_type = new MeasureType(item["relationships"]["measure_type"]["data"]);
                 m.geographical_area_id = item["relationships"]["geographical_area"]["data"]["id"];
 
                 // Get additional code
@@ -187,7 +211,7 @@ class Commodity {
                 this.measure_types.push(mt);
 
             } else if (item["type"] == "footnote") {
-                var f = new Footnote(item.id, item.attributes.formatted_description);
+                var f = new Footnote(item.attributes.code, item.attributes.formatted_description);
                 this.footnotes.push(f);
 
             } else if (item["type"] == "geographical_area") {
@@ -219,6 +243,22 @@ class Commodity {
             }
         });
 
+        this.count_footnotes();
+
+        this.ancestry.push(this.description);
+        var i;
+        for (i = 0; i < this.ancestry.length; i++) {
+            if (i == this.ancestry.length - 1) {
+                this.crumb += "<strong>";
+            }
+            this.crumb += this.ancestry[i];
+            if (i == this.ancestry.length - 1) {
+                this.crumb += "</strong>";
+            } else {
+                this.crumb += " — ";
+            }
+        }
+
         this.assign_duty_expressions();
         this.assign_geographical_areas();
         this.assign_additional_codes();
@@ -242,6 +282,9 @@ class Commodity {
         this.get_additional_code_class();
 
 
+        this.calculate_vat();
+        this.calculate_excise();
+
         var valid_phases = ["results"];
         if (valid_phases.includes(this.phase)) {
             this.calculate_excise();
@@ -251,6 +294,16 @@ class Commodity {
             //this.calculate_preferences();
         }
 
+    }
+
+    count_footnotes() {
+        this.commodity_footnote_count = 0;
+        this.footnotes.forEach(footnote => {
+            if (footnote.footnote_class == "commodity") {
+                this.commodity_footnote_count++;
+            }
+        });
+        var a = 1;
     }
 
     get_certificates() {
@@ -364,7 +417,14 @@ class Commodity {
         this.measures.forEach(measure => {
             this.measure_types.forEach(measure_type => {
                 if (measure_type.id == measure.measure_type_id) {
-                    measure.measure_type_description = measure_type.description;
+                    if (measure.measure_type.overlay == "") {
+                        measure.measure_type_description = measure_type.description;  
+                        measure.measure_type.description = measure_type.description;  
+                    } else {
+                        measure.measure_type_description = measure.measure_type.overlay;  
+                        measure.measure_type.description = measure.measure_type.overlay;  
+                    }
+                    // measure.measure_type_description = measure_type.description;
                     measure.measure_type_series_id = measure_type.measure_type_series_id;
                 }
             });
@@ -434,15 +494,44 @@ class Commodity {
     }
 
     calculate_vat() {
+        var _ = require('lodash');
+        // Goods are subject to Value added tax (0.00 %) or Value added tax (20.00 %),
+        // Please see related guidance as to when zero VAT applies.
+        if (this.vats.length > 1) {
+            this.vat_string = "Imports of commodity " + this.goods_nomenclature_item_id + " may be subject to Value Added Tax of either ";
+        } else {
+            this.vat_string = "Goods are subject to Value Added Tax of ";
+        }
+        var index = 0;
         this.vats.forEach(calc => {
             calc.calculate();
+            index++;
+            if (index > 1) {
+                this.vat_string += " or ";
+            }
+            this.vat_string += "<b>" + _.trim(calc.measure.combined_duty.replace(" * customs value", "")) + "</b>";
+            var a = 1;
         });
+        if (this.vats.length > 1) {
+            this.vat_string += ".</li><li>Please see <a target='_blank' href='https://www.gov.uk/guidance/rates-of-vat-on-different-goods-and-services'>related guidance as to when reduced or zero rate VAT applies</a>.";
+        } else {
+            this.vat_string += ".</li><li><a target='_blank' href='https://www.gov.uk/guidance/rates-of-vat-on-different-goods-and-services'>Find out more about VAT</a>.";
+        }
+
+        var a = 1;
     }
 
     calculate_excise() {
-        this.excises.forEach(calc => {
-            calc.calculate();
-        });
+        if (this.excises.length == 0) {
+            this.excise_string = "There are no <a target='_blank' href='https://www.gov.uk/government/publications/uk-trade-tariff-excise-duties-reliefs-drawbacks-and-allowances/uk-trade-tariff-excise-duties-reliefs-drawbacks-and-allowances'>excise duties</a> applicable to trade in commodity " + this.goods_nomenclature_item_id + ".";
+        } else {
+            this.excise_string = "Excise duties apply to trade in commodity " + this.goods_nomenclature_item_id + ".";
+            // this.excises.forEach(calc => {
+            //     calc.calculate();
+            // });
+
+        }
+        var a = 1;
     }
 
     calculate_mfn() {
@@ -802,7 +891,7 @@ class Commodity {
             if (m.measure_type_id == "105") {
                 this.is_end_use = true;
             }
-            //m.block = "";
+
             if (m.measure_type_series_id == "P") {
                 m.block = "vat";
                 m.duty_bearing = true;
@@ -959,6 +1048,24 @@ class Commodity {
                 var data = response.data;
                 this.exchange_rate = parseFloat(data["rates"]["GBP"]);
             });
+    }
+
+    get_descendants(commodities, number_indents, start_at) {
+        var commodity_count = commodities.length;
+        for (var i = start_at; i < commodity_count; i++) {
+            var c = commodities[i];
+            if (c.number_indents == number_indents + 1) {
+                if (i < (commodity_count - 1)) {
+                    if (!c.leaf) {
+                        c.get_descendants(commodities, number_indents + 1, i + 1);
+                    }
+                }
+                this.children.push(c);
+            } else if (c.number_indents == number_indents) {
+                break;
+            }
+            console.log(c.number_indents);
+        }
     }
 
 }

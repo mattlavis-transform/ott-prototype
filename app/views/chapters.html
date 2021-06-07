@@ -53,9 +53,9 @@
                 </nav>
             </div>
 
-            {{ govukInsetText({
+            {# {{ govukInsetText({
                 html: "There are important notes for classifying your goods shown further down this page.<br><br>Get guidance on this product area: <a href='https://www.gov.uk/government/collections/classification-of-goods'>Classification of goods</a>"
-            }) }}
+            }) }} #}
 
             <h2 class="govuk-heading-m">Choose the heading that best matches your goods</h2>
             <div class="chapter_row">
@@ -80,7 +80,7 @@
                 {% endif %}
             {% endfor %}
 
-            <article class="notes">
+            <article class="section_chapter_notes">
                 <h2 class="govuk-heading-s">Chapter notes</h2>
                 {{ chapter.data.attributes.chapter_note | showdown | safe }}
                 {% for item in chapter.included %}

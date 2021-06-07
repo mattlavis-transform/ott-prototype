@@ -1,0 +1,52 @@
+<article class="tariff">
+    <div class="commodity-tree">
+        {# <!-- Header controls start here //--> #}
+        <div class="tree-controls"></div>
+        <div class="commodity-tree-note">
+            <span>The number following each commodity's description is its commodity code.</span>
+            <em class="level">Level</em>
+            <em class="description">Description</em>
+            <div class="commodity-tree__additional-info">
+                <em class="vat" id="commodity-vat-title">VAT</em>
+                <em class="duty" id="commodity-duty-title">Third country duty</em>
+                <em class="supplementary-units" id="commodity-supplementary-title">Supplementary unit</em>
+                <em class="commcode">Commodity code</em>
+            </div>
+        </div>
+        <!-- Header controls stop here //-->
+        <ul class="commodities js-commodities">
+            {% set corpus = heading.hierarchy %}
+            {% include "./heading_include_nested.html" %}
+        </ul>
+    </div>
+    <table class="govuk-table govuk-!-margin-top-8">
+        <caption class="govuk-heading-m govuk-table__caption">Footnotes</caption>
+        <colgroup>
+            <col width="100">
+            <col width="*">
+        </colgroup>
+        <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Code</th>
+                <th scope="col" class="govuk-table__header">Description</th>
+            </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">TN084</th>
+                <td class="govuk-table__cell">
+                    <p>Products consigned from Japan shall be accompanied by a Common Health Entry Document for Feed and Food of Non-Animal Origin (CHED-D) or a Common Health Entry Document for Products (CHED-P) according to Commission Implementing Regulation (EU) 2019/1787 as transposed into UK law. See <a href="https://www.legislation.gov.uk/eur/2019/1787/contents">[2019/1787]</a> for specific coverage.</p>
+                </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">TN701</th>
+                <td class="govuk-table__cell">
+                    <p>According to the Council Regulation (EU) No 692/2014 (OJ L183, p. 9) it shall be prohibited to import into European Union goods originating in Crimea or Sevastopol.<br>The prohibition shall not apply in respect of: <br>(a) the execution until 26 September 2014, of trade contracts concluded before 25 June 2014, or of ancillary contracts necessary for the execution of such contracts, provided that the natural or legal persons, entity or body seeking to perform the contract have notified, at least 10 working days in advance, the activity or transaction to the competent authority of the Member State in which they are established. <br>(b) goods originating in Crimea or Sevastopol which have been made available to the Ukrainian authorities for examination, for which compliance with the conditions conferring entitlement to preferential origin has been verified and for which a certificate of origin has been issued in accordance with Regulation (EU) No 978/2012 and Regulation (EU) No 374/2014 or in accordance with the EU-Ukraine Association Agreement.</p>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</article>
