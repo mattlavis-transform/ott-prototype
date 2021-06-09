@@ -263,6 +263,7 @@ if (typeof (routes) !== 'function') {
   app.use('/', routes_cpc)
   app.use('/', routes_tools)
   app.use('/', routes_roo)
+  app.use('/', routes_duty_calculator)
 }
 
 if (useDocumentation) {

@@ -140,6 +140,8 @@ router.get([
     var border_system = "cds";
     var declaration_th;
 
+    var roo_text = global.get_roo_text(req);
+
     delete req.session.data["where-do-you-live"];
 
     if (req.session.data["border_system"] == "chief") {
@@ -202,7 +204,7 @@ router.get([
             c.categorise_measures(override_block = "smart");
             c.sort_measures();
 
-            res.render('commodities', { 'toggle_message': toggle_message, 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+            res.render('commodities', { 'roo_text': roo_text, 'toggle_message': toggle_message, 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
         }));
 
     } else {
@@ -215,7 +217,7 @@ router.get([
                 console.log(c.measures.length);
 
                 c.sort_measures();
-                res.render('commodities', { 'toggle_message': toggle_message, 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+                res.render('commodities', { 'roo_text': roo_text, 'toggle_message': toggle_message, 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
             });
 
     }

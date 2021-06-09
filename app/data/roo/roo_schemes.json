@@ -8,8 +8,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK/EU and EAEC: Trade and Cooperation Agreement",
                     "url": "https://www.gov.uk/government/publications/ukeu-and-eaec-trade-and-cooperation-agreement-ts-no82021"
@@ -28,7 +27,34 @@
                 }
             ],
             "countries": [
-                "EU", "AT", "BE", "BG", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", "FR", "GR", "HR", "HU", "IE", "IT", "LT", "LU", "LV", "MT", "NL", "PL", "PT", "RO", "SE", "SI", "SK"
+                "EU",
+                "AT",
+                "BE",
+                "BG",
+                "CY",
+                "CZ",
+                "DE",
+                "DK",
+                "EE",
+                "ES",
+                "FI",
+                "FR",
+                "GR",
+                "HR",
+                "HU",
+                "IE",
+                "IT",
+                "LT",
+                "LU",
+                "LV",
+                "MT",
+                "NL",
+                "PL",
+                "PT",
+                "RO",
+                "SE",
+                "SI",
+                "SK"
             ]
         },
         {
@@ -39,8 +65,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Japan CEPA: rules of origin explainer",
                     "url": "https://www.gov.uk/government/publications/uk-japan-cepa-rules-of-origin-explainer"
@@ -55,6 +80,42 @@
             ]
         },
         {
+            "code": "albania",
+            "title": "UK-Albania partnership, Trade and Cooperation Agreement",
+            "data_file": "albania.md",
+            "texts": {
+                "wholly_originating": "Lorem ipsum originating",
+                "wholly_obtained": "Lorem ipsum obtained"
+            },
+            "links": [
+                {
+                    "text": "tbc",
+                    "url": "https://www.gov.uk/"
+                }
+            ],
+            "countries": [
+                "AL"
+            ]
+        },
+        {
+            "code": "canada",
+            "title": "UK-Canada Trade Continuity Agreement",
+            "data_file": "canada.md",
+            "texts": {
+                "wholly_originating": "Lorem ipsum originating",
+                "wholly_obtained": "Lorem ipsum obtained"
+            },
+            "links": [
+                {
+                    "text": "tbc",
+                    "url": "https://www.gov.uk/"
+                }
+            ],
+            "countries": [
+                "CA"
+            ]
+        },
+        {
             "code": "south-korea",
             "title": "UK-South Korea trade agreement",
             "data_file": "south-korea.md",
@@ -62,8 +123,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-South Korea trade agreement",
                     "url": "https://www.gov.uk/government/collections/uk-south-korea-trade-agreement"
@@ -90,8 +150,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Kenya Economic Partnership Agreement",
                     "url": "https://www.gov.uk/government/collections/uk-kenya-economic-partnership-agreement"
@@ -113,8 +172,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "ESA-UK economic partnership agreement (EPA)",
                     "url": "https://www.gov.uk/government/collections/esa-uk-economic-partnership-agreement-epa--2"
@@ -125,7 +183,10 @@
                 }
             ],
             "countries": [
-                "esa", "SC", "MU", "ZW"
+                "esa",
+                "SC",
+                "MU",
+                "ZW"
             ]
         },
         {
@@ -136,8 +197,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Central America association agreement",
                     "url": "https://www.gov.uk/government/collections/uk-central-america-association-agreement"
@@ -148,7 +208,13 @@
                 }
             ],
             "countries": [
-                "central-america", "CR", "GT", "HN", "NI", "PA", "SV"
+                "central-america",
+                "CR",
+                "GT",
+                "HN",
+                "NI",
+                "PA",
+                "SV"
             ]
         },
         {
@@ -159,8 +225,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Andean countries trade agreement",
                     "url": "https://www.gov.uk/government/collections/uk-andean-countries-trade-agreement"
@@ -171,7 +236,10 @@
                 }
             ],
             "countries": [
-                "andean", "CO", "PE", "EC"
+                "andean",
+                "CO",
+                "PE",
+                "EC"
             ]
         },
         {
@@ -182,8 +250,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Cameroon Economic Partnership Agreement",
                     "url": "https://www.gov.uk/government/collections/uk-cameroon-economic-partnership-agreement"
@@ -198,6 +265,37 @@
             ]
         },
         {
+            "code": "cariforum",
+            "title": "CARIFORUM-UK economic partnership agreement",
+            "data_file": "cariforum.md",
+            "texts": {
+                "wholly_originating": "Lorem ipsum originating",
+                "wholly_obtained": "Lorem ipsum obtained"
+            },
+            "links": [
+                {
+                    "text": "tbc",
+                    "url": "https://www.gov.uk/"
+                }
+            ],
+            "countries": [
+                "AG",
+                "BB",
+                "BS",
+                "BZ",
+                "DM",
+                "DO",
+                "GD",
+                "GY",
+                "JM",
+                "KN",
+                "LC",
+                "SR",
+                "TT",
+                "VC"
+            ]
+        },
+        {
             "code": "chile",
             "title": "UK-Chile association agreement",
             "data_file": "andean.md",
@@ -205,8 +303,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Chile association agreement",
                     "url": "https://www.gov.uk/government/collections/uk-chile-association-agreement"
@@ -228,8 +325,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Côte d’Ivoire Stepping Stone Economic Partnership Agreement",
                     "url": "https://www.gov.uk/government/collections/uk-cote-divoire-stepping-stone-economic-partnership-agreement"
@@ -244,6 +340,24 @@
             ]
         },
         {
+            "code": "egypt",
+            "title": "UK-Egypt Association Agreement",
+            "data_file": "egypt.md",
+            "texts": {
+                "wholly_originating": "Lorem ipsum originating",
+                "wholly_obtained": "Lorem ipsum obtained"
+            },
+            "links": [
+                {
+                    "text": "TBC",
+                    "url": "gov.uk"
+                }
+            ],
+            "countries": [
+                "EG"
+            ]
+        },
+        {
             "code": "faroe-islands",
             "title": "UK-Faroe Islands free trade agreement (FTA)",
             "data_file": "faroe-islands.md",
@@ -251,8 +365,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Faroe Islands free trade agreement (FTA)",
                     "url": "https://www.gov.uk/government/collections/uk-faroe-islands-free-trade-agreement-fta"
@@ -274,8 +387,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Georgia strategic partnership and cooperation agreement",
                     "url": "https://www.gov.uk/government/collections/uk-georgia-strategic-partnership-and-cooperation-agreement--2"
@@ -297,8 +409,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Ghana Interim Trade Partnership Agreement",
                     "url": "https://www.gov.uk/government/collections/uk-ghana-interim-trade-partnership-agreement"
@@ -320,8 +431,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "Agreement on trade in goods between Iceland, Norway and the UK",
                     "url": "https://www.gov.uk/government/collections/agreement-on-trade-in-goods-between-iceland-norway-and-the-uk"
@@ -332,7 +442,8 @@
                 }
             ],
             "countries": [
-                "IS", "NO"
+                "IS",
+                "NO"
             ]
         },
         {
@@ -343,8 +454,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Israel trade and partnership agreement",
                     "url": "https://www.gov.uk/government/collections/uk-israel-trade-and-partnership-agreement"
@@ -366,8 +476,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Kosovo partnership, trade and cooperation agreement",
                     "url": "https://www.gov.uk/government/collections/uk-kosovopartnership-trade-and-cooperationagreement"
@@ -389,8 +498,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Lebanon association agreement",
                     "url": "https://www.gov.uk/government/collections/uk-lebanon-association-agreement"
@@ -405,6 +513,24 @@
             ]
         },
         {
+            "code": "mexico",
+            "title": " UK-Mexico Trade Continuity Agreement ",
+            "data_file": "mexico.md",
+            "texts": {
+                "wholly_originating": "Lorem ipsum originating",
+                "wholly_obtained": "Lorem ipsum obtained"
+            },
+            "links": [
+                {
+                    "text": "TBC",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "MX"
+            ]
+        },
+        {
             "code": "switzerland-liechtenstein",
             "title": "UK-Switzerland-Liechtenstein Trade Agreement",
             "data_file": "switzerland-liechtenstein.md",
@@ -412,8 +538,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Switzerland-Liechtenstein Trade Agreement",
                     "url": "https://www.gov.uk/government/collections/uk-switzerland-liechtenstein-trade-agreement"
@@ -424,7 +549,8 @@
                 }
             ],
             "countries": [
-                "CH", "LI"
+                "CH",
+                "LI"
             ]
         },
         {
@@ -435,8 +561,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Moldova Strategic Partnership, Trade and Cooperation Agreement",
                     "url": "https://www.gov.uk/government/collections/uk-moldova-strategic-partnership-trade-and-cooperation-agreement"
@@ -458,8 +583,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Morocco association agreement",
                     "url": "https://www.gov.uk/government/collections/uk-morocco-association-agreement"
@@ -481,8 +605,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-North Macedonia Partnership, Trade and Cooperation agreement",
                     "url": "https://www.gov.uk/government/collections/uk-north-macedonia-partnership-trade-andcooperationagreement"
@@ -505,8 +628,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Pacific economic partnership agreement (EPA)",
                     "url": "https://www.gov.uk/government/collections/uk-pacific-economic-partnership-agreement"
@@ -517,7 +639,9 @@
                 }
             ],
             "countries": [
-                "FJ", "PG"
+                "FJ",
+                "PG",
+                "WS"
             ]
         },
         {
@@ -528,8 +652,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Palestinian Authority political, trade and partnership agreement",
                     "url": "https://www.gov.uk/guidance/summary-of-the-uk-palestinian-authority-political-trade-and-partnership-agreement"
@@ -551,14 +674,31 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Singapore Trade Agreement",
                     "url": "https://www.gov.uk/government/collections/uk-singapore-trade-agreement"
                 },
                 {
                     "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "SG"
+            ]
+        },
+        {
+            "code": "serbia",
+            "title": " UK-Serbia partnership, trade and cooperation agreement ",
+            "data_file": "serbia.md",
+            "texts": {
+                "wholly_originating": "Lorem ipsum originating",
+                "wholly_obtained": "Lorem ipsum obtained"
+            },
+            "links": [
+                {
+                    "text": "TBC",
                     "url": ""
                 }
             ],
@@ -574,8 +714,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "SACUM-UK economic partnership agreement (EPA)",
                     "url": "https://www.gov.uk/government/collections/sacum-uk-economic-partnership-agreement-epa"
@@ -586,7 +725,11 @@
                 }
             ],
             "countries": [
-                "BW", "LS", "MZ", "NA", "SZ"
+                "BW",
+                "LS",
+                "MZ",
+                "NA",
+                "SZ"
             ]
         },
         {
@@ -597,8 +740,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Tunisia association agreement",
                     "url": "https://www.gov.uk/government/collections/uk-tunisia-association-agreement"
@@ -620,8 +762,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Turkey trade agreement",
                     "url": "https://www.gov.uk/government/collections/uk-turkey-trade-agreement"
@@ -643,8 +784,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Ukraine political, free trade and strategic partnership agreement",
                     "url": "https://www.gov.uk/government/collections/uk-ukraine-political-free-trade-and-strategic-partnership-agreement"
@@ -666,8 +806,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "UK-Vietnam Free Trade Agreement",
                     "url": "https://www.gov.uk/government/collections/uk-vietnam-free-trade-agreement"
@@ -690,8 +829,7 @@
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
             },
-            "links":
-            [
+            "links": [
                 {
                     "text": "GSP - Least Developed Countries Framework",
                     "url": "https://www.gov.uk/government/publications/trading-with-developing-nations"
@@ -702,7 +840,69 @@
                 }
             ],
             "countries": [
-                "AF", "AO", "BD", "BF", "BI", "BJ", "BT", "CD", "CF", "DJ", "ER", "ET", "GM", "GN", "GW", "HT", "KH", "KI", "KM", "LA", "LR", "LS", "MG", "ML", "MM", "MR", "MW", "MZ", "NE", "NP", "RW", "SB", "SD", "SL", "SN", "SO", "SS", "ST", "TD", "TG", "TL", "TV", "TZ", "UG", "VU", "YE", "ZM", "CG", "CK", "CM", "DZ", "FM", "GH", "ID", "IN", "KE", "MD", "NG", "NU", "SY", "TJ", "UZ", "VN"
+                "AF",
+                "AO",
+                "BD",
+                "BF",
+                "BI",
+                "BJ",
+                "BT",
+                "CD",
+                "CF",
+                "DJ",
+                "ER",
+                "ET",
+                "GM",
+                "GN",
+                "GW",
+                "HT",
+                "KH",
+                "KI",
+                "KM",
+                "LA",
+                "LR",
+                "LS",
+                "MG",
+                "ML",
+                "MM",
+                "MR",
+                "MW",
+                "MZ",
+                "NE",
+                "NP",
+                "RW",
+                "SB",
+                "SD",
+                "SL",
+                "SN",
+                "SO",
+                "SS",
+                "ST",
+                "TD",
+                "TG",
+                "TL",
+                "TV",
+                "TZ",
+                "UG",
+                "VU",
+                "YE",
+                "ZM",
+                "CG",
+                "CK",
+                "CM",
+                "DZ",
+                "FM",
+                "GH",
+                "ID",
+                "IN",
+                "KE",
+                "MD",
+                "NG",
+                "NU",
+                "SY",
+                "TJ",
+                "UZ",
+                "VN"
             ]
         }
     ]

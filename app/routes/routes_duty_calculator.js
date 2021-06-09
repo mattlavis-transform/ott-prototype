@@ -547,6 +547,24 @@ router.get('/calculate/ni_to_gb/:goods_nomenclature_item_id', function (req, res
 
 
 // Calculator - Results (flat - dummy HTML)
+router.get('/calculate/differential/:goods_nomenclature_item_id', function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    scopeId = "";
+    root_url = global.get_root_url(req, scopeId);
+    var err = req.session.data["error"];
+    var url = global.get_commodity_api(req);
+    axios.get(url)
+        .then((response) => {
+            c = new Commodity();
+            c.pass_request(req);
+            c.phase = "results";
+            c.get_data(response.data);
+            c.get_measure_data(req, req.session.data["origin"]);
+            res.render('calculate/final_differential', { 'commodity': c, 'error': err });
+        });
+});
+
+// Calculator - Results (flat - dummy HTML)
 router.get('/test_endpoint/:goods_nomenclatures', function (req, res) {
     var url = "https://www.trade-tariff.service.gov.uk/api/v2/goods_nomenclatures/section/1";
     axios.get(url)
