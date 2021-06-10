@@ -3,6 +3,7 @@
         {
             "code": "EU",
             "title": "UK / EU Trade and Co-operation Agreement",
+            "intro_file": "eu_intro.md",
             "data_file": "eu.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -60,6 +61,7 @@
         {
             "code": "japan",
             "title": "Comprehensive Economic Partnership Agreement UK Japan",
+            "intro_file": "japan_intro.md",
             "data_file": "japan.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -82,6 +84,7 @@
         {
             "code": "albania",
             "title": "UK-Albania partnership, Trade and Cooperation Agreement",
+            "intro_file": "albania_intro.md",
             "data_file": "albania.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -100,6 +103,7 @@
         {
             "code": "canada",
             "title": "UK-Canada Trade Continuity Agreement",
+            "intro_file": "canada_intro.md",
             "data_file": "canada.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -118,6 +122,7 @@
         {
             "code": "south-korea",
             "title": "UK-South Korea trade agreement",
+            "intro_file": "south-korea_intro.md",
             "data_file": "south-korea.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -145,6 +150,7 @@
             "code": "kenya",
             "title": "Comprehensive Economic Partnership Agreement UK Kenya",
             "footnote": "This agreement is open to accession by other members of East African Community.",
+            "intro_file": "kenya_intro.md",
             "data_file": "kenya.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -167,6 +173,7 @@
         {
             "code": "esa",
             "title": "ESA-UK economic partnership agreement (EPA)",
+            "intro_file": "esa_intro.md",
             "data_file": "esa.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -192,6 +199,7 @@
         {
             "code": "central-america",
             "title": "UK-Central America association agreement",
+            "intro_file": "central_america_intro.md",
             "data_file": "central_america.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -220,6 +228,7 @@
         {
             "code": "andean",
             "title": "UK-Andean countries trade agreement",
+            "intro_file": "andean_intro.md",
             "data_file": "andean.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -245,6 +254,7 @@
         {
             "code": "cameroon",
             "title": "UK-Cameroon Economic Partnership Agreement",
+            "intro_file": "cameroon_intro.md",
             "data_file": "cameroon.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -267,6 +277,7 @@
         {
             "code": "cariforum",
             "title": "CARIFORUM-UK economic partnership agreement",
+            "intro_file": "cariforum_intro.md",
             "data_file": "cariforum.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -298,7 +309,8 @@
         {
             "code": "chile",
             "title": "UK-Chile association agreement",
-            "data_file": "andean.md",
+            "intro_file": "chile_intro.md",
+            "data_file": "chile.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
                 "wholly_obtained": "Lorem ipsum obtained"
@@ -320,6 +332,7 @@
         {
             "code": "cotedivoire",
             "title": "UK-Côte d’Ivoire Stepping Stone Economic Partnership Agreement",
+            "intro_file": "cotedivoire_intro.md",
             "data_file": "cotedivoire.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -342,6 +355,7 @@
         {
             "code": "egypt",
             "title": "UK-Egypt Association Agreement",
+            "intro_file": "egypt_intro.md",
             "data_file": "egypt.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -360,6 +374,7 @@
         {
             "code": "faroe-islands",
             "title": "UK-Faroe Islands free trade agreement (FTA)",
+            "intro_file": "faroe-islands_intro.md",
             "data_file": "faroe-islands.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -382,6 +397,7 @@
         {
             "code": "georgia",
             "title": "UK-Georgia strategic partnership and cooperation agreement",
+            "intro_file": "georgia_intro.md",
             "data_file": "georgia.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -404,6 +420,7 @@
         {
             "code": "ghana",
             "title": "UK-Ghana Interim Trade Partnership Agreement",
+            "intro_file": "ghana_intro.md",
             "data_file": "ghana.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -426,6 +443,7 @@
         {
             "code": "iceland-norway",
             "title": "Agreement on trade in goods between Iceland, Norway and the UK",
+            "intro_file": "iceland-norway_intro.md",
             "data_file": "iceland-norway.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -449,6 +467,7 @@
         {
             "code": "israel",
             "title": "UK-Israel trade and partnership agreement",
+            "intro_file": "israel_intro.md",
             "data_file": "israel.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -471,6 +490,7 @@
         {
             "code": "kosovo",
             "title": "UK-Kosovo partnership, trade and cooperation agreement",
+            "intro_file": "kosovo_intro.md",
             "data_file": "kosovo.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -491,8 +511,32 @@
             ]
         },
         {
+            "code": "jordan",
+            "title": "UK-Kosovo partnership, trade and cooperation agreement",
+            "intro_file": "jordan_intro.md",
+            "data_file": "jordan.md",
+            "texts": {
+                "wholly_originating": "Lorem ipsum originating",
+                "wholly_obtained": "Lorem ipsum obtained"
+            },
+            "links": [
+                {
+                    "text": "UK-Kosovo partnership, trade and cooperation agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-kosovopartnership-trade-and-cooperationagreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "JO"
+            ]
+        },
+        {
             "code": "lebanon",
             "title": "UK-Lebanon association agreement",
+            "intro_file": "lebanon_intro.md",
             "data_file": "lebanon.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -515,6 +559,7 @@
         {
             "code": "mexico",
             "title": " UK-Mexico Trade Continuity Agreement ",
+            "intro_file": "mexico_intro.md",
             "data_file": "mexico.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -533,6 +578,7 @@
         {
             "code": "switzerland-liechtenstein",
             "title": "UK-Switzerland-Liechtenstein Trade Agreement",
+            "intro_file": "switzerland-liechtenstein_intro.md",
             "data_file": "switzerland-liechtenstein.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -556,6 +602,7 @@
         {
             "code": "moldova",
             "title": "UK-Moldova Strategic Partnership, Trade and Cooperation Agreement",
+            "intro_file": "moldova_intro.md",
             "data_file": "moldova.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -578,6 +625,7 @@
         {
             "code": "morocco",
             "title": "UK-Morocco association agreement",
+            "intro_file": "morocco_intro.md",
             "data_file": "morocco.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -600,6 +648,7 @@
         {
             "code": "north-macedonia",
             "title": "UK-North Macedonia Partnership, Trade and Cooperation agreement",
+            "intro_file": "north-macedonia_intro.md",
             "data_file": "north-macedonia.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -623,6 +672,7 @@
             "code": "pacific",
             "title": "UK-Pacific economic partnership agreement (EPA)",
             "footnote": "Samoa and the Solomon Islands have not yet acceded to the Pacific States-UK Interim Economic Partnership Agreement (pending a decision on their accession), however preferences under the agreement took effect on 1 January 2021 through a Memorandum of Understanding.",
+            "intro_file": "pacific_intro.md",
             "data_file": "pacific.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -647,6 +697,7 @@
         {
             "code": "palestinian-authority",
             "title": "UK-Palestinian Authority political, trade and partnership agreement",
+            "intro_file": "palestinian-authority_intro.md",
             "data_file": "palestinian-authority.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -669,6 +720,7 @@
         {
             "code": "singapore",
             "title": "UK-Singapore Trade Agreement",
+            "intro_file": "singapore_intro.md",
             "data_file": "singapore.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -691,6 +743,7 @@
         {
             "code": "serbia",
             "title": " UK-Serbia partnership, trade and cooperation agreement ",
+            "intro_file": "serbia_intro.md",
             "data_file": "serbia.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -703,12 +756,13 @@
                 }
             ],
             "countries": [
-                "SG"
+                "XS"
             ]
         },
         {
             "code": "sacum",
             "title": "SACUM-UK economic partnership agreement (EPA)",
+            "intro_file": "sacum_intro.md",
             "data_file": "sacum.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -735,6 +789,7 @@
         {
             "code": "tunisia",
             "title": "UK-Tunisia association agreement",
+            "intro_file": "tunisia_intro.md",
             "data_file": "tunisia.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -757,6 +812,7 @@
         {
             "code": "turkey",
             "title": "UK-Turkey trade agreement",
+            "intro_file": "turkey_intro.md",
             "data_file": "turkey.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -779,6 +835,7 @@
         {
             "code": "ukraine",
             "title": "UK-Ukraine political, free trade and strategic partnership agreement",
+            "intro_file": "ukraine_intro.md",
             "data_file": "ukraine.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -801,6 +858,7 @@
         {
             "code": "vietnam",
             "title": "UK-Vietnam Free Trade Agreement",
+            "intro_file": "vietnam_intro.md",
             "data_file": "vietnam.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",
@@ -824,6 +882,7 @@
             "code": "gsp",
             "title": "Generalised Scheme of Preferences (GSP)",
             "footnote": "Scheme incorporates:</p><ul class='govuk-list govuk-list--bullet govuk-body-s'><li>the GSP Least Developed Countries Framework</li><li>the GSP General Framework</li><li>the GSP Enhanced Framework</li></ul>",
+            "intro_file": "gsp_intro.md",
             "data_file": "gsp.md",
             "texts": {
                 "wholly_originating": "Lorem ipsum originating",

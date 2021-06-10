@@ -1,21 +1,16 @@
-.country_selector {
-    background-color: govuk-colour("light-grey");
-    padding         : 1em 1em 0px 1em;
-}
-
 .autocomplete__wrapper {
     position: relative
 }
 
 .autocomplete__hint,
 .autocomplete__input {
-    -webkit-appearance: none;
-    border            : 2px solid #0b0c0c;
-    border-radius     : 0;
-    box-sizing        : border-box;
-    -moz-box-sizing   : border-box;
-    -webkit-box-sizing: border-box;
-    margin-bottom     : 0;
+    -webkit-appearance   : none;
+    border               : 2px solid #0b0c0c;
+    border-radius        : 0;
+    box-sizing           : border-box;
+    -moz-box-sizing      : border-box;
+    -webkit-box-sizing   : border-box;
+    margin-bottom        : 0;
     // width             : 100%
 }
 
@@ -173,7 +168,6 @@ div#import {
 
 }
 
-
 .autocomplete__wrapper div {
     width: 100%;
 }
@@ -183,9 +177,9 @@ div#import {
 }
 
 #country_label {
-    display   : block;
-    // width  : 30%;
-    // float  : left;
+    display     : block;
+    margin-right: 1em;
+    margin-top  : 0.4em;
 }
 
 #location-picker {
@@ -193,8 +187,16 @@ div#import {
 }
 
 .reset-country-picker {
-    padding: 0.5em 0px 0px 0px;
+    padding: 0.5em 0px 0px 1em;
 }
-.location-picker__listbox {
-    background-color: #f00;
+
+form#country_selector_all {
+    background-color: #F3F2F1;
+    padding         : 1em;
+    margin-top      : 1em;
+    margin-bottom   : 2.5em;
+}
+
+.tight-button {
+    margin: 0px 0px 0px 1em !important
 }

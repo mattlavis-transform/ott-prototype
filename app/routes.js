@@ -6,6 +6,7 @@ const { response } = require('express');
 const Heading = require('./classes/heading.js');
 const Commodity = require('./classes/commodity.js');
 const Roo = require('./classes/roo.js');
+const RooMvp = require('./classes/roo_mvp.js');
 const ImportedContext = require('./classes/imported_context.js');
 const CPCController = require('./classes/cpc/cpc-controller.js');
 const Error_handler = require('./classes/error_handler.js');
@@ -120,11 +121,17 @@ router.get(['/country-filter'], async function (req, res) {
     var goods_nomenclature_item_id = req.query["goods_nomenclature_item_id"];
     var scopeId = req.query["scopeId"];
     var country = req.query["country"];
-    var url = "/commodities/" + goods_nomenclature_item_id + "/" + country + "#import";
+    var tab = req.session.data["tab"];
+
+    var url = "/commodities/" + goods_nomenclature_item_id + "/" + country;
     if (scopeId == "ni") {
         url = url.replace("/commodities/", "ni/commodities/");
     }
-    console.log(url);
+    if (typeof tab === 'undefined') {
+        tab = ""
+    } else {
+        url += "#" + tab;
+    }
     res.redirect(url);
 });
 
@@ -140,9 +147,22 @@ router.get([
     var border_system = "cds";
     var declaration_th;
 
-    var roo_text = global.get_roo_text(req);
+    // Get a full list of countries to use in the dropdown
+    var countries = global.get_countries(req.session.data["country"]);
 
-    delete req.session.data["where-do-you-live"];
+    // Get the country (if selected)
+    var country = req.params["country"];
+    if (typeof country === 'undefined') {
+        country = req.session.data["country"];
+        if (typeof country === 'undefined') {
+            country = "";            
+        }
+    } else {
+        req.session.data["country"] = country;
+    }
+
+    // Get any RoO information that we can
+    roo_mvp = new RooMvp(req, country);
 
     if (req.session.data["border_system"] == "chief") {
         border_system = "chief";
@@ -166,7 +186,6 @@ router.get([
 
     var c;
     var scopeId = global.get_scope(req.params["scopeId"]);
-    var country = req.params["country"];
     var root_url = global.get_root_url(req, scopeId);
     var title = global.get_title(scopeId);
     req.session.data["error"] = "";
@@ -176,12 +195,14 @@ router.get([
     } else {
         var url = 'https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"] + "?filter[geographical_area_id]=" + country;
     }
+    var url_roo = "https://www.get-rules-tariffs-trade-with-uk.service.gov.uk/country/VN/commodity/5003000010/86770";
     if (scopeId == "ni") {
         url_original = url;
         url = url.replace("/api", "/xi/api");
         const axiosrequest1 = axios.get(url);
         const axiosrequest2 = axios.get(url_original);
-        await axios.all([axiosrequest1, axiosrequest2]).then(axios.spread(function (res1, res2) {
+        const axiosrequest3 = axios.get(url_roo);
+        await axios.all([axiosrequest1, axiosrequest2, axiosrequest3]).then(axios.spread(function (res1, res2, res_roo) {
             // Get the EU measures
             c = new Commodity();
             c.pass_request(req);
@@ -195,6 +216,8 @@ router.get([
             c_uk.get_data(res2.data);
             c_uk.get_measure_data(req, "basic", override_block = true);
 
+            var a = res_roo.data;
+
             c_uk.measures.forEach(m => {
                 if (m.block == "other_uk") {
                     c.measures.push(m);
@@ -204,23 +227,33 @@ router.get([
             c.categorise_measures(override_block = "smart");
             c.sort_measures();
 
-            res.render('commodities', { 'roo_text': roo_text, 'toggle_message': toggle_message, 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+            res.render('commodities', { 'roo': roo, 'toggle_message': toggle_message, 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
         }));
 
     } else {
-        axios.get(url)
-            .then((response) => {
-                c = new Commodity();
-                c.pass_request(req);
-                c.get_data(response.data);
-                c.get_measure_data(req, "basic");
-                console.log(c.measures.length);
+        const axiosrequest1 = axios.get(url);
+        const axiosrequest3 = axios.get(url_roo);
+        await axios.all([axiosrequest1, axiosrequest3]).then(axios.spread(function (response, res_roo) {
+            c = new Commodity();
+            c.pass_request(req);
+            c.get_data(response.data);
+            c.get_measure_data(req, "basic");
+            console.log(c.measures.length);
 
-                c.sort_measures();
-                res.render('commodities', { 'roo_text': roo_text, 'toggle_message': toggle_message, 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
-            });
+            c.sort_measures();
+
+            var a = res_roo.data;
+
+            res.render('commodities', {'countries': countries, 'roo': roo_mvp, 'toggle_message': toggle_message, 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+        }));
 
     }
+});
+
+// Reset country
+router.get(['/country_reset/:goods_nomenclature_item_id/'], function (req, res) {
+    req.session.data["country"] = "";
+    res.redirect("/commodities/" + req.params["goods_nomenclature_item_id"]);
 });
 
 // Get a geographical area
@@ -360,7 +393,7 @@ router.get([
     confirm = req.params["confirm"];
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
-    res.render('preferences', { 'show_confirmation': confirm,  'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
+    res.render('preferences', { 'show_confirmation': confirm, 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
 });
 
 // Preferences handler
@@ -452,7 +485,7 @@ router.get([
     // Make first request
     var axios_response;
     var call_type = "search";
-    var url = "https://www.trade-tariff.service.gov.uk/search.json?q=" + search_term + "&input-autocomplete=" + search_term ;
+    var url = "https://www.trade-tariff.service.gov.uk/search.json?q=" + search_term + "&input-autocomplete=" + search_term;
     //https://www.trade-tariff.service.gov.uk/search?q=leggings&input-autocomplete=leggings&date=19%2F05%2F2021
     [axios_response] = await Promise.all([
         axios.get(url)

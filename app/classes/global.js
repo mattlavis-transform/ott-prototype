@@ -309,32 +309,14 @@ global.get_geography = function (id, res) {
     return (ret);
 }
 
-global.get_roo_text = function (req) {
-    var fs = require('fs');
-
-    req.session.data["country"] = "FR";
-    var commodity = req.params["goods_nomenclature_item_id"];
-    var folder = 'app/data/roo_psr/';
-    var data_filename_6_digit = folder + req.session.data["country"] + "_" + commodity.substr(0, 6) + ".html";
-    var data_filename_4_digit = folder + req.session.data["country"] + "_" + commodity.substr(0, 4) + "00.html";
-
-
-
-    try {
-        if (fs.existsSync(data_filename_6_digit)) {
-            var data = fs.readFileSync(data_filename_6_digit, 'utf8');
-            return (data);
+global.get_countries = function (selected) {
+    var countries = require('../data/geographical_areas.json');
+    countries.data.forEach(element => {
+        if (element.id == selected) {
+            element.selected = true;
+        } else {
+            element.selected = false;
         }
-    } catch (err) {
-        try {
-            if (fs.existsSync(data_filename_4_digit)) {
-                var data = fs.readFileSync(data_filename_4_digit, 'utf8');
-                return (data);
-            }
-        }
-        catch (err) {
-            console.error(err);
-            return ("No data available");
-        }
-    }
+    });
+    return (countries);
 }

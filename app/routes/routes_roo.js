@@ -118,6 +118,21 @@ router.get(['/roo/rvc'], function (req, res) {
     res.render('roo/glossary2', { 'country': roo });
 });
 
+
+
+router.get(['/roo/change_country/:commodity'], function (req, res) {
+    req.session.data["country"] = "";
+    var commodity = req.params["commodity"];
+    res.redirect('/commodities/' + commodity + "#rules_of_origin");
+});
+
+router.get([
+    '/roo/select_country/:commodity',
+    '/roo/select_country/',
+], function (req, res) {
+    var commodity = req.session.data["commodity"];
+    res.redirect('/commodities/' + commodity + "/" + req.session.data["roo_country"] + "#rules_of_origin");
+});
 /* Rules of origin ends here */
 
 

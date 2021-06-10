@@ -213,7 +213,16 @@
     table,
     tr,
     td,
-    th, p {
-        font-size: 16px;
+    th,
+    p {
+        font-size: 19px;
     }
+
+    ol ol {
+        list-style-type: lower-alpha;
+    }
+    ol ol ol {
+        list-style-type: upper-alpha;
+    }
+
 }

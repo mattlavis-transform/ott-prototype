@@ -112,6 +112,7 @@ class Commodity {
         this.origin = origin;
         this.origin_obj = new GeographicalArea();
         this.country_name = this.origin_obj.get_country_description(origin);
+        this.country_name2 = this.origin_obj.get_country_description(req.session.data["country"]);
 
         this.measures = [];
         this.measure_components = [];
