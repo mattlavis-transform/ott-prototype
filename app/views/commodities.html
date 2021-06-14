@@ -473,14 +473,13 @@ href: ""
     });
 
     $(function () {
-
-        //$("input#location-picker").val("Canada");
+        var bookmark = window.location.hash.replace("#", "");
+        $('#tab').val(bookmark);
 
         $(".govuk-tabs__tab").click(function () {
             selected_tab = $(this)
                 .attr("id")
                 .replace("tab_", "");
-            // alert (selected_tab);
             $('#tab').val(selected_tab);
         });
     });
