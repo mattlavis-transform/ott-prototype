@@ -210,20 +210,19 @@
 
 #rules_of_origin {
 
-    table
+    table {
 
-    {
         tr,
         td,
         th,
         p {
-            font-size: 16px;
+            font-size: 16px !important;
         }
 
         li p {
-            margin:0px;
+            margin: 0px;
         }
-    
+
     }
 
     ol {
@@ -234,6 +233,7 @@
         list-style-type: lower-alpha;
         // font-size: 16px;
     }
+
     ol ol ol {
         list-style-type: upper-alpha;
         // font-size: 16px;

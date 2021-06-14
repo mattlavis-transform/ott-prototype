@@ -64,67 +64,67 @@ The list sets out the conditions required for all products to be considered as s
 
 2. However, the tolerance mentioned in Note 5.1 may be applied only to mixed products which have been made from two or more basic textile materials.
 
-The following are the basic textile materials:
+   The following are the basic textile materials:
 
-- silk,
+   - silk,
 
-- wool,
+   - wool,
 
-- coarse animal hair,
+   - coarse animal hair,
 
-- fine animal hair,
+   - fine animal hair,
 
-- horsehair,
+   - horsehair,
 
-- cotton,
+   - cotton,
 
-- paper-making materials and paper,
+   - paper-making materials and paper,
 
-- flax,
+   - flax,
 
-- true hemp,
+   - true hemp,
 
-- jute and other textile bast fibres,
+   - jute and other textile bast fibres,
 
-- sisal and other textile fibres of the genus Agave,
+   - sisal and other textile fibres of the genus Agave,
 
-- coconut, abaca, ramie and other vegetable textile fibres,
+   - coconut, abaca, ramie and other vegetable textile fibres,
 
-- synthetic man-made filaments,
+   - synthetic man-made filaments,
 
-- artificial man-made filaments,
+   - artificial man-made filaments,
 
-- current-conducting filaments,
+   - current-conducting filaments,
 
-- synthetic man-made staple fibres of polypropylene,
+   - synthetic man-made staple fibres of polypropylene,
 
-- synthetic man-made staple fibres of polyester,
+   - synthetic man-made staple fibres of polyester,
 
-- synthetic man-made staple fibres of polyamide,
+   - synthetic man-made staple fibres of polyamide,
 
-- synthetic man-made staple fibres of polyacrylonitrile,
+   - synthetic man-made staple fibres of polyacrylonitrile,
 
-- synthetic man-made staple fibres of polyimide,
+   - synthetic man-made staple fibres of polyimide,
 
-- synthetic man-made staple fibres of polytetrafluoroethylene,
+   - synthetic man-made staple fibres of polytetrafluoroethylene,
 
-- synthetic man-made staple fibres of poly(phenylene sulphide),
+   - synthetic man-made staple fibres of poly(phenylene sulphide),
 
-- synthetic man-made staple fibres of poly(vinyl chloride),
+   - synthetic man-made staple fibres of poly(vinyl chloride),
 
-- other synthetic man-made staple fibres,
+   - other synthetic man-made staple fibres,
 
-- artificial man-made staple fibres of viscose,
+   - artificial man-made staple fibres of viscose,
 
-- other artificial man-made staple fibres,
+   - other artificial man-made staple fibres,
 
-- yarn made of polyurethane segmented with flexible segments of polyether, whether or not gimped,
+   - yarn made of polyurethane segmented with flexible segments of polyether, whether or not gimped,
 
-- yarn made of polyurethane segmented with flexible segments of polyester, whether or not gimped,
+   - yarn made of polyurethane segmented with flexible segments of polyester, whether or not gimped,
 
-- products of heading 5605 (metallised yarn) incorporating strip consisting of a core of aluminium foil or of a core of plastic film whether or not coated with aluminium powder, of a width not exceeding 5 mm, sandwiched by means of a transparent or coloured adhesive between two layers of plastic film,
+   - products of heading 5605 (metallised yarn) incorporating strip consisting of a core of aluminium foil or of a core of plastic film whether or not coated with aluminium powder, of a width not exceeding 5 mm, sandwiched by means of a transparent or coloured adhesive between two layers of plastic film,
 
-- other products of heading 5605.
+   - other products of heading 5605.
 
    _Example:_
 
