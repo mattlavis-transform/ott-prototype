@@ -10,7 +10,8 @@ class Roo {
         this.intro_text = "";
         this.get_roo_config(req);
         if (this.valid_rules) {
-            this.get_product_specific_rules(req);
+            // this.get_product_specific_rules_gb(req);
+            this.get_product_specific_rules_xi(req);
         }
     }
 
@@ -26,7 +27,7 @@ class Roo {
             this.scheme_code = result[0].code;
             this.links = result[0].links;
             var fs = require('fs');
-            
+
             // Get the intro notes copied from DIT
             var data_filename = path.join(__dirname, "../data/roo/intro_notes/" + result[0].intro_file);
             this.intro_text = fs.readFileSync(data_filename, 'utf8');
@@ -99,7 +100,72 @@ class Roo {
         }
     }
 
-    get_product_specific_rules(req) {
+    get_templates() {
+        var fs = require('fs');
+        var folder = path.join(__dirname, "../views/roo/templates/");
+        this.template_table = fs.readFileSync(folder + "table.html", 'utf8');
+        this.template_table_row = fs.readFileSync(folder + "table_row.html", 'utf8');
+        var a = 1;
+    }
+
+    get_product_specific_rules_xi(req) {
+        var jp = require('jsonpath');
+        const fs = require('fs')
+        const path = require('path');
+
+        const directoryPath = path.join(__dirname, '../data/roo/product-specific/');
+    
+        var result;
+
+        this.get_templates();
+
+        var filename = directoryPath + this.scheme_code + '_roo.json';
+
+        try {
+            if (fs.existsSync(filename)) {
+                //file exists
+                var data = require(filename);
+                var sub_heading = req.params["goods_nomenclature_item_id"].substr(0, 6);
+                var query_string = '$.rules[?(@.sub_heading == "' + sub_heading + '")]'
+                var results = jp.query(data, query_string);
+                this.rows = "";
+                if (results.length > 0) {
+                    results.forEach(result => {
+                        var row = this.template_table_row;
+                        row = row.replace("{{ heading }}", result["heading"]);
+                        var rule_text = this.cleanse(result["rule"]);
+                        if (result["alternateRule"] != null) {
+                            rule_text += " or " + result["alternateRule"];
+                        }
+                        row = row.replace("{{ rule }}", rule_text);
+                        this.rows += row;
+                    });
+                }
+
+                this.product_specific_rules = this.template_table;
+                this.product_specific_rules = this.product_specific_rules.replace("{{ rows }}", this.rows);
+            } else {
+                this.product_specific_rules = "";
+            }
+        } catch (err) {
+            console.error(err)
+            this.product_specific_rules = "";
+        }
+    }
+
+    cleanse(s) {
+        s = s.replace(/\[ul\]/g, "");
+        s = s.replace(/\[bl\]/g, "");
+        s = s.replace(/\[\\bl\]/g, "");
+        s = s.replace(/\[\\ul\]/g, "");
+        s = s.replace(/\[footnote="[^"]*"\]/g, "");
+        s = s.replace(/ – –/g, "<br> – –")
+        s = s.replace(/\*/g, "<br> *")
+        s = s.replace(/\+/g, "<br> - - ")
+        return (s);
+    }
+
+    get_product_specific_rules_gb(req) {
         this.product_specific_rules = "";
         var fs = require('fs');
         var commodity = req.params["goods_nomenclature_item_id"];

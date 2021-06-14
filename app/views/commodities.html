@@ -203,26 +203,36 @@ href: ""
 
         <div class="govuk-tabs__panel" id="rules_of_origin">
             <div class="govuk-grid-row">
-                {% if roo.valid_rules %}
-                    <div class="govuk-grid-column-two-thirds">
-
+                <div class="govuk-grid-column-two-thirds">
+                    {% if roo.valid_rules %}
+                        <span class="govuk-caption-m">Rules of origin - trading with {{ commodity.country_name2 }}</span>
                         {% if roo.product_specific_rules %}
-
-                            <h2 class="govuk-heading-m">
-                            Product-specific rules for commodity {{ commodity.data.attributes.goods_nomenclature_item_id }} -
-                            Trade with {{ commodity.country_name2 }}
-                            </h2>
-                            {{ roo["product_specific_rules"] | safe }}
-
+                            <div class="xgovuk-inset-text">
+                                <h2 class="govuk-heading-m">
+                                Product-specific rules for commodity {{ commodity.data.attributes.goods_nomenclature_item_id }}
+                                </h2>
+                                {{ roo["product_specific_rules"] | safe }}
+                            </div>
                         {% endif %}
 
-                        <h2 class="govuk-heading-m">
-                    Rules of origin for trade between the UK and {{ commodity.country_name2 }}
-                        </h2>
-                        {{ roo["fta_intro"] | safe }}
+                        <details class="govuk-details govuk-!-margin-bottom-3" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">The UK's trading relationship with the EU</span>
+                            </summary>
+                            <div class="govuk-details__text">
+                                {{ roo["fta_intro"] | safe }}
+                            </div>
+                        </details>
 
-                        <h2 class="govuk-heading-m">Notes</h2>
-                        {{ roo["intro_text"] | safe }}
+                        <details class="govuk-details xgovuk-details-m" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">Explanatory notes on these rules of origin</span>
+                            </summary>
+                            <div class="govuk-details__text">
+                                {{ roo["intro_text"] | safe }}
+                            </div>
+                        </details>
+                        
 
                     </div>
                     <div class="govuk-grid-column-one-third">
@@ -240,11 +250,10 @@ href: ""
                             </nav>
                         </aside>
                     </div>
-                                        {% else %}
-                        <h2 class="govuk-heading-m">Rules of origin</h2>
-                        <p>To view rules of origin, select a country with which the UK has a trade agreement from the list
+                {% else %}
+                    <h2 class="govuk-heading-m">Rules of origin</h2>
+                    <p>To view rules of origin, select a country with which the UK has a trade agreement from the list
                     above.</p>
-
 
                 {% endif %}
             </div>
