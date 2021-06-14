@@ -120,10 +120,9 @@ class Roo {
         this.get_templates();
 
         var filename = directoryPath + this.scheme_code + '_roo.json';
-
+        var a = 1;
         try {
             if (fs.existsSync(filename)) {
-                //file exists
                 var data = require(filename);
                 var sub_heading = req.params["goods_nomenclature_item_id"].substr(0, 6);
                 var query_string = '$.rules[?(@.sub_heading == "' + sub_heading + '")]'
@@ -133,10 +132,14 @@ class Roo {
                     results.forEach(result => {
                         var row = this.template_table_row;
                         row = row.replace("{{ heading }}", result["heading"]);
+                        row = row.replace("{{ description }}", result["description"]);
                         var rule_text = this.cleanse(result["rule"]);
                         if (result["alternateRule"] != null) {
                             rule_text += " or " + result["alternateRule"];
                         }
+                        var MarkdownIt = require('markdown-it');
+                        var md = new MarkdownIt();
+                        rule_text = md.render(rule_text);
                         row = row.replace("{{ rule }}", rule_text);
                         this.rows += row;
                     });
@@ -154,14 +157,15 @@ class Roo {
     }
 
     cleanse(s) {
+        s = s.replace(/\\n /g, "\n");
         s = s.replace(/\[ul\]/g, "");
         s = s.replace(/\[bl\]/g, "");
         s = s.replace(/\[\\bl\]/g, "");
         s = s.replace(/\[\\ul\]/g, "");
         s = s.replace(/\[footnote="[^"]*"\]/g, "");
-        s = s.replace(/ – –/g, "<br> – –")
-        s = s.replace(/\*/g, "<br> *")
-        s = s.replace(/\+/g, "<br> - - ")
+        // s = s.replace(/ – –/g, "<br> – –")
+        // s = s.replace(/\*/g, "<br> *")
+        // s = s.replace(/\+/g, "<br> - - ")
         return (s);
     }
 

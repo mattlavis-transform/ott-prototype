@@ -92,7 +92,7 @@
             },
             "links": [
                 {
-                    "text": "Continuing the United Kingdom’s trade relationship with Albania (web version)",
+                    "text": "Continuing the United Kingdom’s trade relationship with Albania",
                     "url": "https://www.gov.uk/government/publications/continuing-the-uks-trade-relationship-with-albania-parliamentary-report/continuing-the-united-kingdoms-trade-relationship-with-albania-web-version"
                 }
             ],
@@ -113,6 +113,10 @@
                 {
                     "text": "Trade with Canada",
                     "url": "https://www.gov.uk/guidance/summary-of-the-uk-canada-trade-continuity-agreement"
+                },
+                {
+                    "text": "UK-Canada Trade Continuity Agreement (TCA)",
+                    "url": "https://www.gov.uk/guidance/uk-canada-trade-continuity-agreement-tca"
                 }
             ],
             "countries": [
@@ -266,8 +270,8 @@
                     "url": "https://www.gov.uk/government/collections/uk-cameroon-economic-partnership-agreement"
                 },
                 {
-                    "text": "",
-                    "url": ""
+                    "text": "Continuing the UK's trade relationship with Cameroon: parliamentary report",
+                    "url": "https://www.gov.uk/government/publications/continuing-the-uks-trade-relationship-with-cameroon-parliamentary-report"
                 }
             ],
             "countries": [
@@ -285,8 +289,8 @@
             },
             "links": [
                 {
-                    "text": "tbc",
-                    "url": "https://www.gov.uk/"
+                    "text": "CARIFORUM-UK economic partnership agreement",
+                    "url": "https://www.gov.uk/government/collections/cariforum-uk-economic-partnership-agreement"
                 }
             ],
             "countries": [
