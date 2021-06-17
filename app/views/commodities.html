@@ -224,14 +224,16 @@ href: ""
                             </div>
                         </details> #}
 
-                        <details class="govuk-details govuk-details-m" data-module="govuk-details">
+                        <h2 class="govuk-heading-m">Introductory notes on these rules of origin</h2>
+                        {{ roo["intro_text"] | safe }}
+                        {# <details class="govuk-details govuk-details-m" data-module="govuk-details">
                             <summary class="govuk-details__summary">
-                                <span class="govuk-details__summary-text">Explanatory notes on these rules of origin</span>
+                                <span class="govuk-details__summary-text">Introductory notes on these rules of origin</span>
                             </summary>
                             <div class="govuk-details__text">
                                 {{ roo["intro_text"] | safe }}
                             </div>
-                        </details>
+                        </details> #}
                         
 
                     </div>

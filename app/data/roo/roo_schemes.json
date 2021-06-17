@@ -92,6 +92,10 @@
             },
             "links": [
                 {
+                    "text": "UK-Albania partnership, Trade and Cooperation Agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-albania-partnership-trade-and-cooperation-agreement"
+                },
+                {
                     "text": "Continuing the United Kingdom’s trade relationship with Albania",
                     "url": "https://www.gov.uk/government/publications/continuing-the-uks-trade-relationship-with-albania-parliamentary-report/continuing-the-united-kingdoms-trade-relationship-with-albania-web-version"
                 }
@@ -367,8 +371,12 @@
             },
             "links": [
                 {
-                    "text": "TBC",
-                    "url": "gov.uk"
+                    "text": "Trade with Egypt",
+                    "url": "https://www.gov.uk/guidance/summary-of-the-uk-egypt-association-agreement"
+                },
+                {
+                    "text": "Continuing the UK's trade relationship with Egypt: parliamentary report",
+                    "url": "https://www.gov.uk/government/publications/continuing-the-uks-trade-relationship-with-egypt-parliamentary-report"
                 }
             ],
             "countries": [
@@ -571,8 +579,12 @@
             },
             "links": [
                 {
-                    "text": "TBC",
-                    "url": ""
+                    "text": "Trade with Mexico",
+                    "url": "https://www.gov.uk/guidance/summary-of-the-uk-mexico-trade-continuity-agreement"
+                },
+                {
+                    "text": "Continuing the UK's trade relationship with Mexico: parliamentary report",
+                    "url": "https://www.gov.uk/government/publications/continuing-the-uks-trade-relationship-with-mexico-parliamentary-report"
                 }
             ],
             "countries": [
@@ -755,8 +767,12 @@
             },
             "links": [
                 {
-                    "text": "TBC",
-                    "url": ""
+                    "text": "Trade with Serbia",
+                    "url": "https://www.gov.uk/guidance/trade-with-serbia"
+                },
+                {
+                    "text": "Continuing the United Kingdom’s trade relationship with the Republic of Serbia: parliamentary report",
+                    "url": "https://www.gov.uk/government/publications/continuing-the-united-kingdoms-trade-relationship-with-the-republic-of-serbia-parliamentary-report"
                 }
             ],
             "countries": [

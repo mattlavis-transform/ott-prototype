@@ -202,7 +202,15 @@
 }
 
 p.teal,
-div.teal {
+div.teal,
+ul.teal li {
+    color      : #066;
+    font-size  : 16px;
+    font-weight: 400;
+}
+
+h2.teal,
+h3.teal {
     color: #066;
 }
 

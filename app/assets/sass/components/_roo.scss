@@ -209,13 +209,18 @@
 }
 
 #rules_of_origin {
+    font-size: 16px !important;
 
     table {
 
         tr,
         td,
         th,
-        p {
+        p,
+        ol,
+        li,
+        ul,
+        .govuk-list, .govuk-body, p.govuk-body {
             font-size: 16px !important;
         }
 
@@ -225,18 +230,18 @@
 
     }
 
-    ol {
+    ol, ul, p {
         font-size: 16px;
     }
 
     ol ol {
         list-style-type: lower-alpha;
-        // font-size: 16px;
+        font-size: 16px;
     }
 
     ol ol ol {
         list-style-type: upper-alpha;
-        // font-size: 16px;
+        font-size: 16px;
     }
 
 }
