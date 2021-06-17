@@ -75,79 +75,18 @@
         </ul>
       </nav>
       <!-- End navigation //-->
-      <h2 class="govuk-heading-s teal">Screen UK MFN</h2>
-      <p class="teal">The option below shows when:</p>
-      <ul class="teal">
-        <li>Trade is RoW to NI</li>
-        <li>Trader is a member of UKTS, is processing acceptably and final use in UK</li>
-        <li>The UK MFN may be used as EU MFN minus UK MFN &lt; 3% of customs value</li>
-      </ul>
 
-      <h2 id="measure_type_103" class="govuk-heading-m">Option 1: Third-country duty</h2>
+      <div id="UKMFN">
+        <h2 class="govuk-heading-s teal">Screen UKMFN</h2>
+        <p class="teal">The option below shows when:</p>
+        <ul class="teal">
+          <li>Trade is RoW to NI</li>
+          <li>Trader is a member of UKTS, is processing acceptably and final use in UK</li>
+          <li>The UK MFN may be used as EU MFN minus UK MFN &lt;= 3% of customs value</li>
+        </ul>
 
-      {{ govukTable({
-        firstCellIsHeader: false,
-        classes: "govuk-table--m",
-        head: [
-          {
-            text: "Data"
-          },
-          {
-            text: "Calculation"
-          },
-          {
-            text: "Value",
-            classes: "r"
-          }
-        ],
-        rows: [
-          [
-            {
-              text: "Valuation for import"
-            },
-            {
-              text: "Value of goods + freight + insurance costs"
-            },
-            {
-              text: "£1,500.00",
-              classes: "r"
-            }
-          ],
-          [
-            {
-              html: "Import duty <br><span class='govuk-green'>Third-country duty (UK)</span>"
-            },
-            {
-              text: "10% * £1,500.00"
-            },
-            {
-              text: "£150.00",
-              classes: "r"
-            }
-          ],
-          [
-            {
-              html: "Duty total",
-              classes: "b"
-            },
-            {
-              text: ""
-            },
-            {
-              text: "£150.00",
-              classes: "r b"
-            }
-          ]
-        ]
-      }) }}
-      {# <p class="govuk-body">To use the third-country duty, do the following ... or read this information.</p> #}
+        <h2 id="measure_type_103" class="govuk-heading-m">Option 1: Third-country duty</h2>
 
-      <p class="govuk-body">A ‘Third country’ duty is the tariff charged where there isn’t a trade agreement or a customs union available. It can also be referred to as the Most Favoured Nation (MFN) rate.</p>
-
-      <p class="govuk-body">UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.</p>
-
-      <div class="hideable">
-        <h2 id="measure_type_112" class="govuk-heading-m govuk-!-margin-top-9">Option 2: Autonomous tariff suspension</h2>
         {{ govukTable({
           firstCellIsHeader: false,
           classes: "govuk-table--m",
@@ -178,13 +117,13 @@
             ],
             [
               {
-                html: "Import duty <br><span class='govuk-green'>Autonomous tariff suspension (UK)</span>"
+                html: "Import duty <br><span class='govuk-green'>Third-country duty (UK)</span>"
               },
               {
-                text: "0% * £1,500.00"
+                text: "10% * £1,500.00"
               },
               {
-                text: "£0.00",
+                text: "£150.00",
                 classes: "r"
               }
             ],
@@ -197,18 +136,29 @@
                 text: ""
               },
               {
-                text: "£0.00",
+                text: "£150.00",
                 classes: "r b"
               }
             ]
           ]
         }) }}
 
-        <p class="govuk-body">This suspension does not apply to any mixtures, preparations or products made up of different components containing these products.</p>
+        <p class="govuk-body">A ‘Third country’ duty is the tariff charged where there isn’t a trade agreement or a customs union available. It can also be referred to as the Most Favoured Nation (MFN) rate.</p>
+
+        <p class="govuk-body">UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.</p>
       </div>
 
-      <div class="hideable">
-        <h2 id="measure_type_115" class="govuk-heading-m govuk-!-margin-top-9">Option 3: Autonomous suspension under end-use</h2>
+      <div id="EUMFN">
+        <h2 class="govuk-heading-s teal">Screen EUMFN</h2>
+        <p class="teal">The option below shows when:</p>
+        <ul class="teal">
+          <li>Trade is RoW to NI</li>
+          <li>Trader is a member of UKTS, is processing acceptably and final use in UK</li>
+          <li>The UK MFN may be NOT be used as EU MFN minus UK MFN &gt; 3% of customs value</li>
+        </ul>
+
+        <h2 id="measure_type_103" class="govuk-heading-m">Option 1: Third-country duty</h2>
+
         {{ govukTable({
           firstCellIsHeader: false,
           classes: "govuk-table--m",
@@ -239,13 +189,13 @@
             ],
             [
               {
-                html: "Import duty <br><span class='govuk-green'>Autonomous suspension under end-use (UK)</span>"
+                html: "Import duty <br><span class='govuk-green'>Third-country duty (EU)</span>"
               },
               {
-                text: "0% * £1,500.00"
+                text: "10% * 1,500.00 EUR"
               },
               {
-                text: "£0.00",
+                text: "£150.00",
                 classes: "r"
               }
             ],
@@ -258,95 +208,29 @@
                 text: ""
               },
               {
-                text: "£0.00",
+                text: "£150.00",
                 classes: "r b"
               }
             ]
           ]
         }) }}
 
-        <p class="govuk-body">Suspension of duties is subject to Authorised-Use customs supervision
-        in accordance with Chapter 4 of The Customs (Special Procedures and Outward Processing)
-        (EU Exit) Regulations 2018 (UK Statutory Instruments 2018 No. 1249)<br><br>
-        This suspension may only be used in goods imported for the construction, maintenance and repair
-        of aircraft of an unladen weight exceeding 2 000 kilograms and of ground flying trainers for civil use.</p>
-      </div>
-      <div class="hideable">
-        <h2 id="measure_type_117" class="govuk-heading-m govuk-!-margin-top-9">Option 4: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms</h2>
-        {{ govukTable({
-          firstCellIsHeader: false,
-          classes: "govuk-table--m",
-          head: [
-            {
-              text: "Data"
-            },
-            {
-              text: "Calculation"
-            },
-            {
-              text: "Value",
-              classes: "r"
-            }
-          ],
-          rows: [
-            [
-              {
-                text: "Valuation for import"
-              },
-              {
-                text: "Value of goods + freight + insurance costs"
-              },
-              {
-                text: "£1,500.00",
-                classes: "r"
-              }
-            ],
-            [
-              {
-                html: "Import duty <br><span class='govuk-green'>Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms (UK)</span>"
-              },
-              {
-                text: "0% * £1,500.00"
-              },
-              {
-                text: "£0.00",
-                classes: "r"
-              }
-            ],
-            [
-              {
-                html: "Duty total",
-                classes: "b"
-              },
-              {
-                text: ""
-              },
-              {
-                text: "£0.00",
-                classes: "r b"
-              }
-            ]
-          ]
-        }) }}
+        <p class="govuk-body">A ‘Third country’ duty is the tariff charged where there isn’t a trade agreement or a customs union available. It can also be referred to as the Most Favoured Nation (MFN) rate.</p>
 
-        <p class="govuk-body">
-        1. Customs duties may be suspended in respect of goods intended for incorporation in ships, boats or other
-        vessels classified at the following CN codes 8901 10 10; 8901 20 10; 8901 30 10; 8901 90 10; 8902 00 10;
-        8903 91 10; 8903 92 10; 8904 00 10; 8904 00 91; 8905 10 10; 8905 90 10; 8906 10 00; 8906 90 10 for the purposes
-        of their construction, repair, maintenance or conversion, and in respect of goods intended for fitting to
-        or equipping such ships, boats or other vessels.<br><br>
-        2. Customs duties shall be suspended in respect of:<br>
-        (a) goods intended for incorporation in drilling or production platforms:<br>
-        (1) fixed, of subheading ex 8430 49, operating in or outside the territorial sea of Member States, or<br>
-        (2) floating or submersible, of subheading 8905 20, for the purposes of their construction, repair, maintenance or conversion, and in respect of goods intended for equipping the said platforms.<br>
-        (b) tubes, pipes, cables and their connection pieces, linking these drilling or production platforms to the mainland.<br>
-        Goods intended for incorporation in drilling or production platforms:<br>
-        Those goods such as motor fuel, lubricants and gas, which are necessary for the operation of machines and apparatus which do not affect permanently, and are not integral parts of the platforms and which are used on board for the construction, repair, maintenance, conversion or equipping of these platforms are regarded also as being used for incorporation in drilling or production platforms.
-        </p>
+        <p class="govuk-body">EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.</p>
       </div>
 
-      <div class="hideable">
-        <h2 id="measure_type_119" class="govuk-heading-m govuk-!-margin-top-9">Option 5: Airworthiness tariff suspension</h2>
+      <div id="EUPREF">
+        <h2 class="govuk-heading-s teal">Screen EUPREF</h2>
+        <p class="teal">The option below shows when:</p>
+        <ul class="teal">
+          <li>Trade is RoW to NI</li>
+          <li>Trader is a member of UKTS, is processing acceptably and final use in UK</li>
+          <li>The EU preference may be used as EU MFN minus UK MFN &gt; 3% of customs value, but not the UK preference</li>
+        </ul>
+
+        <h2 id="measure_type_103" class="govuk-heading-m">Option 2: Tariff preference - European Union</h2>
+
         {{ govukTable({
           firstCellIsHeader: false,
           classes: "govuk-table--m",
@@ -377,13 +261,13 @@
             ],
             [
               {
-                html: "Import duty <br><span class='govuk-green'>Airworthiness tariff suspension (UK)</span>"
+                html: "Import duty <br><span class='govuk-green'>Tariff preference (EU)</span>"
               },
               {
-                text: "0% * £1,500.00"
+                text: "10% * 1,500.00 EUR"
               },
               {
-                text: "£0.00",
+                text: "£150.00",
                 classes: "r"
               }
             ],
@@ -396,20 +280,88 @@
                 text: ""
               },
               {
-                text: "£0.00",
+                text: "£150.00",
                 classes: "r b"
               }
             ]
           ]
         }) }}
 
-        <p class="govuk-body">The autonomous Common Customs Tariff duties laid down in Regulation (EEC) No 2658/87 for parts,
-        components and other goods of a kind to be incorporated in or used for aircraft and parts thereof in the course
-        of their manufacture, repair, maintenance, rebuilding, modification or conversion is suspended.<br><br>
-        In order to benefit from the suspension, the declarant shall present to the customs authorities an Authorised
-        Release Certificate — EASA Form 1, as set out in Appendix I to Annex I to Regulation (EU) No 748/2012,
-        or an equivalent certificate.<br><br>
-        The certificates which are deemed to be equivalent to Authorised Release Certificates are listed in Annex II to the Regulation (EU) 2018/1517.</p>
+        <p class="govuk-body">A tariff preference is the rate available if a free trade agreement or another arrangement is in place between the UK and an overseas country. Goods will need to comply with the <a target="_blank" href="https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin" class="govuk-link">rules of origin</a> to benefit from this rate and you will need to provide evidence of compliance with your shipment.</p>
+
+        <p class="govuk-body">EU preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty exceeds 3% of the customs value of your trade.</p>
+      </div>
+
+      <div id="UKPREF1">
+        <h2 class="govuk-heading-s teal">Screen UKPREF1</h2>
+        <p class="teal">The option below shows when:</p>
+        <ul class="teal">
+          <li>Trade is RoW to NI</li>
+          <li>Trader is a member of UKTS, is processing acceptably and final use in UK</li>
+          <li>The UK preference may be used as EU MFN minus UK MFN &lt;= 3% of customs value - there is both a UK and an EU preference</li>
+        </ul>
+
+        <h2 id="measure_type_103" class="govuk-heading-m">Option 2: Tariff preference - European Union</h2>
+
+        {{ govukTable({
+          firstCellIsHeader: false,
+          classes: "govuk-table--m",
+          head: [
+            {
+              text: "Data"
+            },
+            {
+              text: "Calculation"
+            },
+            {
+              text: "Value",
+              classes: "r"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Valuation for import"
+              },
+              {
+                text: "Value of goods + freight + insurance costs"
+              },
+              {
+                text: "£1,500.00",
+                classes: "r"
+              }
+            ],
+            [
+              {
+                html: "Import duty <br><span class='govuk-green'>Tariff preference (EU)</span>"
+              },
+              {
+                text: "10% * 1,500.00 EUR"
+              },
+              {
+                text: "£150.00",
+                classes: "r"
+              }
+            ],
+            [
+              {
+                html: "Duty total",
+                classes: "b"
+              },
+              {
+                text: ""
+              },
+              {
+                text: "£150.00",
+                classes: "r b"
+              }
+            ]
+          ]
+        }) }}
+
+        <p class="govuk-body">A tariff preference is the rate available if a free trade agreement or another arrangement is in place between the UK and an overseas country. Goods will need to comply with the <a target="_blank" href="https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin" class="govuk-link">rules of origin</a> to benefit from this rate and you will need to provide evidence of compliance with your shipment.</p>
+
+        <p class="govuk-body">UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.</p>
       </div>
 
     </div>
