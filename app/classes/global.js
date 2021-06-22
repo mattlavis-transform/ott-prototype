@@ -1,6 +1,54 @@
 const e = require('express');
 var numeral = require('numeral');
 
+global.get_date = function (req, save = false) {
+    const { DateTime } = require("luxon");
+    var date = {}
+    
+    // Get querystring variables
+    var day = req.query["day"];
+    var month = req.query["month"];
+    var year = req.query["year"];
+    
+    // Get querystring variables
+    var day2 = req.session.data["day"];
+    var month2 = req.session.data["month"];
+    var year2 = req.session.data["year"];
+    
+    if ((typeof day !== 'undefined') && (typeof month !== 'undefined') && (typeof year !== 'undefined')) {
+        date.day = day;
+        date.month = month;
+        date.year = year;
+    } else if ((typeof day2 !== 'undefined') && (typeof month2 !== 'undefined') && (typeof year2 !== 'undefined')) {
+        date.day = day2;
+        date.month = month2;
+        date.year = year2;
+    } else {
+        var now = DateTime.now();
+        date.day = now.day;
+        date.month = now.month;
+        date.year = now.year;
+    }
+
+    DateTime.now()
+        .setLocale("en")
+        .toLocaleString(DateTime.DATE_FULL);
+
+    date.date = DateTime.fromObject({day: date.day, month: date.month, year: date.year, locale: "en-gb"})
+    var newFormat = Object.assign(DateTime.DATE_FULL, { weekday: 'long' });
+    // date.date_string = date.date.toLocaleString(DateTime.DATE_MED);
+    date.date_string = date.date.toLocaleString(newFormat);
+    var a = 1;
+
+    if (save) {
+        req.session.data["day"] = date.day;
+        req.session.data["month"] = date.month;
+        req.session.data["year"] = date.year;
+    }
+
+    return (date);
+}
+
 global.decimals = function (str, cnt) {
     var i = parseFloat(str)
     var n = i.toFixed(cnt).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');

@@ -86,11 +86,16 @@ href: ""
                         <!-- Ancestors //-->
                         <li class="crumb indent_{{ counter }}">
                             <div class="commodity">
-                                <span class="code mauve">{{ item.attributes.formatted_commodity_code | substring(0, 2) }}</span>
-                                <span class="code blue">{{ item.attributes.formatted_commodity_code | substring(2, 2) }}</span>
-                                <span class="code green">{{ item.attributes.formatted_commodity_code | substring(4, 2) }}</span>
-                                <span class="code green">{{ item.attributes.formatted_commodity_code | substring(6, 2) }}</span>
-                                <span class="code green">{{ item.attributes.formatted_commodity_code | substring(8, 2) }}</span>
+                                <span class="code mauve">{{ item.attributes.goods_nomenclature_item_id | substring(0, 2) }}</span>
+                                <span class="code blue">{{ item.attributes.goods_nomenclature_item_id | substring(2, 2) }}</span>
+                                <span class="code green">{{ item.attributes.goods_nomenclature_item_id | substring(4, 2) }}</span>
+                                {% if (item.attributes.goods_nomenclature_item_id.slice(-4) != "0000") %}
+                                    <span class="code green">{{ item.attributes.goods_nomenclature_item_id | substring(6, 2) }}</span>
+                                    <span class="code green">{{ item.attributes.goods_nomenclature_item_id | substring(8, 2) }}</span>
+                                {% else %}
+                                    <span class="code green">&nbsp;</span>
+                                    <span class="code green">&nbsp;</span>
+                                {% endif %}
                             </div>
                             <div class="description">
                                 <a
@@ -140,36 +145,7 @@ href: ""
                 <a class="govuk-tabs__tab" id="tab_footnotes" href="#footnotes">Footnotes</a>
             </li>
         </ul>
-        {# <div class="govuk-tabs__panel" id="overview">
-        <h2 class="govuk-heading-m">Overview</h2>
-        <p>This information is for <strong>{{ date_string }}</strong>.</p>
-        <div class="panels govuk-grid-row">
-            <div class="panel govuk-grid-column-one-half" style="margin-right:1em">
-                <h2 class="govuk-heading-m">Import</h2>
-                <p>The commodity code for importing is <strong>{{ commodity.data.attributes.goods_nomenclature_item_id
-                        }}</strong>.</p>
-                <p>Goods are subject to VAT standard rate (<strong>20.00 %</strong>).</p>
-                <p>Importing from outside the EU is subject to a third country duty of <strong>{{
-                        commodity.data.attributes.basic_duty_rate | safe }}</strong> unless subject to other measures.
-                </p>
-                <p>Import measures and restrictions for specific countries can be found under the <a
-                        href="#import">import</a> tab.</p>
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Duty calculation</h2>
-                <p>Use our tariff duty calculator to work out the
-                    <a href="/calculate/date/{{ commodity.data.attributes.goods_nomenclature_item_id }}">duties&nbsp;applicable
-                        to the import of commodity {{ commodity.data.attributes.goods_nomenclature_item_id }} into the
-                        United Kingdom</a>.
-                </p>
-            </div>
-            <div class="panel govuk-grid-column-one-half">
-                <h2 class="govuk-heading-m">Export</h2>
-                <p>The commodity code for exporting and intrastat reporting is <strong>{{
-                        commodity.data.attributes.goods_nomenclature_item_id | substring(0, 8) }}</strong>.</p>
-                <p>Export measures and restrictions for specific countries can be found under the <a
-                        href="#export">export</a> tab.</p>
-            </div>
-        </div>
-    </div> #}
+        
         <div class="govuk-tabs__panel" id="import">
             {% include "includes/commodities_import.html" %}
         </div>
@@ -205,7 +181,9 @@ href: ""
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-two-thirds">
                     {% if roo.valid_rules %}
-                        <span class="govuk-caption-m">Rules of origin - trading with {{ commodity.country_name2 }}</span>
+                        <span class="govuk-caption-m">Rules of origin - trading with {{ commodity.country_name2 }} <img class="flag"
+  src="https://flagcdn.com/h20/{{ data["country"] | lower }}.png" srcset="https://flagcdn.com/h40/{{ data["country"] | lower }}.png 2x, https://flagcdn.com/h60/{{ data["country"] | lower }}.png 3x"
+  height="20" alt="{{commodity.country_name2 }}"></span>
                         {% if roo.product_specific_rules %}
                             <div class="xgovuk-inset-text">
                                 <h2 class="govuk-heading-m">
@@ -234,7 +212,6 @@ href: ""
                                 {{ roo["intro_text"] | safe }}
                             </div>
                         </details> #}
-                        
 
                     </div>
                     <div class="govuk-grid-column-one-third">
@@ -475,7 +452,10 @@ href: ""
     });
 
     $(function () {
-        var bookmark = window.location.hash.replace("#", "");
+        var bookmark = window
+            .location
+            .hash
+            .replace("#", "");
         $('#tab').val(bookmark);
 
         $(".govuk-tabs__tab").click(function () {
@@ -486,6 +466,7 @@ href: ""
         });
     });
 </script>
+<script type="text/javascript" src="/public/javascripts/commodities.js"></script>
 
 {% endblock %}
 

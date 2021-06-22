@@ -84,21 +84,21 @@ class MeasureCondition {
                 this.requirement += " **and** " + _.lowerFirst(mc.requirement);
                 this.document_code += conjunction_string + mc.document_code;
             } else if (mc.condition_class == "exception") {
-                this.requirement += " <br><br>and<br><br> " + _.lowerFirst(mc.requirement);
+                this.requirement += " <br><br><i>and</i><br><br> " + _.lowerFirst(mc.requirement);
                 this.document_code += conjunction_string + mc.document_code;
             } else if (mc.condition_class == "threshold") {
-                this.requirement += " <br><br>and<br><br> " + mc.requirement;
+                this.requirement += " <br><br><i>and</i><br><br> " + mc.requirement;
             }
         }
         else if (this.condition_class == "exception") {
             if (mc.condition_class == "exception") {
-                this.requirement += " <br><br>and<br><br> " + mc.requirement;
+                this.requirement += " <br><br><i>and</i><br><br> " + mc.requirement;
                 this.document_code += conjunction_string + mc.document_code;
             } else if (mc.condition_class == "threshold") {
                 if (this.requirement.toLowerCase().includes("your shipment")) {
                     mc.requirement = mc.requirement.replace(/your shipment/gsmi, "");
                 }
-                this.requirement += " <br><br>and<br><br> " + _.lowerFirst(mc.requirement);
+                this.requirement += " <br><br><i>and</i><br><br> " + _.lowerFirst(mc.requirement);
                 var a = 1;
             }
         }

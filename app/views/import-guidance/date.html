@@ -55,17 +55,17 @@
                             <div class="govuk-date-input__item">
                                 <div class="govuk-form-group">
                                     <label class="govuk-label govuk-date-input__label" for="import_date-day">Day</label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="import_date-day" name="import_date-day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+                                    <input value="{{ date.day }}" class="govuk-input govuk-date-input__input govuk-input--width-2" id="import_date-day" name="import_date-day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
                             </div>
                             <div class="govuk-date-input__item">
                                 <div class="govuk-form-group">
                                     <label class="govuk-label govuk-date-input__label" for="import_date-month">Month</label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="import_date-month" name="import_date-month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+                                    <input value="{{ date.month }}" class="govuk-input govuk-date-input__input govuk-input--width-2" id="import_date-month" name="import_date-month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
                             </div>
                             <div class="govuk-date-input__item">
                                 <div class="govuk-form-group">
                                     <label class="govuk-label govuk-date-input__label" for="import_date-year">Year</label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="import_date-year" name="import_date-year" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+                                    <input value="{{ date.year }}" class="govuk-input govuk-date-input__input govuk-input--width-4" id="import_date-year" name="import_date-year" type="text" pattern="[0-9]*" inputmode="numeric"></div>
                             </div>
                         </div>
 

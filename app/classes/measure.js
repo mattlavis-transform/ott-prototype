@@ -116,16 +116,25 @@ class Measure {
             if (this.positive_condition_count == 1) {
                 this.popup_message = "Ensure that you meet the following condition:";
             } else {
-                this.popup_message = "Ensure that you meet one of the following conditions:";
+                // this.popup_message = "Ensure that you meet one of the following conditions:";
+                this.popup_message = "There are " + this.condition_code_count + " ways to comply with this control.";
             }
             this.exposed_conditions = this.measure_conditions;
         } else if (this.condition_code_count > 1) {
-            this.popup_message = "Ensure that you meet one of the following conditions:";
+            this.popup_message = "There are " + this.condition_code_count + " ways to comply with this control.";
             this.combine_complex_measures();
-            //this.exposed_conditions = this.measure_conditions;
         }
 
+
         if (this.positive_condition_count > 0) {
+            var tmp = this.exposed_conditions;
+            this.exposed_conditions = [];
+            for (var i = 0; i < tmp.length; i ++) {
+                var mc = tmp[i];
+                if (mc.positive) {
+                    this.exposed_conditions.push(mc);
+                }
+            }
             this.exposed_conditions.sort(compare_conditions);
         }
 

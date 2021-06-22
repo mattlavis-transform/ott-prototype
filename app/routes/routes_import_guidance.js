@@ -24,6 +24,7 @@ var browse_breadcrumb = "Search or browse the Tariff";
 
 // /import-guidance/date/0208907000
 router.get(['/import-guidance/date/:goods_nomenclature_item_id',], function (req, res) {
+    var date = global.get_date(req);
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -34,7 +35,15 @@ router.get(['/import-guidance/date/:goods_nomenclature_item_id',], function (req
             c.pass_request(req);
             c.get_data(response.data);
             // c.get_measure_data(req, "basic");
-            res.render('import-guidance/date', {  'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+            res.render('import-guidance/date', {
+                'date': date,
+                'commodity': c,
+                'browse_breadcrumb': browse_breadcrumb,
+                'scopeId': scopeId,
+                'title': title,
+                'root_url': root_url,
+                'date_string': global.todays_date()
+            });
         });
 });
 
@@ -42,6 +51,7 @@ router.get(['/import-guidance/date/:goods_nomenclature_item_id',], function (req
 
 // import-guidance - Origin
 router.get('/import-guidance/origin/:goods_nomenclature_item_id', function (req, res) {
+    var countries = global.get_countries(req.session.data["country"]);
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     console.log("Origin " + req.params["goods_nomenclature_item_id"]);
@@ -52,7 +62,12 @@ router.get('/import-guidance/origin/:goods_nomenclature_item_id', function (req,
             c = new Commodity();
             c.pass_request(req);
             c.get_data(response.data);
-            res.render('import-guidance/origin', { 'commodity': c, 'error': err, 'origin': origin });
+            res.render('import-guidance/origin', {
+                'commodity': c,
+                'countries': countries,
+                'error': err,
+                'origin': origin
+            });
         });
 });
 

@@ -149,6 +149,7 @@ router.get([
 
     // Get a full list of countries to use in the dropdown
     var countries = global.get_countries(req.session.data["country"]);
+    var date = global.get_date(req);
 
     // Get the country (if selected)
     var country = req.params["country"];
@@ -227,7 +228,7 @@ router.get([
             c.categorise_measures(override_block = "smart");
             c.sort_measures();
 
-            res.render('commodities', { 'roo': roo, 'toggle_message': toggle_message, 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+            res.render('commodities', { 'roo': roo, 'date': date, 'toggle_message': toggle_message, 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url });
         }));
 
     } else {
@@ -244,7 +245,16 @@ router.get([
 
             var a = res_roo.data;
 
-            res.render('commodities', {'countries': countries, 'roo': roo_mvp, 'toggle_message': toggle_message, 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
+            res.render('commodities', {
+                'date': date, 
+                'countries': countries,
+                'roo': roo_mvp,
+                'toggle_message': toggle_message,
+                'commodity': c,
+                'browse_breadcrumb': browse_breadcrumb,
+                'scopeId': scopeId, 'title': title,
+                'root_url': root_url
+            });
         }));
 
     }
@@ -522,6 +532,20 @@ router.get([
     res.render('search-results', { 'context': context, 'term': search_term, 'scopeId': scopeId, 'title': title });
 
 
+});
+
+// Change the date
+router.get(['/change-date'], function (req, res) {
+    var date = global.get_date(req, save = true);
+    var a = 1;
+    ///commodities/0208907000?day=16&month=6&year=2021
+    let goods_nomenclature_item_id = req.query["goods_nomenclature_item_id"];
+    var url = "/commodities/${goods_nomenclature_item_id}?day=${day}&month=${month}&year=${year}";
+    url = url.replace("${goods_nomenclature_item_id}", goods_nomenclature_item_id);
+    url = url.replace("${day}", date.day);
+    url = url.replace("${month}", date.month);
+    url = url.replace("${year}", date.year);
+    res.redirect(url);
 });
 
 

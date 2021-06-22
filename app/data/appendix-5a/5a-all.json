@@ -1396,7 +1396,7 @@
   {
     "document_code": "C084",
     "import_export": "I",
-    "details_cds": "Complete statement \"Reg 2019/2122 exempt\".  \n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not concerned by Commission Delegated Regulation (EU) 2019/2122 adopting a list of animals and goods exempt from official controls at border control posts\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.  ",
+    "details_cds": "- Complete the statement:\"Reg 2019/2122 exempt\".  \n\n- No status code is required.\n\n- Use of this code constitutes a legal declaration that the goods are not concerned by Commission Delegated Regulation (EU) 2019/2122 adopting a list of animals and goods exempt from official controls at border control posts\n\n- Sufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.  ",
     "details_chief": "",
     "description": "Exemption by virtue of Articles 3 and 4 of Commission Delegated Regulation (EU) 2019/2122 (Animals intended for scientific purposes, research and diagnostic samples).\nCertain categories of animals and goods that are exempted from official controls at border control posts as defined in Commission Delegated Regulation (EU) 2019/2122",
     "status_codes": []
@@ -1462,7 +1462,7 @@
   {
     "document_code": "C400",
     "import_export": "B",
-    "details_cds": "Enter the country code for the country of issue (GB for the UK) followed by:\n\nImports:  ICP and the certificate number. \n\nExports: ECP and the certificate number.\n\nIf you are using more than one certificate,, then a separate C400 entry in CDS Data Element 2/3 is required for each certificate.\n\nUse the following status codes: AC.",
+    "details_cds": "Enter the country code for the country of issue (GB for the UK) followed by:\n\n- Imports:  ICP and the certificate number. \n\n- Exports: ECP and the certificate number.\n\nIf you are using more than one certificate, then a separate C400 entry in CDS Data Element 2/3 is required for each certificate.\n\nUse the following status codes: AC.",
     "details_chief": "",
     "description": "Presentation of the required \"CITES\" certificate.  Commission Reg 160/2017 amending Council Reg (EC) No 338/97 on the protection of species of wild fauna and flora by regulating trade therein.\nSee also Document Codes, C635, C638 and Y900",
     "status_codes": [
@@ -2341,7 +2341,7 @@
   {
     "document_code": "C644",
     "import_export": "B",
-    "details_cds": "Enter the reference number of the Certificate.  Where a sequentially numbered range of certificates cover the goods enter the lowest to the highest reference numbers of the certificates concerned i.e. document code + 0054037-0054047: status code.  Where certificates are not sequentially numbered, enter the reference number of each certificate concerned.\n\nUse one of the following status codes: AE, AP, GE, LE, LP, UE.",
+    "details_cds": "- Enter the reference number of the Certificate.\n\n- Where a sequentially numbered range of certificates cover the goods enter the lowest to the highest reference numbers of the certificates concerned i.e. document code + 0054037-0054047: status code.\n\n- Where certificates are not sequentially numbered, enter the reference number of each certificate concerned.\n\n- Use one of the following status codes: AE, AP, GE, LE, LP, UE.",
     "details_chief": "Use one of the following status codes: AE, AP, GE, LE, LP, UE.",
     "description": "Certificate of inspection for organic products.  Council Regulation (EC) No 834/2007 on organic production and labelling of organic products and repealing Regulation (EEC) No 2092/91.\nSee also document code Y929",
     "status_codes": [
@@ -4268,7 +4268,7 @@
   {
     "document_code": "N853",
     "import_export": "I",
-    "details_cds": "Enter **GBCHD** and the reference number of the CHED-P. A separate N853 entry in CDS Data Element 2/3 is required for each individual CHED-P.\n\nUse one of the following status codes: AE, JA, JE, LE, LP or XX.",
+    "details_cds": "- Enter **GBCHD** and the reference number of the CHED-P. A separate N853 entry in CDS Data Element 2/3 is required for each individual CHED-P.\n\n- Use one of the following status codes: AE, JA, JE, LE, LP or XX.",
     "details_chief": "Use either status code AE, JA, JE, LE, LP or XX as appropriate .",
     "description": "Common Health Entry Document for Products (CHED-P) (as set out in Part 2, Section B of Annex II to Commission Implementing Regulation (EU) 2019/1715 (OJ L 261)) for products referred to in point (b) of Article 47(1) of Regulation (EU) 2017/625)  ",
     "status_codes": [
@@ -5812,7 +5812,7 @@
   {
     "document_code": "Y006",
     "import_export": "I",
-    "details_cds": "Complete statement: 'Handloom products stamped'.\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are eligible for the tariff quota.  \n\nSufficient evidence must be held in records to demonstrate eligibility which must be produced on demand.",
+    "details_cds": "Complete the statement: 'Handloom products stamped'.\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are eligible for the tariff quota.  \n\nSufficient evidence must be held in records to demonstrate eligibility which must be produced on demand.",
     "details_chief": "",
     "description": "Stamp (at beginning/end of each piece) and directly transported.\nNon-preferential Tariff Quota for silk or cotton handloom products.\nSee also document codes A015 and Y007",
     "status_codes": []
@@ -5820,7 +5820,7 @@
   {
     "document_code": "Y007",
     "import_export": "I",
-    "details_cds": "Complete statement: 'Handloom products sealed.'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are eligible for the tariff quota.  \n\nSufficient evidence must be held in records to demonstrate eligibility which must be produced on demand.",
+    "details_cds": "Complete the statement: 'Handloom products sealed.'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are eligible for the tariff quota.  \n\nSufficient evidence must be held in records to demonstrate eligibility which must be produced on demand.",
     "details_chief": "",
     "description": "Seal (fixed to each piece) and directly transported.\nNon-preferential Tariff Quota for silk or cotton handloom products.\n\nSee also document codes A015 and Y006",
     "status_codes": []
@@ -6050,7 +6050,7 @@
   {
     "document_code": "Y032",
     "import_export": "I",
-    "details_cds": "Complete statement: 'Not containing seal products'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not require permits.  \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement: 'Not containing seal products'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not require permits.  \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Other goods than those seal products mentioned in Regulation (EU) 2015/1850 (OJ L 271) laying down detailed rules for the implementation of Regulation (EC) No 1007/2009 of the European Parliament and of the Council on trade in seal products.\nSee also documents codes C679 and 9118",
     "status_codes": []
@@ -6099,7 +6099,7 @@
   {
     "document_code": "Y037",
     "import_export": "E",
-    "details_cds": "Complete statement: 'Exempt - biathlon equipment'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are biathlon equipment (that complies with the specification defined by the IBU and are eligible for an exemption under COUNCIL REGULATION (EC) No 765/2006 and Council Decision (CFSP) 2017/350.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement: 'Exempt - biathlon equipment'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are biathlon equipment (that complies with the specification defined by the IBU and are eligible for an exemption under COUNCIL REGULATION (EC) No 765/2006 and Council Decision (CFSP) 2017/350.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods exempted from the prohibition - biathlon equipment that complies with the specification defined in the event and competition rules of the International Biathlon Union (IBU).  COUNCIL REGULATION (EC) No 765/2006 concerning restrictive measures against President Lukashenko and certain officials of Belarus and Council Decision (CFSP) 2017/350 of 27th February 2017 amending Decision 2012/642/CFSP.",
     "status_codes": [
@@ -6184,7 +6184,7 @@
   {
     "document_code": "Y054",
     "import_export": "I",
-    "details_cds": "Complete statement: 'Labelled, Art 12 Reg 517/2014.'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are labelled as per Article 12, paragraph 1 of Regulation (EU) No 517/2014.\n\nSufficient evidence must be held in records to demonstrate eligibility for this exemption which must be produced on demand.",
+    "details_cds": "Complete the statement: 'Labelled, Art 12 Reg 517/2014.'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are labelled as per Article 12, paragraph 1 of Regulation (EU) No 517/2014.\n\nSufficient evidence must be held in records to demonstrate eligibility for this exemption which must be produced on demand.",
     "details_chief": "",
     "description": "Goods labelled according to the provisions of Article 12, paragraph 1 of Regulation (EU) No 517/2014 on fluorinated greenhouse gases.\n\nSee also document codes C057, C079, C082, Y053, Y950 and Y951",
     "status_codes": []
@@ -6192,7 +6192,7 @@
   {
     "document_code": "Y057",
     "import_export": "I",
-    "details_cds": "Complete statement \"Import licence not required\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not require an import licence \n\nSufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
+    "details_cds": "- Complete the statement:\"Import licence not required\".\n\n- No status code is required.\n\n- Use of this code constitutes a legal declaration that the goods do not require an import licence \n\n- Sufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
     "details_chief": "",
     "description": "Goods not requiring the presentation of a FLEGT import licence for timber.  Decision 0284/14.",
     "status_codes": []
@@ -6200,7 +6200,7 @@
   {
     "document_code": "Y058",
     "import_export": "I",
-    "details_cds": "Complete statement: 'Exempt personal consignment.' \n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods meet the criteria for an exemption under Article 7 of Commission Delegated Regulation 2019/2122 (Goods which form part of passengers personal luggage and are intended for personal consumption or use \n\nSufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
+    "details_cds": "- Complete the statement: 'Exempt personal consignment.' \n\n- No status code is required.\n\n- Use of this code constitutes a legal declaration that the goods meet the criteria for an exemption under Article 7 of Commission Delegated Regulation 2019/2122 (Goods which form part of passengers personal luggage and are intended for personal consumption or use \n\n- Sufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
     "details_chief": "",
     "description": "Exemption by virtue of Article 7 of Commission Delegated Regulation 2019/2122 (Goods which form part of passengers personal luggage and are intended for personal consumption or use)  ",
     "status_codes": []
@@ -6208,7 +6208,7 @@
   {
     "document_code": "Y062",
     "import_export": "I",
-    "details_cds": "Complete statement \"Rice free product\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not contain rice.\n\nSufficient evidence must be held in records to demonstrate eligibility for this exemption which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Rice free product\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not contain rice.\n\nSufficient evidence must be held in records to demonstrate eligibility for this exemption which must be produced on demand.",
     "details_chief": "",
     "description": "Products which are not containing, consisting of or produced from rice (Commission Implementing Decision 2011/884/EU (OJ L 343, 23.12.2011, p. 140).).",
     "status_codes": []
@@ -6216,7 +6216,7 @@
   {
     "document_code": "Y063",
     "import_export": "I",
-    "details_cds": "Complete statement \"Not consigned from China\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not consigned from China\n\nSufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Not consigned from China\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not consigned from China\n\nSufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
     "details_chief": "",
     "description": "Goods not consigned from China.  (Commission Implementing Decision 2011/884/EU (OJ L 343, 23.12.2011, p. 140).).",
     "status_codes": []
@@ -6224,7 +6224,7 @@
   {
     "document_code": "Y064",
     "import_export": "I",
-    "details_cds": "Complete statement \"Import licence not required\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods were exported prior to entry of the VPA into force \n\nSufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Import licence not required\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods were exported prior to entry of the VPA into force \n\nSufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
     "details_chief": "",
     "description": "Timber and timber products originating in or dispatched from a country partner in a FLEGT Voluntary Partnership Agreement (VPA) exported prior to the entry into force of the VPA.  Decision 0284/14.",
     "status_codes": []
@@ -6232,7 +6232,7 @@
   {
     "document_code": "Y065",
     "import_export": "I",
-    "details_cds": "Complete statement \"Not consigned from India\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not consigned from India\n\nSufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Not consigned from India\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not consigned from India\n\nSufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
     "details_chief": "",
     "description": "Goods not consigned from India.",
     "status_codes": []
@@ -6240,7 +6240,7 @@
   {
     "document_code": "Y066",
     "import_export": "I",
-    "details_cds": "Complete statement \"No betel leaf content\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not contain betel leaves\n\nSufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
+    "details_cds": "Complete the statement:\"No betel leaf content\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not contain betel leaves\n\nSufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
     "details_chief": "",
     "description": "Products which are not containing or consisting of betel leaves ('Piper betle').  Decision 0088/14.",
     "status_codes": []
@@ -6248,7 +6248,7 @@
   {
     "document_code": "Y068",
     "import_export": "I",
-    "details_cds": "Complete statement \"Not consigned from N. Korea\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not consigned from North Korea\n\nSufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Not consigned from N. Korea\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not consigned from North Korea\n\nSufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
     "details_chief": "",
     "description": "Goods not consigned from North Korea.  ",
     "status_codes": []
@@ -6256,7 +6256,7 @@
   {
     "document_code": "Y069",
     "import_export": "I",
-    "details_cds": "Complete statement \"Not consigned from Iran\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods were not consigned from Iran\n\nSufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Not consigned from Iran\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods were not consigned from Iran\n\nSufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
     "details_chief": "",
     "description": "Goods not consigned from Iran.  Council Regulation (EU) No 267/2012 Concerning Restrictive Measures Against Iran and Repealing Regulations (EU) No 961/2010.",
     "status_codes": []
@@ -6264,7 +6264,7 @@
   {
     "document_code": "Y070",
     "import_export": "I",
-    "details_cds": "Complete statement \"Import licence not required\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not require an import licence \n\nSufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Import licence not required\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not require an import licence \n\nSufficient evidence must be held to demonstrate eligibility for this exemption which must be produced on demand.",
     "details_chief": "",
     "description": "Exemption from the requirement of presenting FLEGT licence by virtue of Article 4.3 of Council Regulation (EC) No 2173/2005 for imports of timber into the European Union.",
     "status_codes": []
@@ -6472,7 +6472,7 @@
   {
     "document_code": "Y082",
     "import_export": "E",
-    "details_cds": "Complete statement: 'Exempt from Reg 2017/1509'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are eligible for an exemption under Article 16e (1) of Reg. 2017/1509.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement: 'Exempt from Reg 2017/1509'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are eligible for an exemption under Article 16e (1) of Reg. 2017/1509.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Derogation from export prohibition by virtue of Article 16e (1) of Council Regulation (EU) 2017/1509 concerning restrictive measures against the Democratic People's Republic of Korea and repealing Regulation (EC) No 329/2007.",
     "status_codes": []
@@ -6480,7 +6480,7 @@
   {
     "document_code": "Y083",
     "import_export": "E",
-    "details_cds": "Complete statement: 'Exempt from Reg 2017/1509'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are eligible for an exemption under Article 16(g) of Reg. 2017/1509.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement: 'Exempt from Reg 2017/1509'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are eligible for an exemption under Article 16(g) of Reg. 2017/1509.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Derogation from export prohibition by virtue of Article 16g of Council Regulation (EU) 2017/1509 concerning restrictive measures against the Democratic People's Republic of Korea and repealing Regulation (EC) No 329/2007.",
     "status_codes": []
@@ -6488,7 +6488,7 @@
   {
     "document_code": "Y084",
     "import_export": "I",
-    "details_cds": "Complete statement: 'Exempt from Reg 2017/1509'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are eligible for an exemption under Article 16i(1) of Reg. 2017/1509.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement: 'Exempt from Reg 2017/1509'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are eligible for an exemption under Article 16i(1) of Reg. 2017/1509.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Derogation from import prohibition by virtue of Article 16i (1) of Council Regulation (EU) 2017/1509 concerning restrictive measures against the Democratic People's Republic of Korea and repealing Regulation (EC) No 329/2007.",
     "status_codes": []
@@ -6717,7 +6717,7 @@
   {
     "document_code": "Y105",
     "import_export": "B",
-    "details_cds": "Complete statement \"Exempt from REACH\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not require a REACH authorisation.  \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Exempt from REACH\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not require a REACH authorisation.  \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Generic exemption from REACH authorisation (Art. 56 of Regulation (EC) No 1907/2006)\nRegistration, Evaluation, Authorisation and Restriction of Chemicals (REACH) requires authorisations to be issued for the importation, exportation and placing on the home market of potentially harmful chemical substances.\nThis document code is used to state that the goods are exempted from the authorisation requirements of Regulation (EC) No 1907/2006\nSee also document codes C073,  Y109 and Y115",
     "status_codes": [
@@ -6727,7 +6727,7 @@
   {
     "document_code": "Y107",
     "import_export": "E",
-    "details_cds": "Complete statement: 'Exempt - aircraft spare parts'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are aircraft spare parts and are eligible for an exemption under the CD footnote.\n\nSufficient evidence must be held in records to demonstrate eligibility for this exemption which must be produced on demand.",
+    "details_cds": "Complete the statement: 'Exempt - aircraft spare parts'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are aircraft spare parts and are eligible for an exemption under the CD footnote.\n\nSufficient evidence must be held in records to demonstrate eligibility for this exemption which must be produced on demand.",
     "details_chief": "",
     "description": "Goods exempted from the prohibition - spare parts from aircrafts mentioned in the \"CD\" footnote",
     "status_codes": []
@@ -6735,7 +6735,7 @@
   {
     "document_code": "Y108",
     "import_export": "E",
-    "details_cds": "Complete statement: 'Exempt sports calibre .22'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are sport equipment of calibre .22 inches and are eligible for an exemption from the prohibition.\n\nSufficient evidence must be held in records to demonstrate eligibility for this exemption which must be produced on demand.",
+    "details_cds": "Complete the statement: 'Exempt sports calibre .22'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are sport equipment of calibre .22 inches and are eligible for an exemption from the prohibition.\n\nSufficient evidence must be held in records to demonstrate eligibility for this exemption which must be produced on demand.",
     "details_chief": "",
     "description": "Goods exempted from the prohibition - sport equipment of calibre .22 inches",
     "status_codes": []
@@ -6743,7 +6743,7 @@
   {
     "document_code": "Y109",
     "import_export": "B",
-    "details_cds": "Complete statement \"Exempt from REACH\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not require a REACH authorisation.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Exempt from REACH\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not require a REACH authorisation.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Specific exemption from REACH authorisation (exempted (categories of) use listed in Annex XIV of Regulation (EC) No 2006/1907)\nRegistration, Evaluation, Authorisation and Restriction of Chemicals (REACH) requires authorisations to be issued for the importation, exportation and placing on the home market of potentially harmful chemical substances.\nThis document code is used to state that the goods have a specific exemption from the authorisation requirements of Regulation (EC) No 1907/2006\nSee also document codes C073,  Y105 and Y115",
     "status_codes": [
@@ -6753,7 +6753,7 @@
   {
     "document_code": "Y115",
     "import_export": "B",
-    "details_cds": "Complete statement \"Exempt from REACH\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not require a REACH authorisation.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand",
+    "details_cds": "Complete the statement:\"Exempt from REACH\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not require a REACH authorisation.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand",
     "details_chief": "",
     "description": "Exemption from Authorization (Title VII) Article 2 point 5 and 8 of Regulation (EC) No 1907/2006 (REACH)\nRegistration, Evaluation, Authorisation and Restriction of Chemicals (REACH) requires authorisations to be issued for the importation, exportation and placing on the home market of potentially harmful chemical substances.\nThis document code is used to state that the goods have a specific exemption from the authorisation requirements of Regulation (EC) No 1907/2006\nSee also document codes C073, Y105 and Y109",
     "status_codes": [
@@ -6763,7 +6763,7 @@
   {
     "document_code": "Y116",
     "import_export": "I",
-    "details_cds": "Complete statement \u201cExempt A.254, Reg. 952/2013\u201d\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempt from the provisions of Article 254 of Regulation (EU) No 952/2013.\n\nSufficient evidence must be held in records to demonstrate eligibility for this exemption which must be produced on demand",
+    "details_cds": "Complete the statement:\u201cExempt A.254, Reg. 952/2013\u201d\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempt from the provisions of Article 254 of Regulation (EU) No 952/2013.\n\nSufficient evidence must be held in records to demonstrate eligibility for this exemption which must be produced on demand",
     "details_chief": "",
     "description": "Exemption from the provisions of Article 254 of Regulation (EU) No 952/2013 by virtue of the annual Combined Nomenclature regulation: Part one - Preliminary Provisions - Section I general rules - C.\u00a0\u00a0 General rules applicable both to nomenclature and to duties - 4.\u00a0 Goods eligible for favourable tariff treatment by reason of their end-use",
     "status_codes": []
@@ -6955,7 +6955,7 @@
   {
     "document_code": "Y223",
     "import_export": "I",
-    "details_cds": "Complete statement \"Exempt  safeguard measures\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods qualify from the exemption provided under Article 2 of Regulation (EU) 2019/67.\n\nSufficient evidence must be held in records to demonstrate eligibility for this exemption which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Exempt  safeguard measures\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods qualify from the exemption provided under Article 2 of Regulation (EU) 2019/67.\n\nSufficient evidence must be held in records to demonstrate eligibility for this exemption which must be produced on demand.",
     "details_chief": "",
     "description": "Exemption from safeguard measure by virtue of Art. 2 of Reg. (EU) 2019/67\nExemption from safeguard measure on the importation of Indica rice originating in Cambodia, Myanmar/ Burma",
     "status_codes": []
@@ -6963,7 +6963,7 @@
   {
     "document_code": "Y300",
     "import_export": "E",
-    "details_cds": "Complete statement \"Exempt 2013/798/CFSP\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subjected to the restrictive measures specified in Council Decision 2013/798/CFSP for exports to the Central African Republic\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Exempt 2013/798/CFSP\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subjected to the restrictive measures specified in Council Decision 2013/798/CFSP for exports to the Central African Republic\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods not concerned by Council Decision 2013/798/CFSP concerning restrictive measures against the Central African Republic\nExemption for the export of certain goods to Central African Republic.\nPlease refer to Gov.UK for details of current sanction and exceptions\n\nSee also document code Y301",
     "status_codes": []
@@ -6971,7 +6971,7 @@
   {
     "document_code": "Y301",
     "import_export": "E",
-    "details_cds": "Complete statement \"Exempt 2013/798/CFSP\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subjected to the prohibitions specified in Council Decision 2013/798/CFSP for exports to the Central African Republic\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Exempt 2013/798/CFSP\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subjected to the prohibitions specified in Council Decision 2013/798/CFSP for exports to the Central African Republic\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods excepted from the prohibition, according to Article 2.1 of Council Decision 2013/798/CFSP\nExemption for the export of certain goods to Central African Republic.\nPlease refer to Gov.UK for details of current sanction and exceptions\n\nSee also document code Y300",
     "status_codes": []
@@ -6979,7 +6979,7 @@
   {
     "document_code": "Y800",
     "import_export": "I",
-    "details_cds": "Complete statement \"Not consigned from Bangladesh\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not consigned from Bangladesh.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Not consigned from Bangladesh\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not consigned from Bangladesh.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods not consigned from Bangladesh.  Decision 0088/14.",
     "status_codes": []
@@ -6987,7 +6987,7 @@
   {
     "document_code": "Y900",
     "import_export": "B",
-    "details_cds": "Complete statement \"CITES Permits not required\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not require CITES permits.  \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "- Complete the statement \"CITES Permits not required\".\n\n- No status code is required.\n\n- Use of this code constitutes a legal declaration that the goods do not require CITES permits.  \n\n- Sufficient evidence must be held in records to demonstrate eligibility for this waiver, which must be produced on demand.",
     "details_chief": "",
     "description": "Declared goods do not belong to the Washington Convention (CITES)\nCommission Reg 160/2017 amending Council Reg (EC) No 338/97 on the protection of species of wild fauna and flora by regulating trade therein.\nSee also Document Codes C400, C635 and C638",
     "status_codes": []
@@ -6995,7 +6995,7 @@
   {
     "document_code": "Y901",
     "import_export": "E",
-    "details_cds": "Complete statement \"Export licence not required\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not require an export licence.  \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Export licence not required\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not require an export licence.  \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Product not included in the dual use list.  Commission Delegated Regulation (EU) No 1382/2014 of 22 October 2014 amending Council Regulation (EC) No 428/2009 setting up a Union regime for the control of exports, transfer, brokering and transit of dual-use items.",
     "status_codes": []
@@ -7003,7 +7003,7 @@
   {
     "document_code": "Y902",
     "import_export": "B",
-    "details_cds": "Complete statement \"Not in footnote list\"\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not included in the list of ozone depleting substances\n\n listed in the footnote (Council Regulation (EC) No 1005/2009).\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Not in footnote list\"\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not included in the list of ozone depleting substances\n\n listed in the footnote (Council Regulation (EC) No 1005/2009).\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in the OZ footnotes linked to the measure.  REGULATION (EC) No 1005/2009 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL \non substances that deplete the ozone layer.\nSee also document codes E013, L100 and L136",
     "status_codes": []
@@ -7011,7 +7011,7 @@
   {
     "document_code": "Y903",
     "import_export": "E",
-    "details_cds": "Complete statement \"Cultural goods-not listed\"\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not included in the list of cultural goods (Council Regulation (EC) No 116/2009).\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Cultural goods-not listed\"\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not included in the list of cultural goods (Council Regulation (EC) No 116/2009).\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Declared goods are not included in the list of cultural goods.  COUNCIL REGULATION (EC) No 116/2009 on the export of cultural goods.",
     "status_codes": []
@@ -7019,7 +7019,7 @@
   {
     "document_code": "Y904",
     "import_export": "B",
-    "details_cds": "Complete statement \"Not in TR footnote list\"\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not in the list of goods included in the footnote Commission Implementing Regulation (EU) No 775/2014.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Not in TR footnote list\"\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not in the list of goods included in the footnote Commission Implementing Regulation (EU) No 775/2014.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in the TR footnotes linked to the measure.  Commission Implementing Regulation (EU) No 775/2014 of 16 July 2014 amending Council Regulation (EC) No 1236/2005 concerning trade in certain goods which could be used for capital punishment, torture or other cruel, inhuman or degrading treatment or punishment.\nSee also C064, C068, E990, Y906, Y907 and 9106",
     "status_codes": []
@@ -7027,7 +7027,7 @@
   {
     "document_code": "Y906",
     "import_export": "E",
-    "details_cds": "Complete statement \"Not in TR footnote list\"\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not in the list of goods included in the footnote for measure 708 Commission Implementing Regulation (EU) No 775/2014.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Not in TR footnote list\"\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not in the list of goods included in the footnote for measure 708 Commission Implementing Regulation (EU) No 775/2014.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in the TR footnotes linked to the measure (708).  Commission Implementing Regulation (EU) No 775/2014 of 16 July 2014 amending Council Regulation (EC) No 1236/2005 concerning trade in certain goods which could be used for capital punishment, torture or other cruel, inhuman or degrading treatment or punishment.\nSee also C064, C068, E990, Y904, Y907 and 9106",
     "status_codes": []
@@ -7035,7 +7035,7 @@
   {
     "document_code": "Y907",
     "import_export": "E",
-    "details_cds": "Complete statement \"Goods for official use\"\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods will be used by official personnel taking part in a peace keeping or crisis management mission Commission Implementing Regulation (EU) No 775/2014.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Goods for official use\"\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods will be used by official personnel taking part in a peace keeping or crisis management mission Commission Implementing Regulation (EU) No 775/2014.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods that will be used by military or civil personnel of a Member State, if such personnel is taking part in an EU or UN peace keeping or crisis management operation in the third country of destination, or in an operation based on agreements between Member States and third countries in the field of defence Commission Implementing Regulation (EU) No 775/2014 of 16 July 2014 amending Council Regulation (EC) No 1236/2005 concerning trade in certain goods which could be used for capital punishment, torture or other cruel, inhuman or degrading treatment or punishment.\nSee also C064, C068, E990, Y904, Y906 and 9106",
     "status_codes": []
@@ -7043,7 +7043,7 @@
   {
     "document_code": "Y908",
     "import_export": "I",
-    "details_cds": "Complete statement \"Use by law enforcement\"\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are intended for use by law enforcement personnel in the stated territories.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Use by law enforcement\"\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are intended for use by law enforcement personnel in the stated territories.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Export to the following territories of Member States (Greenland, New Caledonia and Dependencies, French Polynesia, French Southern and Antarctic Territories, Wallis and Futuna Islands, Mayotte, St Pierre and Miquelon, B\u00fcsingen), provided that the goods are used by an authority in charge of law enforcement in both the country or territory of destination and the metropolitan part of the Member State to which that territory belongs.",
     "status_codes": []
@@ -7051,7 +7051,7 @@
   {
     "document_code": "Y909",
     "import_export": "E",
-    "details_cds": "Complete statement \"Exempted Reg (EU) 640/2010\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not concerned by Regulation (EC) No. 1984/2003 (and/or Reg. (EU) No. 640/2010) introducing a system for the statistical monitoring of trade in bluefin tuna swordfish and bigeye tuna within the Union. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Exempted Reg (EU) 640/2010\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not concerned by Regulation (EC) No. 1984/2003 (and/or Reg. (EU) No. 640/2010) introducing a system for the statistical monitoring of trade in bluefin tuna swordfish and bigeye tuna within the Union. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "The declared goods are not concerned by Regulation (EC) No. 1984/2003 (and/or Reg. (EU) No. 640/2010) introducing a system for the statistical monitoring of trade in bluefin tuna swordfish and bigeye tuna within the Union.",
     "status_codes": []
@@ -7099,7 +7099,7 @@
   {
     "document_code": "Y916",
     "import_export": "E",
-    "details_cds": "Complete statement \"Not a dangerous chemical\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subjected to the provisions of Regulation (EU) No 649/2012 on the export and import of dangerous chemicals, Annex I. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Not a dangerous chemical\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subjected to the provisions of Regulation (EU) No 649/2012 on the export and import of dangerous chemicals, Annex I. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Product not subjected to the provisions of Regulation (EU) No 649/2012 on the export and import of dangerous chemicals, Annex I.",
     "status_codes": []
@@ -7107,7 +7107,7 @@
   {
     "document_code": "Y917",
     "import_export": "E",
-    "details_cds": "Complete statement \"Not a dangerous chemical\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subjected to the provisions of Regulation (EU) No 649/2012 on the export and import of dangerous chemicals, Annex V. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Not a dangerous chemical\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subjected to the provisions of Regulation (EU) No 649/2012 on the export and import of dangerous chemicals, Annex V. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Product not subjected to the provisions of Regulation (EU) No 649/2012 on the export and import of dangerous chemicals, Annex V.",
     "status_codes": []
@@ -7115,7 +7115,7 @@
   {
     "document_code": "Y918",
     "import_export": "E",
-    "details_cds": "Complete statement \"Exempt Annex III Reg 147/2003\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subjected to the provisions of Council Regulation (EC) No. 147/2003, Annex III\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Exempt Annex III Reg 147/2003\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subjected to the provisions of Council Regulation (EC) No. 147/2003, Annex III\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "The declared goods are not concerned by Council Regulation (EC) No. 147/2003, Annex III\nExemption for the export of certain goods to Somalia.\nPlease refer to Gov.UK for details of current sanction and exceptions\n\nSee also document code C689",
     "status_codes": []
@@ -7149,7 +7149,7 @@
   {
     "document_code": "Y920",
     "import_export": "B",
-    "details_cds": "Complete statement \"Not covered by footnote\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in the footnotes linked to the measure. Sufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Not covered by footnote\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in the footnotes linked to the measure. Sufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in the footnotes linked to the measure\nDecision 1764/15.",
     "status_codes": []
@@ -7157,7 +7157,7 @@
   {
     "document_code": "Y921",
     "import_export": "B",
-    "details_cds": "Complete statement \"Licence not required\". \n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempted from the prohibition.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Licence not required\". \n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempted from the prohibition.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods exempted from the prohibition.  COUNCIL REGULATION (EU) No 509/2012\namending Regulation (EU) No 36/2012 concerning restrictive measures in view of the situation in Syria.",
     "status_codes": []
@@ -7173,7 +7173,7 @@
   {
     "document_code": "Y923",
     "import_export": "B",
-    "details_cds": "Complete statement \"Excluded product\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subjected to the provisions of Regulation (EC) No 1013/2006 (OJ L 190) on shipments of waste. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Excluded product\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subjected to the provisions of Regulation (EC) No 1013/2006 (OJ L 190) on shipments of waste. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Product not subjected to the provisions of Regulation (EC) No 1013/2006 (OJ L 190) on shipments of waste.\nSee also document codes C669, C670, C672, Y915 and 9005",
     "status_codes": []
@@ -7181,7 +7181,7 @@
   {
     "document_code": "Y924",
     "import_export": "B",
-    "details_cds": "Complete statement \"Excluded from prohibition\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subjected to the provisions of Regulation (EU) 2017/852.  Goods other than metallic mercury as mentioned by Regulation (EC) No 1102/2008 on the banning of exports of metallic mercury and certain mercury compounds and mixtures and the safe storage of metallic mercury. Sufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Excluded from prohibition\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subjected to the provisions of Regulation (EU) 2017/852.  Goods other than metallic mercury as mentioned by Regulation (EC) No 1102/2008 on the banning of exports of metallic mercury and certain mercury compounds and mixtures and the safe storage of metallic mercury. Sufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods not concerned by Regulation (EU) 2017/852.  Goods other than metallic mercury as mentioned by Regulation (EC) No 1102/2008 on the banning of exports of metallic mercury and certain mercury compounds and mixtures and the safe storage of metallic mercury.",
     "status_codes": []
@@ -7189,7 +7189,7 @@
   {
     "document_code": "Y925",
     "import_export": "E",
-    "details_cds": "Complete statement \u201cMercury laboratory use\u201d \n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods for export are for laboratory-scale research or laboratory analysis - Mercury (Article 3 (3) of Regulation (EU) 2017/852).\n\nSufficient evidence must be held in records to demonstrate eligibility for this exemption which must be produced on demand.",
+    "details_cds": "Complete the statement:\u201cMercury laboratory use\u201d \n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods for export are for laboratory-scale research or laboratory analysis - Mercury (Article 3 (3) of Regulation (EU) 2017/852).\n\nSufficient evidence must be held in records to demonstrate eligibility for this exemption which must be produced on demand.",
     "details_chief": "",
     "description": "Export for laboratory-scale research or laboratory analysis - Mercury (Article 3 (3) of Regulation (EU) 2017/852).",
     "status_codes": []
@@ -7197,7 +7197,7 @@
   {
     "document_code": "Y926",
     "import_export": "I",
-    "details_cds": "Complete statement \"Excluded from prohibition\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subject to the import prohibition on fluorinated greenhouse gases. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Excluded from prohibition\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subject to the import prohibition on fluorinated greenhouse gases. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods not concerned by import prohibition on fluorinated greenhouse gases.",
     "status_codes": []
@@ -7205,7 +7205,7 @@
   {
     "document_code": "Y927",
     "import_export": "B",
-    "details_cds": "Complete statement: Exempt from Reg 1005/2008\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempt from Council Regulation (EC) No. 1005/2008\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement: Exempt from Reg 1005/2008\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempt from Council Regulation (EC) No. 1005/2008\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "Use status code XX . This document code is to be used for fish/fish products which are listed in Annex 1 of Regulation 1005/2008  as not requiring a catch certificate.\n\nNote: document code Y927 is not required for those fish/fish products falling within commodity codes that are completely excluded from the scope of the Regulations. Example: eels caught in marine waters declare code C673; eels caught in fresh water declare code Y927; eels from acquaculture, obtained from fry or larvae declare code Y927. Freshwater crayfish, however, are not subject to IUU control and therefore no document code should be declared.\n\n(These examples were correct at time of printing and are intended to assist in deciding which document code is declared or if one is necesssary. This advice is not definitive and you should check current regulations in The Official Journal of the EU or with lead department Defra).",
     "description": "The declared goods are not concerned by Council Regulation (EC) No. 1005/2008 establishing a Union system to prevent, deter and eliminate illegal, unreported and unregulated fishing, amending Regulations (EEC) No 2847/93, (EC) No 1936/2001 and (EC) No 601/2004 and\nrepealing Regulations (EC) No 1093/94 and (EC) No 1447/1999.\nSee also document code C673",
     "status_codes": [
@@ -7215,7 +7215,7 @@
   {
     "document_code": "Y928",
     "import_export": "I",
-    "details_cds": "Complete statement \"Excluded from control\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not concerned by Commission Implementing Regulation (EU) 2019/1787 \n\nimposing special conditions governing the import of feed and food originating in or consigned from Japan following the accident at the Fukushima nuclear power station. Sufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Excluded from control\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not concerned by Commission Implementing Regulation (EU) 2019/1787 \n\nimposing special conditions governing the import of feed and food originating in or consigned from Japan following the accident at the Fukushima nuclear power station. Sufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "The declared goods are not concerned by Commission Implementing Regulation (EU) 2019/1787 amending Implementing Regulation (EU) 2016/6 \n\n imposing special conditions governing the import of feed and food originating in or consigned from Japan following the accident at the Fukushima nuclear power station ",
     "status_codes": []
@@ -7223,7 +7223,7 @@
   {
     "document_code": "Y929",
     "import_export": "I",
-    "details_cds": "Complete statement \"Excluded from Reg 834/2007\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not concerned by Regulation (EC) No 834/2007 (organic products) Council Regulation (EC) No 834/2007 on organic production and labelling of organic products.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "- Complete the statement:\"Excluded from Reg 834/2007\".\n\n- No status code is required.\n\n- Use of this code constitutes a legal declaration that the goods are not concerned by Regulation (EC) No 834/2007 (organic products) Council Regulation (EC) No 834/2007 on organic production and labelling of organic products.\n\n- Sufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods not concerned by Regulation (EC) No 834/2007 (organic products) \nCouncil Regulation (EC) No 834/2007 on organic production and labelling of organic products and repealing Regulation (EEC) No 2092/91.\nSee also document code C644",
     "status_codes": []
@@ -7231,7 +7231,7 @@
   {
     "document_code": "Y930",
     "import_export": "I",
-    "details_cds": "Complete statement \"Excluded decision 2007/275\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not concerned by Commission Decision 2007/275/EC and Commission Regulation (EU) 2019/2007 \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Excluded decision 2007/275\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not concerned by Commission Decision 2007/275/EC and Commission Regulation (EU) 2019/2007 \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "The declared goods are not concerned by Commission Decision 2007/275/EC  and Commission Implementing Regulation (EU) 2019/2007 as regards the\nlabelling of beef and beef products.",
     "status_codes": []
@@ -7239,7 +7239,7 @@
   {
     "document_code": "Y931",
     "import_export": "I",
-    "details_cds": "Complete statement \"Art 6.1b 2007/275 applies\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are entitled to benefit from derogation to veterinary controls according to Article 6.1b of Commission Decision 2007/275/EC and Commission Implementing Regulation (EU) 2019/2007 as regards the labelling of beef and beef products. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Art 6.1b 2007/275 applies\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are entitled to benefit from derogation to veterinary controls according to Article 6.1b of Commission Decision 2007/275/EC and Commission Implementing Regulation (EU) 2019/2007 as regards the labelling of beef and beef products. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods benefitting from derogation to veterinary controls according to Article 6.1b of Commission Decision 2007/275/EC and Commission Implementing Regulation (EU) 2019/2007 as regards the labelling of beef and beef products.",
     "status_codes": []
@@ -7247,7 +7247,7 @@
   {
     "document_code": "Y932",
     "import_export": "B",
-    "details_cds": "Complete statement \"CITES permits not required\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are entitled to benefit from a derogation to CITES controls according to Article 7(3) of Council Regulation (EC) No 338/97 on the protection of species of wild fauna and flora by regulating trade therein. Sufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"CITES permits not required\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are entitled to benefit from a derogation to CITES controls according to Article 7(3) of Council Regulation (EC) No 338/97 on the protection of species of wild fauna and flora by regulating trade therein. Sufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods benefitting from a derogation to CITES controls according to Article 7(3) of Council Regulation (EC) No 338/97 on the protection of species of wild fauna and flora by regulating trade therein.  ",
     "status_codes": []
@@ -7255,7 +7255,7 @@
   {
     "document_code": "Y934",
     "import_export": "E",
-    "details_cds": "Complete statement \"Reg 258/2012 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subjected to the provisions of Regulation (EU) No 258/2012 for export of firearms, their parts and components and ammunition implementing Article 10 of the United Nations' Protocol against the illicit manufacturing of and trafficking in firearms, their parts and components and ammunition. Sufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 258/2012 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not subjected to the provisions of Regulation (EU) No 258/2012 for export of firearms, their parts and components and ammunition implementing Article 10 of the United Nations' Protocol against the illicit manufacturing of and trafficking in firearms, their parts and components and ammunition. Sufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Product not subjected to the provisions of Regulation (EU) No 258/2012 for export of firearms, their parts and components and ammunition implementing Article 10 of the United Nations' Protocol against the illicit manufacturing of and trafficking in firearms, their parts and components and ammunition.",
     "status_codes": []
@@ -7263,7 +7263,7 @@
   {
     "document_code": "Y935",
     "import_export": "E",
-    "details_cds": "Complete statement \"Reg 1332/2013 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not covered by the provisions of Regulation (EU) 1332/2013 (OJ L 335) approving non-minor amendments to the specification for a name entered in the register of protected designations of origin and protected geographical indications \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 1332/2013 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not covered by the provisions of Regulation (EU) 1332/2013 (OJ L 335) approving non-minor amendments to the specification for a name entered in the register of protected designations of origin and protected geographical indications \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods not covered by the provisions of Regulation (EU) 1332/2013 (OJ L 335) concerning restrictive measures against Syria",
     "status_codes": []
@@ -7271,7 +7271,7 @@
   {
     "document_code": "Y937",
     "import_export": "I",
-    "details_cds": "Complete statement \"Reg  2019/1793 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not concerned by Commission Implementing Regulation (EU) 2019/1793\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg  2019/1793 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not concerned by Commission Implementing Regulation (EU) 2019/1793\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "The declared goods are not concerned by Commission Implementing Regulation (EU) 2019/1793 \n repealing Commission Regulation (EC) No 669/2009 as regards the increased level of official controls on imports of certain feed and food of non-animal origin \nSee also document code Y978",
     "status_codes": []
@@ -7279,7 +7279,7 @@
   {
     "document_code": "Y939",
     "import_export": "E",
-    "details_cds": "Complete statement \"Reg 833/2014 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not covered by the provisions of Regulation (EU) No 833/2014, Annex II entering a name in the register of protected designations of origin and protected geographical indications (Jam\u00f3n de Ser\u00f3n (PGI)). \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 833/2014 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not covered by the provisions of Regulation (EU) No 833/2014, Annex II entering a name in the register of protected designations of origin and protected geographical indications (Jam\u00f3n de Ser\u00f3n (PGI)). \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods not covered by the provisions of Regulation (EU) No 833/2014, Annex II entering a name in the register of protected designations of origin and protected geographical indications (Jam\u00f3n de Ser\u00f3n (PGI)).",
     "status_codes": []
@@ -7287,7 +7287,7 @@
   {
     "document_code": "Y942",
     "import_export": "I",
-    "details_cds": "Complete statement \"Reg 2016/1141 exempt\".  \n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not concerned by Commission Implementing Regulation (EU) 2016/1141 adopting a list of invasive alien species of Union concern pursuant to Regulation (EU) No 1143/2014 of the European Parliament and of the Council. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.  ",
+    "details_cds": "Complete the statement:\"Reg 2016/1141 exempt\".  \n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not concerned by Commission Implementing Regulation (EU) 2016/1141 adopting a list of invasive alien species of Union concern pursuant to Regulation (EU) No 1143/2014 of the European Parliament and of the Council. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.  ",
     "details_chief": "",
     "description": "The declared goods are not concerned by Commission Implementing Regulation (EU) 2016/1141 adopting a list of invasive alien species of Union concern pursuant to Regulation (EU) No 1143/2014 of the European Parliament and of the Council.",
     "status_codes": []
@@ -7295,7 +7295,7 @@
   {
     "document_code": "Y944",
     "import_export": "I",
-    "details_cds": "Complete statement \"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not  those described in Annex VI (Petroleum products) of Reg. (EU) 2017/1509 concerning restrictive measures against the Democratic People's Republic of Korea.  COUNCIL REGULATION (EU) 2017/1509 concerning restrictive measures against the Democratic People's Republic of Korea and repealing Regulation No 329/2007. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not  those described in Annex VI (Petroleum products) of Reg. (EU) 2017/1509 concerning restrictive measures against the Democratic People's Republic of Korea.  COUNCIL REGULATION (EU) 2017/1509 concerning restrictive measures against the Democratic People's Republic of Korea and repealing Regulation No 329/2007. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in Annex VI (Petroleum products) of Reg. (EU) 2017/1509 concerning restrictive measures against the Democratic People's Republic of Korea.  COUNCIL REGULATION (EU) 2017/1509 concerning restrictive measures against the Democratic People's Republic of Korea and repealing Regulation No 329/2007.",
     "status_codes": [
@@ -7305,7 +7305,7 @@
   {
     "document_code": "Y945",
     "import_export": "B",
-    "details_cds": "Complete statement \"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are travellers' personal effects or goods of a non-commercial nature for travellers' personal use contained in their luggage (Art 10.2 of Regulation (EU) 2017/1509) entitled to exemption from prohibition on goods from Democratic People's Republic of Korea. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are travellers' personal effects or goods of a non-commercial nature for travellers' personal use contained in their luggage (Art 10.2 of Regulation (EU) 2017/1509) entitled to exemption from prohibition on goods from Democratic People's Republic of Korea. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Travellers' personal effects or goods of a non-commercial nature for travellers' personal use contained in their luggage (Art 10.2 of Regulation (EU) 2017/1509) entitled to exemption from prohibition on goods from Democratic People's Republic of Korea.",
     "status_codes": []
@@ -7313,7 +7313,7 @@
   {
     "document_code": "Y946",
     "import_export": "E",
-    "details_cds": "Complete statement \"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are for the official purposes of diplomatic or consular missions of Member States in the DPRK or international organisations enjoying immunities in accordance with international law, or to the personal effects of their staff (Art 10.3 of Regulation (EU) 2017/1509). \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are for the official purposes of diplomatic or consular missions of Member States in the DPRK or international organisations enjoying immunities in accordance with international law, or to the personal effects of their staff (Art 10.3 of Regulation (EU) 2017/1509). \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods necessary for the official purposes of diplomatic or consular missions of Member States in the DPRK or international organisations enjoying immunities in accordance with international law, or to the personal effects of their staff (Art 10.3 of Regulation (EU) 2017/1509).",
     "status_codes": []
@@ -7321,7 +7321,7 @@
   {
     "document_code": "Y947",
     "import_export": "E",
-    "details_cds": "Complete statement \"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are a transaction authorised by the competent authority of the Member State for humanitarian purposes (Art 10.4 of Regulation (EU) 2017/1509) entitled to exemption from prohibition on goods to Democratic People's Republic of Korea. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are a transaction authorised by the competent authority of the Member State for humanitarian purposes (Art 10.4 of Regulation (EU) 2017/1509) entitled to exemption from prohibition on goods to Democratic People's Republic of Korea. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Transaction authorised by the competent authority of the Member State for humanitarian purposes (Art 10.4 of Regulation (EU) 2017/1509).",
     "status_codes": []
@@ -7329,7 +7329,7 @@
   {
     "document_code": "Y948",
     "import_export": "B",
-    "details_cds": "Complete statement \"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex VIII (Luxury goods) of Reg. (EU) 2017/1509 and are exempt from the import and export prohibition on luxury goods from/to Democratic People's Republic of Korea.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex VIII (Luxury goods) of Reg. (EU) 2017/1509 and are exempt from the import and export prohibition on luxury goods from/to Democratic People's Republic of Korea.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in Annex VIII (Luxury goods) of Reg. (EU) 2017/1509 exemption on import and export prohibition on luxury goods from/to Democratic People's Republic of Korea.",
     "status_codes": []
@@ -7337,7 +7337,7 @@
   {
     "document_code": "Y949",
     "import_export": "B",
-    "details_cds": "Complete statement \"Reg 267/2012 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in the footnotes linked to the measure (Reg 267/2012).  Council Regulation (EU) No 267/2012 Concerning Restrictive Measures Against Iran. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 267/2012 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in the footnotes linked to the measure (Reg 267/2012).  Council Regulation (EU) No 267/2012 Concerning Restrictive Measures Against Iran. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Good other than those described in the footnotes linked to the measure (Reg 267/2012).  Council Regulation (EU) No 267/2012 Concerning Restrictive Measures Against Iran.",
     "status_codes": []
@@ -7345,7 +7345,7 @@
   {
     "document_code": "Y950",
     "import_export": "I",
-    "details_cds": "Complete statement \"Art 14.1 Reg 267/2012 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not pre-charged with hydrofluorocarbons or Article 14.1 of Regulation No 517/2014 does not apply. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Art 14.1 Reg 267/2012 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not pre-charged with hydrofluorocarbons or Article 14.1 of Regulation No 517/2014 does not apply. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than pre-charged equipment with hydroflurocarbons (not pre-charged with hydrofluorocarbons) or Article 14.1 of Regulation No 517/2014 does not apply.\n\nSee also document codes C057, C079, C082, Y053, Y054 and Y951",
     "status_codes": []
@@ -7353,7 +7353,7 @@
   {
     "document_code": "Y951",
     "import_export": "I",
-    "details_cds": "Complete statement \"Art 15.2 Reg 517/2014 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempt under Article 15.2 of Regulation No 517/2014.\n\nSufficient evidence must be held in records to demonstrate eligibility for this exemption which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Art 15.2 Reg 517/2014 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempt under Article 15.2 of Regulation No 517/2014.\n\nSufficient evidence must be held in records to demonstrate eligibility for this exemption which must be produced on demand.",
     "details_chief": "",
     "description": "Exemptions from the Reduction of the quantity of hydrofluorocarbons placed on the market by virtue of Article 15.2 of Regulation (EU) No 517/2014\n\nSee also document codes C057, C079, C082, Y053, Y054 and Y950",
     "status_codes": []
@@ -7361,7 +7361,7 @@
   {
     "document_code": "Y952",
     "import_export": "E",
-    "details_cds": "Complete statement \"Reg 2016/44 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempted from article 2 (1)(a), of Council Regulation (EU) No. 2016/44 prohibiting export to Libya of equipment which might be used for internal repression \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2016/44 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempted from article 2 (1)(a), of Council Regulation (EU) No. 2016/44 prohibiting export to Libya of equipment which might be used for internal repression \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods exempted from article 2 (1)(a), of Council Regulation (EU) No. 2016/44 prohibiting export to Libya of equipment which might be used for internal repression.",
     "status_codes": []
@@ -7369,7 +7369,7 @@
   {
     "document_code": "Y953",
     "import_export": "E",
-    "details_cds": "Complete statement \"Reg 2016/44 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempted from restrictions under Council Regulation (EU) No. 2016/44.\n\n Sufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2016/44 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempted from restrictions under Council Regulation (EU) No. 2016/44.\n\n Sufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods not concerned by Council regulation (EU) No. 2016/44, concerning restricted measures in view of the situation in Libya.",
     "status_codes": []
@@ -7377,7 +7377,7 @@
   {
     "document_code": "Y957",
     "import_export": "B",
-    "details_cds": "Complete statement \"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in the MG footnotes linked to the measure (Annex II, Part V of Reg. (EU) 2017/1509).  \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.  ",
+    "details_cds": "Complete the statement:\"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in the MG footnotes linked to the measure (Annex II, Part V of Reg. (EU) 2017/1509).  \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.  ",
     "details_chief": "",
     "description": "Goods other than those described in the MG footnotes linked to the measure (Annex II, Part V of Reg. (EU) 2017/1509).",
     "status_codes": []
@@ -7385,7 +7385,7 @@
   {
     "document_code": "Y958",
     "import_export": "I",
-    "details_cds": "Complete statement \"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex IV (Gold, titanium, vanadium ore, rare-earth minerals) of Reg. (EU) 2017/1509. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex IV (Gold, titanium, vanadium ore, rare-earth minerals) of Reg. (EU) 2017/1509. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in Annex IV (Gold, titanium, vanadium ore, rare-earth minerals) of Reg. (EU) 2017/1509.",
     "status_codes": []
@@ -7393,7 +7393,7 @@
   {
     "document_code": "Y959",
     "import_export": "I",
-    "details_cds": "Complete statement \"Reg 2017/1509 exempt\"\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex V (Coal, iron and iron ore) of Reg. (EU) 2017/1509. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2017/1509 exempt\"\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex V (Coal, iron and iron ore) of Reg. (EU) 2017/1509. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in Annex V (Coal, iron and iron ore) of Reg. (EU) 2017/1509.",
     "status_codes": []
@@ -7401,7 +7401,7 @@
   {
     "document_code": "Y960",
     "import_export": "I",
-    "details_cds": "Complete statement \"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex VII (Copper, nickel, silver and zinc) of Reg. (EU) 2017/1509. Sufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex VII (Copper, nickel, silver and zinc) of Reg. (EU) 2017/1509. Sufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in Annex VII (Copper, nickel, silver and zinc) of Reg. (EU) 2017/1509.",
     "status_codes": []
@@ -7409,7 +7409,7 @@
   {
     "document_code": "Y961",
     "import_export": "B",
-    "details_cds": "Complete statement \"Reg 2017/1509 exempt\"\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex IX (Gold, precious metals and diamonds) of Reg. (EU) 2017/1509. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2017/1509 exempt\"\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex IX (Gold, precious metals and diamonds) of Reg. (EU) 2017/1509. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in Annex IX (Gold, precious metals and diamonds) of Reg. (EU) 2017/1509.",
     "status_codes": []
@@ -7417,7 +7417,7 @@
   {
     "document_code": "Y962",
     "import_export": "I",
-    "details_cds": "Complete statement \"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex X (Statues) of Reg. (EU) 2017/1509. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex X (Statues) of Reg. (EU) 2017/1509. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in Annex X (Statues) of Reg. (EU) 2017/1509.",
     "status_codes": []
@@ -7425,7 +7425,7 @@
   {
     "document_code": "Y963",
     "import_export": "I",
-    "details_cds": "Complete statement \"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in the MG footnotes linked to the measure (Annex II, Part IV of Reg. (EU) 2017/1509). \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in the MG footnotes linked to the measure (Annex II, Part IV of Reg. (EU) 2017/1509). \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in the MG footnotes linked to the measure (Annex II, Part IV of Reg. (EU) 2017/1509).",
     "status_codes": []
@@ -7433,7 +7433,7 @@
   {
     "document_code": "Y964",
     "import_export": "I",
-    "details_cds": "Complete statement \"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex XIa (Seafood) of Reg. (EU) 2017/1509. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex XIa (Seafood) of Reg. (EU) 2017/1509. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in Annex XIa (Seafood) of Reg. (EU) 2017/1509.",
     "status_codes": []
@@ -7441,7 +7441,7 @@
   {
     "document_code": "Y965",
     "import_export": "I",
-    "details_cds": "Complete statement \"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex XIb (Lead and lead ore) of Reg. (EU) 2017/1509. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex XIb (Lead and lead ore) of Reg. (EU) 2017/1509. \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in Annex XIb (Lead and lead ore) of Reg. (EU) 2017/1509.",
     "status_codes": []
@@ -7449,7 +7449,7 @@
   {
     "document_code": "Y966",
     "import_export": "B",
-    "details_cds": "Complete statement \"Reg 267/2012 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in the MG footnotes linked to the measure (Missile Technology Control Regime list - Annex III of Reg. (EU) 267/2012). \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 267/2012 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in the MG footnotes linked to the measure (Missile Technology Control Regime list - Annex III of Reg. (EU) 267/2012). \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in the MG footnotes linked to the measure (Missile Technology Control Regime list - Annex III of Reg. (EU) 267/2012).",
     "status_codes": []
@@ -7457,7 +7457,7 @@
   {
     "document_code": "Y967",
     "import_export": "E",
-    "details_cds": "Complete statement \"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex XId (Refined petroleum products) of Reg. (EU) 2017/1509.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2017/1509 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are not those described in Annex XId (Refined petroleum products) of Reg. (EU) 2017/1509.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in Annex XId (Refined petroleum products) of Reg. (EU) 2017/1509.",
     "status_codes": []
@@ -7465,7 +7465,7 @@
   {
     "document_code": "Y968",
     "import_export": "B",
-    "details_cds": "Complete statement \"Under \u20ac50 per litre\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not exceed the sale price of \u20ac50 per litre\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Under \u20ac50 per litre\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods do not exceed the sale price of \u20ac50 per litre\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods not exceeding a sales price of 50 \u20ac per litre",
     "status_codes": []
@@ -7473,7 +7473,7 @@
   {
     "document_code": "Y969",
     "import_export": "B",
-    "details_cds": "Complete statement \"Reg 2017/852 waiver\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are entitled to a waiver under article 5 (2) for products essential for civil protection and military uses; or intended for research, calibration of instrumentation or for use as reference standard.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2017/852 waiver\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are entitled to a waiver under article 5 (2) for products essential for civil protection and military uses; or intended for research, calibration of instrumentation or for use as reference standard.\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Mercury-added products essential for civil protection and military uses; or intended for research, calibration of instrumentation or for use as reference standard (Article 5 (2) of Regulation (EU) 2017/852).",
     "status_codes": []
@@ -7481,7 +7481,7 @@
   {
     "document_code": "Y970",
     "import_export": "B",
-    "details_cds": "Complete statement: 'Exempt from Reg 2017/1509'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempt from the measures linked to Annex II, Part VI of Reg. (EU) 2017/1509).  \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement: 'Exempt from Reg 2017/1509'\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempt from the measures linked to Annex II, Part VI of Reg. (EU) 2017/1509).  \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in the MG footnotes linked to the measure (Annex II, Part VI of Reg. (EU) 2017/1509) concerning restrictive measures against the Democratic People's Republic of Korea and repealing Regulation (EC) No 329/2007.",
     "status_codes": []
@@ -7489,7 +7489,7 @@
   {
     "document_code": "Y971",
     "import_export": "B",
-    "details_cds": "Complete statement: 'Exempt from Reg 2017/1509' \n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempt from the measures linked to Annex II, Part VIII of Reg. (EU) 2017/1509).  \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement: 'Exempt from Reg 2017/1509' \n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempt from the measures linked to Annex II, Part VIII of Reg. (EU) 2017/1509).  \n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Goods other than those described in the MG footnotes linked to the measure (Annex II, Part VIII of Reg. (EU) 2017/1509) concerning restrictive measures against the Democratic People's Republic of Korea and repealing Regulation (EC) No 329/2007.",
     "status_codes": []
@@ -7497,7 +7497,7 @@
   {
     "document_code": "Y974",
     "import_export": "I",
-    "details_cds": "Complete statement \"Not for export\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are destined for a customs procedure other than export\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Not for export\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are destined for a customs procedure other than export\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Customs procedure other than export",
     "status_codes": []
@@ -7505,7 +7505,7 @@
   {
     "document_code": "Y978",
     "import_export": "I",
-    "details_cds": "Complete statement \"Reg 2019/1793 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempt under Article 1(3) of Commission Implementing Regulation (EU) 2019/1793\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
+    "details_cds": "Complete the statement:\"Reg 2019/1793 exempt\".\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempt under Article 1(3) of Commission Implementing Regulation (EU) 2019/1793\n\nSufficient evidence must be held in records to demonstrate eligibility for this waiver which must be produced on demand.",
     "details_chief": "",
     "description": "Exemption by virtue of Article 1(3) of Regulation (EU) 2019/1793\nrepealing Commission Regulation (EC) No 669/2009 as regards the increased level of official controls on imports of certain feed and food of non-animal origin\nSee also document code Y937",
     "status_codes": []
@@ -7513,7 +7513,7 @@
   {
     "document_code": "Y980",
     "import_export": "I",
-    "details_cds": "Complete statement \u201cExempt A.4, Reg (EU) 2019/2126\u201d\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempt under Article 4 of Commission Delegated Regulation (EU) 2019/2126\n\nSufficient evidence must be held in records to demonstrate eligibility for this derogation which must be produced on demand.",
+    "details_cds": "Complete the statement:\u201cExempt A.4, Reg (EU) 2019/2126\u201d\n\nNo status code is required.\n\nUse of this code constitutes a legal declaration that the goods are exempt under Article 4 of Commission Delegated Regulation (EU) 2019/2126\n\nSufficient evidence must be held in records to demonstrate eligibility for this derogation which must be produced on demand.",
     "details_chief": "",
     "description": "Goods benefitting from derogation to veterinary controls according to Article 4 of Commission Delegated Regulation (EU) 2019/2126",
     "status_codes": []
@@ -8368,7 +8368,7 @@
   {
     "document_code": "9120",
     "import_export": "I",
-    "details_cds": "Enter **GBAHC** followed by the licence number. If you are using more than one licence, then a separate 9120 entry in CDS Data Element 2/3 is required for each licence.\n\nUse one of the following status codes: AC, AE, AF, AG, AP, AS, AT, XX.",
+    "details_cds": "- Enter **GBAHC** followed by the licence number.\n\n- If you are using more than one licence, then a separate 9120 entry in CDS Data Element 2/3 is required for each licence.\n\n- Use one of the following status codes: AC, AE, AF, AG, AP, AS, AT, XX.",
     "details_chief": "Use one of the following status codes: AC, AE, AF, AG, AP, AS, AT, XX.",
     "description": "Importation of animal pathogens Licence under the Importation of Animal pathogens Order 1980 (IAPO).",
     "status_codes": [
@@ -8480,7 +8480,7 @@
   {
     "document_code": "955D",
     "import_export": "I",
-    "details_cds": "Complete statement 'Form C&E955 completed' or 'Form C&E955D completed'.\n\nUse the following status code: AE.",
+    "details_cds": "Complete the statement:'Form C&E955 completed' or 'Form C&E955D completed'.\n\nUse the following status code: AE.",
     "details_chief": "",
     "description": "When codes M or N are inserted, a deposit slip (form C&E955) must be attached to the declaration.\nWhen code R is used, deposit slip (form C&E955D) must be attached.\nFailure to attach forms C&E955 and C&E955D could result in a delay in any future repayment.",
     "status_codes": [
@@ -8490,7 +8490,7 @@
   {
     "document_code": "9578",
     "import_export": "I",
-    "details_cds": "Complete statement 'Form C578 completed'.\n\nUse the following status code: AE.",
+    "details_cds": "Complete the statement:'Form C578 completed'.\n\nUse the following status code: AE.",
     "details_chief": "None",
     "description": "Form C578 \u2013 undertaking to produce Form D.V. 1/invoice/CAP Licence/Preference certificate within 14 days.",
     "status_codes": [

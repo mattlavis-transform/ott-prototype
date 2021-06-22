@@ -1,252 +1,39 @@
-<form class="tariff-search " id="new_search" action="/search?country=AU&amp;day=10&amp;month=9&amp;year=2021" accept-charset="UTF-8" method="get">
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
-            <div class="search-header">
-                <div class="searchfield govuk-form-group">
-                    <fieldset class="govuk-fieldset js-date-picker datepicker date-picker govuk-!-font-size-16 govuk-form-group inline" aria-live="polite">
-                        <span class="fields" style="display: none;">This tariff is for
-                            <label class="govuk-visually-hidden" for="tariff_date_date">Date</label>
-                            <span class="js-search-date js-show" style="display: inline;">
-                                <input type="text" name="date" id="tariff_date_date" value="10/09/2021" class="govuk-input">
-                                <button id="search-datepicker-button">
-                                    <svg height="1em" viewBox="0 0 1792 1792" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M192 1664h288v-288h-288v288zm352 0h320v-288h-320v288zm-352-352h288v-320h-288v320zm352 0h320v-320h-320v320zm-352-384h288v-288h-288v288zm736 736h320v-288h-320v288zm-384-736h320v-288h-320v288zm768 736h288v-288h-288v288zm-384-352h320v-320h-320v320zm-352-864v-288q0-13-9.5-22.5t-22.5-9.5h-64q-13 0-22.5 9.5t-9.5 22.5v288q0 13 9.5 22.5t22.5 9.5h64q13 0 22.5-9.5t9.5-22.5zm736 864h288v-320h-288v320zm-384-384h320v-288h-320v288zm384 0h288v-288h-288v288zm32-480v-288q0-13-9.5-22.5t-22.5-9.5h-64q-13 0-22.5 9.5t-9.5 22.5v288q0 13 9.5 22.5t22.5 9.5h64q13 0 22.5-9.5t9.5-22.5zm384-64v1280q0 52-38 90t-90 38h-1408q-52 0-90-38t-38-90v-1280q0-52 38-90t90-38h128v-96q0-66 47-113t113-47h64q66 0 113 47t47 113v96h384v-96q0-66 47-113t113-47h64q66 0 113 47t47 113v96h128q52 0 90 38t38 90z"></path>
-                                    </svg>
-                                </button>
-                                <div id="search-datepicker-dialog" class="datepickerDialog" role="dialog" aria-modal="true" aria-labelledby="id-dialog-label">
-                                    <div class="header">
-                                        <button class="prevYear" aria-label="previous year">
-                                            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                                <title></title>
-                                                <g data-name="Layer 2" id="Layer_2">
-                                                    <path class="cls-1" d="M15.12,15.53,25,5.66a1,1,0,0,1,1.41,1.41l-9.06,9.06,8.8,8.8a1,1,0,0,1,0,1.41h0a1,1,0,0,1-1.42,0l-9.61-9.61A.85.85,0,0,1,15.12,15.53Z" fill="currentColor"></path>
-                                                    <path fill="currentColor" d="M5.54,15.53l9.88-9.87a1,1,0,1,1,1.41,1.41L7.77,16.13l8.8,8.8a1,1,0,0,1,0,1.41h0a1,1,0,0,1-1.41,0L5.54,16.73A.85.85,0,0,1,5.54,15.53Z"></path>
-                                                </g>
-                                            </svg>
-                                        </button>
-                                        <button class="prevMonth" aria-label="previous month">
-                                            <svg enable-background="new 0 0 256 256" id="Layer_1" version="1.1" viewBox="0 0 256 256" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                <path d="M179.199,38.399c0,1.637-0.625,3.274-1.875,4.524l-85.076,85.075l85.076,85.075c2.5,2.5,2.5,6.55,0,9.05s-6.55,2.5-9.05,0  l-89.601-89.6c-2.5-2.5-2.5-6.551,0-9.051l89.601-89.6c2.5-2.5,6.55-2.5,9.05,0C178.574,35.124,179.199,36.762,179.199,38.399z" fill="currentColor"></path>
-                                            </svg>
-                                        </button>
-                                        <h2 id="id-dialog-label" class="monthYear" aria-live="polite">June 2021</h2>
-                                        <button class="nextMonth" aria-label="next month">
-                                            <svg enable-background="new 0 0 256 256" id="Layer_1" version="1.1" viewBox="0 0 256 256" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                <path d="M76.8,217.6c0-1.637,0.625-3.274,1.875-4.524L163.75,128L78.675,42.925c-2.5-2.5-2.5-6.55,0-9.05s6.55-2.5,9.05,0  l89.601,89.6c2.5,2.5,2.5,6.551,0,9.051l-89.601,89.6c-2.5,2.5-6.55,2.5-9.05,0C77.425,220.875,76.8,219.237,76.8,217.6z" fill="currentColor"></path>
-                                            </svg>
-                                        </button>
-                                        <button class="nextYear" aria-label="next year">
-                                            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                                <title></title>
-                                                <g data-name="Layer 2" id="Layer_2">
-                                                    <path fill="currentColor" d="M16.88,15.53,7,5.66A1,1,0,0,0,5.59,7.07l9.06,9.06-8.8,8.8a1,1,0,0,0,0,1.41h0a1,1,0,0,0,1.42,0l9.61-9.61A.85.85,0,0,0,16.88,15.53Z"></path>
-                                                    <path class="cls-1" d="M26.46,15.53,16.58,5.66a1,1,0,0,0-1.41,1.41l9.06,9.06-8.8,8.8a1,1,0,0,0,0,1.41h0a1,1,0,0,0,1.41,0l9.62-9.61A.85.85,0,0,0,26.46,15.53Z" fill="currentColor"></path>
-                                                </g>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <table id="search-datepicker-grid" class="dates" role="grid" aria-labelledby="id-dialog-label">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col" abbr="Sunday">
-          Su
-        </th>
-                                                <th scope="col" abbr="Monday">
-          Mo
-        </th>
-                                                <th scope="col" abbr="Tuesday">
-          Tu
-        </th>
-                                                <th scope="col" abbr="Wednesday">
-          We
-        </th>
-                                                <th scope="col" abbr="Thursday">
-          Th
-        </th>
-                                                <th scope="col" abbr="Friday">
-          Fr
-        </th>
-                                                <th scope="col" abbr="Saturday">
-          Sa
-        </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="dateRow">
-                                                <td class="dateCell">
-                                                    <button class="dateButton disabled" tabindex="-1" data-date="2021-05-30">30</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton disabled" tabindex="-1" data-date="2021-05-31">31</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-01">1</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-02">2</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-03">3</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-04">4</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-05">5</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="dateRow">
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="0" data-date="2021-06-06">6</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-07">7</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-08">8</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-9">9</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-10">10</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-11">11</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-12">12</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="dateRow">
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-13">13</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-14">14</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-15">15</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-16">16</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-17">17</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-18">18</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-19">19</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="dateRow">
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-20">20</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-21">21</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-22">22</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-23">23</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-24">24</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-25">25</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-26">26</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="dateRow">
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-27">27</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-28">28</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-29">29</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton" tabindex="-1" data-date="2021-06-30">30</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton disabled" tabindex="-1" data-date="2021-07-01">1</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton disabled" tabindex="-1" data-date="2021-07-02">2</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton disabled" tabindex="-1" data-date="2021-07-03">3</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="dateRow" style="visibility: hidden;">
-                                                <td class="dateCell">
-                                                    <button class="dateButton disabled" tabindex="-1" data-date="2021-07-04">4</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton disabled" tabindex="-1" data-date="2021-07-05">5</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton disabled" tabindex="-1" data-date="2021-07-06">6</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton disabled" tabindex="-1" data-date="2021-07-07">7</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton disabled" tabindex="-1" data-date="2021-07-08">8</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton disabled" tabindex="-1" data-date="2021-07-9">9</button>
-                                                </td>
-                                                <td class="dateCell">
-                                                    <button class="dateButton disabled" tabindex="-1" data-date="2021-07-10">10</button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="dialogButtonGroup">
-                                        <button class="govuk-button govuk-!-margin-right-3" value="ok">
-      OK
-    </button>
-                                        <button class="govuk-button govuk-button--secondary" value="cancel">
-      Cancel
-    </button>
-                                    </div>
-                                    <div class="message" aria-live="polite">
-    Test
-  </div>
-                                </div>
-                            </span>
-                            <span class="no-js-search-date" style="display: none;">
-                                <label class="govuk-visually-hidden" for="tariff_date_day">Day</label>
-                                <input type="text" name="day" id="tariff_date_day" value="10" class="govuk-input govuk-input--width-2" maxlength="2" placeholder="DD">
-                                <label class="govuk-visually-hidden" for="tariff_date_month">Month</label>
-                                <input type="text" name="month" id="tariff_date_month" value="9" class="govuk-input govuk-input--width-2" maxlength="2" placeholder="MM">
-                                <label class="govuk-visually-hidden" for="tariff_date_year">Year</label>
-                                <input type="text" name="year" id="tariff_date_year" value="2021" class="govuk-input govuk-input--width-4" maxlength="4" placeholder="YYYY">
-                            </span>
+<form action="/change-date" method="get">
+<div class="govuk-form-group govuk-!-margin-bottom-0">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="date-hint">
+    <div id="fld-date">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        <h1 class="govuk-fieldset__heading">This tariff is for:</h1>
+      </legend>
+      <input type="hidden" name="goods_nomenclature_item_id" id="goods_nomenclature_item_id" value="{{ commodity.data.attributes.goods_nomenclature_item_id }}">
 
-                            <noscript>
-                                <button class="govuk-button" type="submit">Set date</button>
-                            </noscript>
-                            <a class="submit js-show" role="button" href="#" title="set date" rel="nofollow" style="display: inline;">Set date</a>
-                        </span>
-                        <span class="text  js-show" style="display: inline;">
-    This tariff is for 10 September 2021 
-    <a href="#" title="change date" role="button">Change date</a>
-                        </span>
-                    </fieldset>
-
-                </div>
-            </div>
+      <div class="govuk-date-input" id="date">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label hidden" for="day">
+            Day
+          </label>
+            <input value="{{ date.day }}" class="govuk-input govuk-date-input__input govuk-input--width-2" id="day" name="day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
         </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label hidden" for="month">
+            Month
+          </label>
+            <input value="{{ date.month }}" class="govuk-input govuk-date-input__input govuk-input--width-2" id="month" name="month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label hidden" for="year">
+            Year
+          </label>
+            <input value="{{ date.year }}" class="govuk-input govuk-date-input__input govuk-input--width-4" id="year" name="year" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+        </div>
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Update date
+      </button>
+      </div>
     </div>
+  </fieldset>
+</div>
 </form>

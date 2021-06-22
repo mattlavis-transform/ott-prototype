@@ -13,6 +13,10 @@ table.measures2 {
     // }
 }
 
+.hidden {
+    display: none
+}
+
 
 table.measures2 dl {
     margin: 0 !important
@@ -219,4 +223,30 @@ table.measures2 dl dd ul li {
     p {
         font-size: 16px;
     }
+}
+
+#fld-date {
+    display        : flex;
+    flex-flow      : row wrap;
+    justify-content: flex-start;
+
+    legend {
+        margin-right: 1em;
+        padding-top : 7px;
+    }
+
+    .govuk-button {
+        width: auto !important
+    }
+
+    .govuk-date-input__item {
+        margin-right: 10px;
+    }
+}
+
+.flag {
+    margin-left: 0.5em;
+    position   : relative;
+    top        : 2px;
+    filter: drop-shadow(2px 2px 2px #999);
 }

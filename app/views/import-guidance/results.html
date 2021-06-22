@@ -5,7 +5,6 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <script src="/public/javascripts/location-autocomplete.min.js"></script>
   {# {{ govukPhaseBanner({
       tag: {
         text: "beta"
@@ -33,8 +32,9 @@
       <dl class="govuk-summary-list govuk-!-margin-bottom-0">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key" style="width: 36%;">Commodity code</dt>
-          <dd class="govuk-summary-list__value"><a href="/commodities/{{commodity.data.attributes.goods_nomenclature_item_id}}">
-            {{commodity.data.attributes.goods_nomenclature_item_id}}</a>
+          <dd class="govuk-summary-list__value">
+            <a href="/commodities/{{commodity.data.attributes.goods_nomenclature_item_id}}">
+              {{commodity.data.attributes.goods_nomenclature_item_id}}</a>
           </dd>
         </div>
 
@@ -51,7 +51,9 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key" style="width: 36%;">Goods coming from</dt>
-          <dd class="govuk-summary-list__value">{{commodity.country_name }}</dd>
+          <dd class="govuk-summary-list__value">{{commodity.country_name }}<img class="flag"
+  src="https://flagcdn.com/h20/{{ commodity.origin | lower }}.png" srcset="https://flagcdn.com/h40/{{ commodity.origin | lower }}.png 2x, https://flagcdn.com/h60/{{ commodity.origin | lower }}.png 3x"
+  height="20" alt="{{commodity.country_name }}"></dd>
         </div>
 
         <div class="govuk-summary-list__row govuk-summary-list__row_noborder">
@@ -143,11 +145,12 @@
         <p>To complete your trade, you need to fulfil one of the requirements listed in the table associated
           with each of the trade measures. There are three types of condition:</p>
         <ul class="govuk-list govuk-list--bullet">
-          <li>Documentation requirements - you must provide documentary evidence to accompany your import</li>
-          <li>Exemptions - your import is exempted from the need to provide documentation for reasons identified in the tables below</li>
-          <li>Threshold conditions - your import is below a threshold weight or volume</li>
+          <li><b>Documentation requirements</b> - you must provide documentary evidence to accompany your import</li>
+          <li><b>Exemptions</b> - your import is exempted from the need to provide documentation for reasons identified in the tables below</li>
+          <li><b>Threshold conditions</b> - your import is below a threshold weight or volume</li>
         </ul>
         <p>These requirements may also be combined. For example, an exemption may apply only for the import of small weights or volumes.</p>
+        <p>The codes next to the rules or exemptions are the import codes that apply to your goods. You (or your agent) will need these codes to complete the import declaration.</p>
       </div>
 
       {% for m in commodity.measures %}
@@ -155,6 +158,9 @@
           {% set condition_class = "" %}
           <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible noprint">
           <h2 id="measure_{{ m.id }}" class="govuk-heading-m govuk-!-margin-top-9 measure_type_{{ m.measure_type.id }}">{{ m.measure_type_description }}</h2>
+          {% if m.exposed_conditions.length > 1 %}
+          <p>There are {{ m.exposed_conditions.length }} ways to comply with this control.</p>
+          {% endif %}
           <p class="govuk-body--m govuk-hint">{{ m.measure_type.hint }}</p>
           <table class="govuk-table govuk-table--m">
             {# <caption class="govuk-table__caption govuk-heading-s">Rules</caption> #}
