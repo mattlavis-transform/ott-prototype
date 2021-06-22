@@ -7,11 +7,13 @@ const path = require('path')
 class Roo {
     constructor(req, country) {
         this.country = country;
-        this.intro_text = "";
-        this.get_roo_config(req);
-        if (this.valid_rules) {
-            // this.get_product_specific_rules_gb(req);
-            this.get_product_specific_rules_xi(req);
+        if (this.country != "") {
+            this.intro_text = "";
+            this.get_roo_config(req);
+            if (this.valid_rules) {
+                // this.get_product_specific_rules_gb(req);
+                this.get_product_specific_rules_xi(req);
+            }
         }
     }
 
@@ -55,6 +57,9 @@ class Roo {
         s = s.replace(/<h3/g, "<h3 class='govuk-heading-s'");
         s = s.replace(/<ul/g, "<ul class='govuk-list govuk-list--bullet'");
         s = s.replace(/<ol/g, "<ol class='govuk-list govuk-list--number'");
+
+        s = s.replace(/<h3 class='govuk-heading-s'>([^<]*)<\/h3>/gm, "<h3 class='govuk-heading-s' id='$1'>$1</h3>");
+
         return (s);
     }
 
@@ -114,7 +119,7 @@ class Roo {
         const path = require('path');
 
         const directoryPath = path.join(__dirname, '../data/roo/product-specific/');
-    
+
         var result;
 
         this.get_templates();
@@ -144,6 +149,8 @@ class Roo {
                         this.rows += row;
                     });
                 }
+
+                this.rows = this.rows.replace("<ul", "<ul class='govuk-list govuk-list--bullet'")
 
                 this.product_specific_rules = this.template_table;
                 this.product_specific_rules = this.product_specific_rules.replace("{{ rows }}", this.rows);

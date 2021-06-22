@@ -5,7 +5,7 @@ const api_helper = require('../API_helper');
 const { response } = require('express');
 const Heading = require('../classes/heading.js');
 const Commodity = require('../classes/commodity.js');
-const Roo = require('../classes/roo.js');
+// const Roo = require('../classes/roo.js');
 const ImportedContext = require('../classes/imported_context.js');
 const CPCController = require('../classes/cpc/cpc-controller.js');
 const Error_handler = require('../classes/error_handler.js');
@@ -13,6 +13,8 @@ const date = require('date-and-time');
 const GeographicalArea = require('../classes/geographical_area');
 const Link = require('../classes/link');
 const { xor } = require('lodash');
+const RooMvp = require('../classes/roo_mvp.js');
+const Roo = require('../classes/roo_mvp.js');
 
 require('../classes/global.js');
 require('../classes/news.js');
@@ -133,6 +135,41 @@ router.get([
     var commodity = req.session.data["commodity"];
     res.redirect('/commodities/' + commodity + "/" + req.session.data["roo_country"] + "#rules_of_origin");
 });
+/* Rules of origin ends here */
+
+
+router.get([
+    '/roo/test',
+], function (req, res) {
+    var roo_data = require('../data/roo/product-specific/sacum_roo.json');
+    var rules = roo_data["rules"];
+    var i;
+
+    for (i = 0; i < rules.length; i++) {
+        var rule = rules[i];
+
+        var MarkdownIt = require('markdown-it');
+        var md = new MarkdownIt();
+        rule.rule2 = govify(md.render(rule.rule));
+    }
+
+    res.render('roo/roo_test', { "rules": rules });
+
+
+    
+});
+
+function govify(s) {
+    s = s.replace(/<h1/g, "<h1 class='govuk-heading-l'");
+    s = s.replace(/<h2/g, "<h2 class='govuk-heading-m'");
+    s = s.replace(/<h3/g, "<h3 class='govuk-heading-s'");
+    s = s.replace(/<ul/g, "<ul class='govuk-list govuk-list--bullet'");
+    s = s.replace(/<ol/g, "<ol class='govuk-list govuk-list--number'");
+
+    s = s.replace(/<h3 class='govuk-heading-s'>([^<]*)<\/h3>/gm, "<h3 class='govuk-heading-s' id='$1'>$1</h3>");
+
+    return (s);
+}
 /* Rules of origin ends here */
 
 

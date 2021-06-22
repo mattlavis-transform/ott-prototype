@@ -76,7 +76,7 @@ class Calculation {
             });
         }
         this.result = total;
-        console.log(this.result);
+        // console.log(this.result);
 
         //console.log("Calculating");
         var phrase_result;

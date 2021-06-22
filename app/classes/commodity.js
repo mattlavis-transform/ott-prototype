@@ -425,7 +425,6 @@ class Commodity {
                         measure.measure_type_description = measure.measure_type.overlay;  
                         measure.measure_type.description = measure.measure_type.overlay;  
                     }
-                    // measure.measure_type_description = measure_type.description;
                     measure.measure_type_series_id = measure_type.measure_type_series_id;
                 }
             });

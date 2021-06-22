@@ -152,9 +152,18 @@ class Measure {
                     this.exposed_conditions.push(measure_condition);
                     single_pushed = true;
                 } else {
+
                     var ln = this.exposed_conditions.length;
-                    var mc = this.exposed_conditions[ln - 1];
-                    mc.append_condition(measure_condition);
+                    var i = 0;
+                    for (i = 0; i < ln; i++) {
+                        var mc = this.exposed_conditions[i];
+                        if (this.exposed_conditions[i].instance_count == 1) {
+                            mc.append_condition(measure_condition);
+                            break;
+                        }
+                    }
+                    // var mc = this.exposed_conditions[ln - 1];
+                    // mc.append_condition(measure_condition);
                 }
             }
         });
