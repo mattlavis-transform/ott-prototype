@@ -145,12 +145,75 @@ href: ""
                 <a class="govuk-tabs__tab" id="tab_footnotes" href="#footnotes">Footnotes</a>
             </li>
         </ul>
-        
+
         <div class="govuk-tabs__panel" id="import">
             {% include "includes/commodities_import.html" %}
         </div>
         <div class="govuk-tabs__panel" id="export">
             {% include "includes/commodities_export.html" %}
+        </div>
+        <div class="govuk-tabs__panel" id="rules_of_origin">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <span class="govuk-caption-m">Rules of origin</span>
+                    <h2 class="govuk-heading-l">Trading with {{ commodity.country_name2 }}
+                        <img class="flag"
+                        src="https://flagcdn.com/h40/{{ data["country"] | lower }}.png" srcset="https://flagcdn.com/h80/{{ data["country"] | lower }}.png 2x, https://flagcdn.com/h120/{{ data["country"] | lower }}.png 3x"
+                        height="20" alt="{{commodity.country_name2 }}">
+                    </h2>
+                    {% if roo.valid_rules %}
+                        <nav class="gem-c-contents-list noprint" aria-label="Contents" role="navigation">
+                            <h2 class="govuk-heading-s govuk-!-margin-bottom-0 normal">Contents</h2>
+                            <ol class="gem-c-contents-list__list">
+                                <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                                    <a class="gem-c-contents-list__link govuk-link  govuk-link--no-underline" href="#relationship">The UK's trading relationship with {{ commodity.country_name2 }}</a>
+                                </li>
+                                <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                                    <a class="gem-c-contents-list__link govuk-link  govuk-link--no-underline" href="#psr">Product specific rules</a>
+                                </li>
+                                <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                                    <a class="gem-c-contents-list__link govuk-link  govuk-link--no-underline" href="#intro">Introductory notes</a>
+                                </li>
+                            </ol>
+                        </nav>
+
+                        <h2 id="intro" class="govuk-heading-m">The UK's trading relationship with {{ commodity.country_name2 }}</h2>
+                        {{ roo["fta_intro"] | safe }}
+
+                        {% if roo.product_specific_rules %}
+                            <h2 class="govuk-heading-m">
+                                Product-specific rules for commodity {{ commodity.data.attributes.goods_nomenclature_item_id }}
+                            </h2>
+                            {{ roo["product_specific_rules"] | safe }}
+                        {% endif %}
+
+                        <h2 id="intro" class="govuk-heading-m">Introductory notes on these rules of origin</h2>
+                        {{ roo["intro_text"] | safe }}
+
+                    {% else %}
+                        <p>To view rules of origin, select a country with which the UK has a trade agreement from the list
+                        above.</p>
+                    {% endif %}
+                </div>
+                <div class="govuk-grid-column-one-third">
+                    <aside class="app-related-items noborder govuk-!-margin-top-6" role="complementary">
+                        <h2 class="govuk-heading-m" id="subsection-title">Related content</h2>
+                        <nav role="navigation" aria-labelledby="subsection-title">
+                            <ul class="govuk-list govuk-list-s">
+                                <li>
+                                    <a href="https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin">Check your goods meet the rules of origin</a>
+                                </li>
+                                {% for link in roo.links %}
+                                    <li>
+                                        <a href="{{ link.url }}">{{ link.text }}</a>
+                                    </li>
+                                {% endfor %}
+
+                            </ul>
+                        </nav>
+                    </aside>
+                </div>
+            </div>
         </div>
         <div class="govuk-tabs__panel" id="footnotes">
             {% if commodity.commodity_footnote_count > 0 %}
@@ -177,69 +240,7 @@ href: ""
             {% endif %}
         </div>
 
-        <div class="govuk-tabs__panel" id="rules_of_origin">
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-two-thirds">
-                    {% if roo.valid_rules %}
-                        <span class="govuk-caption-m">Rules of origin - trading with {{ commodity.country_name2 }} <img class="flag"
-  src="https://flagcdn.com/h20/{{ data["country"] | lower }}.png" srcset="https://flagcdn.com/h40/{{ data["country"] | lower }}.png 2x, https://flagcdn.com/h60/{{ data["country"] | lower }}.png 3x"
-  height="20" alt="{{commodity.country_name2 }}"></span>
-                        {% if roo.product_specific_rules %}
-                            <div class="xgovuk-inset-text">
-                                <h2 class="govuk-heading-m">
-                                Product-specific rules for commodity {{ commodity.data.attributes.goods_nomenclature_item_id }}
-                                </h2>
-                                {{ roo["product_specific_rules"] | safe }}
-                            </div>
-                        {% endif %}
-
-                        <details class="govuk-details govuk-!-margin-bottom-3" data-module="govuk-details">
-                            <summary class="govuk-details__summary">
-                                <span class="govuk-details__summary-text">The UK's trading relationship with {{ commodity.country_name2 }}</span>
-                            </summary>
-                            <div class="govuk-details__text">
-                                {{ roo["fta_intro"] | safe }}
-                            </div>
-                        </details>
-
-                        <h2 class="govuk-heading-m">Introductory notes on these rules of origin</h2>
-                        {{ roo["intro_text"] | safe }}
-                        {# <details class="govuk-details govuk-details-m" data-module="govuk-details">
-                            <summary class="govuk-details__summary">
-                                <span class="govuk-details__summary-text">Introductory notes on these rules of origin</span>
-                            </summary>
-                            <div class="govuk-details__text">
-                                {{ roo["intro_text"] | safe }}
-                            </div>
-                        </details> #}
-
-                    </div>
-                    <div class="govuk-grid-column-one-third">
-                        <aside class="app-related-items" role="complementary">
-                            <h2 class="govuk-heading-m" id="subsection-title">Related content</h2>
-                            <nav role="navigation" aria-labelledby="subsection-title">
-                                <ul class="govuk-list govuk-list-s">
-                                    {% for link in roo.links %}
-                                        <li>
-                                            <a href="{{ link.url }}">{{ link.text }}</a>
-                                        </li>
-                                    {% endfor %}
-
-                                </ul>
-                            </nav>
-                        </aside>
-                    </div>
-                {% else %}
-                    <h2 class="govuk-heading-m">Rules of origin</h2>
-                    <p>To view rules of origin, select a country with which the UK has a trade agreement from the list
-                    above.</p>
-
-                {% endif %}
-            </div>
-        </div>
-
     </div>
-
 </div>
 <!-- Start footnotes //-->
 {% for measure in commodity.measures %}

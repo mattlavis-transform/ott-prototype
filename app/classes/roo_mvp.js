@@ -55,6 +55,7 @@ class Roo {
         s = s.replace(/<h1/g, "<h1 class='govuk-heading-l'");
         s = s.replace(/<h2/g, "<h2 class='govuk-heading-m'");
         s = s.replace(/<h3/g, "<h3 class='govuk-heading-s'");
+        s = s.replace(/<h4/g, "<h4 class='govuk-heading-s'");
         s = s.replace(/<ul/g, "<ul class='govuk-list govuk-list--bullet'");
         s = s.replace(/<ol/g, "<ol class='govuk-list govuk-list--number'");
 

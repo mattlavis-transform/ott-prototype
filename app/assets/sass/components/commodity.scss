@@ -247,6 +247,15 @@ table.measures2 dl dd ul li {
 .flag {
     margin-left: 0.5em;
     position   : relative;
-    top        : 2px;
-    filter: drop-shadow(2px 2px 2px #999);
+    top        : -2px;
+    filter     : drop-shadow(2px 2px 2px #999);
+}
+
+.normal {
+    font-weight: normal;
+}
+
+.noborder {
+    border : 0px !important;
+    padding: 0px;
 }
