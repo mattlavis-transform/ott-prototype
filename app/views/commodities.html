@@ -154,65 +154,90 @@ href: ""
         </div>
         <div class="govuk-tabs__panel" id="rules_of_origin">
             <div class="govuk-grid-row">
-                <div class="govuk-grid-column-two-thirds">
-                    <span class="govuk-caption-m">Rules of origin</span>
-                    <h2 class="govuk-heading-l">Trading with {{ commodity.country_name2 }}
-                        <img class="flag"
+                {% if commodity.country_name2.length > 0 %}
+                    <div class="govuk-grid-column-two-thirds">
+                        <span class="govuk-caption-m">Rules of origin</span>
+                        <h2 class="govuk-heading-l">Trading with {{ commodity.country_name2 }}
+                            <img class="flag"
                         src="https://flagcdn.com/h40/{{ data["country"] | lower }}.png" srcset="https://flagcdn.com/h80/{{ data["country"] | lower }}.png 2x, https://flagcdn.com/h120/{{ data["country"] | lower }}.png 3x"
                         height="20" alt="{{commodity.country_name2 }}">
-                    </h2>
-                    {% if roo.valid_rules %}
-                        <nav class="gem-c-contents-list noprint" aria-label="Contents" role="navigation">
-                            <h2 class="govuk-heading-s govuk-!-margin-bottom-0 normal">Contents</h2>
-                            <ol class="gem-c-contents-list__list">
-                                <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                                    <a class="gem-c-contents-list__link govuk-link  govuk-link--no-underline" href="#relationship">The UK's trading relationship with {{ commodity.country_name2 }}</a>
-                                </li>
-                                <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                                    <a class="gem-c-contents-list__link govuk-link  govuk-link--no-underline" href="#psr">Product specific rules</a>
-                                </li>
-                                <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                                    <a class="gem-c-contents-list__link govuk-link  govuk-link--no-underline" href="#intro">Introductory notes</a>
-                                </li>
-                            </ol>
-                        </nav>
-
-                        <h2 id="intro" class="govuk-heading-m">The UK's trading relationship with {{ commodity.country_name2 }}</h2>
-                        {{ roo["fta_intro"] | safe }}
-
-                        {% if roo.product_specific_rules %}
-                            <h2 class="govuk-heading-m">
-                                Product-specific rules for commodity {{ commodity.data.attributes.goods_nomenclature_item_id }}
-                            </h2>
-                            {{ roo["product_specific_rules"] | safe }}
-                        {% endif %}
-
-                        <h2 id="intro" class="govuk-heading-m">Introductory notes on these rules of origin</h2>
-                        {{ roo["intro_text"] | safe }}
-
-                    {% else %}
-                        <p>To view rules of origin, select a country with which the UK has a trade agreement from the list
-                        above.</p>
-                    {% endif %}
-                </div>
-                <div class="govuk-grid-column-one-third">
-                    <aside class="app-related-items noborder govuk-!-margin-top-6" role="complementary">
-                        <h2 class="govuk-heading-m" id="subsection-title">Related content</h2>
-                        <nav role="navigation" aria-labelledby="subsection-title">
-                            <ul class="govuk-list govuk-list-s">
-                                <li>
-                                    <a href="https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin">Check your goods meet the rules of origin</a>
-                                </li>
-                                {% for link in roo.links %}
-                                    <li>
-                                        <a href="{{ link.url }}">{{ link.text }}</a>
+                        </h2>
+                        {% if roo.valid_rules %}
+                            <nav class="gem-c-contents-list noprint" aria-label="Contents" role="navigation">
+                                <h2 class="govuk-heading-s govuk-!-margin-bottom-0 normal">Contents</h2>
+                                <ol class="gem-c-contents-list__list">
+                                    <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                                        <a class="gem-c-contents-list__link govuk-link  govuk-link--no-underline" href="#relationship">The UK's trading relationship with {{ commodity.country_name2 }}</a>
                                     </li>
-                                {% endfor %}
+                                    <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                                        <a class="gem-c-contents-list__link govuk-link  govuk-link--no-underline" href="#psr">Product specific rules</a>
+                                    </li>
+                                    <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                                        <a class="gem-c-contents-list__link govuk-link  govuk-link--no-underline" href="#intro">Introductory notes</a>
+                                    </li>
+                                </ol>
+                            </nav>
 
-                            </ul>
-                        </nav>
-                    </aside>
-                </div>
+                            <h2 id="intro" class="govuk-heading-m">The UK's trading relationship with {{ commodity.country_name2 }}</h2>
+                            {{ roo["fta_intro"] | safe }}
+
+                            {% if roo.product_specific_rules %}
+                                <h2 class="govuk-heading-m">
+                                Product-specific rules for commodity {{ commodity.data.attributes.goods_nomenclature_item_id }}
+                                </h2>
+                                {{ roo["product_specific_rules"] | safe }}
+                            {% endif %}
+
+                            <h2 id="intro" class="govuk-heading-m">Introductory notes on these rules of origin</h2>
+                            {{ roo["intro_text"] | safe }}
+
+                        {% else %}
+
+                            <div class="govuk-inset-text">
+                                <p>There is no preferential agreement in place with {{ commodity.country_name2 }}, therefore
+                                    rules of origin are not applicable.</p>
+
+                            </div>
+                            <p>To view rules of origin, select a country with which the UK
+                                    has a trade agreement from the list above.</p>
+                            <p>Alternatively, to see generic guidance on rules of origin,
+                                    follow the links to the right.</p>
+                        {% endif %}
+                    </div>
+                    <div class="govuk-grid-column-one-third">
+                        <aside class="app-related-items noborder govuk-!-margin-top-6" role="complementary">
+                            <h2 class="govuk-heading-m" id="subsection-title">Related content</h2>
+                            <nav role="navigation" aria-labelledby="subsection-title">
+                                <ul class="govuk-list govuk-list-s">
+                                    <li>
+                                        <a href="https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin">Check your goods meet the rules of origin</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.gov.uk/guidance/import-and-export-goods-using-preference-agreements">Pay less Customs Duty on goods from a country with a UK trade agreement</a>
+                                    </li>
+                                    {# <li>
+                                        <a href="https://www.gov.uk/government/publications/rules-of-origin-for-goods-moving-between-the-uk-and-eu/introduction-to-rules-of-origin-and-claiming-preferential-tariffs-duties">Introduction to rules of origin and claiming preferential tariffs (duties)</a>
+                                    </li> #}
+                                </ul>
+                            </nav>
+                        </aside>
+                    </div>
+                {% else %}
+                    <h2 class="govuk-heading-m">Rules of origin</h2>
+                    <p>To view rules of origin, select a country with which the UK has a trade agreement from the list above</p>
+                    <p>You can also find out about rules of origin</p>
+                    <nav role="navigation" aria-labelledby="subsection-title">
+                        <ul class="govuk-list govuk-list-s">
+                            <li>
+                                <a href="https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin">Check your goods meet the rules of origin</a>
+                            </li>
+                            <li>
+                                <a href="https://www.gov.uk/guidance/import-and-export-goods-using-preference-agreements">Pay less Customs Duty on goods from a country with a UK trade agreement</a>
+                            </li>
+                        </ul>
+                    </nav>
+                {% endif %}
+
             </div>
         </div>
         <div class="govuk-tabs__panel" id="footnotes">

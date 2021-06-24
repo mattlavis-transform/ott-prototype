@@ -145,7 +145,6 @@ router.get([
     '/commodities/:goods_nomenclature_item_id/:country'
 ], async function (req, res) {
     var border_system = "cds";
-    var declaration_th;
 
     // Get a full list of countries to use in the dropdown
     var countries = global.get_countries(req.session.data["country"]);
@@ -156,11 +155,13 @@ router.get([
     if (typeof country === 'undefined') {
         country = req.session.data["country"];
         if (typeof country === 'undefined') {
-            country = "";            
+            country = "";
         }
+        country = "";
     } else {
         req.session.data["country"] = country;
     }
+    req.session.data["country"] = country;
 
     // Get any RoO information that we can
     roo_mvp = new RooMvp(req, country);
@@ -196,14 +197,12 @@ router.get([
     } else {
         var url = 'https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"] + "?filter[geographical_area_id]=" + country;
     }
-    var url_roo = "https://www.get-rules-tariffs-trade-with-uk.service.gov.uk/country/VN/commodity/5003000010/86770";
     if (scopeId == "ni") {
         url_original = url;
         url = url.replace("/api", "/xi/api");
         const axiosrequest1 = axios.get(url);
         const axiosrequest2 = axios.get(url_original);
-        const axiosrequest3 = axios.get(url_roo);
-        await axios.all([axiosrequest1, axiosrequest2, axiosrequest3]).then(axios.spread(function (res1, res2, res_roo) {
+        await axios.all([axiosrequest1, axiosrequest2]).then(axios.spread(function (res1, res2) {
             // Get the EU measures
             c = new Commodity();
             c.pass_request(req);
@@ -233,8 +232,7 @@ router.get([
 
     } else {
         const axiosrequest1 = axios.get(url);
-        const axiosrequest3 = axios.get(url_roo);
-        await axios.all([axiosrequest1, axiosrequest3]).then(axios.spread(function (response, res_roo) {
+        await axios.all([axiosrequest1]).then(axios.spread(function (response) {
             c = new Commodity();
             c.pass_request(req);
             c.get_data(response.data);
@@ -242,8 +240,6 @@ router.get([
             console.log(c.measures.length);
 
             c.sort_measures();
-
-            var a = res_roo.data;
 
             res.render('commodities', {
                 'date': date, 

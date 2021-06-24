@@ -247,8 +247,14 @@ table.measures2 dl dd ul li {
 .flag {
     margin-left: 0.5em;
     position   : relative;
-    top        : -2px;
     filter     : drop-shadow(2px 2px 2px #999);
+    min-height : 30px;
+}
+
+@media (max-width: 800px) {
+    .flag {
+        min-height : 20px;
+    }
 }
 
 .normal {
