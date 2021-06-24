@@ -158,8 +158,11 @@ href: ""
                     <div class="govuk-grid-column-two-thirds">
                         <span class="govuk-caption-m">Rules of origin</span>
                         <h2 class="govuk-heading-l">Trading with {{ commodity.country_name2 }}
-                            <img class="flag"
+                            {# <img class="flag"
                         src="https://flagcdn.com/h40/{{ data["country"] | lower }}.png" srcset="https://flagcdn.com/h80/{{ data["country"] | lower }}.png 2x, https://flagcdn.com/h120/{{ data["country"] | lower }}.png 3x"
+                        height="20" alt="{{commodity.country_name2 }}"> #}
+                            <img class="flag"
+                        src="/public/images/flags/{{ data["country"] | lower }}.png" 
                         height="20" alt="{{commodity.country_name2 }}">
                         </h2>
                         {% if roo.valid_rules %}
@@ -223,19 +226,21 @@ href: ""
                         </aside>
                     </div>
                 {% else %}
-                    <h2 class="govuk-heading-m">Rules of origin</h2>
-                    <p>To view rules of origin, select a country with which the UK has a trade agreement from the list above</p>
-                    <p>You can also find out about rules of origin</p>
-                    <nav role="navigation" aria-labelledby="subsection-title">
-                        <ul class="govuk-list govuk-list-s">
-                            <li>
-                                <a href="https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin">Check your goods meet the rules of origin</a>
-                            </li>
-                            <li>
-                                <a href="https://www.gov.uk/guidance/import-and-export-goods-using-preference-agreements">Pay less Customs Duty on goods from a country with a UK trade agreement</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    <div class="govuk-grid-column-two-thirds">
+                        <h2 class="govuk-heading-m">Rules of origin</h2>
+                        <p>To view rules of origin, select a country with which the UK has a trade agreement from the list above</p>
+                        <p>You can also find out about rules of origin</p>
+                        <nav role="navigation" aria-labelledby="subsection-title">
+                            <ul class="govuk-list govuk-list-s">
+                                <li>
+                                    <a href="https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin">Check your goods meet the rules of origin</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.gov.uk/guidance/import-and-export-goods-using-preference-agreements">Pay less Customs Duty on goods from a country with a UK trade agreement</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
                 {% endif %}
 
             </div>
