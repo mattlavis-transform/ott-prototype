@@ -34,6 +34,13 @@
     padding-left: 1.75em;
 }
 
+.copied_meursing {
+    display     : block;
+    text-indent: -999em;
+    // margin-top  : 5px;
+    padding-left: 0.75em;
+}
+
 .tariff-breadcrumbs nav ul li div.copy_code span {
     padding-right: 0px;
 }
@@ -49,4 +56,8 @@
     word-wrap  : break-word;
     font-size  : 16px;
     min-height : auto !important;
+}
+
+.flex {
+    display:flex;
 }

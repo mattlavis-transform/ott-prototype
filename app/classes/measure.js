@@ -1,7 +1,7 @@
 const GeographicalArea = require('./geographical_area');
 
 class Measure {
-    constructor(id = null, measure_type_id = null, vat = null, measure_class = null) {
+    constructor(id = null, req = null, measure_type_id = null, vat = null, measure_class = null) {
         this.id = id;
         this.measure_type_id = measure_type_id;
         this.measure_type_description = null;
@@ -10,6 +10,14 @@ class Measure {
         this.financial = null;
         this.relevant = false;
         this.measure_components = [];
+        this.reduction_indicator = 1;
+
+        // Get the additional code (for Meursing calcs)
+        if (req != null) {
+            this.meursing_code = req.session.data["meursing-code"];
+        } else {
+            this.meursing_code = "";
+        }
 
         // Conditions
         this.measure_condition_ids = [];
@@ -58,17 +66,20 @@ class Measure {
         this.has_minimum = false;
         this.has_maximum = false;
         this.combined_duty = "";
+        this.combined_duty_with_meursing = "";
+
         // Count the number of clauses in the duty
         // If there are MAX or MIX types, then there are multiple clauses
         this.multi_clause = false;
         this.measure_components.forEach(mc => {
+            mc.reduction_indicator = this.reduction_indicator;
             if ((mc.has_maximum) || (mc.has_minimum)) {
                 this.multi_clause = true;
             }
         });
-        if (this.multi_clause) {
-            this.combined_duty = "(";
-        }
+        // if (this.multi_clause) {
+        //     this.combined_duty = "(";
+        // }
         this.measure_components.forEach(mc => {
             if (mc.has_maximum) {
                 this.has_maximum = true;
@@ -77,20 +88,26 @@ class Measure {
                 this.has_minimum = true;
             }
             this.combined_duty += mc.duty_string + " ";
+            this.combined_duty_with_meursing += mc.duty_string_with_meursing + " ";
             if (mc.is_meursing) {
                 this.has_meursing = true;
             }
         });
+
+
+        // if (this.multi_clause) {
+        //     this.combined_duty += ")";
+        // }
+        // if (this.has_maximum) {
+        //     this.combined_duty = "The lower of " + this.combined_duty;
+        // }
+        // if (this.has_minimum) {
+        //     this.combined_duty = "The higher of " + this.combined_duty;
+        // }
+        this.combined_duty = this.combined_duty.replace(/ \)/g, ")");
         if (this.multi_clause) {
-            this.combined_duty += ")";
+            var a = 1;
         }
-        if (this.has_maximum) {
-            this.combined_duty = "The lower of " + this.combined_duty;
-        }
-        if (this.has_minimum) {
-            this.combined_duty = "The higher of " + this.combined_duty;
-        }
-        this.combined_duty = this.combined_duty.replace(/ \)/g, ")")
     }
 
     structure_conditions() {

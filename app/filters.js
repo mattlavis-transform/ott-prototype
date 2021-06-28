@@ -205,22 +205,38 @@ module.exports = function (env) {
         }
     }
 
-    filters.new_scope = function (s, scope) {
-        s = String(s)
-        var lastChar = s[s.length - 1];
+    filters.fwdslash = function (s) {
+        if (s == "") {
+            return "";
+        } else {
+            return (s + "/");
+        }
+    }
 
-        if (s != "") {
-            if (s.slice(-1) != "/") {
-                s += "/";
+    filters.other_scope = function (current_url, scope) {
+        current_url = String(current_url);
+
+        if (current_url != "") {
+            if (current_url.slice(-1) != "/") {
+                current_url += "/";
             }
         }
-        if (s.indexOf("{{ scopeId }}") > -1) {
-            s = s.replace("{{ scopeId }}", scope);
+
+        if (scope == "xi") {
+            // Get UK URL if you are currenly on XI service
+            current_url = current_url.replace("/xi", "");
+            current_url = current_url.replace("{{ scopeId }}", "");
         } else {
-            s = s + scope;
+            // Get XI URL if you are currenly on UK service
+            if (current_url.indexOf("{{ scopeId }}") !== -1) {
+                current_url = current_url.replace("{{ scopeId }}", "xi");
+            } else {
+                current_url = "/xi" + current_url;
+            }
         }
-        s = s.replace("//", "/");
-        return (s);
+        
+        current_url = current_url.replace("//", "/");
+        return (current_url);
     }
 
     filters.filter_erga_omnes = function (s) {

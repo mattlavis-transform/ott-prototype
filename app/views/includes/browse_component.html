@@ -11,7 +11,7 @@
                     {% for section in sections.data %}
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell">
-                                <a href="/sections/{{ section.id }}/{{ scopeId }}">
+                                <a href="/{{ scopeId | fwdslash }}sections/{{ section.id }}">
                                     {{ section.attributes.title }}
                                 </a>
                             </td>

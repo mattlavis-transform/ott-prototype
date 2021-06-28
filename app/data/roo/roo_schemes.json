@@ -2,6 +2,8 @@
     "schemes": [
         {
             "code": "EU",
+            "rule_offset": 10000000,
+            "country_prefix": "eu",
             "title": "UK / EU Trade and Co-operation Agreement",
             "intro_file": "eu_intro.md",
             "data_file": "eu.md",
@@ -131,6 +133,8 @@
         },
         {
             "code": "south-korea",
+            "rule_offset": 30000000,
+            "country_prefix": "south-korea",
             "title": "UK-South Korea trade agreement",
             "intro_file": "south-korea_intro.md",
             "data_file": "south-korea.md",
@@ -833,6 +837,8 @@
         },
         {
             "code": "turkey",
+            "rule_offset": 20000000,
+            "country_prefix": "turkey",
             "title": "UK-Turkey trade agreement",
             "intro_file": "turkey_intro.md",
             "data_file": "turkey.md",

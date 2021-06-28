@@ -43,7 +43,7 @@ href: ""
                     {% if (item.type == "section") %}
                         <!-- Section //-->
                         <li class="section">
-                            <a href="/sections/{{ item.id }}/{{ scopeId }}">Section {{ item.attributes.numeral }}: {{
+                            <a href="/{{ scopeId | fwdslash }}sections/{{ item.id }}">Section {{ item.attributes.numeral }}: {{
                     item.attributes.title | safe }}</a>
                         </li>
                     {% endif %}
@@ -59,7 +59,7 @@ href: ""
                             </div>
                             <div class="description">
                                 <a
-                        href="/chapters/{{ item.attributes.goods_nomenclature_item_id | substring(0, 2) }}/{{ scopeId }}">{{
+                        href="/{{ scopeId | fwdslash }}chapters/{{ item.attributes.goods_nomenclature_item_id | substring(0, 2) }}">{{
                         item.attributes.formatted_description | safe }}</a>
                             </div>
                         </li>
@@ -76,7 +76,7 @@ href: ""
                             </div>
                             <div class="description">
                                 <a
-                        href="/headings/{{ item.attributes.goods_nomenclature_item_id | substring(0, 4) }}/{{ scopeId }}">{{
+                        href="/{{ scopeId | fwdslash }}headings/{{ item.attributes.goods_nomenclature_item_id | substring(0, 4) }}">{{
                         item.attributes.formatted_description | safe }}</a>
                             </div>
                         </li>
@@ -99,7 +99,7 @@ href: ""
                             </div>
                             <div class="description">
                                 <a
-                        href="/headings/{{ item.attributes.goods_nomenclature_item_id | substring(0, 4) }}/{{ scopeId }}">{{
+                        href="/{{ scopeId | fwdslash }}headings/{{ item.attributes.goods_nomenclature_item_id | substring(0, 4) }}">{{
                         item.attributes.formatted_description | safe }}</a>
                             </div>
                         </li>
@@ -359,7 +359,7 @@ href: ""
                     {% endfor %}
                 </tbody>
             </table>
-            <div class="govuk-inset-text govuk-inset-text--s">View <a
+            <div class="govuk-inset-text govuk-inset-text--s grey">View <a
                     href="/import-guidance/date/{{ commodity.data.attributes.goods_nomenclature_item_id }}">details of
                     all import controls for commodity {{ commodity.data.attributes.goods_nomenclature_item_id }}</a>.
                 You will be asked to specify the date of import and where the goods are coming from.</div>

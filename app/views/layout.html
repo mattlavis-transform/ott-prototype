@@ -41,27 +41,23 @@
   {% include "includes/cookie-banner.html" %}
   {# Set serviceName in config.js. #}
 
-  {% if scopeId == "ni" %}
+  {% if scopeId == "xi" %}
     {{ govukHeader({
       homepageUrl: "https://www.gov.uk",
-      serviceName: title,
+      serviceName: "Northern Ireland Online Tariff",
       serviceUrl: "/sections",
       navigation: [
         {
-          href: "/sections/" + scopeId,
+          href: "/xi/sections/",
           text: "Search or browse the Tariff"
         },
         {
-          href: "/a-z-index/a/" + scopeId,
+          href: "/xi/a-z-index/a/",
           text: "A to Z"
         },
         {
-          href: "/tools/" + scopeId,
+          href: "/xi/tools/",
           text: "Tools"
-        },
-        {
-          href: "/news/" + scopeId,
-          text: "Latest news"
         }
       ]
     }) }}
@@ -73,15 +69,15 @@
       serviceUrl: "/sections",
       navigation: [
         {
-          href: "/sections/" + scopeId,
+          href: "/sections/",
           text: "Search or browse the Tariff"
         },
         {
-          href: "/a-z-index/a/" + scopeId,
+          href: "/a-z-index/a/",
           text: "A to Z"
         },
         {
-          href: "/tools/" + scopeId,
+          href: "/tools/",
           text: "Tools"
         }
       ]

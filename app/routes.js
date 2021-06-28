@@ -30,7 +30,7 @@ var browse_breadcrumb = "Search or browse the Tariff";
 /* ############################################################################ */
 
 // Browse page
-router.get(['/browse/:scopeId', '/browse/'], function (req, res) {
+router.get(['/:scopeId/browse', '/browse/'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -44,7 +44,7 @@ router.get(['/browse/:scopeId', '/browse/'], function (req, res) {
 /* ############################################################################ */
 
 // Browse page
-router.get(['/cookies/:scopeId', '/cookies/'], function (req, res) {
+router.get(['/:scopeId/cookies', '/cookies/'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -66,9 +66,10 @@ router.get(['/sections/'], function (req, res) {
             res.render('sections', { 'sections': response.data, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url, 'date_string': global.todays_date() });
         });
 });
+
 // Sections page - this is a temporary combination of the two pages until we can disassociate the two
-router.get(['/sections/ni'], function (req, res) {
-    scopeId = "ni";
+router.get(['/sections/ni', '/xi/sections', ], function (req, res) {
+    scopeId = "xi";
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
     // console.log(title)
@@ -80,7 +81,7 @@ router.get(['/sections/ni'], function (req, res) {
 });
 
 // Browse within a section
-router.get(['/sections/:sectionId', '/sections/:sectionId/:scopeId'], function (req, res) {
+router.get(['/:scopeId/sections/:sectionId', '/sections/:sectionId'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -91,7 +92,7 @@ router.get(['/sections/:sectionId', '/sections/:sectionId/:scopeId'], function (
 });
 
 // Browse within a chapter
-router.get(['/chapters/:chapterId', '/chapters/:chapterId/:scopeId'], function (req, res) {
+router.get(['/chapters/:chapterId', '/:scopeId/chapters/:chapterId'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -104,9 +105,8 @@ router.get(['/chapters/:chapterId', '/chapters/:chapterId/:scopeId'], function (
 });
 
 // Browse within a heading
-router.get(['/headings/:headingId', '/headings/:headingId/:scopeId'], function (req, res) {
+router.get(['/headings/:headingId', '/:scopeId/headings/:headingId'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
-    scopeId = "";
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
     axios.get('https://www.trade-tariff.service.gov.uk/api/v2/headings/' + req.params["headingId"])
@@ -124,8 +124,8 @@ router.get(['/country-filter'], async function (req, res) {
     var tab = req.session.data["tab"];
 
     var url = "/commodities/" + goods_nomenclature_item_id + "/" + country;
-    if (scopeId == "ni") {
-        url = url.replace("/commodities/", "ni/commodities/");
+    if ((scopeId == "ni") || (scopeId == "xi")) {
+        url = url.replace("/commodities/", "xi/commodities/");
     }
     if (typeof tab === 'undefined') {
         tab = ""
@@ -139,10 +139,9 @@ router.get(['/country-filter'], async function (req, res) {
 // Browse a single commodity
 router.get([
     '/commodities/:goods_nomenclature_item_id/',
-    '/xcommodities/:goods_nomenclature_item_id/:scopeId',
+    '/commodities/:goods_nomenclature_item_id/:country',
     '/:scopeId/commodities/:goods_nomenclature_item_id',
     '/:scopeId/commodities/:goods_nomenclature_item_id/:country',
-    '/commodities/:goods_nomenclature_item_id/:country'
 ], async function (req, res) {
     var border_system = "cds";
 
@@ -190,6 +189,7 @@ router.get([
     var scopeId = global.get_scope(req.params["scopeId"]);
     var root_url = global.get_root_url(req, scopeId);
     var title = global.get_title(scopeId);
+    req.session.data["goods_nomenclature_item_id"] = req.params["goods_nomenclature_item_id"];
     req.session.data["error"] = "";
     var url_original;
     if (country == null) {
@@ -197,7 +197,7 @@ router.get([
     } else {
         var url = 'https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"] + "?filter[geographical_area_id]=" + country;
     }
-    if (scopeId == "ni") {
+    if ((scopeId == "ni") || (scopeId == "xi")) {
         url_original = url;
         url = url.replace("/api", "/xi/api");
         const axiosrequest1 = axios.get(url);
@@ -216,8 +216,6 @@ router.get([
             c_uk.get_data(res2.data);
             c_uk.get_measure_data(req, "basic", override_block = true);
 
-            var a = res_roo.data;
-
             c_uk.measures.forEach(m => {
                 if (m.block == "other_uk") {
                     c.measures.push(m);
@@ -227,7 +225,17 @@ router.get([
             c.categorise_measures(override_block = "smart");
             c.sort_measures();
 
-            res.render('commodities', { 'roo': roo, 'date': date, 'toggle_message': toggle_message, 'commodity': c, 'browse_breadcrumb': browse_breadcrumb, 'scopeId': scopeId, 'title': title, 'root_url': root_url });
+            res.render('commodities', {
+                'roo': roo_mvp,
+                'date': date,
+                'countries': countries,
+                'toggle_message': toggle_message,
+                'commodity': c,
+                'browse_breadcrumb': browse_breadcrumb,
+                'scopeId': scopeId,
+                'title': title,
+                'root_url': root_url
+            });
         }));
 
     } else {
@@ -248,7 +256,8 @@ router.get([
                 'toggle_message': toggle_message,
                 'commodity': c,
                 'browse_breadcrumb': browse_breadcrumb,
-                'scopeId': scopeId, 'title': title,
+                'scopeId': scopeId,
+                'title': title,
                 'root_url': root_url
             });
         }));
@@ -273,7 +282,7 @@ router.get(['/geographical_area/:id/', '/:scopeId/geographical_area/:id/',], fun
         referer = "/";
     }
     var url = 'https://www.trade-tariff.service.gov.uk/api/v2/geographical_areas/';
-    if (scopeId == "ni") {
+    if ((scopeId == "ni") || (scopeId == "xi")) {
         url = url.replace("/api", "/xi/api");
     }
     axios.get(url)
@@ -285,7 +294,7 @@ router.get(['/geographical_area/:id/', '/:scopeId/geographical_area/:id/',], fun
 
 
 // Browse a single commodity (version 2: sorted)
-router.get(['/commodities2/:goods_nomenclature_item_id/', '/commodities2/:goods_nomenclature_item_id/:scopeId'], function (req, res) {
+router.get(['/commodities2/:goods_nomenclature_item_id/', '/:scopeId/commodities2/:goods_nomenclature_item_id'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -325,7 +334,7 @@ router.get(['/search/:scopeId', '/search/', '/search//'], function (req, res) {
 
 
 // Search results page
-router.get(['/search_results/:scopeId'], function (req, res) {
+router.get(['/:scopeId/search_results'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -336,7 +345,7 @@ router.get(['/search_results/:scopeId'], function (req, res) {
 
 
 // Search results / data handler
-router.post(['/search/data_handler/', '/search/data_handler/:goods_nomenclature_item_id/:scopeId'], function (req, res) {
+router.post(['/search/data_handler/', '/:scopeId/search/data_handler/:goods_nomenclature_item_id'], function (req, res) {
     //console.log("Search results handler");
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
@@ -359,7 +368,7 @@ router.post(['/search/data_handler/', '/search/data_handler/:goods_nomenclature_
 /* ############################################################################ */
 
 // A-Z index
-router.get(['/a-z-index/:letter', '/a-z-index/:letter/:scopeId'], function (req, res) {
+router.get(['/a-z-index/:letter', '/:scopeId/a-z-index/:letter'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -371,7 +380,7 @@ router.get(['/a-z-index/:letter', '/a-z-index/:letter/:scopeId'], function (req,
 });
 
 // Downloads
-router.get(['/downloads/', '/downloads/:scopeId'], function (req, res) {
+router.get(['/downloads/', '/:scopeId/downloads'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -379,7 +388,7 @@ router.get(['/downloads/', '/downloads/:scopeId'], function (req, res) {
 });
 
 // News
-router.get(['/news/', '/news/:scopeId'], function (req, res) {
+router.get(['/news/', '/:scopeId/news'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -403,7 +412,7 @@ router.get([
 });
 
 // Preferences handler
-router.get(['/preferences-handler/', '/preferences-handler/:scopeId'], function (req, res) {
+router.get(['/preferences-handler/', '/:scopeId/preferences-handler'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     var referer = req.headers.referer;
     if (referer == null) {

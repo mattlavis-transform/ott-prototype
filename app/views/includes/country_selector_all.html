@@ -2,24 +2,24 @@
     <fieldset class="govuk-fieldset country-picker js-country-picker box govuk-!-font-size-16">
         <div class="country-picker-container" style="width:100%">
             <input type="hidden" name="goods_nomenclature_item_id" id="goods_nomenclature_item_id"
-                value="{{ commodity.data.attributes.goods_nomenclature_item_id }}" />
-            <input type="hidden" name="scopeId" id="scopeId" value="{{ scopeId }}" />
-            <input type="hidden" name="tab" id="tab" value="import" />
+                value="{{ commodity.data.attributes.goods_nomenclature_item_id }}"/>
+            <input type="hidden" name="scopeId" id="scopeId" value="{{ scopeId }}"/>
+            <input type="hidden" name="tab" id="tab" value="import"/>
             <label class="govuk-label" for="country" id="country_label">
-                <!-- {% if scopeId == "ni" %}
-                    <abbr title="Northern Ireland">NI</abbr> imports from{% else %}UK Global Tariff imports from
-                {% endif %} -->
-                Trade between the UK and:
+                {% if scopeId == "xi" %}
+                    Trade between NI and:{% else %}Trade between the UK and:
+                {% endif %}
+
             </label>
 
             <select class="js-example-basic-single govuk-select" name="country">
                 <option value="">All countries</option>
                 {% for country in countries.data %}
-                {% if country.selected %}
-                <option selected value="{{ country.id }}">{{ country.attributes.description }}</option>
-                {% else %}
-                <option value="{{ country.id }}">{{ country.attributes.description }}</option>
-                {% endif %}
+                    {% if country.selected %}
+                        <option selected value="{{ country.id }}">{{ country.attributes.description }}</option>
+                    {% else %}
+                        <option value="{{ country.id }}">{{ country.attributes.description }}</option>
+                    {% endif %}
                 {% endfor %}
 
             </select>
@@ -38,8 +38,12 @@
         .addEventListener("click", function (event) {
             $("#location-picker")
 
-            document.getElementById("location-picker").selectedIndex = "0";
-            this.form.submit();
+            document
+                .getElementById("location-picker")
+                .selectedIndex = "0";
+            this
+                .form
+                .submit();
             event.preventDefault()
         });
 </script>

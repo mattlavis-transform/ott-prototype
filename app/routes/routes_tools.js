@@ -30,7 +30,7 @@ var browse_breadcrumb = "Search or browse the Tariff";
 
 
 // Tools
-router.get(['/tools/', '/tools/:scopeId'], function (req, res) {
+router.get(['/tools/', '/:scopeId/tools'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -38,7 +38,7 @@ router.get(['/tools/', '/tools/:scopeId'], function (req, res) {
 });
 
 // Quotas old
-router.get(['/quotas/', '/quotas/:scopeId'], function (req, res) {
+router.get(['/:scopeId/quotas/', '/quotas'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -46,7 +46,7 @@ router.get(['/quotas/', '/quotas/:scopeId'], function (req, res) {
 });
 
 // Quotas new
-router.get(['/quotas_new/', '/quotas_new/:scopeId'], function (req, res) {
+router.get(['/:scopeId/quotas_new/', '/quotas_new'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -54,7 +54,7 @@ router.get(['/quotas_new/', '/quotas_new/:scopeId'], function (req, res) {
 });
 
 // Licenced quotas
-router.get(['/licenced_quotas/', '/licenced_quotas/:scopeId'], function (req, res) {
+router.get(['/licenced_quotas/', '/:scopeId/licenced_quotas'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -63,7 +63,7 @@ router.get(['/licenced_quotas/', '/licenced_quotas/:scopeId'], function (req, re
 });
 
 // Certificates
-router.get(['/certificates/', '/certificates/:scopeId'], function (req, res) {
+router.get(['/certificates/', '/:scopeId/certificates'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -71,7 +71,7 @@ router.get(['/certificates/', '/certificates/:scopeId'], function (req, res) {
 });
 
 // Additional codes
-router.get(['/additional_codes/', '/additional_codes/:scopeId'], function (req, res) {
+router.get(['/additional_codes/', '/:scopeId/additional_codes'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -79,7 +79,7 @@ router.get(['/additional_codes/', '/additional_codes/:scopeId'], function (req, 
 });
 
 // Footnotes
-router.get(['/footnotes/', '/footnotes/:scopeId'], function (req, res) {
+router.get(['/footnotes/', '/:scopeId/footnotes'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -87,7 +87,7 @@ router.get(['/footnotes/', '/footnotes/:scopeId'], function (req, res) {
 });
 
 // Chemicals
-router.get(['/chemicals/', '/chemicals/:scopeId'], function (req, res) {
+router.get(['/chemicals/', '/:scopeId/chemicals'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
@@ -95,7 +95,7 @@ router.get(['/chemicals/', '/chemicals/:scopeId'], function (req, res) {
 });
 
 // Exchange rates
-router.get(['/exchange_rates/', '/exchange_rates/:scopeId'], function (req, res) {
+router.get(['/exchange_rates/', '/:scopeId/exchange_rates'], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);

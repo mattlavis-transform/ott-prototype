@@ -4,7 +4,7 @@
   items: [
     {
       text: "Home",
-      href: "/sections/" + scopeId
+      href: "/" + scopeId + "/sections/"
     },
     {
       text: browse_breadcrumb,
@@ -34,7 +34,7 @@
                             {% if (item.type == "section") %}
                                 <!-- Section //-->
                                 <li class="section">
-                                    <a href="/sections/{{ item.id }}/{{ scopeId }}">Section {{ item.attributes.numeral }}: {{ item.attributes.title | safe }}</a>
+                                    <a href="/{{ scopeId | fwdslash }}sections/{{ item.id }}">Section {{ item.attributes.numeral }}: {{ item.attributes.title | safe }}</a>
                                 </li>
                             {% endif %}
                             {% if (item.type == "chapter") %}
@@ -48,7 +48,7 @@
                                         <span class="code green"></span>
                                     </div>
                                     <div class="description">
-                                        <a href="/chapters/{{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}/{{ scopeId }}">{{ item.attributes.formatted_description | safe }}</a>
+                                        <a href="/{{ scopeId | fwdslash }}chapters/{{ heading.data.attributes.goods_nomenclature_item_id | substring(0, 2) }}">{{ item.attributes.formatted_description | safe }}</a>
                                     </div>
                                 </li>
                             {% endif %}

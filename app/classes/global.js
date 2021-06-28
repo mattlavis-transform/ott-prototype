@@ -97,8 +97,8 @@ global.kill_session_vars = function (req, vars) {
 }
 
 global.get_scope = function (s) {
-    if ((s == "ni") || (s == "eu")) {
-        var scopeId = "ni";
+    if ((s == "ni") || (s == "eu") || (s == "xi")) {
+        var scopeId = "xi";
     } else {
         var scopeId = "";
     }
@@ -154,8 +154,8 @@ global.get_root_url = function (req, scopeId) {
 }
 
 global.get_title = function (scopeId) {
-    if (scopeId == "ni") {
-        var title = "The Northern Ireland (EU) Tariff";
+    if ((scopeId == "ni") || (scopeId == "xi")) {
+        var title = "The Northern Ireland Online Tariff";
     } else {
         var title = "UK Global Online Tariff";
     }

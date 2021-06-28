@@ -80,6 +80,13 @@ class Commodity {
             this.supplementary_unit = "";
         }
 
+        // Get the additional code (for Meursing calcs)
+        // if (req != null) {
+        //     this.meursing_code = req.session.data["meursing-code"];
+        // } else {
+        //     this.meursing_code = "";
+        // }
+
     }
 
     get_data(json, country = null, date = null) {
@@ -140,7 +147,7 @@ class Commodity {
                 this.ancestry.push(description);
             } else if (item["type"] == "measure") {
                 id = item["id"];
-                m = new Measure(id);
+                m = new Measure(id, req);
                 m.origin = item["attributes"]["origin"];
                 m.effective_start_date = item["attributes"]["effective_start_date"];
                 m.effective_end_date = item["attributes"]["effective_end_date"];
@@ -264,7 +271,7 @@ class Commodity {
         this.assign_geographical_areas();
         this.assign_additional_codes();
 
-        this.assign_measure_components();
+        this.assign_measure_components(req);
         this.assign_measure_conditions();
         if (origin != "basic") {
             this.remove_irrelevant_measures(measure_types);
@@ -419,11 +426,11 @@ class Commodity {
             this.measure_types.forEach(measure_type => {
                 if (measure_type.id == measure.measure_type_id) {
                     if (measure.measure_type.overlay == "") {
-                        measure.measure_type_description = measure_type.description;  
-                        measure.measure_type.description = measure_type.description;  
+                        measure.measure_type_description = measure_type.description;
+                        measure.measure_type.description = measure_type.description;
                     } else {
-                        measure.measure_type_description = measure.measure_type.overlay;  
-                        measure.measure_type.description = measure.measure_type.overlay;  
+                        measure.measure_type_description = measure.measure_type.overlay;
+                        measure.measure_type.description = measure.measure_type.overlay;
                     }
                     measure.measure_type_series_id = measure_type.measure_type_series_id;
                 }
@@ -663,23 +670,38 @@ class Commodity {
     }
 
     // Assign the measure components to the measures - also check for Meursing
-    assign_measure_components() {
+    assign_measure_components(req) {
         this.measure_components.forEach(mc => {
-            if (mc.measure_id == 2772110) {
-                var a = 1;
-            }
             this.measures.forEach(m => {
                 if (mc.measure_id == m.id) {
                     var a = 1;
                     if (mc.is_meursing) {
                         m.has_meursing = true;
                         this.has_meursing = true;
-                        console.log("Found a Meursing");
                     }
                     m.measure_components.push(mc);
                 }
             });
         });
+
+        // Set the Meursing duties for each component
+        if (this.has_meursing) {
+            var data = require('../data/meursing_duties.json');
+            var jp = require('jsonpath');
+            var query_string = '$.duties[?(@.geographical_area_id == "1011" && @.additional_code_id == "' + this.meursing_code + '")]'
+            var result = jp.query(data, query_string);
+            req.session.data["meursing-duties"] = result;
+            this.measures.forEach(m => {
+                m.measure_components.forEach(mc => {
+                    if (mc.is_meursing) {
+                        mc.set_meursing_overlay(result);
+                        var a = 1;
+                    }
+                });
+            });
+        }
+
+
         this.measures.forEach(m => {
             m.combine_duties();
         });
@@ -803,8 +825,10 @@ class Commodity {
         }
 
         this.unit_value = this.get_req_data("unit_value")
-        this.meursing_code = this.get_req_data("meursing_code")
-        this.company = this.get_req_data("company")
+        this.meursing_code = this.get_req_data("meursing_code");
+        this.company = this.get_req_data("company");
+        this.meursing_code = req.session.data["meursing-code"];
+        var a = 1;
     }
 
     get_req_data(prop) {

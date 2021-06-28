@@ -17,9 +17,21 @@ class MeasureComponent {
         this.has_minimum = false;
         this.has_maximum = false;
 
-        if (item["id"] == "20000889-01") {
-            this.measurement_unit_qualifier_code = "P";
+        this.with_meursing = {
+            "duty_expression_id": "01",
+            "duty_amount": 0,
+            "monetary_unit_code": "EUR",
+            "measurement_unit_code": null,
+            "measurement_unit_qualifier_code": null
+        };
+
+        // Get the additional code (for Meursing calcs)
+        if (req != null) {
+            this.meursing_code = req.session.data["meursing-code"];
+        } else {
+            this.meursing_code = "";
         }
+
         if (this.measurement_unit_code != null) {
             this.measurement_unit_combined = this.measurement_unit_code;
             if (this.measurement_unit_qualifier_code != null) {
@@ -55,7 +67,6 @@ class MeasureComponent {
         currencies.forEach(currency => {
             if (this.monetary_unit_code == currency["long"]) {
                 this.monetary_unit_abbreviation = currency["short"];
-                //console.log("Found " + this.monetary_unit_abbreviation + " for " + this.monetary_unit_code + " for " + this.id);
             }
         });
     }
@@ -95,24 +106,17 @@ class MeasureComponent {
         return this.measurement_unit_qualifier_code
     }
 
-    get_duty_string(decimal_places = 3) {
-        // var MAX_STRING = " up to a maximum of ";
-        // var MIN_STRING = " down to a maximum of ";
+    get_duty_string() {
+        // var MAX_STRING = ") <i>or </i> (";
+        // var MIN_STRING = ") <i>or </i> (";
 
-        // var MAX_STRING = ")<br><i>or</i><br>(";
-        // var MIN_STRING = ")<br><i>or</i><br>(";
+        // var MAX_STRING = ") or<br>(";
+        // var MIN_STRING = ") or<br>(";
 
-        var MAX_STRING = ") <i>or </i> (";
-        var MIN_STRING = ") <i>or </i> (";
+        var MAX_STRING = "MAX ";
+        var MIN_STRING = "MIN ";
 
-        var MAX_STRING = ") or<br>(";
-        var MIN_STRING = ") or<br>(";
-
-        if (this.monetary_unit_code == null) {
-            decimal_places = 2;
-        } else {
-            decimal_places = 2;
-        }
+        var decimal_places = 2;
 
         this.duty_string = "";
         var duty_amount = parseFloat(this.duty_amount)
@@ -121,7 +125,7 @@ class MeasureComponent {
         switch (this.duty_expression_id) {
             case "01":
                 if (this.monetary_unit_code == null) {
-                    this.duty_string += duty_amount + "% * customs value";
+                    this.duty_string += duty_amount + " %"; // + "% * customs value";
                 } else {
                     this.duty_string += " " + this.monetary_unit_abbreviation + duty_amount + " ";
                     if (this.measurement_unit_code != null) {
@@ -137,7 +141,7 @@ class MeasureComponent {
             case "20":
                 // Do stuff
                 if (this.monetary_unit_code == null) {
-                    this.duty_string += " + " + duty_amount + "% * customs value";
+                    this.duty_string += " + " + duty_amount + " %"; // "% * customs value";
                 } else {
                     this.duty_string += " + " + this.monetary_unit_abbreviation + duty_amount + " ";
                     if (this.measurement_unit_code != null) {
@@ -154,7 +158,7 @@ class MeasureComponent {
             case "15":
                 this.has_minimum = true;
                 if (this.monetary_unit_code == null) {
-                    this.duty_string += MIN_STRING + duty_amount + "% * customs value";
+                    this.duty_string += MIN_STRING + duty_amount + " %"; // * customs value";
                 } else {
                     this.duty_string += MIN_STRING + this.monetary_unit_abbreviation + duty_amount + " ";
                     if (this.measurement_unit_code != null) {
@@ -170,7 +174,7 @@ class MeasureComponent {
             case "35":
                 this.has_maximum = true;
                 if (this.monetary_unit_code == null) {
-                    this.duty_string += MAX_STRING + duty_amount + "% * customs value";
+                    this.duty_string += MAX_STRING + duty_amount + " %"; // * customs value";
                 } else {
                     this.duty_string += MAX_STRING + this.monetary_unit_abbreviation + duty_amount + " ";
                     if (this.measurement_unit_code != null) {
@@ -197,8 +201,47 @@ class MeasureComponent {
                 this.duty_string += " + <abbr title='Agricultural component'>AC</abbr> (reduced)";
                 break;
         }
+        this.duty_string_with_meursing = this.duty_string;
         //this.duty_string = "(" + this.duty_string + ")";
+
     }
 
+    set_meursing_overlay(meursing_duties) {
+        var array_ea = ["12", "14"]; // 674
+        var array_sugar = ["21", "25"]; // 672
+        var array_flour = ["27", "29"]; // 673
+
+        if (array_ea.includes(this.duty_expression_id)) {
+            meursing_duties.forEach(m => {
+                if ((m["measure_type_id"] == "674") && (m["geographical_area_id"] == "1011")) {
+                    this.with_meursing["duty_amount"] = m["duty_amount"];
+                    var replacement = "<span class='meursing_replaced'>€" + m["duty_amount"].toString() + " / 100kg</span>";
+                    this.duty_string_with_meursing = this.duty_string.replace("<abbr title='Agricultural component'>AC</abbr> (reduced)", replacement);
+                    this.duty_string_with_meursing = this.duty_string_with_meursing.replace("<abbr title='Agricultural component'>AC</abbr>", replacement);
+                }
+            });
+        } else if (array_sugar.includes(this.duty_expression_id)) {
+            meursing_duties.forEach(m => {
+                if ((m["measure_type_id"] == "672") && (m["geographical_area_id"] == "1011")) {
+                    this.with_meursing["duty_amount"] = m["duty_amount"];
+                    var replacement = "<span class='meursing_replaced'>€" + m["duty_amount"].toString() + " / 100kg</span>";
+                    this.duty_string_with_meursing = this.duty_string;
+                    this.duty_string_with_meursing = this.duty_string_with_meursing.replace("<abbr title='Sugar duty'>SD</abbr> (reduced)", replacement);
+                    this.duty_string_with_meursing = this.duty_string_with_meursing.replace("<abbr title='Sugar duty'>SD</abbr>", replacement);
+                }
+            });
+        } else if (array_flour.includes(this.duty_expression_id)) {
+            meursing_duties.forEach(m => {
+                if ((m["measure_type_id"] == "673") && (m["geographical_area_id"] == "1011")) {
+                    this.with_meursing["duty_amount"] = m["duty_amount"];
+                    var replacement = "<span class='meursing_replaced'>€" + m["duty_amount"].toString() + " / 100kg</span>";
+                    this.duty_string_with_meursing = this.duty_string;
+                    this.duty_string_with_meursing = this.duty_string_with_meursing.replace("<abbr title='Flour duty'>FD</abbr> (reduced)", replacement);
+                    this.duty_string_with_meursing = this.duty_string_with_meursing.replace("<abbr title='Flour duty'>FD</abbr>", replacement);
+                    var a = 1;
+                }
+            });
+        }
+    }
 }
 module.exports = MeasureComponent

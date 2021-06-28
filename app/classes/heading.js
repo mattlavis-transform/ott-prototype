@@ -38,7 +38,7 @@ class Heading {
                     c = new Commodity(sid, goods_nomenclature_item_id, productline_suffix, description, number_indents, leaf, parent_sid, indent_class);
                     var overview_measures = obj["relationships"]["overview_measures"]["data"];
                     overview_measures.forEach(item => {
-                        m = new Measure(item["id"], null, null, null);
+                        m = new Measure(item["id"], null, null, null, null);
                         c.measures.push(m);
                     });
                     this.commodities.push(c);
@@ -48,7 +48,7 @@ class Heading {
                     var measure_type_id = obj["relationships"]["measure_type"]["data"]["id"];
                     var vat = obj["attributes"]["vat"];
                     measure_class = this.get_measure_class(measure_type_id);
-                    m = new Measure(obj["id"], measure_type_id, vat, measure_class);
+                    m = new Measure(obj["id"], null, measure_type_id, vat, measure_class);
                     this.measures.push(m);
                     break;
 

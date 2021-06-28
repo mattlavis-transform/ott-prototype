@@ -4,7 +4,7 @@
   items: [
     {
       text: "Home",
-      href: "/sections/" + scopeId
+      href: "/" + scopeId + "/sections/"
     },
     {
       text: browse_breadcrumb,
@@ -34,7 +34,7 @@
                         {% for item in chapter.included %}
                             {% if (item.type == "section") %}
                                 <li class="section">
-                                    <a href="/sections/{{ item.id }}/{{ scopeId }}">Section {{ item.attributes.numeral }}: {{ item.attributes.title | safe }}</a>
+                                    <a href="/{{ scopeId | fwdslash }}sections/{{ item.id }}">Section {{ item.attributes.numeral }}: {{ item.attributes.title | safe }}</a>
                                 </li>
                             {% endif %}
                         {% endfor %}
@@ -72,7 +72,7 @@
                             <span class="code blue">{{ heading.attributes.goods_nomenclature_item_id | substring(2, 2) }}</span>
                         </div>
                         <div class="description">
-                            <a href="/headings/{{ heading.attributes.goods_nomenclature_item_id | substring(0, 4) }}/{{ scopeId }}">
+                            <a href="/{{ scopeId | fwdslash }}headings/{{ heading.attributes.goods_nomenclature_item_id | substring(0, 4) }}">
                                 {{ heading.attributes.formatted_description | safe }}
                             </a>
                         </div>

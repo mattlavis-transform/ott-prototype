@@ -1,12 +1,11 @@
-{% set ni_url = root_url | new_scope("ni") %}
-{% set uk_url = root_url | new_scope("") %}
-
-{% if scopeId == "ni" %}
+{% if scopeId == "xi" %}
+    {% set url = root_url | other_scope("xi") %}
     <div class="panel panel_grey toggle1">
-        Switch to the <a href="{{ uk_url }}">UK Trade Tariff</a>.
+        Switch to the <a href="{{ url }}">UK Trade Tariff</a>.
     </div>
 {% else %}
+    {% set url = root_url | other_scope("") %}
     <div class="panel panel_grey toggle1">
-        Switch to the <a href="{{ ni_url }}">Northern Ireland (EU) Tariff</a>.
+        Switch to the <a href="{{ url }}">Northern Ireland Online Tariff</a>.
     </div>
 {% endif %}

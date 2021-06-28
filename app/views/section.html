@@ -44,7 +44,7 @@
                                     </span>
                                 </td>
                                 <td class="govuk-table__cell">
-                                    <a href="/chapters/{{ chapter.attributes.goods_nomenclature_item_id | substring(0, 2) }}/{{ scopeId }}">
+                                    <a href="/{{ scopeId | fwdslash }}chapters/{{ chapter.attributes.goods_nomenclature_item_id | substring(0, 2) }}">
                                         {{ chapter.attributes.formatted_description | safe }}
                                     </a>
                                 </td>

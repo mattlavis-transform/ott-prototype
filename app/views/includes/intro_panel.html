@@ -1,7 +1,7 @@
-{% set ni_url = root_url | new_scope("ni") %}
-{% set uk_url = root_url | new_scope("") %}
+{% set ni_url = root_url | other_scope("xi") %}
+{% set uk_url = root_url | other_scope("") %}
 
-{% if scopeId == "ni" %}
+{% if scopeId == "xi" %}
 
     <div class="panel panel_grey">
     From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate <a href="https://www.gov.uk/guidance/check-if-you-can-declare-goods-you-bring-into-northern-ireland-not-at-risk-of-moving-to-the-eu-from-1-january-2021">if your goods are not ‘at risk’ of onward movement to the EU</a>. If they are at risk of onward movement to the EU, use <a href="{{ uk_url }}">the UK Global Online Tariff</a>.
@@ -10,7 +10,7 @@
 {% else %}
 
     <div class="panel panel_grey">
-    From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate <a href="https://www.gov.uk/guidance/check-if-you-can-declare-goods-you-bring-into-northern-ireland-not-at-risk-of-moving-to-the-eu-from-1-january-2021">if your goods are not ‘at risk’ of onward movement to the EU</a>. If they are not at risk of onward movement to the EU, use <a href="{{ ni_url }}">the Northern Ireland (EU) Tariff</a>.
+    From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate <a href="https://www.gov.uk/guidance/check-if-you-can-declare-goods-you-bring-into-northern-ireland-not-at-risk-of-moving-to-the-eu-from-1-january-2021">if your goods are not ‘at risk’ of onward movement to the EU</a>. If they are not at risk of onward movement to the EU, use <a href="{{ ni_url }}">the Northern Ireland Online Tariff</a>.
     </div>
 
     {# <p>Use the UK Trade Tariff to look up commodity codes, duty, VAT and controls.</p> #}

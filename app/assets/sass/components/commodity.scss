@@ -190,13 +190,21 @@ table.measures2 dl dd ul li {
     display      : inline-block;
 }
 
+.sky-blue {
+    border-left     : 10px solid #098dc1;
+    background-color: #e9f4f9;
+}
+
+.grey {
+    background-color: #f6f6f6;
+    border-left     : 10px solid #ccc;
+}
+
 .govuk-inset-text--s {
-    font-size          : 16px;
-    margin             : 0.5em 0px;
-    // border-left     : 10px solid #098dc1;
-    // background-color: #e9f4f9;
-    background-color   : #f6f6f6;
-    border-left        : 10px solid #ccc;
+    font-size             : 16px;
+    margin                : 0.5em 0px;
+    // background-color   : #f6f6f6;
+    // border-left        : 10px solid #ccc;
 
     .govuk-list {
         font-size: 16px
@@ -253,7 +261,7 @@ table.measures2 dl dd ul li {
 
 @media (max-width: 800px) {
     .flag {
-        min-height : 20px;
+        min-height: 20px;
     }
 }
 
@@ -264,4 +272,43 @@ table.measures2 dl dd ul li {
 .noborder {
     border : 0px !important;
     padding: 0px;
+}
+
+.govuk-inset-text--s {
+    .govuk-hint,
+    .govuk-label // .govuk-input,
+
+    // .govuk-input__prefix,
+    // .govuk-button
+        {
+        font-size: 16px
+    }
+}
+
+// @media (max-width: 800px) {
+//     .govuk-inset-text--s {
+//         p {
+//             font-size: 14px
+//         }
+
+//         .govuk-hint {
+//             font-size: 14px
+//         }
+
+//         .govuk-label {
+//             font-size: 14px
+//         }
+//     }
+// }
+
+.meursing_duties {
+    border-top      : #666 1px solid;
+    display         : block;
+    margin-top      : 3px;
+    padding-top     : 3px;
+}
+
+.meursing_replaced {
+    font-weight     : bold;
+    background-color: snow;
 }

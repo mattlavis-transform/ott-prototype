@@ -56,7 +56,7 @@ class Roo {
         // This bit of JSONPath allows you to search between 2 extents
         var data = require('../data/roo/eu.json');
         var jp = require('jsonpath');
-        var query_string = '$[?(@.code_low <= "' + this.commodity + '" && @.code_high >= "' + this.commodity + '")]'
+        var query_string = '$[?(@.key_first <= "' + this.commodity + '" && @.code_high >= "' + this.commodity + '")]'
         var result = jp.query(data, query_string);
         if (result.length > 0) {
             this.rule_of_origin = result[0].rule_of_origin;
