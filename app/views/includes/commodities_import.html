@@ -1,10 +1,12 @@
-<h2 class="govuk-heading-m">
+{# <span class="govuk-caption-m">Import measures</span> #}
+<h2 class="govuk-heading-l">
     {# Measures for importing into the UK, showing data for <strong>{{ date.date_string }}</strong> #}
     Importing into the UK under the <abbr title="UK Global Tariff">UKGT</abbr>
+    {# Import measure groups #}
 </h2>
-<p>This information is for <strong>{{ date.date_string }}</strong>.</p>
+{# <p>This information is for <strong>{{ date.date_string }}</strong>.</p> #}
 <nav>
-    <h2 class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-3">Measure groups</h2>
+    {# <h2 class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-3">Measure groups</h2> #}
     <ul class="app-contents app-contents--s govuk-!-margin-bottom-0">
         {% for display_block in commodity.display_blocks %}
             <li class="govuk-!-margin-bottom-2">

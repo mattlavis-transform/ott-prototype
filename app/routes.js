@@ -156,7 +156,7 @@ router.get([
         if (typeof country === 'undefined') {
             country = "";
         }
-        country = "";
+        // country = "";
     } else {
         req.session.data["country"] = country;
     }

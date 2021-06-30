@@ -900,19 +900,39 @@ class Commodity {
 
     // Categorise the measures
     categorise_measures(override_block = false) {
-        var display_block_options = require('./display_block_options.json');
+        delete require.cache['./display_block_options.json'];
+
+        const fs = require('fs');
+        const path = require('path');
+
+        var directoryPath = path.join(__dirname, '..');
+        var directoryPath = path.join(directoryPath, "classes");
+        var filename = path.join(directoryPath, "display_block_options.json");
+        var display_block_options_file = fs.readFileSync(filename, 'utf8');
+        var display_block_options = JSON.parse(display_block_options_file);
+
+
+
+        // var display_block_options = require('./display_block_options.json');
         var display_sort_options = require('./display_sort_options.json');
 
         for (var [key, value] of Object.entries(display_block_options)) {
             var block = display_block_options[key];
-            block.explainers.prose = block.explainers.prose.replace(/{{ commodity }}/g, this.goods_nomenclature_item_id);
-            block.explainers.prose_ni = block.explainers.prose_ni.replace(/{{ commodity }}/g, this.goods_nomenclature_item_id);
+            block.explainers.prose = block.explainers.prose.replace(/{commodity}/g, this.goods_nomenclature_item_id);
+            block.explainers.prose_ni = block.explainers.prose_ni.replace(/{commodity}/g, this.goods_nomenclature_item_id);
 
-            block.explainers.prose = block.explainers.prose.replace(/{{ country }}/g, this.country);
-            block.explainers.prose_ni = block.explainers.prose_ni.replace(/{{ country }}/g, this.country);
+            block.explainers.prose = block.explainers.prose.replace(/\{country_name\}/g, this.country_name2);
+            block.explainers.prose_ni = block.explainers.prose_ni.replace(/\{country_name\}/g, this.country_name2);
 
-            block.explainers.prose = block.explainers.prose.replace(/{{ country_name }}/g, this.country_name2);
-            block.explainers.prose_ni = block.explainers.prose_ni.replace(/{{ country_name }}/g, this.country_name2);
+            block.explainers.prose = block.explainers.prose.replace(/\{country\}/g, this.country);
+            block.explainers.prose_ni = block.explainers.prose_ni.replace(/\{country\}/g, this.country);
+
+            if (this.country.length == 0) {
+                block.explainers.prose = block.explainers.prose.replace(/\{conditional_country\}.*\{\/conditional_country\}/g, "<br><br><b>NEW</b><br>To see <b>guidance on bringing commodity " + this.goods_nomenclature_item_id + "</b> into the country, please first select the country from which the goods are coming from the dropdown above.");
+            } else {
+                block.explainers.prose = block.explainers.prose.replace(/\{conditional_country\}/g, "");
+                block.explainers.prose = block.explainers.prose.replace(/\{\/conditional_country\}/g, "");
+            }
         }
 
         this.display_blocks = [];
