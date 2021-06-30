@@ -907,6 +907,12 @@ class Commodity {
             var block = display_block_options[key];
             block.explainers.prose = block.explainers.prose.replace(/{{ commodity }}/g, this.goods_nomenclature_item_id);
             block.explainers.prose_ni = block.explainers.prose_ni.replace(/{{ commodity }}/g, this.goods_nomenclature_item_id);
+
+            block.explainers.prose = block.explainers.prose.replace(/{{ country }}/g, this.country);
+            block.explainers.prose_ni = block.explainers.prose_ni.replace(/{{ country }}/g, this.country);
+
+            block.explainers.prose = block.explainers.prose.replace(/{{ country_name }}/g, this.country_name2);
+            block.explainers.prose_ni = block.explainers.prose_ni.replace(/{{ country_name }}/g, this.country_name2);
         }
 
         this.display_blocks = [];

@@ -198,6 +198,7 @@ router.get([
         var url = 'https://www.trade-tariff.service.gov.uk/api/v2/commodities/' + req.params["goods_nomenclature_item_id"] + "?filter[geographical_area_id]=" + country;
     }
     if ((scopeId == "ni") || (scopeId == "xi")) {
+        // Northern Ireland
         url_original = url;
         url = url.replace("/api", "/xi/api");
         const axiosrequest1 = axios.get(url);
@@ -205,10 +206,10 @@ router.get([
         await axios.all([axiosrequest1, axiosrequest2]).then(axios.spread(function (res1, res2) {
             // Get the EU measures
             c = new Commodity();
+            c.country = country;
             c.pass_request(req);
             c.get_data(res1.data);
             c.get_measure_data(req, "basic");
-            console.log(c.measures.length);
 
             // Append the UK measures
             c_uk = new Commodity();
@@ -239,13 +240,15 @@ router.get([
         }));
 
     } else {
+        // UK
         const axiosrequest1 = axios.get(url);
         await axios.all([axiosrequest1]).then(axios.spread(function (response) {
             c = new Commodity();
+            c.country = country;
             c.pass_request(req);
             c.get_data(response.data);
             c.get_measure_data(req, "basic");
-            console.log(c.measures.length);
+            // console.log(c.measures.length);
 
             c.sort_measures();
 
