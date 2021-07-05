@@ -114,6 +114,7 @@ class Commodity {
     }
 
     get_measure_data(req, origin, override_block = false, measure_types = "financial") {
+        console.log("Getting measure data");
         var m, mc, mt, g, ac, la, id, item2;
 
         this.origin = origin;
@@ -900,6 +901,7 @@ class Commodity {
 
     // Categorise the measures
     categorise_measures(override_block = false) {
+        console.log("Categorising measures");
         delete require.cache['./display_block_options.json'];
 
         const fs = require('fs');
@@ -927,6 +929,7 @@ class Commodity {
             block.explainers.prose = block.explainers.prose.replace(/\{country\}/g, this.country);
             block.explainers.prose_ni = block.explainers.prose_ni.replace(/\{country\}/g, this.country);
 
+            this.country = "AU";
             if (this.country.length == 0) {
                 block.explainers.prose = block.explainers.prose.replace(/\{conditional_country\}.*\{\/conditional_country\}/g, "<br><br><b>NEW</b><br>To see <b>guidance on bringing commodity " + this.goods_nomenclature_item_id + "</b> into the country, please first select the country from which the goods are coming from the dropdown above.");
             } else {

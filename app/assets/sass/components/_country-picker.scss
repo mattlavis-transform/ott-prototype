@@ -4,14 +4,13 @@
 
 .autocomplete__hint,
 .autocomplete__input {
-    -webkit-appearance   : none;
-    border               : 2px solid #0b0c0c;
-    border-radius        : 0;
-    box-sizing           : border-box;
-    -moz-box-sizing      : border-box;
-    -webkit-box-sizing   : border-box;
-    margin-bottom        : 0;
-    // width             : 100%
+    -webkit-appearance: none;
+    border            : 2px solid #0b0c0c;
+    border-radius     : 0;
+    box-sizing        : border-box;
+    -moz-box-sizing   : border-box;
+    -webkit-box-sizing: border-box;
+    margin-bottom     : 0;
 }
 
 
@@ -134,40 +133,6 @@
     }
 }
 
-div#import {
-    .country-picker.box .country-picker-container {
-        display: table;
-    }
-
-    .country-picker.box {
-        margin-bottom: 30px;
-    }
-
-    .box {
-        background-color: #f6f6f6;
-        padding         : 15px;
-        margin-bottom   : 1.05263em;
-    }
-
-    .country-picker.box .country-picker-container label {
-        display    : block;
-        width      : 1%;
-        white-space: nowrap;
-    }
-
-    .autocomplete__wrapper {
-        position: relative;
-        // float: left;
-    }
-
-
-    .autocomplete__input {
-        position: relative;
-        width   : 70%;
-    }
-
-}
-
 .autocomplete__wrapper div {
     width: 100%;
 }
@@ -187,16 +152,67 @@ div#import {
 }
 
 .reset-country-picker {
-    padding: 0.5em 0px 0px 1em;
+    white-space: nowrap;
+    padding    : 0.5em 0px 0px 0px;
 }
 
 form#country_selector_all {
-    background-color: #F3F2F1;
+    background-color: #DEE0E2;
     padding         : 1em;
     margin-top      : 1em;
     margin-bottom   : 2.5em;
 }
 
 .tight-button {
-    margin: 0px 0px 0px 1em !important
+    margin   : 0px 1em 0px 0px !important;
+    font-size: 16px;
+    height   : 38px;
+    display  : none;
+}
+
+#country_label {
+    white-space: nowrap;
+    font-size  : 16px;
+    padding-top: 0.25em;
+}
+
+.select2 {
+    margin-right: 0.5em !important;
+}
+
+@media (max-width: 800px) {
+    #country_label {
+        font-size: 14px;
+        display  : block;
+        float    : none;
+        padding  : 0px !important;
+        margin   : 0px 0px 0.5em 0px !important
+    }
+
+    .country-picker-container {
+        display: block;
+    }
+
+    .js-example-basic-single {
+        display: block;
+        float  : none;
+        clear  : both;
+    }
+
+    .tight-button {
+        font-size  : 14px;
+        clear      : both;
+        display    : none;
+        margin-top : 0.5em !important;
+        width      : auto;
+        height     : 24px;
+        padding-top: 0px !important;
+        line-height: 1.5em !important;
+    }
+
+    .reset-country-picker {
+        font-size  : 14px;
+        padding-top: 0.5em;
+        display    : block;
+    }
 }

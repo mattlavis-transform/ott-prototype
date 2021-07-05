@@ -213,6 +213,7 @@ router.get([
 
             // Append the UK measures
             c_uk = new Commodity();
+            c_uk.country = country;
             c_uk.pass_request(req);
             c_uk.get_data(res2.data);
             c_uk.get_measure_data(req, "basic", override_block = true);
