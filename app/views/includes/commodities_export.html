@@ -1,11 +1,11 @@
 <h2 class="govuk-heading-l">Export measures and restrictions</h2>
-<p>This information is for <strong>{{ date.date_string }}</strong>.</p>
-<p></p>
-<p>There are no export measures for this commodity on this date {dummy text}.</p>
+{# <p>This information is for <strong>{{ date.date_string }}</strong>.</p>
+<p></p> #}
+<p>There are no export measures for commodity {{ commodity.data.attributes.goods_nomenclature_item_id }} on {{ date.date_string }}.</p>
 <!-- <p><a href="https://www.check-duties-customs-exporting-goods.service.gov.uk/overview?ds=gtp&pc=02089010">General information on exporting to Indonesia</a></p>
 
 <p><a href="https://www.check-duties-customs-exporting-goods.service.gov.uk/overview?d=ID&ds=gtp&pc=02089010">How to get your goods out of the UK</a></p> -->
-
+<!--
 {% if commodity.country_name2.length > 0 %}
 
     <p>
@@ -16,3 +16,16 @@
     <p>You will then  be able to link to the gov.uk "Check how to export goods" tool.</p>
 
 {% endif %}
+//-->
+
+<div class="govuk-inset-text">
+  Find out more about exporting from Northern Ireland.
+  <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-4">
+        <li>
+            <a href="https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland">Trading and moving goods in and out of Northern Ireland</a>
+        </li>
+        <li>
+            <a href="https://www.gov.uk/guidance/moving-qualifying-goods-from-northern-ireland-to-the-rest-of-the-uk">Moving qualifying goods from Northern Ireland to the rest of the UK</a>
+        </li>
+    </ul>
+</div>

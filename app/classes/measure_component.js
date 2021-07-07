@@ -152,9 +152,6 @@ class MeasureComponent {
                     }
                 }
                 break;
-            case "12":
-                this.duty_string += " + <abbr title='Agricultural component'>AC</abbr>";
-                break;
             case "15":
                 this.has_minimum = true;
                 if (this.monetary_unit_code == null) {
@@ -185,6 +182,12 @@ class MeasureComponent {
                     }
                 }
                 break;
+            case "12":
+                this.duty_string += " + <abbr title='Agricultural component'>AC</abbr>";
+                break;
+            case "14":
+                this.duty_string += " + <abbr title='Reduced agricultural component'>AC (R)</abbr>";
+                break;
             case "21":
                 this.duty_string += " + <abbr title='Sugar duty'>SD</abbr>";
                 break;
@@ -192,13 +195,10 @@ class MeasureComponent {
                 this.duty_string += " + <abbr title='Flour duty'>FD</abbr>";
                 break;
             case "25":
-                this.duty_string += " + <abbr title='Sugar duty'>SD</abbr> (reduced)";
+                this.duty_string += " + <abbr title='Reduced sugar duty'>SD (R)</abbr>";
                 break;
             case "29":
-                this.duty_string += " + <abbr title='Flour duty'>FD</abbr> (reduced)";
-                break;
-            case "14":
-                this.duty_string += " + <abbr title='Agricultural component'>AC</abbr> (reduced)";
+                this.duty_string += " + <abbr title='Reduced flour duty'>FD (R)</abbr>";
                 break;
         }
         this.duty_string_with_meursing = this.duty_string;
@@ -215,8 +215,9 @@ class MeasureComponent {
             meursing_duties.forEach(m => {
                 if ((m["measure_type_id"] == "674") && (m["geographical_area_id"] == "1011")) {
                     this.with_meursing["duty_amount"] = m["duty_amount"];
-                    var replacement = "<span class='meursing_replaced'>€" + m["duty_amount"].toString() + " / 100kg</span>";
-                    this.duty_string_with_meursing = this.duty_string.replace("<abbr title='Agricultural component'>AC</abbr> (reduced)", replacement);
+                    var replacement = "<span class='meursing_replaced'>" + m["duty_amount"].toFixed(2).toString() + " EUR / 100kg</span>";
+                    // var replacement = "<span class='meursing_replaced'>€" + m["duty_amount"].toString() + " / 100kg</span>";
+                    this.duty_string_with_meursing = this.duty_string.replace("<abbr title='Reduced agricultural component'>AC (R)</abbr>", replacement);
                     this.duty_string_with_meursing = this.duty_string_with_meursing.replace("<abbr title='Agricultural component'>AC</abbr>", replacement);
                 }
             });
@@ -224,9 +225,10 @@ class MeasureComponent {
             meursing_duties.forEach(m => {
                 if ((m["measure_type_id"] == "672") && (m["geographical_area_id"] == "1011")) {
                     this.with_meursing["duty_amount"] = m["duty_amount"];
-                    var replacement = "<span class='meursing_replaced'>€" + m["duty_amount"].toString() + " / 100kg</span>";
+                    // var replacement = "<span class='meursing_replaced'>€" + m["duty_amount"].toString() + " / 100kg</span>";
+                    var replacement = "<span class='meursing_replaced'>" + m["duty_amount"].toFixed(2).toString() + " EUR / 100kg</span>";
                     this.duty_string_with_meursing = this.duty_string;
-                    this.duty_string_with_meursing = this.duty_string_with_meursing.replace("<abbr title='Sugar duty'>SD</abbr> (reduced)", replacement);
+                    this.duty_string_with_meursing = this.duty_string_with_meursing.replace("<abbr title='Reduced sugar duty'>SD (R)</abbr>", replacement);
                     this.duty_string_with_meursing = this.duty_string_with_meursing.replace("<abbr title='Sugar duty'>SD</abbr>", replacement);
                 }
             });
@@ -234,14 +236,16 @@ class MeasureComponent {
             meursing_duties.forEach(m => {
                 if ((m["measure_type_id"] == "673") && (m["geographical_area_id"] == "1011")) {
                     this.with_meursing["duty_amount"] = m["duty_amount"];
-                    var replacement = "<span class='meursing_replaced'>€" + m["duty_amount"].toString() + " / 100kg</span>";
+                    // var replacement = "<span class='meursing_replaced'>€" + m["duty_amount"].toString() + " / 100kg</span>";
+                    var replacement = "<span class='meursing_replaced'>" + m["duty_amount"].toFixed(2).toString() + " EUR / 100kg</span>";
                     this.duty_string_with_meursing = this.duty_string;
-                    this.duty_string_with_meursing = this.duty_string_with_meursing.replace("<abbr title='Flour duty'>FD</abbr> (reduced)", replacement);
+                    this.duty_string_with_meursing = this.duty_string_with_meursing.replace("<abbr title='Reduced flour duty'>FD (R)</abbr>", replacement);
                     this.duty_string_with_meursing = this.duty_string_with_meursing.replace("<abbr title='Flour duty'>FD</abbr>", replacement);
                     var a = 1;
                 }
             });
         }
+        // console.log(this.duty_string_with_meursing);
     }
 }
 module.exports = MeasureComponent

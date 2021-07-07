@@ -136,7 +136,7 @@
                                     {% if measure.duty_expression.formatted_base %}
                                         {{ measure.duty_expression.formatted_base | safe }}
                                         {% if measure.has_meursing %}
-                                            {% if data['meursing-code'] != "" %}
+                                            {% if data['meursing-code'].length > 0 and measure.combined_duty_with_meursing.length > 0 %}
                                                 <br>
                                                 <span title="Showing duties for Meursing code {{ data['meursing-code'] }}" class="meursing_duties">{{ measure.combined_duty_with_meursing | safe }}</span>
                                             {% endif %}

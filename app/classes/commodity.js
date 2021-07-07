@@ -692,14 +692,22 @@ class Commodity {
             var query_string = '$.duties[?(@.geographical_area_id == "1011" && @.additional_code_id == "' + this.meursing_code + '")]'
             var result = jp.query(data, query_string);
             req.session.data["meursing-duties"] = result;
-            this.measures.forEach(m => {
-                m.measure_components.forEach(mc => {
-                    if (mc.is_meursing) {
-                        mc.set_meursing_overlay(result);
-                        var a = 1;
-                    }
+            if (result.length == 0) {
+                this.measures.forEach(m => {
+                    m.measure_components.forEach(mc => {
+                        mc.duty_string_with_meursing = "";
+                    });
                 });
-            });
+            } else {
+                this.measures.forEach(m => {
+                    m.measure_components.forEach(mc => {
+                        if (mc.is_meursing) {
+                            mc.set_meursing_overlay(result);
+                        }
+                    });
+                });
+    
+            }
         }
 
 

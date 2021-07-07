@@ -93,6 +93,7 @@ class Measure {
                 this.has_meursing = true;
             }
         });
+        this.combined_duty_with_meursing = this.combined_duty_with_meursing.trim();
 
 
         // if (this.multi_clause) {

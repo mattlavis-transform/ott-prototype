@@ -118,7 +118,7 @@ href: ""
                         <span class="code green">{{ commodity.data.attributes.goods_nomenclature_item_id | substring(8, 2)
                         }}</span>
                     </div>
-                    <div class="description">{{ commodity.data.attributes.formatted_description }}</div>
+                    <div class="description">{{ commodity.data.attributes.formatted_description | safe }}</div>
                 </li>
             </ul>
         </nav>
@@ -156,7 +156,6 @@ href: ""
             <div class="govuk-grid-row">
                 {% if commodity.country_name2.length > 0 %}
                     <div class="govuk-grid-column-two-thirds">
-                        {# <span class="govuk-caption-m">Rules of origin</span> #}
                         <h2 class="govuk-heading-l">Rules of origin for trading with {{ commodity.country_name2 }}
                             {# <img class="flag"
                         src="https://flagcdn.com/h40/{{ data["country"] | lower }}.png" srcset="https://flagcdn.com/h80/{{ data["country"] | lower }}.png 2x, https://flagcdn.com/h120/{{ data["country"] | lower }}.png 3x"
