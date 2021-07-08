@@ -14,7 +14,6 @@
         var az_array = ["a-z-index"];
         var downloads_array = ["downloads"];
         var tools_array = ["tools", "quotas", "additional_codes", "chemicals", "certificates", "footnotes"];
-        {# var prefs_array = ["preferences"]; #}
         var roo_array = ["roo"];
         var help_array = ["help"];
         var news_array = ["news"];
@@ -25,8 +24,6 @@
             $("ul#navigation li:nth-of-type(2)").addClass("govuk-header__navigation-item--active");
         } else if (tools_array.includes(path2)) {
             $("ul#navigation li:nth-of-type(3)").addClass("govuk-header__navigation-item--active");
-        {# } else if (prefs_array.includes(path2)) {
-            $("ul#navigation li:nth-of-type(4)").addClass("govuk-header__navigation-item--active"); #}
         } else if (help_array.includes(path2)) {
             $("ul#navigation li:nth-of-type(4)").addClass("govuk-header__navigation-item--active");
         }
