@@ -44,35 +44,35 @@ module.exports = function (env) {
     ------------------------------------------------------------------ */
     filters.get_slice = function (str, start, lngth) {
         if (typeof str !== 'undefined') {
-          s = str.substr(start, lngth);
-          return s;
+            s = str.substr(start, lngth);
+            return s;
         } else {
-          return "";
+            return "";
         }
-      }
-    
-      filters.sing_plur = function(s, cnt) {
+    }
+
+    filters.sing_plur = function (s, cnt) {
         var pluralize = require('pluralize')
         s = pluralize(s, cnt);
         return (s);
-      }
-    
-      filters.highlight = function (s, term) {
+    }
+
+    filters.highlight = function (s, term) {
         var pluralize = require('pluralize')
         term = term.toLowerCase();
         var terms = term.split(" ");
-    
+
         terms.forEach(term => {
-          // var regex = new RegExp("(" + term + ")", "gi");
-          // s = s.replace(regex, "<span class='hi'>$1</span>");
-          var regex = new RegExp("(" + pluralize(term, 1) + ")", "gi");
-          s = s.replace(regex, "<span class='hi'>$1</span>");
+            // var regex = new RegExp("(" + term + ")", "gi");
+            // s = s.replace(regex, "<span class='hi'>$1</span>");
+            var regex = new RegExp("(" + pluralize(term, 1) + ")", "gi");
+            s = s.replace(regex, "<span class='hi'>$1</span>");
         });
-    
+
         return (s);
-    
-      }
-    
+
+    }
+
 
     filters.upper_case = function (str) {
         str = str.toUpperCase();;
@@ -143,6 +143,12 @@ module.exports = function (env) {
     filters.format_date = function (str, fmt) {
         var s = format_date(str, fmt);
         return s;
+    }
+
+    filters.format_balance = function (s) {
+        var format = require('format-number');
+        var formattedNumber = format({truncate: 12})(s);
+        return formattedNumber;
     }
 
     filters.decimals = function (str, cnt) {
@@ -234,7 +240,7 @@ module.exports = function (env) {
                 current_url = "/xi" + current_url;
             }
         }
-        
+
         current_url = current_url.replace("//", "/");
         return (current_url);
     }
@@ -249,7 +255,7 @@ module.exports = function (env) {
 
     filters.add_comm_code_href = function (s) {
         s = s.replace(/<h1/g, "<h1 class='govuk-heading-l'");
-        
+
         var regex = /([0-9]{10})/g;
         var repl = "<a href='/commodities/$1'>$1</a>";
         s = s.replace(regex, repl);

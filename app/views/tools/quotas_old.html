@@ -28,7 +28,8 @@
                 Search for quotas
             </h1>
             {{ govukInsetText({
-              text: "Search for tariff quotas, including daily updated balances. Enter data into at least one of the criteria below."
+              text: "Search for tariff quotas, including daily updated balances.
+              Enter data into at least one of the fields below. Alternatively, browse quotas."
             }) }}
 
 
@@ -141,7 +142,7 @@
               }
             }) }}
 
-            {# {{ govukSelect({
+            {{ govukSelect({
               id: "critical-state",
               name: "critical-state",
               label: {
@@ -193,7 +194,7 @@
                   text: "Most comments"
                 }
               ]
-            }) }} #}
+            }) }}
 
 {# 
 {{ govukCheckboxes({
@@ -232,7 +233,7 @@
 
 {{ govukButton({
   text: "Search for quotas",
-  href: "/quota_results_new.html"
+  href: "/quota_results.html"
 }) }}
 
         </div>

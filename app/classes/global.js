@@ -4,17 +4,17 @@ var numeral = require('numeral');
 global.get_date = function (req, save = false) {
     const { DateTime } = require("luxon");
     var date = {}
-    
+
     // Get querystring variables
     var day = req.query["day"];
     var month = req.query["month"];
     var year = req.query["year"];
-    
+
     // Get querystring variables
     var day2 = req.session.data["day"];
     var month2 = req.session.data["month"];
     var year2 = req.session.data["year"];
-    
+
     if ((typeof day !== 'undefined') && (typeof month !== 'undefined') && (typeof year !== 'undefined')) {
         date.day = day;
         date.month = month;
@@ -34,7 +34,7 @@ global.get_date = function (req, save = false) {
         .setLocale("en")
         .toLocaleString(DateTime.DATE_FULL);
 
-    date.date = DateTime.fromObject({day: date.day, month: date.month, year: date.year, locale: "en-gb"})
+    date.date = DateTime.fromObject({ day: date.day, month: date.month, year: date.year, locale: "en-gb" })
     var newFormat = Object.assign(DateTime.DATE_FULL, { weekday: 'long' });
     // date.date_string = date.date.toLocaleString(DateTime.DATE_MED);
     date.date_string = date.date.toLocaleString(newFormat);
@@ -77,9 +77,15 @@ global.format_commodity_code = function (str, separator = " ") {
 }
 
 global.format_date = function (s, fmt) {
-    var moment = require('moment');
-    var formattedDate = moment(s).format(fmt);
-    return formattedDate;
+    if (s == null) {
+        return "";
+    } else {
+        // s = s.toString();
+        // s = s.replace('T00:00:00.000Z', "");
+        var moment = require('moment');
+        var formattedDate = moment(s).format(fmt);
+        return formattedDate;
+    }
 }
 
 global.todays_date = function (s, fmt) {

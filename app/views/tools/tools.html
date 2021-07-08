@@ -24,14 +24,10 @@
         <div class="govuk-grid-column-two-thirds">
             <span class="govuk-caption-xl">{{ title }}</span>
             <h1 class="govuk-heading-l">Tariff tools</h1>
-
-            {# {{ govukInsetText({
-            text: "Intro text goes here"
-            }) }} #}
             <ul class="govuk-list mb10">
                 {% if scopeId != "xi" %}
                     <li>
-                        <a href="/{{ scopeId }}/quotas_new">First come, first served quotas</a>
+                        <a href="/tools/quota_search">First come, first served quotas</a>
                         <br>Search for tariff quotas, including daily updated balances.
                     </li>
                     <li>

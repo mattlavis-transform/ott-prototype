@@ -37,20 +37,30 @@ router.get(['/tools/', '/:scopeId/tools'], function (req, res) {
     res.render('tools/tools', { 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
 });
 
-// Quotas old
-router.get(['/:scopeId/quotas/', '/quotas'], function (req, res) {
+// Quotas search and search results
+router.get(['/tools/quota_search/',], function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
     root_url = global.get_root_url(req, scopeId);
     title = global.get_title(scopeId);
-    res.render('tools/quotas', { 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
-});
 
-// Quotas new
-router.get(['/:scopeId/quotas_new/', '/quotas_new'], function (req, res) {
-    scopeId = global.get_scope(req.params["scopeId"]);
-    root_url = global.get_root_url(req, scopeId);
-    title = global.get_title(scopeId);
-    res.render('tools/quotas_new', { 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
+    var order_number = req.query["order_number"];
+    var geographical_area_id = req.query["country"];
+    var date_day = req.query["date-day"];
+    var date_month = req.query["date-month"];
+    var date_year = req.query["date-year"];
+
+    var url = "https://www.trade-tariff.service.gov.uk/api/v2/quotas/search?order_number={{ordernumber}}&geographical_area_id={{geographical_area_id}}&as_of={{as_of}}";
+    url = url.replace("{{geographical_area_id}}", geographical_area_id);
+    url = url.replace("{{ordernumber}}", order_number);
+    url = url.replace("{{as_of}}", "2021-05-01");
+    url = "https://www.trade-tariff.service.gov.uk/api/v2/quotas/search?geographical_area_id=MA&include=quota_balance_events,measures,measures.geographical_area_id";
+    console.log(url);
+
+    axios.get(url)
+        .then((response) => {
+            // console.log(response.data);
+            res.render('tools/quotas', { 'results': response.data, 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
+        });
 });
 
 // Licenced quotas
@@ -60,6 +70,15 @@ router.get(['/licenced_quotas/', '/:scopeId/licenced_quotas'], function (req, re
     title = global.get_title(scopeId);
     var licenced_quotas = require('../data/licenced_quotas.json')
     res.render('tools/licenced_quotas', { 'licenced_quotas': licenced_quotas, 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
+});
+
+// FCFS quota browse
+router.get(['/tools/quota_detail/:quota_order_number_id'], function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    title = global.get_title(scopeId);
+    var licenced_quotas = require('../data/licenced_quotas.json')
+    res.render('tools/quota_detail', { 'licenced_quotas': licenced_quotas, 'scopeId': scopeId, 'root_url': root_url, 'title': title, 'date_string': global.todays_date() });
 });
 
 // Certificates
