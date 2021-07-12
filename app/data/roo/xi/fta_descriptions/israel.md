@@ -1,0 +1,8 @@
+The legal basis for the EU’s trade relations with Israel is the EU-Israel Association Agreement, which entered into force in June 2000. The agreement aims to provide an appropriate legal and institutional framework for political dialogue and economic cooperation between the EU and Israel.
+
+### Trade picture
+
+- Israel is the EU’s 24th biggest trade partner, representing 0.9% of the EU’s total trade in goods in 2020. It is also among the EU’s main trading partners in the Mediterranean area.
+- The EU is Israel’s biggest trade partner, accounting for 29.3% of its trade in goods in 2020. 34.4% of Israel’s imports came from the EU, and 21.9% of the country’s exports went to the EU.
+- Total trade in goods between the EU and Israel in 2020 amounted to €31.0 billion. The EU’s imports from Israel were worth €11.5 billion and were led by chemicals (€5.1 billion, 44.3%), machinery and transport equipment (€2.3 billion, 20%), and other manufactured goods (€1.3 billion, 11.3%). The EU’s exports to Israel amounted to €19.5 billion and were dominated by machinery and transport equipment (€7.7 billion, 39.5%), chemicals (€4.0 billion, 20.5%), agriculture and raw materials (€2.4 billion, 12.3%), and other manufactured goods (€2.0 billion, 10.2%).
+- Two-way trade in services between the EU and Israel amounted to €15.9 billion in 2019. EU imports of services represented €6.6 billion, while exports accounted for €9.3 billion.

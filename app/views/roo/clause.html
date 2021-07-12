@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Trade Tariff: Search by additional code
+{% endblock %}
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/sections"
+    },
+    {
+      text: "Rules of origin",
+      href: "/roo"
+    },
+    {
+      text: "What are rules of origin?",
+      href: ""
+    }
+  ]
+}) }}
+{% endblock %}
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{ scheme.title }} - Rules of origin</span>
+      {{ content | safe }}
+    </div>
+  </div>
+
+{% endblock %}
+</html>

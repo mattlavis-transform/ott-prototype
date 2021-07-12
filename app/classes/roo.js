@@ -16,7 +16,7 @@ class Roo {
     }
 
     get_roo_config() {
-        var data = require('../data/roo/roo_schemes.json');
+        var data = require('../data/roo/xi/roo_schemes.json');
         var jp = require('jsonpath');
         if (this.key.length == 2) {
             var query_string = "$.schemes[?(@.countries.indexOf('" + this.key + "') != -1)]";

@@ -162,8 +162,10 @@ router.get([
     }
     req.session.data["country"] = country;
 
+    var scopeId = global.get_scope(req.params["scopeId"]);
+
     // Get any RoO information that we can
-    roo_mvp = new RooMvp(req, country);
+    roo_mvp = new RooMvp(req, country, scopeId);
 
     if (req.session.data["border_system"] == "chief") {
         border_system = "chief";
@@ -186,7 +188,6 @@ router.get([
     }
 
     var c;
-    var scopeId = global.get_scope(req.params["scopeId"]);
     var root_url = global.get_root_url(req, scopeId);
     var title = global.get_title(scopeId);
     req.session.data["goods_nomenclature_item_id"] = req.params["goods_nomenclature_item_id"];
@@ -476,7 +477,14 @@ router.get(['/help'], function (req, res) {
     //const now = new Date('2021/05/06 14:14:05');
     const now = new Date();
     var show_webchat = isWorkingHour(now);
-    res.render('help/index', { "show_webchat": show_webchat });
+    scopeId = global.get_scope(req.params["scopeId"]);
+
+    var key = "";
+    var roo = new RooMvp(req, key, scopeId);
+    roo.get_all_abbreviations();
+
+
+    res.render('help/index', { "show_webchat": show_webchat, 'roo': roo });
 
     function isWorkingHour(now) {
         return now.getDay() <= 4 && now.getHours() >= 9 && now.getHours() < 17;

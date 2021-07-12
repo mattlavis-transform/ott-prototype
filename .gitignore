@@ -11,5 +11,6 @@ public
 node_modules/*
 .tmuxp.*
 package-lock.json
-OTT*and*BZ*OTT*FE.code-workspace
 app/data/roo_psr
+app/data/roo/future
+app/data/roo/future/roo_psr

@@ -209,7 +209,7 @@
 }
 
 #rules_of_origin {
-    font-size: 16px !important;
+    // font-size: 16px !important;
 
     table {
 
@@ -220,8 +220,10 @@
         ol,
         li,
         ul,
-        .govuk-list, .govuk-body, p.govuk-body {
-            font-size: 16px !important;
+        .govuk-list,
+        .govuk-body,
+        p.govuk-body {
+            // font-size: 16px !important;
         }
 
         li p {
@@ -230,18 +232,42 @@
 
     }
 
-    ol, ul, p {
-        font-size: 16px;
+    ol,
+    ul,
+    p {
+        // font-size: 16px;
     }
 
     ol ol {
         list-style-type: lower-alpha;
-        font-size: 16px;
+        // font-size: 16px;
     }
 
     ol ol ol {
         list-style-type: upper-alpha;
-        font-size: 16px;
+        // font-size: 16px;
     }
 
+}
+
+.roo_explainer {
+    display            : block;
+    margin             : 1em 0px 0.5em 0px;
+    border-left        : 8px #098DC1 solid;
+    padding            : 0.25em 0.25em 0.25em 0.5em;
+    color              : #000;
+    background-color   : #E9F4F9;
+    // border-left     : 8px #B1B4B6 solid;
+    // background-color: #f0f0f0;
+    font-size          : 16px;
+    line-height        : 1.5em !important;
+}
+
+.roo_quota_explainer {
+    display       : block;
+    margin        : 1em 0px 0px 0px;
+    // border-left: 8px #ccc solid;
+    // padding    : 0.25em 0.25em 0.25em 0.5em;
+    color         : #666 !important;
+    font-size     : 16px;
 }

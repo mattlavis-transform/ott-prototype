@@ -139,24 +139,36 @@ router.get([
 
 
 router.get([
-    '/roo/test',
+    '/roo/clauses/:scheme_code/:markdown_file',
+    '/xi/roo/clauses/:scheme_code/:markdown_file',
 ], function (req, res) {
-    var roo_data = require('../data/roo/product-specific/sacum_roo.json');
-    var rules = roo_data["rules"];
-    var i;
+    const path = require('path');
+    const fs = require('fs');
+    const jp = require('jsonpath');
+    const MarkdownIt = require('markdown-it');
 
-    for (i = 0; i < rules.length; i++) {
-        var rule = rules[i];
+    var scheme_code = req.params["scheme_code"];
+    var markdown_file = req.params["markdown_file"];
 
-        var MarkdownIt = require('markdown-it');
-        var md = new MarkdownIt();
-        rule.rule2 = govify(md.render(rule.rule));
+    var filename = process.cwd() + "/app/data/roo/xi/clauses/" + scheme_code + "/" + markdown_file + ".md";
+    var content = fs.readFileSync(filename, 'utf8');
+    var md = new MarkdownIt();
+    content = govify(md.render(content));
+
+    var data = require('../data/roo/xi/roo_schemes.json');
+    var schemes = data.schemes;
+    country = "JP";
+    var query_string = "$[?(@.countries.indexOf('" + country + "') != -1)]"
+    var result = jp.query(schemes, query_string);
+
+    var scheme;
+    if (result.length > 0) {
+        scheme = result[0];
+    } else {
+        scheme = null;
     }
 
-    res.render('roo/roo_test', { "rules": rules });
-
-
-    
+    res.render('roo/clause.html', { "content": content, "scheme": scheme });
 });
 
 function govify(s) {

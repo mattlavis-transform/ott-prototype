@@ -1,0 +1,855 @@
+{
+    "scope": "uk",
+    "links": [
+        {
+            "text": "Check your goods meet the rules of origin",
+            "url": "https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin"
+        }
+    ],
+    "schemes": [
+        {
+            "code": "EU",
+            "rule_offset": 10000000,
+            "country_prefix": "eu",
+            "title": "UK / EU Trade and Co-operation Agreement",
+            "intro_file": "eu_intro.md",
+            "data_file": "eu.md",
+            "links": [
+                {
+                    "text": "UK/EU and EAEC: Trade and Cooperation Agreement",
+                    "url": "https://www.gov.uk/government/publications/ukeu-and-eaec-trade-and-cooperation-agreement-ts-no82021"
+                },
+                {
+                    "text": "The UK and EU - new trading rules",
+                    "url": "https://www.gov.uk/transition"
+                },
+                {
+                    "text": "Claiming preferential rates of duty between the UK and EU",
+                    "url": "https://www.gov.uk/guidance/claiming-preferential-rates-of-duty-between-the-uk-and-eu"
+                },
+                {
+                    "text": "Rules of origin for goods moving between the UK and EU",
+                    "url": "https://www.gov.uk/government/publications/rules-of-origin-for-goods-moving-between-the-uk-and-eu"
+                }
+            ],
+            "countries": [
+                "EU",
+                "AT",
+                "BE",
+                "BG",
+                "CY",
+                "CZ",
+                "DE",
+                "DK",
+                "EE",
+                "ES",
+                "FI",
+                "FR",
+                "GR",
+                "HR",
+                "HU",
+                "IE",
+                "IT",
+                "LT",
+                "LU",
+                "LV",
+                "MT",
+                "NL",
+                "PL",
+                "PT",
+                "RO",
+                "SE",
+                "SI",
+                "SK",
+                "SM",
+                "AD"
+            ]
+        },
+        {
+            "code": "japan",
+            "title": "Comprehensive Economic Partnership Agreement UK Japan",
+            "intro_file": "japan_intro.md",
+            "data_file": "japan.md",
+            "links": [
+                {
+                    "text": "UK-Japan CEPA: rules of origin explainer",
+                    "url": "https://www.gov.uk/government/publications/uk-japan-cepa-rules-of-origin-explainer"
+                },
+                {
+                    "text": "UK-Japan CEPA: benefits for the UK",
+                    "url": "https://www.gov.uk/government/publications/the-uk-japan-comprehensive-economic-partnership-benefits-for-the-uk"
+                }
+            ],
+            "countries": [
+                "JP"
+            ]
+        },
+        {
+            "code": "albania",
+            "title": "UK-Albania partnership, Trade and Cooperation Agreement",
+            "intro_file": "albania_intro.md",
+            "data_file": "albania.md",
+            "links": [
+                {
+                    "text": "UK-Albania partnership, Trade and Cooperation Agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-albania-partnership-trade-and-cooperation-agreement"
+                },
+                {
+                    "text": "Continuing the United Kingdom’s trade relationship with Albania",
+                    "url": "https://www.gov.uk/government/publications/continuing-the-uks-trade-relationship-with-albania-parliamentary-report/continuing-the-united-kingdoms-trade-relationship-with-albania-web-version"
+                }
+            ],
+            "countries": [
+                "AL"
+            ]
+        },
+        {
+            "code": "canada",
+            "title": "UK-Canada Trade Continuity Agreement",
+            "intro_file": "canada_intro.md",
+            "data_file": "canada.md",
+            "links": [
+                {
+                    "text": "Trade with Canada",
+                    "url": "https://www.gov.uk/guidance/summary-of-the-uk-canada-trade-continuity-agreement"
+                },
+                {
+                    "text": "UK-Canada Trade Continuity Agreement (TCA)",
+                    "url": "https://www.gov.uk/guidance/uk-canada-trade-continuity-agreement-tca"
+                }
+            ],
+            "countries": [
+                "CA"
+            ]
+        },
+        {
+            "code": "south-korea",
+            "rule_offset": 30000000,
+            "country_prefix": "south-korea",
+            "title": "UK-South Korea trade agreement",
+            "intro_file": "south-korea_intro.md",
+            "data_file": "south-korea.md",
+            "links": [
+                {
+                    "text": "UK-South Korea trade agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-south-korea-trade-agreement"
+                },
+                {
+                    "text": "Trade with South Korea",
+                    "url": "https://www.gov.uk/guidance/summary-of-uk-south-korea-trade-agreement"
+                },
+                {
+                    "text": "Continuing the UK's trade relationship with South Korea: parliamentary report",
+                    "url": "https://www.gov.uk/government/publications/continuing-the-uks-trade-relationship-with-south-korea-parliamentary-report"
+                }
+            ],
+            "countries": [
+                "KR"
+            ]
+        },
+        {
+            "code": "kenya",
+            "title": "Comprehensive Economic Partnership Agreement UK Kenya",
+            "footnote": "This agreement is open to accession by other members of East African Community.",
+            "intro_file": "kenya_intro.md",
+            "data_file": "kenya.md",
+            "links": [
+                {
+                    "text": "UK-Kenya Economic Partnership Agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-kenya-economic-partnership-agreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "KE"
+            ]
+        },
+        {
+            "code": "esa",
+            "title": "ESA-UK economic partnership agreement (EPA)",
+            "intro_file": "esa_intro.md",
+            "data_file": "esa.md",
+            "links": [
+                {
+                    "text": "ESA-UK economic partnership agreement (EPA)",
+                    "url": "https://www.gov.uk/government/collections/esa-uk-economic-partnership-agreement-epa--2"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "esa",
+                "SC",
+                "MU",
+                "ZW"
+            ]
+        },
+        {
+            "code": "central-america",
+            "title": "UK-Central America association agreement",
+            "intro_file": "central_america_intro.md",
+            "data_file": "central_america.md",
+            "links": [
+                {
+                    "text": "UK-Central America association agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-central-america-association-agreement"
+                },
+                {
+                    "text": "Trade with Central America",
+                    "url": "https://www.gov.uk/guidance/summary-of-the-uk-central-america-association-agreement"
+                }
+            ],
+            "countries": [
+                "central-america",
+                "CR",
+                "GT",
+                "HN",
+                "NI",
+                "PA",
+                "SV"
+            ]
+        },
+        {
+            "code": "andean",
+            "title": "UK-Andean countries trade agreement",
+            "intro_file": "andean_intro.md",
+            "data_file": "andean.md",
+            "links": [
+                {
+                    "text": "UK-Andean countries trade agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-andean-countries-trade-agreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "andean",
+                "CO",
+                "PE",
+                "EC"
+            ]
+        },
+        {
+            "code": "cameroon",
+            "title": "UK-Cameroon Economic Partnership Agreement",
+            "intro_file": "cameroon_intro.md",
+            "data_file": "cameroon.md",
+            "links": [
+                {
+                    "text": "UK-Cameroon Economic Partnership Agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-cameroon-economic-partnership-agreement"
+                },
+                {
+                    "text": "Continuing the UK's trade relationship with Cameroon: parliamentary report",
+                    "url": "https://www.gov.uk/government/publications/continuing-the-uks-trade-relationship-with-cameroon-parliamentary-report"
+                }
+            ],
+            "countries": [
+                "CM"
+            ]
+        },
+        {
+            "code": "cariforum",
+            "title": "CARIFORUM-UK economic partnership agreement",
+            "intro_file": "cariforum_intro.md",
+            "data_file": "cariforum.md",
+            "links": [
+                {
+                    "text": "CARIFORUM-UK economic partnership agreement",
+                    "url": "https://www.gov.uk/government/collections/cariforum-uk-economic-partnership-agreement"
+                }
+            ],
+            "countries": [
+                "AG",
+                "BB",
+                "BS",
+                "BZ",
+                "DM",
+                "DO",
+                "GD",
+                "GY",
+                "JM",
+                "KN",
+                "LC",
+                "SR",
+                "TT",
+                "VC"
+            ]
+        },
+        {
+            "code": "chile",
+            "title": "UK-Chile association agreement",
+            "intro_file": "chile_intro.md",
+            "data_file": "chile.md",
+            "links": [
+                {
+                    "text": "UK-Chile association agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-chile-association-agreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "CL"
+            ]
+        },
+        {
+            "code": "cotedivoire",
+            "title": "UK-Côte d’Ivoire Stepping Stone Economic Partnership Agreement",
+            "intro_file": "cotedivoire_intro.md",
+            "data_file": "cotedivoire.md",
+            "links": [
+                {
+                    "text": "UK-Côte d’Ivoire Stepping Stone Economic Partnership Agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-cote-divoire-stepping-stone-economic-partnership-agreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "CI"
+            ]
+        },
+        {
+            "code": "egypt",
+            "title": "UK-Egypt Association Agreement",
+            "intro_file": "egypt_intro.md",
+            "data_file": "egypt.md",
+            "links": [
+                {
+                    "text": "Trade with Egypt",
+                    "url": "https://www.gov.uk/guidance/summary-of-the-uk-egypt-association-agreement"
+                },
+                {
+                    "text": "Continuing the UK's trade relationship with Egypt: parliamentary report",
+                    "url": "https://www.gov.uk/government/publications/continuing-the-uks-trade-relationship-with-egypt-parliamentary-report"
+                }
+            ],
+            "countries": [
+                "EG"
+            ]
+        },
+        {
+            "code": "faroe-islands",
+            "title": "UK-Faroe Islands free trade agreement (FTA)",
+            "intro_file": "faroe-islands_intro.md",
+            "data_file": "faroe-islands.md",
+            "links": [
+                {
+                    "text": "UK-Faroe Islands free trade agreement (FTA)",
+                    "url": "https://www.gov.uk/government/collections/uk-faroe-islands-free-trade-agreement-fta"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "FO"
+            ]
+        },
+        {
+            "code": "georgia",
+            "title": "UK-Georgia strategic partnership and cooperation agreement",
+            "intro_file": "georgia_intro.md",
+            "data_file": "georgia.md",
+            "links": [
+                {
+                    "text": "UK-Georgia strategic partnership and cooperation agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-georgia-strategic-partnership-and-cooperation-agreement--2"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "GE"
+            ]
+        },
+        {
+            "code": "ghana",
+            "title": "UK-Ghana Interim Trade Partnership Agreement",
+            "intro_file": "ghana_intro.md",
+            "data_file": "ghana.md",
+            "links": [
+                {
+                    "text": "UK-Ghana Interim Trade Partnership Agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-ghana-interim-trade-partnership-agreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "GH"
+            ]
+        },
+        {
+            "code": "iceland-norway",
+            "title": "Agreement on trade in goods between Iceland, Norway and the UK",
+            "intro_file": "iceland-norway_intro.md",
+            "data_file": "iceland-norway.md",
+            "links": [
+                {
+                    "text": "Agreement on trade in goods between Iceland, Norway and the UK",
+                    "url": "https://www.gov.uk/government/collections/agreement-on-trade-in-goods-between-iceland-norway-and-the-uk"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "IS",
+                "NO"
+            ]
+        },
+        {
+            "code": "israel",
+            "title": "UK-Israel trade and partnership agreement",
+            "intro_file": "israel_intro.md",
+            "data_file": "israel.md",
+            "links": [
+                {
+                    "text": "UK-Israel trade and partnership agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-israel-trade-and-partnership-agreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "IL"
+            ]
+        },
+        {
+            "code": "kosovo",
+            "title": "UK-Kosovo partnership, trade and cooperation agreement",
+            "intro_file": "kosovo_intro.md",
+            "data_file": "kosovo.md",
+            "links": [
+                {
+                    "text": "UK-Kosovo partnership, trade and cooperation agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-kosovopartnership-trade-and-cooperationagreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "XK"
+            ]
+        },
+        {
+            "code": "jordan",
+            "title": "UK-Kosovo partnership, trade and cooperation agreement",
+            "intro_file": "jordan_intro.md",
+            "data_file": "jordan.md",
+            "links": [
+                {
+                    "text": "UK-Kosovo partnership, trade and cooperation agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-kosovopartnership-trade-and-cooperationagreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "JO"
+            ]
+        },
+        {
+            "code": "lebanon",
+            "title": "UK-Lebanon association agreement",
+            "intro_file": "lebanon_intro.md",
+            "data_file": "lebanon.md",
+            "links": [
+                {
+                    "text": "UK-Lebanon association agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-lebanon-association-agreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "LB"
+            ]
+        },
+        {
+            "code": "mexico",
+            "title": " UK-Mexico Trade Continuity Agreement ",
+            "intro_file": "mexico_intro.md",
+            "data_file": "mexico.md",
+            "links": [
+                {
+                    "text": "Trade with Mexico",
+                    "url": "https://www.gov.uk/guidance/summary-of-the-uk-mexico-trade-continuity-agreement"
+                },
+                {
+                    "text": "Continuing the UK's trade relationship with Mexico: parliamentary report",
+                    "url": "https://www.gov.uk/government/publications/continuing-the-uks-trade-relationship-with-mexico-parliamentary-report"
+                }
+            ],
+            "countries": [
+                "MX"
+            ]
+        },
+        {
+            "code": "switzerland-liechtenstein",
+            "title": "UK-Switzerland-Liechtenstein Trade Agreement",
+            "intro_file": "switzerland-liechtenstein_intro.md",
+            "data_file": "switzerland-liechtenstein.md",
+            "links": [
+                {
+                    "text": "UK-Switzerland-Liechtenstein Trade Agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-switzerland-liechtenstein-trade-agreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "CH",
+                "LI"
+            ]
+        },
+        {
+            "code": "moldova",
+            "title": "UK-Moldova Strategic Partnership, Trade and Cooperation Agreement",
+            "intro_file": "moldova_intro.md",
+            "data_file": "moldova.md",
+            "links": [
+                {
+                    "text": "UK-Moldova Strategic Partnership, Trade and Cooperation Agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-moldova-strategic-partnership-trade-and-cooperation-agreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "MD"
+            ]
+        },
+        {
+            "code": "morocco",
+            "title": "UK-Morocco association agreement",
+            "intro_file": "morocco_intro.md",
+            "data_file": "morocco.md",
+            "links": [
+                {
+                    "text": "UK-Morocco association agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-morocco-association-agreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "MA"
+            ]
+        },
+        {
+            "code": "north-macedonia",
+            "title": "UK-North Macedonia Partnership, Trade and Cooperation agreement",
+            "intro_file": "north-macedonia_intro.md",
+            "data_file": "north-macedonia.md",
+            "links": [
+                {
+                    "text": "UK-North Macedonia Partnership, Trade and Cooperation agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-north-macedonia-partnership-trade-andcooperationagreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "MK"
+            ]
+        },
+        {
+            "code": "pacific",
+            "title": "UK-Pacific Economic Partnership Agreement (EPA)",
+            "footnote": "Samoa and the Solomon Islands have not yet acceded to the Pacific States-UK Interim Economic Partnership Agreement (pending a decision on their accession), however preferences under the agreement took effect on 1 January 2021 through a Memorandum of Understanding.",
+            "intro_file": "pacific_intro.md",
+            "data_file": "pacific.md",
+            "links": [
+                {
+                    "text": "UK-Pacific economic partnership agreement (EPA)",
+                    "url": "https://www.gov.uk/government/collections/uk-pacific-economic-partnership-agreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "FJ",
+                "PG",
+                "WS"
+            ]
+        },
+        {
+            "code": "palestinian-authority",
+            "title": "UK-Palestinian Authority political, trade and partnership agreement",
+            "intro_file": "palestinian-authority_intro.md",
+            "data_file": "palestinian-authority.md",
+            "links": [
+                {
+                    "text": "UK-Palestinian Authority political, trade and partnership agreement",
+                    "url": "https://www.gov.uk/guidance/summary-of-the-uk-palestinian-authority-political-trade-and-partnership-agreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "PS"
+            ]
+        },
+        {
+            "code": "singapore",
+            "title": "UK-Singapore Trade Agreement",
+            "intro_file": "singapore_intro.md",
+            "data_file": "singapore.md",
+            "links": [
+                {
+                    "text": "UK-Singapore Trade Agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-singapore-trade-agreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "SG"
+            ]
+        },
+        {
+            "code": "serbia",
+            "title": " UK-Serbia partnership, trade and cooperation agreement ",
+            "intro_file": "serbia_intro.md",
+            "data_file": "serbia.md",
+            "links": [
+                {
+                    "text": "Trade with Serbia",
+                    "url": "https://www.gov.uk/guidance/trade-with-serbia"
+                },
+                {
+                    "text": "Continuing the United Kingdom’s trade relationship with the Republic of Serbia: parliamentary report",
+                    "url": "https://www.gov.uk/government/publications/continuing-the-united-kingdoms-trade-relationship-with-the-republic-of-serbia-parliamentary-report"
+                }
+            ],
+            "countries": [
+                "XS"
+            ]
+        },
+        {
+            "code": "sacum",
+            "title": "SACUM-UK economic partnership agreement (EPA)",
+            "intro_file": "sacum_intro.md",
+            "data_file": "sacum.md",
+            "links": [
+                {
+                    "text": "SACUM-UK economic partnership agreement (EPA)",
+                    "url": "https://www.gov.uk/government/collections/sacum-uk-economic-partnership-agreement-epa"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "BW",
+                "LS",
+                "MZ",
+                "NA",
+                "SZ"
+            ]
+        },
+        {
+            "code": "tunisia",
+            "title": "UK-Tunisia association agreement",
+            "intro_file": "tunisia_intro.md",
+            "data_file": "tunisia.md",
+            "links": [
+                {
+                    "text": "UK-Tunisia association agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-tunisia-association-agreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "TN"
+            ]
+        },
+        {
+            "code": "turkey",
+            "rule_offset": 20000000,
+            "country_prefix": "turkey",
+            "title": "UK-Turkey trade agreement",
+            "intro_file": "turkey_intro.md",
+            "data_file": "turkey.md",
+            "links": [
+                {
+                    "text": "UK-Turkey trade agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-turkey-trade-agreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "TR"
+            ]
+        },
+        {
+            "code": "ukraine",
+            "title": "UK-Ukraine political, free trade and strategic partnership agreement",
+            "intro_file": "ukraine_intro.md",
+            "data_file": "ukraine.md",
+            "links": [
+                {
+                    "text": "UK-Ukraine political, free trade and strategic partnership agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-ukraine-political-free-trade-and-strategic-partnership-agreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "UA"
+            ]
+        },
+        {
+            "code": "vietnam",
+            "title": "UK-Vietnam Free Trade Agreement",
+            "intro_file": "vietnam_intro.md",
+            "data_file": "vietnam.md",
+            "links": [
+                {
+                    "text": "UK-Vietnam Free Trade Agreement",
+                    "url": "https://www.gov.uk/government/collections/uk-vietnam-free-trade-agreement"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "VN"
+            ]
+        },
+        {
+            "code": "gsp",
+            "title": "Generalised Scheme of Preferences (GSP)",
+            "footnote": "Scheme incorporates:</p><ul class='govuk-list govuk-list--bullet govuk-body-s'><li>the GSP Least Developed Countries Framework</li><li>the GSP General Framework</li><li>the GSP Enhanced Framework</li></ul>",
+            "intro_file": "gsp_intro.md",
+            "data_file": "gsp.md",
+            "links": [
+                {
+                    "text": "GSP - Least Developed Countries Framework",
+                    "url": "https://www.gov.uk/government/publications/trading-with-developing-nations"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                }
+            ],
+            "countries": [
+                "AF",
+                "AO",
+                "BD",
+                "BF",
+                "BI",
+                "BJ",
+                "BT",
+                "CD",
+                "CF",
+                "DJ",
+                "ER",
+                "ET",
+                "GM",
+                "GN",
+                "GW",
+                "HT",
+                "KH",
+                "KI",
+                "KM",
+                "LA",
+                "LR",
+                "LS",
+                "MG",
+                "ML",
+                "MM",
+                "MR",
+                "MW",
+                "MZ",
+                "NE",
+                "NP",
+                "RW",
+                "SB",
+                "SD",
+                "SL",
+                "SN",
+                "SO",
+                "SS",
+                "ST",
+                "TD",
+                "TG",
+                "TL",
+                "TV",
+                "TZ",
+                "UG",
+                "VU",
+                "YE",
+                "ZM",
+                "CG",
+                "CK",
+                "CM",
+                "DZ",
+                "FM",
+                "GH",
+                "ID",
+                "IN",
+                "KE",
+                "MD",
+                "NG",
+                "NU",
+                "SY",
+                "TJ",
+                "UZ",
+                "VN"
+            ]
+        }
+    ]
+}

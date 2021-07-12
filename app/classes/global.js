@@ -289,7 +289,7 @@ global.validate_starch = function (req, res) {
 }
 
 global.get_rules_of_origin = function (req, res) {
-    var data = require('../data/roo/roo_schemes.json');
+    var data = require('../data/roo/xi/roo_schemes.json');
     var geo_data = require('../assets/data/geographical_areas.json');
     var schemes = data.schemes;
     schemes.forEach(scheme => {
