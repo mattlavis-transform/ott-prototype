@@ -232,6 +232,7 @@ href: ""
                                     {% endfor %}
                                 </ul>
                             </nav>
+                            {% if roo.explainers.length > 0 %}
                             <h2 class="govuk-heading-m" id="subsection-title">About this agreement</h2>
                             <ul class="govuk-list govuk-list-s">
                                 {% for explainer in roo.explainers %}
@@ -240,6 +241,7 @@ href: ""
                                     </li>
                                 {% endfor %}
                             </ul>
+                            {% endif %}
                         </aside>
                     </div>
                 {% else %}

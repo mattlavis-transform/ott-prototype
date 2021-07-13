@@ -197,7 +197,7 @@
           </div>
         </div>
 
-        <div class="govuk-accordion__section govuk-accordion__section--expanded">
+        {# <div class="govuk-accordion__section govuk-accordion__section--expanded">
           <div class="govuk-accordion__section-header">
             <h2 class="govuk-accordion__section-heading">
               <span class="govuk-accordion__section-button" aria-expanded="true" id="accordion-default-heading-5" open="">
@@ -206,29 +206,13 @@
             </h2>
           </div>
           <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
-
-            {# <nav class="gem-c-contents-list  gem-c-contents-list--no-underline " aria-label="Contents" role="navigation">
-              <h2 class="gem-c-contents-list__title">Contents</h2>
-              <ol class="gem-c-contents-list__list">
-                {% for gt in roo.glossary_terms %}
-                  <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                    <a class="gem-c-contents-list__link govuk-link " href="#{{ gt.term }}">{{ gt.term }}</a>
-                  </li>
-                {% endfor %}
-              </ol>
-            </nav> #}
-
             {% for gt in roo.glossary_terms %}
               <div id="{{ gt.term }}">
                 {{ gt.description | safe }}
-                {# <p>
-                  <a href="#top">Back to top</a>
-                </p> #}
-              </div>
             {% endfor %}
 
           </div>
-        </div>
+        </div> #}
       </div>
     </div>
   </div>

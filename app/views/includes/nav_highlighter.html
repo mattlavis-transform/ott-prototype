@@ -1,6 +1,7 @@
 <script>
     $(document).ready(function () {
         var path = window.location.pathname;
+        path = path.replace("/xi", "");
         var path2 = path.substring(1);
         var pos = path2.indexOf("/");
 
@@ -13,7 +14,7 @@
         var search_browse_array = ["search", "browse", "sections", "heading", "chapter", "commodity"];
         var az_array = ["a-z-index"];
         var downloads_array = ["downloads"];
-        var tools_array = ["tools", "quotas", "additional_codes", "chemicals", "certificates", "footnotes"];
+        var tools_array = ["tools", "quotas", "additional_codes", "chemicals", "certificates", "footnotes", "meursing"];
         var roo_array = ["roo"];
         var help_array = ["help"];
         var news_array = ["news"];

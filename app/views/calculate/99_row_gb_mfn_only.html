@@ -59,14 +59,16 @@
         classes: "govuk-table--m",
         head: [
           {
-            text: "Data"
+            text: "Data",
+              classes: "forty"
           },
           {
-            text: "Calculation"
+            text: "Calculation",
+              classes: "forty"
           },
           {
             text: "Value",
-            classes: "r"
+            classes: "r twenty"
           }
         ],
         rows: [
@@ -87,7 +89,7 @@
               html: "Import duty <br><span class='govuk-green'> Third country duty (UK)</span>"
             },
             {
-              text: "15%"
+              text: "15.00% * £1,500.00"
             },
             {
               text: "£225.00",
@@ -96,14 +98,38 @@
           ],
           [
             {
-              html: "Duty total",
+              html: "Excise <br><span class='govuk-green'>541 - Heavy oil: unrebated (unmarked, including Diesel Engine Road Vehicle (DERV) or road fuel extender and unmarked kerosene or unmarked gas oil for which no marking waiver has been granted)</span>"
+            },
+            {
+              text: "£10.00 / kilogram"
+            },
+            {
+              text: "£100.00",
+              classes: "r"
+            }
+          ],
+          [
+            {
+              html: "VAT <br><span class='govuk-green'>Standard rate</span>"
+            },
+            {
+              text: "20.00% * £1,825.00"
+            },
+            {
+              text: "£365.00",
+              classes: "r"
+            }
+          ],
+          [
+            {
+              html: "Duty Total",
               classes: "b"
             },
             {
               text: ""
             },
             {
-              text: "£225.00",
+              text: "£690.00",
               classes: "r b"
             }
           ]

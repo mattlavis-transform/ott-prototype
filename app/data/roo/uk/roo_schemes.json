@@ -71,6 +71,15 @@
             "intro_file": "japan_intro.md",
             "data_file": "japan.md",
             "links": [
+                
+                {
+                    "text": "UK/Japan: Agreement for a Comprehensive Economic Partnership",
+                    "url": "https://www.gov.uk/government/publications/ukjapan-agreement-for-a-comprehensive-economic-partnership-cs-japan-no12020"
+                },
+                {
+                    "text": "Trade with Japan",
+                    "url": "https://www.gov.uk/guidance/summary-of-the-uk-japan-comprehensive-economic-partnership-agreement"
+                },
                 {
                     "text": "UK-Japan CEPA: rules of origin explainer",
                     "url": "https://www.gov.uk/government/publications/uk-japan-cepa-rules-of-origin-explainer"
@@ -78,6 +87,72 @@
                 {
                     "text": "UK-Japan CEPA: benefits for the UK",
                     "url": "https://www.gov.uk/government/publications/the-uk-japan-comprehensive-economic-partnership-benefits-for-the-uk"
+                }
+            ],
+            "explainers": [
+                {
+                    "text": "Requirements for originating products",
+                    "url": "01-overview.md"
+                },
+                {
+                    "text": "Wholly-obtained products",
+                    "url": "02-wholly-obtained.md"
+                },
+                {
+                    "text": "Insufficient working or processing",
+                    "url": "03-insufficient-working.md"
+                },
+                {
+                    "text": "Accumulation",
+                    "url": "04-cumulation"
+                },
+                {
+                    "text": "Tolerances",
+                    "url": "05-tolerances.md"
+                },
+                {
+                    "text": "Unit of qualification",
+                    "url": "06-unit-of-qualification.md"
+                },
+                {
+                    "text": "Account segregation",
+                    "url": "07-account-segregation.md"
+                },
+                {
+                    "text": "Sets",
+                    "url": "08-sets.md"
+                },
+                {
+                    "text": "Non-alteration",
+                    "url": "09-non-alteration.md"
+                },
+                {
+                    "text": "Returning products",
+                    "url": "10-returning-products.md"
+                },
+                {
+                    "text": "Accessories",
+                    "url": "11-accessories.md"
+                },
+                {
+                    "text": "Neutral elements",
+                    "url": "12-neutral-elements.md"
+                },
+                {
+                    "text": "Packing materials and shipment",
+                    "url": "13-packing-materials-shipment.md"
+                },
+                {
+                    "text": "",
+                    "url": ""
+                },
+                {
+                    "text": "",
+                    "url": ""
+                },
+                {
+                    "text": "",
+                    "url": ""
                 }
             ],
             "countries": [

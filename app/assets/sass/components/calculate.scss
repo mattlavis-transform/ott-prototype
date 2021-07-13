@@ -211,9 +211,9 @@ ul.teal li {
 
 h2.teal,
 h3.teal {
-    border-top:5px solid #066;
-    padding-top:2em;
-    color: #066;
+    border-top : 5px solid #066;
+    padding-top: 2em;
+    color      : #066;
 }
 
 span.normal {
@@ -244,6 +244,18 @@ hr.teal_band {
     margin     : 8px 0px;
     font-weight: bold;
     color      : #066;
+}
+
+.forty {
+    width: 40%
+}
+
+.thirty {
+    width: 30%
+}
+
+.twenty {
+    width: 20%
 }
 
 /* End - duty calculation */

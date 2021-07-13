@@ -362,6 +362,24 @@ router.get('/calculate/vat/:goods_nomenclature_item_id', function (req, res) {
         });
 });
 
+// Calculator - excise choice
+router.get('/calculate/excise/:goods_nomenclature_item_id', function (req, res) {
+    scopeId = global.get_scope(req.params["scopeId"]);
+    root_url = global.get_root_url(req, scopeId);
+    //console.log("Company");
+    var err = req.session.data["error"];
+    var url = global.get_commodity_api(req);
+    axios.get(url)
+        .then((response) => {
+            c = new Commodity();
+            c.pass_request(req);
+            c.phase = "company";
+            c.get_data(response.data);
+            c.get_measure_data(req, req.session.data["origin"]);
+            res.render('calculate/08_excise', { 'commodity': c, 'error': err });
+        });
+});
+
 // Calculator - excise rate choice
 router.get('/calculate/excise_abv/:goods_nomenclature_item_id', function (req, res) {
     scopeId = global.get_scope(req.params["scopeId"]);
